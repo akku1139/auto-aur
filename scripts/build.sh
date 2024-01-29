@@ -1,0 +1,3 @@
+
+
+pacman -Q > /tmp/packages
