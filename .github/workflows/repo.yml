@@ -1,8 +1,9 @@
 name: Repo
 
 on:
-  pull_request:
   push:
+    paths-ignore:
+      - repo/**
     branches:
       - main
 
@@ -53,7 +54,7 @@ jobs:
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           if (git diff --shortstat | grep '[0-9]'); then
-            git add .
+            git add -A
             git commit -m "build"
             git push
           fi
