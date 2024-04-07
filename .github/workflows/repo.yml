@@ -45,7 +45,7 @@ jobs:
         run: bash ./scripts/setup.sh
 
       - name: Build
-        run: "fakeroot ./bin/arch-chroot ./ bash /scripts/build.sh"
+        run: "sudo ./bin/arch-chroot ./ bash /scripts/build.sh"
 
       - name: Git
         run: |
