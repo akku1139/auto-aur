@@ -13,35 +13,35 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Cache Packages
-        id: cache-packages
-        uses: actions/cache@v4
-        with:
-          path: |
-            bin
-            boot
-            dev
-            etc
-            fat
-            home
-            lib
-            lib64
-            lost+found
-            mnt
-            opt
-            proc
-            root
-            run
-            sbin
-            srv
-            sys
-            tmp
-            usr
-            var
-          key: packages-${{ hashFiles('/tmp/packages') }}
+      # - name: Cache Packages
+      #   id: cache-packages
+      #   uses: actions/cache@v4
+      #   with:
+      #     path: |
+      #       bin
+      #       boot
+      #       dev
+      #       etc
+      #       fat
+      #       home
+      #       lib
+      #       lib64
+      #       lost+found
+      #       mnt
+      #       opt
+      #       proc
+      #       root
+      #       run
+      #       sbin
+      #       srv
+      #       sys
+      #       tmp
+      #       usr
+      #       var
+      #     key: packages-${{ hashFiles('/tmp/packages') }}
 
       - name: ArchLinux Setup
-        if: steps.cache-packages.outputs.cache-hit != 'true'
+        # if: steps.cache-packages.outputs.cache-hit != 'true'
         run: bash ./scripts/setup.sh
 
       - name: Build
@@ -54,3 +54,5 @@ jobs:
           git add .
           git commit -m "build"
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
