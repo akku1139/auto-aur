@@ -1,3 +1,4 @@
+df -h
 pacman -Syu --noconfirm --needed base-devel git sudo
 
 mkdir work
