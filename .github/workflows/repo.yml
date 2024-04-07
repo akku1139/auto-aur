@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  loop:
+  main:
     runs-on: ubuntu-latest
 
     steps:
@@ -52,8 +52,10 @@ jobs:
           git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          git add .
-          git commit -m "build"
-          git push
+          if (git diff --shortstat | grep '[0-9]'); then
+            git add .
+            git commit -m "build"
+            git push
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
