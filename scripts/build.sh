@@ -1,8 +1,8 @@
-pacman -S --needed base-devel git
+pacman -Syu --needed base-devel git
 
 mkdir work
 cd work
-wget https://aur.archlinux.org/cgit/aur.git/snapshot/paru.tar.gz
+curl -O https://aur.archlinux.org/cgit/aur.git/snapshot/paru.tar.gz
 tar xf paru.tar.gz
 cd paru
 makepkg -sci
