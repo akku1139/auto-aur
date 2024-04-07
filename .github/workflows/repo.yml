@@ -40,7 +40,7 @@ jobs:
       #       var
       #     key: packages-${{ hashFiles('/tmp/packages') }}
 
-      - name: ArchLinux Setup
+      - name: Setup ArchLinux
         # if: steps.cache-packages.outputs.cache-hit != 'true'
         run: bash ./scripts/setup.sh
 
@@ -49,8 +49,9 @@ jobs:
 
       - name: Git
         run: |
-          git config user.name  "autobuild"
-          git config user.email "action@github.com"
+          git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git add .
           git commit -m "build"
           git push
