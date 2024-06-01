@@ -33,13 +33,10 @@ cat >> /etc/pacman.conf << EOL
 [chaotic-aur]
 Include = /etc/pacman.d/chaotic-mirrorlist
 
-[aur]
+[auto-aur]
 SigLevel = PackageOptional DatabaseOptional
 Server = file://$PWD/repo
 EOL
-
-cat /etc/pacman.conf
-exit 1
 
 pac -Syu base-devel sudo paru
 
@@ -49,7 +46,7 @@ EOL
 
 cat >> /etc/paru.conf << EOL
 [options]
-LocalRepo = aur
+LocalRepo = auto-aur
 [bin]
 PreBuildCommand = $PWD/scripts/prebuild.sh
 EOL
