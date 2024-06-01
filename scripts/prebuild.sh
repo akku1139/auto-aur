@@ -4,7 +4,7 @@ echo "---------- Start prebuild.sh ----------"
 
 PKGNAME=`basename $PWD`
 
-PATCHDIR=`dirname $PWD`/../patches/$PKGNAME/
+PATCHDIR=`dirname $0`/../patches/$PKGNAME/
 echo "PATCHDIR:" $PATCHDIR
 
 if [ ! -e $PATCHDIR ]; then
