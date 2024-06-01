@@ -50,3 +50,7 @@ CloneDir = /tmp/buildpkg
 [bin]
 PreBuildCommand = $PWD/scripts/prebuild.sh
 EOL
+
+# for paru
+mkdir /.local
+chmod 777 /.local
