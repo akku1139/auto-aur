@@ -37,4 +37,8 @@ EOL
 
 pac -Syu base-devel sudo paru
 
+cat >> /etc/sudoers << EOL
+nobody ALL=(ALL:ALL) NOPASSWD: ALL
+EOL
+
 pr -S alsaequal
