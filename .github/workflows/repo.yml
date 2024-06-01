@@ -39,7 +39,6 @@ jobs:
 
       - name: Git
         run: |
-          cd repo
           if [ -n "$(git status --porcelain)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
