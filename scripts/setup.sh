@@ -38,6 +38,9 @@ cat >> /etc/sudoers << EOL
 nobody ALL=(ALL:ALL) NOPASSWD: ALL
 EOL
 
+mkdir -p /tmp/repo
+touch /tmp/repo/auto-aur.db
+
 cat >> /etc/pacman.conf << EOL
 [auto-aur]
 SigLevel = PackageOptional DatabaseOptional
@@ -54,5 +57,3 @@ PreBuildCommand = $PWD/scripts/prebuild.sh
 EOL
 
 mkdir --mode=777 -p /.local
-
-paru
