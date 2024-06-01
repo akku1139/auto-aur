@@ -4,7 +4,7 @@ set -x
 # Alias
 shopt -s expand_aliases
 alias pac="pacman --noconfirm"
-alias pr="sudo -u nobody paru"
+alias pr="sudo -u nobody paru --noconfirm"
 
 # Init pacman
 # pac -Syyu
@@ -36,3 +36,5 @@ Server = file://${PWD}/repo
 EOL
 
 pac -Syu base-devel sudo paru
+
+pr -S alsaequal
