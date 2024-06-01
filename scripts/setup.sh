@@ -29,6 +29,7 @@ pac -U "https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst" \
 
 mkdir -p /tmp/repo
 touch /tmp/repo/auto-aur.db
+chown -R nobody:nobody /tmp/repo
 
 cat >> /etc/pacman.conf << EOL
 [chaotic-aur]
