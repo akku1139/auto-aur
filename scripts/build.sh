@@ -4,6 +4,6 @@ set -x
 # Alias
 shopt -s expand_aliases
 alias pac="pacman --noconfirm"
-alias pr="sudo -u nobody paru --noconfirm --clonedir /tmp/buildpkg"
+alias pr="sudo -u nobody paru --noconfirm"
 
-pr -S alsaequal
+xargs -a packages.txt pr -S
