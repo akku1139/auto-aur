@@ -1,3 +1,4 @@
+echo $PWD
 # Show commands
 set -x
 
