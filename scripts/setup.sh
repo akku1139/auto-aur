@@ -53,4 +53,4 @@ EOL
 
 mkdir -p /home/nobody
 usermod -d /home/nobody nobody
-chmod 777 $PWD/repo
+chmod -R 777 $PWD/repo
