@@ -25,6 +25,11 @@ jobs:
      options: --privileged
 
     steps:
+      - run: |
+          pacman --noconfirm -Syu
+          pacman --noconfirm -S git
+          git config --global --add safe.directory $PWD
+
       - uses: actions/checkout@v4
 
       - uses: actions/cache@v4
