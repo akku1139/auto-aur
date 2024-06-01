@@ -5,7 +5,7 @@ set -x
 shopt -s expand_aliases
 alias pac="pacman --noconfirm"
 
-pac -Sy
+pac -Syyu
 pacman-key --init
 
 # Setup Chaotic AUR
