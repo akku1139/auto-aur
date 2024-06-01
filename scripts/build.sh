@@ -1,4 +1,5 @@
-df -h
+pacman -Sy --noconfirm
+pacman-key --init
 
 # Setup Chaotic AUR
 pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
