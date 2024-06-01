@@ -28,7 +28,6 @@ jobs:
       - uses: actions/checkout@v4
 
       - uses: actions/cache@v4
-        id: cache-packages
         with:
           save-always: true
           path: /var/cache/pacman/pkg
