@@ -51,4 +51,4 @@ PreBuildCommand = $PWD/scripts/prebuild.sh
 EOL
 
 mkdir --mode=755 -p /.local
-chmod -R 777 $PWD/repo
+chmod 777 $PWD/repo
