@@ -1,1 +1,1 @@
-sudo -u nobody xargs -a packages.txt paru --noconfirm -S
+cat packages.txt | xargs sudo -u nobody paru --noconfirm -S
