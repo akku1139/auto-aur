@@ -46,4 +46,8 @@ CloneDir = /tmp/buildpkg
 PreBuildCommand = $PWD/scripts/prebuild.sh
 EOL
 
+cat >> /etc/makepkg.conf << EOL
+PACKAGER="John Doe <akkun11.open@gmail.com>"
+EOL
+
 mkdir --mode=777 -p /.local
