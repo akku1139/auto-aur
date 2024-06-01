@@ -42,6 +42,8 @@ nobody ALL=(ALL:ALL) NOPASSWD: ALL
 EOL
 
 cat >> /etc/paru.conf << EOL
+[options]
 CloneDir = /tmp/buildpkg
+[bin]
 PreBuildCommand = $PWD/scripts/prebuild.sh
 EOL
