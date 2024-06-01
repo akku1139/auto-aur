@@ -46,11 +46,10 @@ EOL
 
 cat >> /etc/paru.conf << EOL
 [options]
-CloneDir = /tmp/buildpkg
+LocalRepo = aur
 [bin]
 PreBuildCommand = $PWD/scripts/prebuild.sh
 EOL
 
-# for paru
-mkdir /.local
-chmod 777 /.local
+mkdir -p /home/nobody
+usermod -d /home/nobody nobody
