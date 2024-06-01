@@ -9,7 +9,6 @@ alias pac="pacman --noconfirm"
 chmod +x scripts/*
 
 # Init pacman
-# pac -Syyu
 pacman-key --init
 
 # Setup Chaotic AUR
