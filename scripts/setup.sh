@@ -38,6 +38,9 @@ SigLevel = PackageOptional DatabaseOptional
 Server = file://$PWD/repo
 EOL
 
+cat /etc/pacman.conf
+exit 1
+
 pac -Syu base-devel sudo paru
 
 cat >> /etc/sudoers << EOL
