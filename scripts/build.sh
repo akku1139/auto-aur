@@ -30,6 +30,8 @@ EOL
 #Include = /etc/pacman.d/cachyos-mirrorlist
 #EOL
 
+cat /etc/pacman.conf
+
 pac -Syu base-devel git sudo paru
 
 repo-add ./repo/repo.db.tar.gz
