@@ -10,54 +10,28 @@ on:
 jobs:
   main:
     runs-on: ubuntu-latest
+    container:
+     image: archlinux:base
+     options: --privileged
 
     steps:
-      - run: df -h
       - uses: actions/checkout@v4
 
-      # - name: Cache Packages
-      #   id: cache-packages
-      #   uses: actions/cache@v4
-      #   with:
-      #     path: |
-      #       bin
-      #       boot
-      #       dev
-      #       etc
-      #       fat
-      #       home
-      #       lib
-      #       lib64
-      #       lost+found
-      #       mnt
-      #       opt
-      #       proc
-      #       root
-      #       run
-      #       sbin
-      #       srv
-      #       sys
-      #       tmp
-      #       usr
-      #       var
-      #     key: packages-${{ hashFiles('/tmp/packages') }}
-
-      - name: Setup ArchLinux
-        # if: steps.cache-packages.outputs.cache-hit != 'true'
-        run: bash ./scripts/setup.sh
+      - uses: actions/cache@v4
+        id: cache-packages
+        with:
+          path: /var/cache/pacman/pkg
+          key: pkgcache
 
       - name: Build
-        run: "sudo ./bin/arch-chroot ./ bash /scripts/build.sh"
+        run: scripts/build.sh
 
       - name: Git
         run: |
-          git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
-          git config --global user.name "${GITHUB_ACTOR}"
-          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          if (git diff --shortstat | grep '[0-9]'); then
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
             git add -A
-            git commit -m "build"
+            git commit -m "Data"
             git push
           fi
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
