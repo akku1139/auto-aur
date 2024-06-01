@@ -6,8 +6,7 @@ shopt -s expand_aliases
 alias pac="pacman --noconfirm"
 
 # Init pacman
-awk -i inplace '{print; if ($0 == "[options]") {print "Architecture = auto";}}' /etc/pacman.conf
-pac -Syyu
+# pac -Syyu
 pacman-key --init
 
 # Setup Chaotic AUR
@@ -30,6 +29,4 @@ EOL
 #Include = /etc/pacman.d/cachyos-mirrorlist
 #EOL
 
-pac -Syu base-devel git sudo paru
-
-repo-add ./repo/repo.db.tar.gz
+pac -Syu base-devel sudo paru
