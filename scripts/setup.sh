@@ -27,25 +27,23 @@ pac -U "https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst" \
 #Include = /etc/pacman.d/cachyos-mirrorlist
 #EOL
 
+mkdir -p /tmp/repo
+touch /tmp/repo/auto-aur.db
+
 cat >> /etc/pacman.conf << EOL
 [chaotic-aur]
 Include = /etc/pacman.d/chaotic-mirrorlist
+
+[auto-aur]
+SigLevel = PackageOptional DatabaseOptional
+# Server = file://${PWD}/repo
+Server = file:///tmp/repo
 EOL
 
 pac -Syu base-devel sudo paru
 
 cat >> /etc/sudoers << EOL
 nobody ALL=(ALL:ALL) NOPASSWD: ALL
-EOL
-
-mkdir -p /tmp/repo
-touch /tmp/repo/auto-aur.db
-
-cat >> /etc/pacman.conf << EOL
-[auto-aur]
-SigLevel = PackageOptional DatabaseOptional
-# Server = file://${PWD}/repo
-Server = file:///tmp/repo
 EOL
 
 cat >> /etc/paru.conf << EOL
