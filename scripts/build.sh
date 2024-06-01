@@ -30,4 +30,4 @@ EOL
 
 pac -Syu --needed base-devel git sudo paru
 
-repo-add /repo/repo.db.tar.gz paru.pkg.tar.zstd
+repo-add ./repo/repo.db.tar.gz
