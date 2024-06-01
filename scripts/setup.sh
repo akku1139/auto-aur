@@ -1,4 +1,3 @@
-echo $PWD
 # Show commands
 set -x
 
@@ -36,7 +35,7 @@ Include = /etc/pacman.d/chaotic-mirrorlist
 
 [aur]
 SigLevel = PackageOptional DatabaseOptional
-Server = file://${PWD}/repo
+Server = file://$PWD/repo
 EOL
 
 pac -Syu base-devel sudo paru
