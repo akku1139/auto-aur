@@ -4,7 +4,7 @@ echo "---------- Start prebuild.sh ----------"
 
 PKGNAME=`basename $PWD`
 
-PATCHDIR=$GITHUB_WORKSPACE/patches/$PKGNAME/
+PATCHDIR=$ROOTDIR/patches/$PKGNAME/
 echo "PATCHDIR:" $PATCHDIR
 
 if [ ! -e $PATCHDIR ]; then
