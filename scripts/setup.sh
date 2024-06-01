@@ -33,7 +33,8 @@ Include = /etc/pacman.d/chaotic-mirrorlist
 
 [auto-aur]
 SigLevel = PackageOptional DatabaseOptional
-Server = file://${PWD}/repo
+# Server = file://${PWD}/repo
+Server = file:///tmp/repo
 EOL
 
 pac -Syu base-devel sudo paru
@@ -51,4 +52,3 @@ PreBuildCommand = $PWD/scripts/prebuild.sh
 EOL
 
 mkdir --mode=777 -p /.local
-chown nobody:nobody repo
