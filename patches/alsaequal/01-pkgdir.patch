@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index bdcf3d8..5530c8c 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -38,7 +38,7 @@ build() {
+
+ package() {
+   cd "$pkgname"
+-  install -dm755 "$pkgdir" /usr/lib/alsa-lib
++  install -dm755 "${pkgdir}/usr/lib/alsa-lib"
+   install -Dm644 COPYING "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+   make DESTDIR="$pkgdir" install
+ }
