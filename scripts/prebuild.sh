@@ -2,7 +2,7 @@
 
 PKGNAME=`basename $PWD`
 
-PATCHDIR=$PWD/patches/$PKGNAME/
+PATCHDIR=$GITHUB_WORKSPACE/patches/$PKGNAME/
 
 if [ ! -e $PATCHDIR ]; then
   exit
