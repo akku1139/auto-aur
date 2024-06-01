@@ -4,7 +4,7 @@ set -x
 # Alias
 shopt -s expand_aliases
 alias pac="pacman --noconfirm"
-alias pr="sudo -u nobody paru --noconfirm"
+alias pr="sudo -u nobody paru --noconfirm --clonedir /tmp/buildpkg"
 
 # Init pacman
 # pac -Syyu
