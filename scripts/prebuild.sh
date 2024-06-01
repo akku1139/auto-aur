@@ -14,6 +14,6 @@ fi
 for patch in `find $PATCHDIR -maxdepth 1 -type f | sort`; do
   echo "Applying the patch:" $patch
   patch -p1 < $patch
-fi
+done
 
 echo "---------------------------------------"
