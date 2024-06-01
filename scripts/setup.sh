@@ -6,6 +6,9 @@ shopt -s expand_aliases
 alias pac="pacman --noconfirm"
 alias pr="sudo -u nobody paru --noconfirm"
 
+# Enable scripts run permission
+chmod +x scripts/*
+
 # Init pacman
 # pac -Syyu
 pacman-key --init
