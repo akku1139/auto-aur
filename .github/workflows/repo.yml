@@ -31,8 +31,8 @@ jobs:
         with:
           save-always: true
           path: /var/cache/pacman/pkg
-          key: pkgcache
-          restore-keys: pkgcache
+          key: pkgcache-${{ github.sha }}
+          restore-keys: pkgcache-
 
       - name: Build
         run: bash scripts/build.sh
