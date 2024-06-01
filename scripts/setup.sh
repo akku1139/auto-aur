@@ -46,6 +46,7 @@ EOL
 cat >> /etc/paru.conf << EOL
 [options]
 LocalRepo = auto-aur
+CloneDir = /tmp/buildpkg
 [bin]
 PreBuildCommand = $PWD/scripts/prebuild.sh
 EOL
