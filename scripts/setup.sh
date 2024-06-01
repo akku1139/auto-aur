@@ -50,7 +50,7 @@ LocalRepo = auto-aur
 PreBuildCommand = $PWD/scripts/prebuild.sh
 EOL
 
-mkdir --mode=777 -p /home/nobody
+mkdir --mode=755 -p /home/nobody
 chown nobody:nobody /home/nobody
 usermod -d /home/nobody nobody
 chmod -R 777 $PWD/repo
