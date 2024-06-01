@@ -32,6 +32,7 @@ jobs:
           save-always: true
           path: /var/cache/pacman/pkg
           key: pkgcache
+          restore-keys: pkgcache
 
       - name: Build
         run: bash scripts/build.sh
