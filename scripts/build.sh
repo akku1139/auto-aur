@@ -5,6 +5,8 @@ set -x
 shopt -s expand_aliases
 alias pac="pacman --noconfirm"
 
+# Init pacman
+awk -i inplace '{print; if ($0 == "[options]") {print "Architecture = auto";}}' /etc/pacman.conf
 pac -Syyu
 pacman-key --init
 
