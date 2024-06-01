@@ -18,7 +18,6 @@ pac -U "https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst" \
        "https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst"
 
 cd repo
-touch auto-aur.db.tar.gz
 ln -s auto-aur.db.tar.gz auto-aur.db
 chown -R nobody:nobody .
 cd ..
