@@ -1,11 +1,21 @@
 name: Repo
 
 on:
+  workflow_dispatch:
+  schedule:
+    - cron: '47 8 * * *'
   push:
     paths-ignore:
       - repo/**
     branches:
       - main
+
+concurrency:
+  group: main
+  cancel-in-progress: true
+
+permissions:
+  contents: write
 
 jobs:
   main:
@@ -24,7 +34,7 @@ jobs:
           key: pkgcache
 
       - name: Build
-        run: scripts/build.sh
+        run: sh scripts/build.sh
 
       - name: Git
         run: |
