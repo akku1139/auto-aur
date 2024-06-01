@@ -6,7 +6,7 @@ shopt -s expand_aliases
 alias pac="pacman --noconfirm"
 
 pac -Syyu
-# pacman-key --init
+pacman-key --init
 
 # Setup Chaotic AUR
 pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
