@@ -47,9 +47,17 @@ Devel
 PreBuildCommand = $PWD/scripts/prebuild.sh
 EOL
 
+CFLAGS="-O3 -pipe"
+
 cat >> /etc/makepkg.conf << EOL
 PACKAGER="akku <akkun11.open@gmail.com>"
 GPGKEY="2ECF4E27AAACF8F478631D73AA4D941DB6C633AF"
+
+CFLAGS=$CFLAGS
+CXXFLAGS=$CFLAGS
+LDFLAGS="-flto"
+
+MAKEFLAGS="-j3"
 EOL
 
 mkdir --mode=777 -p /.local
