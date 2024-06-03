@@ -53,5 +53,7 @@ GPGKEY="2ECF4E27AAACF8F478631D73AA4D941DB6C633AF"
 EOL
 
 mkdir --mode=777 -p /.local
-chmod 777 /root/.gnupg
-ln -s /root/.gnupg /.gnupg
+
+mkdir --mode=700 /.gnupg
+cp /root/.gnupg/* /.gnupg
+chown -R nobody:nobody /.gnupg
