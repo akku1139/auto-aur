@@ -47,7 +47,7 @@ Devel
 PreBuildCommand = $PWD/scripts/prebuild.sh
 EOL
 
-CFLAGS="-O3 -pipe"
+CFLAGS="-O3 -pipe -w"
 
 cat >> /etc/makepkg.conf << EOL
 PACKAGER="akku <akkun11.open@gmail.com>"
