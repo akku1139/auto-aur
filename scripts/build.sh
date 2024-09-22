@@ -3,6 +3,8 @@
 set -e
 set -x
 
+export GPG_TTY=$(tty)
+
 paru
 
 if [ -e packages.txt ]; then
