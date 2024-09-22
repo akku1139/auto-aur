@@ -8,10 +8,11 @@ shopt -s expand_aliases
 alias pac="pacman --noconfirm"
 
 # nobody home
+gpgconf --kill gpg-agent
 mkdir --mode=777 -p /.local
 cp -r /github/home/.gnupg /
 chown -R nobody:nobody /.gnupg
-find /.gnupg -type f -name "*.lock" | xargs rm -f
+# find /.gnupg -type f -name "*.lock" | xargs rm -f
 cat >> /.gnupg/gpg.conf << EOL
 passphrase $GPG_PASSPHRASE
 EOL
