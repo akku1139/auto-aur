@@ -1,5 +1,7 @@
 # Show commands
 set -x
+# Error
+set -e
 
 # Alias
 shopt -s expand_aliases
