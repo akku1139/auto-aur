@@ -70,4 +70,4 @@ EOL
 
 mkdir --mode=777 -p /.local
 chown -R nobody:nobody /github/home/.gnupg
-ln -s /github/home/.gnupg
+ln -s /github/home/.gnupg /
