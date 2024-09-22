@@ -16,6 +16,8 @@ cat >> /.gnupg/gpg.conf << EOL
 passphrase $GPG_PASSPHRASE
 batch
 pinentry-mode loopback
+yes
+no-tty
 EOL
 
 chmod 600 /.gnupg/gpg.conf
