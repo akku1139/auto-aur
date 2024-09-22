@@ -30,9 +30,9 @@ cat >> /etc/pacman.conf << EOL
 [chaotic-aur]
 Include = /etc/pacman.d/chaotic-mirrorlist
 
-#[auto-aur]
-#SigLevel = PackageOptional DatabaseOptional
-#Server = file://$PWD/repo/auto-aur/x86_64/
+[auto-aur]
+SigLevel = PackageOptional DatabaseOptional
+Server = file://$PWD/repo/auto-aur/x86_64/
 EOL
 
 pac -Syu base-devel sudo paru
