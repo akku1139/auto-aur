@@ -25,7 +25,9 @@ jobs:
      options: --privileged
 
     steps:
-      - uses: Yuri6037/Action-FakeTTY@v1.1
+      - run: |
+          whoami
+          echo ${HOME}
 
       - uses: akku1139/ghaction-import-gpg@master
         with:
