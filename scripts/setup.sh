@@ -35,11 +35,9 @@ pac -U "https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst" \
        "https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst"
 
 mkdir -p repo/auto-aur/x86_64/
-cd repo/auto-aur/x86_64/
-touch auto-aur.db.tar.gz
-ln -s auto-aur.db.tar.gz auto-aur.db
-chown -R nobody:nobody .
-cd ..
+touch repo/auto-aur/x86_64/auto-aur.db.tar.gz
+ln -s repo/auto-aur/x86_64/auto-aur.db.tar.gz repo/auto-aur/x86_64/auto-aur.db
+chown -R nobody:nobody repo
 
 cat >> /etc/pacman.conf << EOL
 [chaotic-aur]
