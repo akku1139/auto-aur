@@ -3,9 +3,9 @@
 set -e
 set -x
 
-faketty paru
+paru
 
 if [ -e packages.txt ]; then
-  faketty xargs -a packages.txt sudo -u nobody paru --noconfirm --nocheck --nocleanafter -S
+  xargs -a packages.txt sudo -u nobody paru --noconfirm --nocheck --nocleanafter -S
   rm packages.txt
 fi
