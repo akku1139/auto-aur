@@ -7,6 +7,11 @@ set -e
 shopt -s expand_aliases
 alias pac="pacman --noconfirm"
 
+# nobody home
+mkdir --mode=777 -p /.local
+cp -r /github/home/.gnupg /
+chown -R nobody:nobody /.gnupg
+
 # Enable scripts run permission
 chmod +x scripts/*
 
@@ -67,7 +72,3 @@ LDFLAGS="-flto"
 
 MAKEFLAGS="-j6"
 EOL
-
-mkdir --mode=777 -p /.local
-cp -r /github/home/.gnupg /
-chown -R nobody:nobody /.gnupg
