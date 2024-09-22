@@ -47,17 +47,20 @@ Devel
 PreBuildCommand = $PWD/scripts/prebuild.sh
 EOL
 
+# optimization level 3
+# use pipe (faster build steps)
+# disable warning
 CFLAGS="-O3 -pipe -w"
 
 cat >> /etc/makepkg.conf << EOL
-PACKAGER="akku <akkun11.open@gmail.com>"
+PACKAGER="akku <akkun11.open (at) gmail.com>"
 GPGKEY="2ECF4E27AAACF8F478631D73AA4D941DB6C633AF"
 
-CFLAGS=$CFLAGS
-CXXFLAGS=$CFLAGS
+CFLAGS="$CFLAGS"
+CXXFLAGS="$CFLAGS"
 LDFLAGS="-flto"
 
-MAKEFLAGS="-j3"
+MAKEFLAGS="-j6"
 EOL
 
 mkdir --mode=777 -p /.local
