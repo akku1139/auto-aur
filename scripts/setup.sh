@@ -40,8 +40,10 @@ touch auto-aur.db.tar.gz
 ln -s auto-aur.db.tar.gz auto-aur.db
 cd ../../..
 chown -R nobody:nobody repo
+#ls -la $PWD/repo/auto-aur/x86_64/
 
-ls -la $PWD/repo/auto-aur/x86_64/
+pacman-key --recv-key b465fd29d2ea44cc --keyserver keyserver.ubuntu.com
+pacman-key --lsign-key b465fd29d2ea44cc
 
 cat >> /etc/pacman.conf << EOL
 [chaotic-aur]
