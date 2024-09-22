@@ -17,7 +17,7 @@ pacman-key --lsign-key 3056513887B78AEB
 pac -U "https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst" \
        "https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst"
 
-mkdir -p repo
+mkdir -p repo/auto-aur/x86_64/
 cd repo
 # touch auto-aur.db.tar.gz
 # ln -s auto-aur.db.tar.gz auto-aur.db
@@ -30,7 +30,7 @@ Include = /etc/pacman.d/chaotic-mirrorlist
 
 [auto-aur]
 SigLevel = PackageOptional DatabaseOptional
-Server = file://$PWD/repo
+Server = file://$PWD/repo/auto-aur/x86_64/
 EOL
 
 pac -Syu base-devel sudo paru
