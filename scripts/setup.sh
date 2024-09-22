@@ -19,7 +19,7 @@ EOL
 
 chmod 600 /.gnupg/gpg.conf
 chown -R nobody:nobody /.gnupg
-find /.gnupg -type f | xargs ls -l
+#find /.gnupg -type f | xargs ls -l
 find /.gnupg -type f -name "*.lock" | xargs rm -f
 
 # Enable scripts run permission
@@ -38,6 +38,8 @@ mkdir -p repo/auto-aur/x86_64/
 touch repo/auto-aur/x86_64/auto-aur.db.tar.gz
 ln -s repo/auto-aur/x86_64/auto-aur.db.tar.gz repo/auto-aur/x86_64/auto-aur.db
 chown -R nobody:nobody repo
+
+ls -la $PWD/repo/auto-aur/x86_64/
 
 cat >> /etc/pacman.conf << EOL
 [chaotic-aur]
