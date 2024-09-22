@@ -29,6 +29,7 @@ for root, dirs, files in os.walk("./public"):
           f"<title>{title}</title>"
         "</head>"
         "<body>"
+          f'<h1>{title}</h1>'
           "<table>"
             "<tr>"
               "<th>File Name</th><th>Date</th><th>File Size</th>"
@@ -41,7 +42,7 @@ for root, dirs, files in os.walk("./public"):
     )
     for item in dirs + files:
       path = os.path.join(root, item)
-      latest_commit = list(repo.iter_commits(max_count=1, paths=path))[]
+      latest_commit = list(repo.iter_commits(max_count=1, paths=path))[0]
       update_time = tdatetime.strftime(latest_commit.committed_datetime(), r"%Y-%m-%d %H:%M %z")
       if os.path.isdir(path):
         # ディレクトリの場合、リンクを作成
@@ -57,9 +58,9 @@ for root, dirs, files in os.walk("./public"):
         size = convert_size(os.path.getsize(path))
         f.write(
           "<tr>"
-            f'<td><a href="{urllib.parse.quote(a, errors="surrogatepass")}">{html.escape(a, quote=False)}/</a></td><td>{size} bytes</td><td>{mtime}</td>'
+            f'<td><a href="{urllib.parse.quote(a, errors="surrogatepass")}">{html.escape(a, quote=False)}</a></td>'
             f'<td>{update_time}</td>'
-            f'{size}'
+            f'<td>{size}</td>'
           "</tr>"
         )
     f.write(
