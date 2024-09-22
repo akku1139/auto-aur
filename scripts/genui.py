@@ -12,15 +12,18 @@ repo = Repo(".")
 BASE_URL = "/auto-aur/"
 
 def convert_size(size):
-    units = ("B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB")
-    i = math.floor(math.log(size, 1024)) if size > 0 else 0
-    size = round(size / 1024 ** i, 2)
+  units = ("B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB")
+  i = math.floor(math.log(size, 1024)) if size > 0 else 0
+  size = round(size / 1024 ** i, 2)
+  return f"{size} {units[i]}"
 
-    return f"{size} {units[i]}"
+def remove_first_dir_slice(path):
+  return path[path.find('/', 1) + 1:]
 
-for root, dirs, files in os.walk("./public"):
+for _root, dirs, files in os.walk("./public", followlinks=True):
   # 各ディレクトリごとにHTMLファイルを作成
-  output_file = os.path.join(root, "index.html")
+  output_file = os.path.join(_root, "index.html")
+  root = remove_first_dir_slice(_root)
   with open(output_file, "w") as f:
     title = f'Index of {BASE_URL}{root}'
     f.write(
@@ -43,7 +46,7 @@ for root, dirs, files in os.walk("./public"):
     for item in dirs + files:
       path = os.path.join(root, item)
       latest_commit = list(repo.iter_commits(max_count=1, paths=path))[0]
-      update_time = tdatetime.strftime(latest_commit.committed_datetime(), r"%Y-%m-%d %H:%M %z")
+      update_time = datetime.strftime(latest_commit.committed_datetime(), r"%Y-%m-%d %H:%M %z")
       if os.path.isdir(path):
         # ディレクトリの場合、リンクを作成
         f.write(
