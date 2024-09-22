@@ -47,6 +47,8 @@ jobs:
 
       - name: Setup
         run: bash scripts/setup.sh
+        env:
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
 
       - name: Build
         run: bash scripts/build.sh
