@@ -25,15 +25,13 @@ jobs:
      options: --privileged
 
     steps:
-      - run: |
-          whoami
-          echo ${HOME}
-
       - uses: akku1139/ghaction-import-gpg@master
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.GPG_PASSPHRASE }}
           fingerprint: "2ECF4E27AAACF8F478631D73AA4D941DB6C633AF"
+        env:
+          HOME: /
 
       - uses: actions/cache@v4
         with:
