@@ -44,6 +44,8 @@ cat >> /etc/paru.conf << EOL
 LocalRepo = auto-aur
 CloneDir = /tmp/buildpkg
 Devel
+Sign
+SignDb
 [bin]
 PreBuildCommand = $PWD/scripts/prebuild.sh
 EOL
