@@ -15,6 +15,7 @@ chown -R nobody:nobody /.gnupg
 find /.gnupg -type f -name "*.lock" | xargs rm -f
 cat >> /.gnupg/gpg.conf << EOL
 passphrase $GPG_PASSPHRASE
+batch
 EOL
 
 # Enable scripts run permission
