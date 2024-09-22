@@ -12,6 +12,9 @@ mkdir --mode=777 -p /.local
 cp -r /github/home/.gnupg /
 chown -R nobody:nobody /.gnupg
 find /.gnupg -type f -name "*.lock" | xargs rm -f
+cat >> /.gnupg/gpg.conf << EOL
+passphrase $GPG_PASSPHRASE
+EOL
 
 # Enable scripts run permission
 chmod +x scripts/*
