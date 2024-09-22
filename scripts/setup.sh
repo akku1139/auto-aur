@@ -36,8 +36,8 @@ pac -U "https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst" \
 
 mkdir -p public/repo/auto-aur/x86_64/
 cd public/repo/auto-aur/x86_64/
-touch auto-aur.db.tar.gz
-ln -s auto-aur.db.tar.gz auto-aur.db
+#touch auto-aur.db.tar.gz
+#ln -s auto-aur.db.tar.gz auto-aur.db
 cd ../../../../
 chown -R nobody:nobody repo
 #ls -la $PWD/public/repo/auto-aur/x86_64/
