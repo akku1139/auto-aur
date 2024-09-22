@@ -71,5 +71,5 @@ EOL
 mkdir --mode=777 -p /.local
 
 mkdir --mode=700 /.gnupg
-cp /github/home/.gnupg/* /.gnupg
+cp -fr /github/home/.gnupg/* /.gnupg
 chown -R nobody:nobody /.gnupg
