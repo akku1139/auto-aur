@@ -3,7 +3,7 @@ name: Repo
 on:
   workflow_dispatch:
   schedule:
-    - cron: '47 8 * * *'
+    - cron: '47 8 */10 * *'
   push:
     paths-ignore:
       - repo/**
