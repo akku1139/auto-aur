@@ -1,0 +1,2 @@
+alsaequal
+zsh-autocomplete
