@@ -46,7 +46,7 @@ for _root, dirs, files in os.walk("./public", followlinks=True):
     for item in dirs + files:
       path = os.path.join(root, item)
       latest_commit = list(repo.iter_commits(max_count=1, paths=path))[0]
-      update_time = datetime.strftime(latest_commit.committed_datetime(), r"%Y-%m-%d %H:%M %z")
+      update_time = datetime.strftime(latest_commit.committed_datetime, r"%Y-%m-%d %H:%M %z")
       if os.path.isdir(path):
         # ディレクトリの場合、リンクを作成
         f.write(
