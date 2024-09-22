@@ -17,6 +17,7 @@ pacman-key --lsign-key 3056513887B78AEB
 pac -U "https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst" \
        "https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst"
 
+mkdir -p repo
 cd repo
 # touch auto-aur.db.tar.gz
 # ln -s auto-aur.db.tar.gz auto-aur.db
