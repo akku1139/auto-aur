@@ -69,7 +69,5 @@ MAKEFLAGS="-j6"
 EOL
 
 mkdir --mode=777 -p /.local
-
-mkdir --mode=700 /.gnupg
-cp -fr /github/home/.gnupg/* /.gnupg
-chown -R nobody:nobody /.gnupg
+chown -R nobody:nobody /github/home/.gnupg
+ln -s /github/home/.gnupg
