@@ -55,6 +55,9 @@ jobs:
       - name: Build
         run: bash scripts/build.sh
 
+      - name: Generate UI
+        run: python scripts/genui.py
+
       - name: Git
         run: |
           if [ -n "$(git status --porcelain)" ]; then

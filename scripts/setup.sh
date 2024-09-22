@@ -54,7 +54,7 @@ SigLevel = PackageOptional DatabaseOptional
 Server = file://$PWD/public/repo/auto-aur/x86_64/
 EOL
 
-pac -Syu base-devel sudo paru
+pac -Syu base-devel sudo paru python-gitpython
 
 cat >> /etc/sudoers << EOL
 nobody ALL=(ALL:ALL) NOPASSWD: ALL
