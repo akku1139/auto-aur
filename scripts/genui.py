@@ -38,38 +38,39 @@ for _root, dirs, files in os.walk("public/repo", followlinks=True):
           f'<h1>{title}</h1>'
           "<table>"
             "<tr>"
-              "<th>File Name</th><th>Date</th><th>File Size</th>"
+              #"<th>File Name</th><th>Date</th><th>File Size</th>"
+              "<th>File Name</th><th>File Size</th>"
             "</tr>"
             "<tr>"
               '<td><a href="../">../</a></td>'
-              "<td></td>"
+              #"<td></td>"
               "<td></td>"
             "</tr>"
     )
 
     for item in sorted(dirs):
       path = os.path.join(_root, item)
-      try:
-        latest_commit = list(repo.iter_commits(max_count=1, paths=path))[0]
-        update_time = datetime.strftime(latest_commit.committed_datetime, r"%Y-%m-%d %H:%M %z")
-      except IndexError:
-        print(f"Couldn't get commit for {path}")
-        update_time = "-"
+      #try:
+        #latest_commit = list(repo.iter_commits(max_count=1, paths=path))[0]
+        #update_time = datetime.strftime(latest_commit.committed_datetime, r"%Y-%m-%d %H:%M %z")
+      #except IndexError:
+        #print(f"Couldn't get commit for {path}")
+        #update_time = "-"
       f.write(
         "<tr>"
           f'<td><a href="{urllib.parse.quote(item, errors="surrogatepass")}/">{html.escape(item, quote=False)}/</a></td>'
-          f'<td>{update_time}</td>'
+          #f'<td>{update_time}</td>'
           "<td>-</td>"
         "</tr>"
       )
 
     for item in sorted(files):
       path = os.path.join(_root, item)
-      try:
-        latest_commit = list(repo.iter_commits(max_count=1, paths=path))[0]
-        update_time = datetime.strftime(latest_commit.committed_datetime, r"%Y-%m-%d %H:%M %z")
-      except IndexError:
-        print(f"Couldn't get commit for {path}")
+      #try:
+        #latest_commit = list(repo.iter_commits(max_count=1, paths=path))[0]
+        #update_time = datetime.strftime(latest_commit.committed_datetime, r"%Y-%m-%d %H:%M %z")
+      #except IndexError:
+        #print(f"Couldn't get commit for {path}")
       if item == "index.html":
         continue
       else:
@@ -77,7 +78,7 @@ for _root, dirs, files in os.walk("public/repo", followlinks=True):
         f.write(
           "<tr>"
             f'<td><a href="{urllib.parse.quote(item, errors="surrogatepass")}">{html.escape(item, quote=False)}</a></td>'
-            f'<td>{update_time}</td>'
+            #f'<td>{update_time}</td>'
             f'<td>{size}</td>'
           "</tr>"
         )
