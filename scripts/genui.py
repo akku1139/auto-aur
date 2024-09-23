@@ -14,8 +14,11 @@ BASE_URL = "/auto-aur/"
 def convert_size(size):
   units = ("B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB")
   i = math.floor(math.log(size, 1024)) if size > 0 else 0
-  size = round(size / 1024 ** i, 2)
-  return f"{size} {units[i]}"
+  if i == 0:
+    return f"{size} B"
+  else:
+    size = round(size / 1024 ** i, 2)
+    return f"{size} {units[i]}"
 
 def remove_first_dir_slice(path):
   return path[path.find('/', 1) + 1:]
