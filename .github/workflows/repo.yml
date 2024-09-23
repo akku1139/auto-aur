@@ -5,8 +5,6 @@ on:
   schedule:
     - cron: '47 8 */10 * *'
   push:
-    paths-ignore:
-      - repo/**
     branches:
       - main
 
@@ -48,15 +46,15 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Setup
-        run: bash scripts/setup.sh
+        run: bash -ex scripts/setup.sh
         env:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
 
       - name: Build AUR
-        run: bash scripts/build.sh
+        run: bash -ex scripts/build.sh
 
       - name: Build local packages
-        run: bash scripts/localbuild.sh
+        run: bash -ex scripts/localbuild.sh
 
       - name: Generate UI
         run: python scripts/genui.py

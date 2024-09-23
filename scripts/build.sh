@@ -1,7 +1,4 @@
-#!/bin/sh -e
-# Stop with error
-set -e
-set -x
+#!/bin/sh -ex
 
 paru
 
