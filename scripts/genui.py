@@ -48,7 +48,7 @@ for _root, dirs, files in os.walk("public", followlinks=True):
     )
 
     for item in sorted(dirs):
-      path = os.path.join(root, item)
+      path = os.path.join(_root, item)
       latest_commit = list(repo.iter_commits(max_count=1, paths=path))[0]
       update_time = datetime.strftime(latest_commit.committed_datetime, r"%Y-%m-%d %H:%M %z")
       # ディレクトリの場合、リンクを作成
@@ -61,7 +61,7 @@ for _root, dirs, files in os.walk("public", followlinks=True):
       )
 
     for item in sorted(files):
-      path = os.path.join(root, item)
+      path = os.path.join(_root, item)
       latest_commit = list(repo.iter_commits(max_count=1, paths=path))[0]
       update_time = datetime.strftime(latest_commit.committed_datetime, r"%Y-%m-%d %H:%M %z")
       if item == "index.html":
