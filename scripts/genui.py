@@ -24,7 +24,6 @@ def remove_first_dir(path):
   return "/".join(list(filter(lambda x: not x == ".", path.split("/")))[1:])
 
 for _root, dirs, files in os.walk("public", followlinks=True):
-  # 各ディレクトリごとにHTMLファイルを作成
   output_file = os.path.join(_root, "index.html")
   root = remove_first_dir(_root)
   with open(output_file, "w") as f:
@@ -51,7 +50,6 @@ for _root, dirs, files in os.walk("public", followlinks=True):
       path = os.path.join(_root, item)
       latest_commit = list(repo.iter_commits(max_count=1, paths=path))[0]
       update_time = datetime.strftime(latest_commit.committed_datetime, r"%Y-%m-%d %H:%M %z")
-      # ディレクトリの場合、リンクを作成
       f.write(
         "<tr>"
           f'<td><a href="{urllib.parse.quote(item, errors="surrogatepass")}/">{html.escape(item, quote=False)}/</a></td>'
@@ -67,7 +65,6 @@ for _root, dirs, files in os.walk("public", followlinks=True):
       if item == "index.html":
         continue
       else:
-        # ファイルの場合
         size = convert_size(os.path.getsize(path))
         f.write(
           "<tr>"
