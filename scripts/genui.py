@@ -21,7 +21,7 @@ def convert_size(size):
     return f"{size} {units[i]}"
 
 def remove_first_dir(path):
-  return path[path.find('/', 1) + 1:]
+  return "/".join(list(filter(lambda x: not x == ".", path.split("/")))[1:])
 
 for _root, dirs, files in os.walk("public", followlinks=True):
   # 各ディレクトリごとにHTMLファイルを作成
