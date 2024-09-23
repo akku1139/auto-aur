@@ -6,30 +6,34 @@
 </body>
 <h1>Auto-AUR</h1>
 <p>Pre-built AUR packages.</p>
+
 <h2>Setup</h2>
+
 <ol>
 <li>Setup Chotic AUR (recommend)</li>
-</ol>
 <p>See <a href="https://aur.chaotic.cx/docs">https://aur.chaotic.cx/docs</a></p>
 <p>Auto-AUR was created to complement Chaotic-AUR.</p>
 <p>Auto-AUR packages may depend on other AUR packages.</p>
 <p>In that case, Chaotic-AUR provides the necessary pre-built AUR packages.</p>
-<ol start="2">
+
 <li>Run commands (root)</li>
-</ol>
 <pre><code class="language-stylus">pacman-key --recv-key b465fd29d2ea44cc --keyserver keyserver.ubuntu.com
 pacman-key --lsign-key b465fd29d2ea44cc
 pacman -U &#39;https://auto-aur.pages.dev/repo/auto-aur/x86_64/auto-aur-keyring-20240923-1-any.pkg.tar.zst&#39;
 pacman -U &#39;https://auto-aur.pages.dev/repo/auto-aur/x86_64/auto-aur-mirrorlist-20240923-1-any.pkg.tar.zst&#39;
 </code></pre>
-<ol start="3">
+
 <li>Edit <code>/etc/pacman.conf</code></li>
-</ol>
 <p>Append (adding at the end) the following to <code>/etc/pacman.conf</code>:</p>
 <pre><code class="language-ini">[auto-aur]
 Include = /etc/pacman.d/auto-aur-mirrorlist
 </code></pre>
+
+<li>Update repo (root)</li>
+<pre><code class="language-stylus">pacman -Syu</code></pre>
+</ol>
+
 <h2>View the latest build log</h2>
-<p><a href="https://github.com/akku1139/auto-aur/actions">https://github.com/akku1139/auto-aur/actions</a></p>
+<p><a href="https://github.com/akku1139/auto-aur/actions">https://github.com/akku1139/auto-aur/actions/workflows/repo.yml</a></p>
 </body>
 </html>
