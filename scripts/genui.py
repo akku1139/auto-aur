@@ -23,12 +23,13 @@ def convert_size(size):
 def remove_first_dir(path):
   return "/".join(list(filter(lambda x: not x == ".", path.split("/")))[1:])
 
-for _root, dirs, files in os.walk("public", followlinks=True):
+for _root, dirs, files in os.walk("public/repo", followlinks=True):
   output_file = os.path.join(_root, "index.html")
   root = remove_first_dir(_root)
   with open(output_file, "w") as f:
     title = f'Index of {BASE_URL}{root}'
     f.write(
+      "<!DOCTYPE html>"
       "<html>"
         "<head>"
           f"<title>{title}</title>"
