@@ -38,7 +38,7 @@ for _root, dirs, files in os.walk("./public", followlinks=True):
               "<th>File Name</th><th>Date</th><th>File Size</th>"
             "</tr>"
             "<tr>"
-              f'<td><a href="{os.path.join(root, "../")}/">../</a></td>'
+              '<td><a href="../">../</a></td>'
               "<td></td>"
               "<td></td>"
             "</tr>"
@@ -47,7 +47,9 @@ for _root, dirs, files in os.walk("./public", followlinks=True):
       path = os.path.join(root, item)
       latest_commit = list(repo.iter_commits(max_count=1, paths=path))[0]
       update_time = datetime.strftime(latest_commit.committed_datetime, r"%Y-%m-%d %H:%M %z")
-      if os.path.isdir(path):
+      if item == "index.html":
+        continue
+      elif os.path.isdir(path):
         # ディレクトリの場合、リンクを作成
         f.write(
           "<tr>"
