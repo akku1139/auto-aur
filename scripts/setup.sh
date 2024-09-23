@@ -39,7 +39,7 @@ cd public/repo/auto-aur/x86_64/
 #touch auto-aur.db.tar.gz
 #ln -s auto-aur.db.tar.gz auto-aur.db
 cd ../../../../
-chown -R nobody:nobody public
+chown -R nobody:nobody public local
 #ls -la $PWD/public/repo/auto-aur/x86_64/
 
 pacman-key --recv-key b465fd29d2ea44cc --keyserver keyserver.ubuntu.com
