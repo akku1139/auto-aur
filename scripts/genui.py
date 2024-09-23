@@ -51,7 +51,7 @@ for _root, dirs, files in os.walk("./public", followlinks=True):
         # ディレクトリの場合、リンクを作成
         f.write(
           "<tr>"
-            f'<td><a href="{urllib.parse.quote(a, errors="surrogatepass")}/">{html.escape(a, quote=False)}/</a></td>'
+            f'<td><a href="{urllib.parse.quote(item, errors="surrogatepass")}/">{html.escape(item, quote=False)}/</a></td>'
             f'<td>{update_time}</td>'
             "<td>-</td>"
           "</tr>"
@@ -61,7 +61,7 @@ for _root, dirs, files in os.walk("./public", followlinks=True):
         size = convert_size(os.path.getsize(path))
         f.write(
           "<tr>"
-            f'<td><a href="{urllib.parse.quote(a, errors="surrogatepass")}">{html.escape(a, quote=False)}</a></td>'
+            f'<td><a href="{urllib.parse.quote(item, errors="surrogatepass")}">{html.escape(item, quote=False)}</a></td>'
             f'<td>{update_time}</td>'
             f'<td>{size}</td>'
           "</tr>"
