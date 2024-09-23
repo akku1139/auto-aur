@@ -20,13 +20,13 @@ def convert_size(size):
     size = round(size / 1024 ** i, 2)
     return f"{size} {units[i]}"
 
-def remove_first_dir_slice(path):
+def remove_first_dir(path):
   return path[path.find('/', 1) + 1:]
 
-for _root, dirs, files in os.walk("./public", followlinks=True):
+for _root, dirs, files in os.walk("public", followlinks=True):
   # 各ディレクトリごとにHTMLファイルを作成
   output_file = os.path.join(_root, "index.html")
-  root = remove_first_dir_slice(_root)
+  root = remove_first_dir(_root)
   with open(output_file, "w") as f:
     title = f'Index of {BASE_URL}{root}'
     f.write(
@@ -49,6 +49,8 @@ for _root, dirs, files in os.walk("./public", followlinks=True):
 
     for item in sorted(dirs):
       path = os.path.join(root, item)
+      latest_commit = list(repo.iter_commits(max_count=1, paths=path))[0]
+      update_time = datetime.strftime(latest_commit.committed_datetime, r"%Y-%m-%d %H:%M %z")
       # ディレクトリの場合、リンクを作成
       f.write(
         "<tr>"
