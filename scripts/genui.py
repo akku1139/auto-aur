@@ -49,8 +49,12 @@ for _root, dirs, files in os.walk("public/repo", followlinks=True):
 
     for item in sorted(dirs):
       path = os.path.join(_root, item)
-      latest_commit = list(repo.iter_commits(max_count=1, paths=path))[0]
-      update_time = datetime.strftime(latest_commit.committed_datetime, r"%Y-%m-%d %H:%M %z")
+      try:
+        latest_commit = list(repo.iter_commits(max_count=1, paths=path))[0]
+        update_time = datetime.strftime(latest_commit.committed_datetime, r"%Y-%m-%d %H:%M %z")
+      except IndexError:
+        print(f"Couldn't get commit for {path}")
+        update_time = "-"
       f.write(
         "<tr>"
           f'<td><a href="{urllib.parse.quote(item, errors="surrogatepass")}/">{html.escape(item, quote=False)}/</a></td>'
