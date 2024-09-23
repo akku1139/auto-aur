@@ -9,7 +9,7 @@ from datetime import datetime
 
 repo = Repo(".")
 
-BASE_URL = "/auto-aur/"
+BASE_URL = "/"
 
 def convert_size(size):
   units = ("B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB")
