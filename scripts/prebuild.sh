@@ -15,5 +15,5 @@ for patch in `find $PATCHDIR/pre/ -maxdepth 1 -type f | sort`; do
 done
 
 if [ -d $PATCHDIR/source/ ]; then
-  cp -r $PATCHDIR/source/ ./patches
+  cp $PATCHDIR/source/* ./
 fi
