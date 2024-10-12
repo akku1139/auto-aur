@@ -1,0 +1,27 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 9afdd31..654e413 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -39,11 +39,21 @@ optdepends=(
+   'skk-jisyo: input method'
+ )
+
+-source=("$url/releases/download/$pkgver/$pkgname-$pkgver.tar.gz")
+-sha256sums=('f442eed7fe58c69eaca1b92a9087e46474b71fd209e2c77c25b0643356067380')
++source=(
++  "$url/releases/download/$pkgver/$pkgname-$pkgver.tar.gz"
++  "./patches/01-VA_COPY.patch"
++)
++sha256sums=(
++  'f442eed7fe58c69eaca1b92a9087e46474b71fd209e2c77c25b0643356067380'
++  'b65187885ef432da484e82dc71aa1d95bf0af0262e2c230bc3b3c66111d26006'
++)
+
+ _archive="$pkgname-$pkgver"
+
++prepare() {
++  patch --directory="$pkgname-$pkgver" --forward --strip=1 --input="${srcdir}/patches/01-VA_COPY.patch"
++}
++
+ build() {
+   cd "$_archive"
