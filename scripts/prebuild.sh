@@ -3,7 +3,7 @@
 set -ex
 
 PKGNAME=`basename $PWD`
-PATCHDIR=`dirname $0`/../patches/$PKGNAME/
+PATCHDIR=`dirname $0`/../patches/$PKGNAME
 
 if [ ! -e $PATCHDIR ]; then
   exit
@@ -14,6 +14,6 @@ for patch in `find $PATCHDIR/pre/ -maxdepth 1 -type f | sort`; do
   patch -p1 < $patch
 done
 
-if [ -d $PATCHDIR/prepare ]; then
-  cp -r $PATCHDIR/prepare ./patches
+if [ -d $PATCHDIR/source/ ]; then
+  cp -r $PATCHDIR/source/ ./patches
 fi
