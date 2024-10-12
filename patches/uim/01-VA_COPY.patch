@@ -1,3 +1,6 @@
+https://github.com/uim/uim/pull/187
+https://patch-diff.githubusercontent.com/raw/uim/uim/pull/187.patch
+
 From 2c90fc331d54de05a9ed7672cf1b2b081c447562 Mon Sep 17 00:00:00 2001
 From: Florian Weimer <fweimer@redhat.com>
 Date: Tue, 29 Nov 2022 19:34:19 +0100
