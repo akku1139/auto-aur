@@ -2,6 +2,8 @@
 
 set -ex
 
+ls -lh
+
 PKGNAME=`basename $PWD`
 PATCHDIR=`dirname $0`/../patches/$PKGNAME/
 
