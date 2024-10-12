@@ -2,7 +2,9 @@
 
 set -ex
 
+pwd
 ls -lh
+find
 
 PKGNAME=`basename $PWD`
 PATCHDIR=`dirname $0`/../patches/$PKGNAME/
