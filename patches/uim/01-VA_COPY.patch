@@ -1,28 +1,15 @@
 https://github.com/uim/uim/pull/187
-https://patch-diff.githubusercontent.com/raw/uim/uim/pull/187.patch
 
-From 2c90fc331d54de05a9ed7672cf1b2b081c447562 Mon Sep 17 00:00:00 2001
-From: Florian Weimer <fweimer@redhat.com>
-Date: Tue, 29 Nov 2022 19:34:19 +0100
-Subject: [PATCH] configure: Fix snprintf check for strict(er) C99 compilers
-
-C99 removed support for implicit function declarations.  The test
-calls the undeclared exit function, so it may fail incorrectly with
-C99 compilers.  Return from main instead to report the test result.
 ---
- configure.ac | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/configure.ac b/configure.ac
-index 56fb1dd44..e115da3ab 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -595,7 +595,7 @@ if test "x$ac_cv_func_snprintf" = xyes; then
+@@ -595,7 +595,7 @@
  	AC_RUN_IFELSE(
  		[AC_LANG_SOURCE([[
  #include <stdio.h>
--int main(void){char b[5];snprintf(b,5,"123456789");exit(b[4]!='\0');}
-+int main(void){char b[5];snprintf(b,5,"123456789");return b[4]!='\0';}
+-int main(void){char b[5];snprintf(b,5,"123456789");return b[4]!='\0';}
++int main(void){char b[5];snprintf(b,5,"123456789");exit(b[4]!='\0');}
  		]])],
  		[AC_MSG_RESULT(yes)],
  		[
