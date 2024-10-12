@@ -11,7 +11,11 @@ fi
 
 makepkg --nobuild
 
-for patch in `find $PATCHDIR -maxdepth 1 -type f | sort`; do
+for patch in `find $PATCHDIR/pre/ -maxdepth 1 -type f | sort`; do
   echo "Applying the patch:" $patch
   patch -p1 < $patch
 done
+
+if [ -d $PATCHDIR/prepare ]; then
+  cp -r $PATCHDIR/prepare ./patches
+fi
