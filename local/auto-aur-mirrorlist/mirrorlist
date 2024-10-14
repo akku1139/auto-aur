@@ -1,1 +1,2 @@
 Server = https://auto-aur.pages.dev/repo/$repo/$arch
+Server = https://akku1139.github.io/auto-aur/repo/$repo/$arch
