@@ -1,0 +1,24 @@
+https://aur.archlinux.org/packages/ocaml-extlib#comment-981054
+
+diff --git a/PKGBUILD b/PKGBUILD
+index 5a0c856..3022bb4 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -18,7 +18,7 @@ build() {
+   cd ocaml-extlib-${pkgver}
+
+   make build
+-  make doc
++  #make doc
+ }
+
+ package () {
+@@ -31,6 +31,6 @@ package () {
+   make install
+
+   # Install doc
+-  install -Ddm755 "$_DOCDIR"
+-  cp -dr --no-preserve=ownership src/doc/* "$_DOCDIR/"
++  #install -Ddm755 "$_DOCDIR"
++  #cp -dr --no-preserve=ownership src/doc/* "$_DOCDIR/"
+ }
