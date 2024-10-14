@@ -9,7 +9,7 @@ on:
       - main
     paths:
       - package.txt
-      - patches/**
+      # - patches/**
 
 concurrency:
   group: repo
