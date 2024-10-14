@@ -1,3 +1,4 @@
 uim
 uim-mozc
 jay
+google-drive-ocamlfuse
