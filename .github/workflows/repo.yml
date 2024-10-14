@@ -26,49 +26,9 @@ jobs:
      options: --privileged
 
     steps:
-      - uses: akku1139/ghaction-import-gpg@master
-        with:
-          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-          passphrase: ${{ secrets.GPG_PASSPHRASE }}
-          fingerprint: "2ECF4E27AAACF8F478631D73AA4D941DB6C633AF"
-        env:
-          HOME: /
-
-      - uses: actions/cache/restore@v4
-        with:
-          path: /var/cache/pacman/pkg
-          key: pkgcache-${{ github.sha }}
-          restore-keys: pkgcache-
-
-      - run: |
-          pacman --noconfirm -Syu
-          pacman --noconfirm -S git
-          git config --global --add safe.directory $PWD
-
-      - uses: actions/checkout@v4
-
-      - name: Setup
-        run: bash -ex scripts/setup.sh
-        env:
-          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+      - uses: ./.github/workflows/setup.yml
 
       - name: Build AUR
         run: bash -ex scripts/build.sh
 
-      - name: Generate UI
-        run: python scripts/genui.py
-
-      - name: Git
-        run: |
-          if [ -n "$(git status ./public/ --porcelain)" ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add ./public/
-            git commit -m "Data"
-            git push
-          fi
-
-      - uses: actions/cache/save@v4
-        with:
-          path: /var/cache/pacman/pkg
-          key: pkgcache-${{ github.sha }}
+      - uses: ./.github/workflows/post.yml
