@@ -7,6 +7,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - package.txt
+      - patches
 
 concurrency:
   group: main
@@ -31,9 +34,8 @@ jobs:
         env:
           HOME: /
 
-      - uses: actions/cache@v4
+      - uses: actions/cache/restore@v4
         with:
-          save-always: true
           path: /var/cache/pacman/pkg
           key: pkgcache-${{ github.sha }}
           restore-keys: pkgcache-
@@ -68,3 +70,8 @@ jobs:
             git commit -m "Data"
             git push
           fi
+
+      - uses: actions/cache/save@v4
+        with:
+          path: /var/cache/pacman/pkg
+          key: pkgcache-${{ github.sha }}
