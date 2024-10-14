@@ -31,3 +31,5 @@ jobs:
         with:
           path: /var/cache/pacman/pkg
           key: pkgcache-${{ github.sha }}
+
+      - uses: ./.github/workflows/deploy.yml
