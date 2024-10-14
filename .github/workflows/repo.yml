@@ -9,10 +9,10 @@ on:
       - main
     paths:
       - package.txt
-      - patches
+      - patches/**
 
 concurrency:
-  group: main
+  group: repo
   cancel-in-progress: true
 
 permissions:
@@ -55,18 +55,15 @@ jobs:
       - name: Build AUR
         run: bash -ex scripts/build.sh
 
-      - name: Build local packages
-        run: bash -ex scripts/localbuild.sh
-
       - name: Generate UI
         run: python scripts/genui.py
 
       - name: Git
         run: |
-          if [ -n "$(git status --porcelain)" ]; then
+          if [ -n "$(git status ./public/ --porcelain)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add ./public
+            git add ./public/
             git commit -m "Data"
             git push
           fi
