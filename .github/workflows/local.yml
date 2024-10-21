@@ -47,8 +47,6 @@ jobs:
         env:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
 
-      - uses: akku1139/auto-aur/.github/workflows/setup.yml@main
-
       - name: Build local packages
         run: bash -ex scripts/localbuild.sh
 
