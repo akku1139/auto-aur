@@ -53,6 +53,6 @@ jobs:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
 
       - name: Build AUR
-        run: sudo -u nobody bash -ex scripts/build.sh
+        run: bash -ex scripts/build.sh
 
       - uses: ./.github/workflows/post.yml
