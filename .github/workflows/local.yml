@@ -3,8 +3,6 @@ name: Local Packages
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
     paths:
       - local/**
 
@@ -23,6 +21,32 @@ jobs:
      options: --privileged
 
     steps:
+      - uses: akku1139/ghaction-import-gpg@master
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.GPG_PASSPHRASE }}
+          fingerprint: "2ECF4E27AAACF8F478631D73AA4D941DB6C633AF"
+        env:
+          HOME: /
+
+      - uses: actions/cache/restore@v4
+        with:
+          path: /var/cache/pacman/pkg
+          key: pkgcache-${{ github.sha }}
+          restore-keys: pkgcache-
+
+      - run: |
+          pacman --noconfirm -Syu
+          pacman --noconfirm -S git
+          git config --global --add safe.directory $PWD
+
+      - uses: actions/checkout@v4
+
+      - name: Setup
+        run: bash -ex scripts/setup.sh
+        env:
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+
       - uses: akku1139/auto-aur/.github/workflows/setup.yml@main
 
       - name: Build local packages
