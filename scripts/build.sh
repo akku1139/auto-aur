@@ -1,6 +1,6 @@
 #!/bin/sh -ex
 
-paru
+sudo -u nobody paru
 
 if [ -e packages.txt ]; then
   xargs -a packages.txt sudo -u nobody paru --noconfirm --nocheck --nocleanafter -S
