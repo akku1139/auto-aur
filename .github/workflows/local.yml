@@ -23,7 +23,7 @@ jobs:
      options: --privileged
 
     steps:
-      - uses: ./.github/workflows/setup.yml
+      - uses: akku1139/auto-aur/.github/workflows/setup.yml@main
 
       - name: Build local packages
         run: bash -ex scripts/localbuild.sh
