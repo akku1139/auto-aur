@@ -26,7 +26,7 @@ jobs:
      options: --privileged
 
     steps:
-      - uses: ./.github/workflows/setup.yml
+      - uses: akku1139/auto-aur/.github/workflows/setup.yml@main
 
       - name: Build AUR
         run: bash -ex scripts/build.sh
