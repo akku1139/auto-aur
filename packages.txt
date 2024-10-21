@@ -1,1 +1,2 @@
 google-drive-ocamlfuse
+snowflake
