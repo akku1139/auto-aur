@@ -2,6 +2,6 @@
 
 for pkg in `ls -d local/*/`; do
   cd $pkg
-  sudo -u nobody paru -U
+  sudo -u builder paru -U
   cd ../..
 done
