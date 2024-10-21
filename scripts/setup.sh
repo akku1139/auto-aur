@@ -9,7 +9,7 @@ alias pac="pacman --noconfirm"
 
 # nobody home
 gpgconf --kill gpg-agent
-mkdir --mode=777 -p /.local
+mkdir --mode=777 -p /.local /.cache
 
 cat >> /.gnupg/gpg.conf << EOL
 passphrase $GPG_PASSPHRASE
