@@ -10,6 +10,9 @@ alias pac="pacman --noconfirm"
 useradd -m builder
 HOME="/home/builder"
 
+echo $GPG_PRIVATE_KEY > /tmp/prv.pem
+gpg --import --batch --yes /tmp/prv.pem
+
 # nobody home
 gpgconf --kill gpg-agent
 # mkdir --mode=777 -p /.local /.cache
@@ -21,9 +24,9 @@ no-tty
 EOL
 
 chmod 600 $HOME/.gnupg/gpg.conf
-chown -R builder:builder $HOME/.gnupg
+#chown -R builder:builder $HOME/.gnupg
 #find /.gnupg -type f | xargs ls -l
-find $HOME/.gnupg -type f -name "*.lock" | xargs rm -f
+#find $HOME/.gnupg -type f -name "*.lock" | xargs rm -f
 
 # Enable scripts run permission
 chmod +x scripts/*
