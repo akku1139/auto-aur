@@ -7,6 +7,15 @@ set -e
 shopt -s expand_aliases
 alias pac="pacman --noconfirm"
 
+# Init pacman
+pacman-key --init
+
+# Setup Chaotic AUR
+pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+pacman-key --lsign-key 3056513887B78AEB
+pac -U "https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst" \
+       "https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst"
+
 cat >> /etc/pacman.conf << EOL
 [chaotic-aur]
 Include = /etc/pacman.d/chaotic-mirrorlist
@@ -46,20 +55,11 @@ chmod 600 $HOME/.gnupg/gpg.conf
 # Enable scripts run permission
 chmod +x scripts/*
 
-# Init pacman
-pacman-key --init
-
-# Setup Chaotic AUR
-pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
-pacman-key --lsign-key 3056513887B78AEB
-pac -U "https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst" \
-       "https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst"
-
-mkdir -p public/repo/auto-aur/x86_64/
-cd public/repo/auto-aur/x86_64/
+#mkdir -p public/repo/auto-aur/x86_64/
+#cd public/repo/auto-aur/x86_64/
 #touch auto-aur.db.tar.gz
 #ln -s auto-aur.db.tar.gz auto-aur.db
-cd ../../../../
+#cd ../../../../
 chown -R builder:builder public local
 #ls -la $PWD/public/repo/auto-aur/x86_64/
 
