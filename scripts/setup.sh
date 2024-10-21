@@ -7,6 +7,8 @@ set -e
 shopt -s expand_aliases
 alias pac="pacman --noconfirm"
 
+pac -Syu base-devel sudo paru python-gitpython
+
 useradd -m builder
 HOME="/home/builder"
 
@@ -59,8 +61,6 @@ Include = /etc/pacman.d/chaotic-mirrorlist
 SigLevel = PackageOptional DatabaseOptional
 Server = file://$PWD/public/repo/auto-aur/x86_64/
 EOL
-
-pac -Syu base-devel sudo paru python-gitpython
 
 cat >> /etc/sudoers << EOL
 builder ALL=(ALL:ALL) NOPASSWD: ALL
