@@ -29,6 +29,7 @@ Server = file://$PWD/public/repo/auto-aur/x86_64/
 EOL
 
 cat >> /etc/sudoers << EOL
+root ALL=(ALL:ALL) NOPASSWD: ALL
 builder ALL=(ALL:ALL) NOPASSWD: ALL
 EOL
 
