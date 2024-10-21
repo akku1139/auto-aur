@@ -39,7 +39,10 @@ useradd -m builder
 HOME="/home/builder"
 
 #gpg --keyserver keyserver.ubuntu.com --recv-keys b465fd29d2ea44cc
-echo $GPG_PRIVATE_KEY | sudo -u builder gpg --allow-secret-key-import --import --batch --yes
+GPG_PV_PATH=`mktemp`
+echo $GPG_PRIVATE_KEY > $GPG_PV_PATH
+sudo -u builder gpg --allow-secret-key-import --import --batch --yes $GPG_PV_PATH
+rm $GPG_PV_PATH
 
 # nobody home
 sudo -u builder gpgconf --kill gpg-agent
