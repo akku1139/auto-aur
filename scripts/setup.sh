@@ -10,10 +10,7 @@ alias pac="pacman --noconfirm"
 useradd -m builder
 HOME="/home/builder"
 
-PRV_KEY_PATH=/tmp/prv.key
-echo $GPG_PRIVATE_KEY > $PRV_KEY_PATH
-gpg --allow-secret-key-import --import --batch --yes $PRV_KEY_PATH
-rm $PRV_KEY_PATH
+gpg --allow-secret-key-import --import --batch --yes < $GPG_PRIVATE_KEY
 
 # nobody home
 gpgconf --kill gpg-agent
