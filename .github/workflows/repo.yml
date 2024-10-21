@@ -43,6 +43,7 @@ jobs:
         run: bash -ex scripts/setup.sh
         env:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+          GPG_PRIVATE_KEY:  ${{ secrets.GPG_PRIVATE_KEY }}
 
       - name: Build AUR
         run: bash -ex scripts/build.sh
