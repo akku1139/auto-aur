@@ -27,7 +27,7 @@ jobs:
           passphrase: ${{ secrets.GPG_PASSPHRASE }}
           fingerprint: "2ECF4E27AAACF8F478631D73AA4D941DB6C633AF"
         env:
-          HOME: /
+          HOME: /home/builder/
 
       - uses: actions/cache/restore@v4
         with:
