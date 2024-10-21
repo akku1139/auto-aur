@@ -16,6 +16,9 @@ pacman-key --lsign-key 3056513887B78AEB
 pac -U "https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst" \
        "https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst"
 
+pacman-key --recv-key b465fd29d2ea44cc --keyserver keyserver.ubuntu.com
+pacman-key --lsign-key b465fd29d2ea44cc
+
 cat >> /etc/pacman.conf << EOL
 [chaotic-aur]
 Include = /etc/pacman.d/chaotic-mirrorlist
@@ -62,9 +65,6 @@ chmod +x scripts/*
 #cd ../../../../
 chown -R builder:builder public local
 #ls -la $PWD/public/repo/auto-aur/x86_64/
-
-pacman-key --recv-key b465fd29d2ea44cc --keyserver keyserver.ubuntu.com
-pacman-key --lsign-key b465fd29d2ea44cc
 
 cat >> /etc/paru.conf << EOL
 [options]
