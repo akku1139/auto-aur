@@ -10,6 +10,7 @@ alias pac="pacman --noconfirm"
 useradd -m builder
 HOME="/home/builder"
 
+gpg --keyserver keyserver.ubuntu.com --recv-keys b465fd29d2ea44cc
 echo $GPG_PRIVATE_KEY | sudo -u builder gpg --allow-secret-key-import --import --batch --yes
 
 # nobody home
