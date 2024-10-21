@@ -7,6 +7,19 @@ set -e
 shopt -s expand_aliases
 alias pac="pacman --noconfirm"
 
+cat >> /etc/pacman.conf << EOL
+[chaotic-aur]
+Include = /etc/pacman.d/chaotic-mirrorlist
+
+[auto-aur]
+SigLevel = PackageOptional DatabaseOptional
+Server = file://$PWD/public/repo/auto-aur/x86_64/
+EOL
+
+cat >> /etc/sudoers << EOL
+builder ALL=(ALL:ALL) NOPASSWD: ALL
+EOL
+
 pac -Syu base-devel sudo paru python-gitpython
 
 useradd -m builder
@@ -52,19 +65,6 @@ chown -R builder:builder public local
 
 pacman-key --recv-key b465fd29d2ea44cc --keyserver keyserver.ubuntu.com
 pacman-key --lsign-key b465fd29d2ea44cc
-
-cat >> /etc/pacman.conf << EOL
-[chaotic-aur]
-Include = /etc/pacman.d/chaotic-mirrorlist
-
-[auto-aur]
-SigLevel = PackageOptional DatabaseOptional
-Server = file://$PWD/public/repo/auto-aur/x86_64/
-EOL
-
-cat >> /etc/sudoers << EOL
-builder ALL=(ALL:ALL) NOPASSWD: ALL
-EOL
 
 cat >> /etc/paru.conf << EOL
 [options]
