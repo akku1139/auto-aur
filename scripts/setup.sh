@@ -7,20 +7,23 @@ set -e
 shopt -s expand_aliases
 alias pac="pacman --noconfirm"
 
+useradd -m builder
+HOME="/home/builder"
+
 # nobody home
 gpgconf --kill gpg-agent
-mkdir --mode=777 -p /.local /.cache
+# mkdir --mode=777 -p /.local /.cache
 
-cat >> /.gnupg/gpg.conf << EOL
+cat >> $HOME/.gnupg/gpg.conf << EOL
 passphrase $GPG_PASSPHRASE
 pinentry-mode loopback
 no-tty
 EOL
 
-chmod 600 /.gnupg/gpg.conf
-chown -R nobody:nobody /.gnupg
+chmod 600 $HOME/.gnupg/gpg.conf
+chown -R builder:builder $HOME/.gnupg
 #find /.gnupg -type f | xargs ls -l
-find /.gnupg -type f -name "*.lock" | xargs rm -f
+find $HOME/.gnupg -type f -name "*.lock" | xargs rm -f
 
 # Enable scripts run permission
 chmod +x scripts/*
@@ -39,7 +42,7 @@ cd public/repo/auto-aur/x86_64/
 #touch auto-aur.db.tar.gz
 #ln -s auto-aur.db.tar.gz auto-aur.db
 cd ../../../../
-chown -R nobody:nobody public local
+chown -R builder:builder public local
 #ls -la $PWD/public/repo/auto-aur/x86_64/
 
 pacman-key --recv-key b465fd29d2ea44cc --keyserver keyserver.ubuntu.com
@@ -57,7 +60,7 @@ EOL
 pac -Syu base-devel sudo paru python-gitpython
 
 cat >> /etc/sudoers << EOL
-nobody ALL=(ALL:ALL) NOPASSWD: ALL
+builder ALL=(ALL:ALL) NOPASSWD: ALL
 EOL
 
 cat >> /etc/paru.conf << EOL
