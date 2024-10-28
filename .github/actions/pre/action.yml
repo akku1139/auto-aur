@@ -25,9 +25,8 @@ runs:
     - uses: actions/checkout@v4
 
     - name: Setup (root)
-      run: ${{ github.action_path }}/scripts/setup-root.sh
+      run: scripts/setup-root.sh
       shell: bash
       env:
         GPG_PASSPHRASE: ${{ inputs.GPG_PASSPHRASE }}
         GPG_PRIVATE_KEY:  ${{ inputs.GPG_PRIVATE_KEY }}
-        GITHUB_ACTION_PATH: ${{ github.action_path }}
