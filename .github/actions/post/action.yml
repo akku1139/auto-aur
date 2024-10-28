@@ -20,7 +20,7 @@ runs:
         fi
 
     - uses: actions/cache/save@v4
-      if: {{ !canceled() }}
+      if: ${{ !cancelled() }}
       with:
         path: /var/cache/pacman/pkg
         key: pkgcache-${{ github.sha }}
