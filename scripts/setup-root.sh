@@ -74,5 +74,3 @@ LDFLAGS="-flto"
 
 MAKEFLAGS="-j6"
 EOL
-
-sudo -u builder ./scripts/setup-builder.sh
