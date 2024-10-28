@@ -43,7 +43,7 @@ jobs:
         run: bash scripts/setup-root.sh
 
       - name: Setup (builder)
-        run: sudo -u builder bash ./scripts/setup-builder.sh
+        run: sudo -E -u builder bash ./scripts/setup-builder.sh
         env:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
           GPG_PRIVATE_KEY:  ${{ secrets.GPG_PRIVATE_KEY }}
