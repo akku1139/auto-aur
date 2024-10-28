@@ -7,6 +7,10 @@ set -e
 shopt -s expand_aliases
 alias pac="pacman --noconfirm"
 
+# Git push error
+# fatal: the remote end hung up unexpectedly (400)
+git config http.postBuffer 500M
+
 # Init pacman
 pacman-key --init
 
