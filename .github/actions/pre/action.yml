@@ -1,0 +1,32 @@
+name: Pre
+
+inputs:
+  GPG_PRIVATE_KEY:
+    description: 'GPG Private key'
+    required: true
+  GPG_PASSPHRASE:
+    description: 'GPG Passphrase'
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/cache/restore@v4
+      with:
+        path: /var/cache/pacman/pkg
+        key: pkgcache-${{ github.sha }}
+        restore-keys: pkgcache-
+
+    # - run: |
+    #     pacman --noconfirm -Syu
+    #     pacman --noconfirm -S git
+    #     git config --global --add safe.directory $PWD
+
+    - uses: actions/checkout@v4
+
+    - name: Setup (root)
+      run: ${{ github.action_path }}/scripts/setup-root.sh
+      shell: bash
+      env:
+        GPG_PASSPHRASE: ${{ inputs.GPG_PASSPHRASE }}
+        GPG_PRIVATE_KEY:  ${{ inputs.GPG_PRIVATE_KEY }}
