@@ -3,6 +3,8 @@ set -x
 # Error
 set -e
 
+cd $GITHUB_ACTION_PATH
+
 # Alias
 shopt -s expand_aliases
 alias pac="pacman --noconfirm"
