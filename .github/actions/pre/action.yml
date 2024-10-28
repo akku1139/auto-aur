@@ -27,6 +27,10 @@ runs:
     - name: Setup (root)
       run: scripts/setup-root.sh
       shell: bash
+
+    - name: Setup (builder)
+      run: sudo -E -u builder bash ./scripts/setup-builder.sh
+      shell: bash
       env:
         GPG_PASSPHRASE: ${{ inputs.GPG_PASSPHRASE }}
         GPG_PRIVATE_KEY:  ${{ inputs.GPG_PRIVATE_KEY }}
