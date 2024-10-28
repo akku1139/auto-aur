@@ -17,10 +17,10 @@ runs:
         key: pkgcache-${{ github.sha }}
         restore-keys: pkgcache-
 
-    # - run: |
-    #     pacman --noconfirm -Syu
-    #     pacman --noconfirm -S git
-    #     git config --global --add safe.directory $PWD
+    - run: |
+        pacman --noconfirm -Syu
+        pacman --noconfirm -S git
+        git config --global --add safe.directory $PWD
 
     - uses: actions/checkout@v4
 
