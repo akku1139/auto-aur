@@ -5,7 +5,7 @@ runs:
   steps:
     - name: Generate UI
       shell: python
-      run: ${{ github.action_path }}/scripts/genui.py
+      run: scripts/genui.py
 
     - name: Git
       shell: bash
@@ -28,7 +28,7 @@ runs:
     - name: Upload Pages Artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: "${{ github.action_path }}/public/"
+        path: "public/"
 
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4
