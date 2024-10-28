@@ -8,7 +8,7 @@ on:
     # branches:
     #   - main
     paths:
-      - package.txt
+      - packages.txt
       # - patches/**
 
 concurrency:
