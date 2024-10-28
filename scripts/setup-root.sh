@@ -3,9 +3,6 @@ set -x
 # Error
 set -e
 
-# Debug
-whoami
-
 # Alias
 shopt -s expand_aliases
 alias pac="pacman --noconfirm"
@@ -39,33 +36,6 @@ EOL
 pac -Syu base-devel sudo paru python-gitpython
 
 useradd -m builder
-HOME="/home/builder"
-
-#gpg --keyserver keyserver.ubuntu.com --recv-keys b465fd29d2ea44cc
-#GPG_PV_PATH=`sudo -u builder mktemp`
-#cat > $GPG_PV_PATH << EOL
-#$GPG_PRIVATE_KEY
-#EOL
-#sudo -u builder gpg --allow-secret-key-import --import --batch --yes $GPG_PV_PATH
-#rm $GPG_PV_PATH
-sudo -u builder gpg --allow-secret-key-import --import --batch --yes << EOL
-$GPG_PRIVATE_KEY
-EOL
-
-# nobody home
-#sudo -u builder gpgconf --kill gpg-agent
-#mkdir --mode=777 -p /.local /.cache
-
-cat >> $HOME/.gnupg/gpg.conf << EOL
-passphrase $GPG_PASSPHRASE
-pinentry-mode loopback
-no-tty
-EOL
-
-chmod 600 $HOME/.gnupg/gpg.conf
-#chown -R builder:builder $HOME/.gnupg
-#find /.gnupg -type f | xargs ls -l
-#find $HOME/.gnupg -type f -name "*.lock" | xargs rm -f
 
 # Enable scripts run permission
 chmod +x scripts/*
