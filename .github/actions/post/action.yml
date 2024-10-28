@@ -4,8 +4,8 @@ runs:
   using: "composite"
   steps:
     - name: Generate UI
-      shell: python
-      run: scripts/genui.py
+      shell: bash
+      run: python scripts/genui.py
 
     - name: Git
       shell: bash
