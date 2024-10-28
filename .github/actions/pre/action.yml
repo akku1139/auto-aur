@@ -30,3 +30,4 @@ runs:
       env:
         GPG_PASSPHRASE: ${{ inputs.GPG_PASSPHRASE }}
         GPG_PRIVATE_KEY:  ${{ inputs.GPG_PRIVATE_KEY }}
+        GITHUB_ACTION_PATH: ${{ github.action_path }}
