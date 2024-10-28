@@ -33,7 +33,7 @@ root ALL=(ALL:ALL) NOPASSWD: ALL
 builder ALL=(ALL:ALL) NOPASSWD: ALL
 EOL
 
-pac -S base-devel sudo paru python-gitpython
+pac -Syu base-devel sudo paru python-gitpython
 
 useradd -m builder
 
