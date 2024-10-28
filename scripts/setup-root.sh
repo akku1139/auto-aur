@@ -3,6 +3,9 @@ set -x
 # Error
 set -e
 
+# Debug
+env
+
 # Alias
 shopt -s expand_aliases
 alias pac="pacman --noconfirm"
