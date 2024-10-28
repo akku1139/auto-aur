@@ -5,7 +5,7 @@ set -e
 
 HOME="/home/builder"
 
-sudo -u builder gpg --allow-secret-key-import --import --batch --yes << EOL
+gpg --allow-secret-key-import --import --batch --yes << EOL
 $GPG_PRIVATE_KEY
 EOL
 
