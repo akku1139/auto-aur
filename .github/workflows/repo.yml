@@ -26,29 +26,9 @@ jobs:
      options: --privileged
 
     steps:
-      - uses: actions/cache/restore@v4
-        with:
-          path: /var/cache/pacman/pkg
-          key: pkgcache-${{ github.sha }}
-          restore-keys: pkgcache-
-
-      - run: |
-          pacman --noconfirm -Syu
-          pacman --noconfirm -S git
-          git config --global --add safe.directory $PWD
-
-      - uses: actions/checkout@v4
-
-      - name: Setup (root)
-        run: bash scripts/setup-root.sh
-
-      - name: Setup (builder)
-        run: sudo -E -u builder bash ./scripts/setup-builder.sh
-        env:
-          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-          GPG_PRIVATE_KEY:  ${{ secrets.GPG_PRIVATE_KEY }}
+      - uses: akku1139/auto-aur/tree/main/.github/actions/pre@main
 
       - name: Build AUR
         run: bash -ex scripts/build.sh
 
-      - uses: ./.github/workflows/post.yml
+      - uses: akku1139/auto-aur/tree/main/.github/actions/post@main
