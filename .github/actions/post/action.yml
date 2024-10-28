@@ -1,0 +1,34 @@
+name: Post
+
+runs:
+  using: "composite"
+  steps:
+    - name: Generate UI
+      shell: python
+      run: ${{ github.action_path }}/scripts/genui.py
+
+    - name: Git
+      shell: bash
+      run: |
+        cd ${{ github.action_path }}
+        if [ -n "$(git status --porcelain)" ]; then
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Data"
+          git push
+        fi
+
+    - uses: actions/cache/save@v4
+      if: {{ !canceled() }}
+      with:
+        path: /var/cache/pacman/pkg
+        key: pkgcache-${{ github.sha }}
+
+    - name: Upload Pages Artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: "${{ github.action_path }}/public/"
+
+    - name: Deploy to GitHub Pages
+      uses: actions/deploy-pages@v4
