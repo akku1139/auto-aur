@@ -10,7 +10,6 @@ runs:
     - name: Git
       shell: bash
       run: |
-        cd ${{ github.action_path }}
         if [ -n "$(git status --porcelain)" ]; then
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
