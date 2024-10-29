@@ -37,3 +37,5 @@ jobs:
         run: bash -ex scripts/build.sh
 
       - uses: akku1139/auto-aur/.github/actions/post@main
+        with:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}

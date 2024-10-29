@@ -1,5 +1,10 @@
 name: Post
 
+inputs:
+  FIREBASE_SERVICE_ACCOUNT:
+    description: 'Service account JSON key'
+    required: true
+
 runs:
   using: "composite"
   steps:
@@ -25,3 +30,5 @@ runs:
         key: pkgcache-${{ github.sha }}
 
     - uses: akku1139/auto-aur/.github/actions/deploy@main
+      with:
+        FIREBASE_SERVICE_ACCOUNT: ${{ inputs.FIREBASE_SERVICE_ACCOUNT }}

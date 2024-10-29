@@ -1,5 +1,10 @@
 name: Deploy
 
+inputs:
+  FIREBASE_SERVICE_ACCOUNT:
+    description: 'Service account JSON key'
+    required: true
+
 runs:
   using: "composite"
   steps:
@@ -10,3 +15,9 @@ runs:
 
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4
+
+    - uses: FirebaseExtended/action-hosting-deploy@v0
+      with:
+        firebaseServiceAccount: "${{ inputs.FIREBASE_SERVICE_ACCOUNT }}"
+        projectId: auto-aur
+        channelId: live

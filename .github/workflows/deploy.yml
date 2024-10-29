@@ -21,4 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: akku1139/auto-aur/.github/actions/post@main
+
+      - uses: akku1139/auto-aur/.github/actions/deploy@main
+        with:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
