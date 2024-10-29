@@ -15,4 +15,4 @@ package() {
   install -m644 "$srcdir/mirrorlist" "$pkgdir/etc/pacman.d/auto-aur-mirrorlist"
 }
 
-sha256sums=("9186fa2db52d5c00945dd6651a83a18df224ea870c3f41dacabe9f007b44de71")
+sha256sums=("51c0203abb71012e0a655af1709bb3462c17107dbfb573c4ca05b8e375ee3b58")

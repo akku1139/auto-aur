@@ -1,2 +1,6 @@
 Server = https://auto-aur.pages.dev/repo/$repo/$arch
 Server = https://akku1139.github.io/auto-aur/repo/$repo/$arch
+Server = https://auto-aur.netlify.app/repo/$repo/$arch
+Server = https://auto-aur.vercel.app/repo/$repo/$arch
+Server = https://auto-aur.web.app/repo/$repo/$arch
+Server = https://auto-aur.firebaseapp.com/repo/$repo/$arch
