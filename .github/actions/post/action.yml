@@ -24,10 +24,4 @@ runs:
         path: /var/cache/pacman/pkg
         key: pkgcache-${{ github.sha }}
 
-    - name: Upload Pages Artifact
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: "public/"
-
-    - name: Deploy to GitHub Pages
-      uses: actions/deploy-pages@v4
+    - uses: akku1139/auto-aur/.github/actions/deploy@main

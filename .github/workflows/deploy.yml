@@ -11,28 +11,14 @@ concurrency:
   group: deploy
   cancel-in-progress: true
 
-defaults:
-  run:
-    shell: bash
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-  build:
+  main:
     runs-on: ubuntu-latest
     steps:
-      - name: Upload Pages Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: "./public/"
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    permissions:
-      pages: write
-      id-token: write
-    steps:
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+      - uses: actions/checkout@v4
+      - uses: akku1139/auto-aur/.github/actions/post@main

@@ -13,3 +13,6 @@ python <<< EOL
 import json
 
 EOL
+
+# https://vercel.com/docs/limits/overview#static-file-uploads
+# https://vercel.com/docs/projects/project-configuration#redirects
