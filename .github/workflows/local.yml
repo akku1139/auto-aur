@@ -7,7 +7,7 @@ on:
       - local/**
 
 concurrency:
-  group: local
+  group: repo
   cancel-in-progress: true
 
 permissions:
