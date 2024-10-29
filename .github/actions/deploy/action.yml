@@ -16,9 +16,6 @@ runs:
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4
 
-    - uses: actions/setup-node@v4
-      # FirebaseExtended/action-hosting-deploy uses `npx`
-
     - uses: FirebaseExtended/action-hosting-deploy@v0.9.0
       with:
         firebaseServiceAccount: "${{ inputs.FIREBASE_SERVICE_ACCOUNT }}"
