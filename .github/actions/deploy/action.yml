@@ -16,6 +16,9 @@ runs:
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4
 
+    - run: echo "/__e/node20/bin" >> $GITHUB_PATH
+      shell: bash
+
     - uses: FirebaseExtended/action-hosting-deploy@v0.9.0
       with:
         firebaseServiceAccount: "${{ inputs.FIREBASE_SERVICE_ACCOUNT }}"
