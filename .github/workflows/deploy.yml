@@ -19,6 +19,10 @@ permissions:
 jobs:
   main:
     runs-on: ubuntu-latest
+    container:
+     image: archlinux:base
+     options: --privileged
+
     steps:
       - uses: actions/checkout@v4
 
