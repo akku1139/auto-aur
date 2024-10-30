@@ -1,7 +1,7 @@
 # Maintainer: akku <akkun11.open (at) gmail.com>
 
 pkgname=auto-aur-mirrorlist
-pkgver=20240923
+pkgver=20241030
 pkgrel=1
 pkgdesc="Auto-AUR mirrorlist to use with Pacman"
 arch=('any')
