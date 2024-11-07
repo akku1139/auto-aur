@@ -1,1 +1,5 @@
-hikari
+openrc
+s6
+sysvinit
+runit-systemd
+eudev

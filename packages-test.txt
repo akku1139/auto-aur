@@ -1,3 +1,4 @@
 uim
 uim-mozc
 beignet-git (too big deps https://github.com/akku1139/auto-aur/actions/runs/11564458073)
+hikari (HTTP certificate error)
