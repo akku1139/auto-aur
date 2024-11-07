@@ -1,4 +1,7 @@
-uim
+uim (build error)
 uim-mozc
 beignet-git (too big deps https://github.com/akku1139/auto-aur/actions/runs/11564458073)
 hikari (HTTP certificate error)
+eudev (conflict with systemd)
+s6 (3 providers available for s6)
+sysvinit (2 providers available for sysvinit)
