@@ -1,0 +1,7 @@
+diff --git a/apps/desktop/tailwind.config.js b/apps/desktop/tailwind.config.js
+deleted file mode 100644
+index f9d8b0e..0000000
+--- a/apps/desktop/tailwind.config.js
++++ /dev/null
+@@ -1 +0,0 @@
+-module.exports = require('@sd/ui/tailwind')('desktop');

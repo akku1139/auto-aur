@@ -1,0 +1,23 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 1aad7b3..34595d6 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -12,15 +12,18 @@ conflicts=('spacedrive-git')
+ source=(
+        "${pkgname}-v${pkgver}.tar.gz::https://github.com/spacedriveapp/spacedrive/archive/refs/tags/${pkgver}.tar.gz"
+        "spacedrive.desktop"
++       "010-cjs.patch"
+ )
+ depends=('ffmpeg' 'libheif' 'gtk3' 'webkit2gtk-4.1' 'pango' 'gdk-pixbuf2' 'cairo' 'libsoup' 'glib2' 'xdotool')
+ makedepends=('cargo' 'pnpm>=9' 'clang' 'git' 'lld')
+ sha256sums=(
+        '4ec67b5741a4cd024ba01f307fcea46800dd3bab6175c6c2f8467940c572a7f2'
+        '0d9149faa1b17c8fea16e2ea344ca394c7fe93b33e746bb0168af81302ed164e'
++       '10054fbc9d4da465380ba8e14480909a6d47ef0694143713ffd01753ebe01be0'
+ )
+
+ prepare() {
++       patch --directory="$pkgname-$pkgver" -p1 < "${srcdir}/010-cjs.patch"
+        cd "${pkgname}-${pkgver}"
+
+        pnpm install
