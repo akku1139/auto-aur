@@ -1,8 +1,8 @@
 diff --git a/PKGBUILD b/PKGBUILD
-index 1aad7b3..34595d6 100644
+index 1aad7b3..a9a377a 100644
 --- a/PKGBUILD
 +++ b/PKGBUILD
-@@ -12,15 +12,18 @@ conflicts=('spacedrive-git')
+@@ -12,17 +12,21 @@ conflicts=('spacedrive-git')
  source=(
         "${pkgname}-v${pkgver}.tar.gz::https://github.com/spacedriveapp/spacedrive/archive/refs/tags/${pkgver}.tar.gz"
         "spacedrive.desktop"
@@ -17,7 +17,9 @@ index 1aad7b3..34595d6 100644
  )
 
  prepare() {
-+       patch --directory="$pkgname-$pkgver" -p1 < "${srcdir}/010-cjs.patch"
         cd "${pkgname}-${pkgver}"
 
++       patch -p1 < "${srcdir}/010-cjs.patch"
++
         pnpm install
+ }
