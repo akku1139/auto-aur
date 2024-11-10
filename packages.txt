@@ -1,1 +1,1 @@
-spacedrive
+spacedrive-git
