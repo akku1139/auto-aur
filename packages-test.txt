@@ -6,3 +6,4 @@ eudev (conflict with systemd)
 s6 (3 providers available for s6)
 sysvinit (2 providers available for sysvinit)
 runit-systemd (build error)
+spacedrive-git
