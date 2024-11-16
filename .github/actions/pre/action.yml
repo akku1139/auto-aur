@@ -11,6 +11,8 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - run: useradd -m builder
+
     - uses: actions/cache/restore@v4
       with:
         path: |
