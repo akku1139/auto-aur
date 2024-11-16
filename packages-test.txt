@@ -12,3 +12,6 @@ conduit
 dendrite
 dendrite-git
 conduwuit-git
+
+whalebird
+mastodon
