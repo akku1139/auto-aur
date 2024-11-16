@@ -39,7 +39,7 @@ EOL
 
 pac -Syu base-devel sudo paru python-gitpython
 
-useradd -m builder
+# useradd -m builder
 
 # Enable scripts run permission
 chmod +x scripts/*
