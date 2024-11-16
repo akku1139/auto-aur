@@ -14,7 +14,7 @@ runs:
     - uses: actions/cache/restore@v4
       with:
         path: |
-          .
+          /__w/auto-aur/auto-aur
           /var/cache/pacman/pkg
           /home/builder/.cache
         key: cache-${{ github.sha }}
