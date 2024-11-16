@@ -13,9 +13,12 @@ runs:
   steps:
     - uses: actions/cache/restore@v4
       with:
-        path: /var/cache/pacman/pkg
-        key: pkgcache-${{ github.sha }}
-        restore-keys: pkgcache-
+        path: |
+          .
+          /var/cache/pacman/pkg
+          /home/builder/.cache
+        key: cache-${{ github.sha }}
+        restore-keys: cache-
 
     - shell: bash
       run: |

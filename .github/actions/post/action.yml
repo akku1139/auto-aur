@@ -22,12 +22,17 @@ runs:
           git commit -m "Data"
           git push
         fi
+        git clean -ffdx
+        git reset --hard HEAD
 
     - uses: actions/cache/save@v4
       if: ${{ !cancelled() }}
       with:
-        path: /var/cache/pacman/pkg
-        key: pkgcache-${{ github.sha }}
+        path: |
+          .
+          /var/cache/pacman/pkg
+          /home/builder/.cache
+        key: cache-${{ github.sha }}
 
     - uses: akku1139/auto-aur/.github/actions/deploy@main
       with:
