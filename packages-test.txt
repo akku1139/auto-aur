@@ -9,9 +9,5 @@ runit-systemd (build error)
 spacedrive-git
 
 conduit
-dendrite
 dendrite-git
 conduwuit-git
-
-whalebird
-mastodon
