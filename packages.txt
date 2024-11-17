@@ -1,0 +1,3 @@
+tea-qt
+awesome-bawesome
+haiku-icon-theme
