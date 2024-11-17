@@ -1,3 +1,2 @@
 p2pool-git
 monero-vanity-git
-haveno
