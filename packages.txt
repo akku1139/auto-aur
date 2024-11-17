@@ -1,1 +1,1 @@
-firefox-kde-opensuse
+conduwuit-git
