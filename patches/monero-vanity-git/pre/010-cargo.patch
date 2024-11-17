@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 3f49174..da8a0c1 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -8,7 +8,7 @@ pkgdesc='Monero Vanity Address Generator GUI/CLI'
+ url='https://github.com/hinto-janai/monero-vanity'
+ arch=('x86_64')
+ license=('custom')
+-makedepends=('git')
++makedepends=('git' 'cargo')
+ conflicts=('monero-vanity-bin' 'monero-vanity')
+ provides=('monero-vanity')
+ source=("git+$url.git"
