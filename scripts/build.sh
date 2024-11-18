@@ -5,7 +5,7 @@ basepath=$( pwd )
 # error: no operation specified (use -h for help)
 # https://distro.tube/man-org/man8/paru.8.html
 # paru is paru -Syu
-sudo -u builder paru
+paru
 
 if [ -e packages.txt ]; then
   # xargs -a packages.txt sudo -u builder paru --noconfirm --nocheck --nocleanafter -S
@@ -31,11 +31,11 @@ if [ -e packages.txt ]; then
           workdir=$( cd $( mktemp --directory --tmpdir=work ) && pwd )
           cd "$workdir"
           git clone --depth=1 "$repo" .
-          sudo -u builder paru -U
+          paru -U
         fi
         ;;
       *)
-        sudo -u builder paru --noconfirm --nocheck --nocleanafter -S "$pkg"
+        paru --noconfirm --nocheck --nocleanafter -S "$pkg"
         ;;
     esac
     cd "$basepath"
