@@ -7,7 +7,7 @@ index 3f49174..da8a0c1 100644
  arch=('x86_64')
  license=('custom')
 -makedepends=('git')
-+makedepends=('git' 'rust')
++makedepends=('git' 'cargo')
  conflicts=('monero-vanity-bin' 'monero-vanity')
  provides=('monero-vanity')
  source=("git+$url.git"
