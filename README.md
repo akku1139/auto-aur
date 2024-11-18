@@ -8,6 +8,8 @@
 
 - Target Architecture
 - PKGBUILD outside AUR
+- Package search
+- Arch Linux 32 & Arch Linux ARM support
 
 ## Mirrors
 
