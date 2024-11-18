@@ -4,6 +4,11 @@
 
 `packages.txt`
 
+## TODOs
+
+- Target Architecture
+- PKGBUILD outside AUR
+
 ## Mirrors
 
 - https://auto-aur.pages.dev/
