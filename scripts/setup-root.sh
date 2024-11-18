@@ -55,7 +55,7 @@ chown -R builder:builder public local
 cat >> /etc/paru.conf << EOL
 [options]
 LocalRepo = auto-aur
-CloneDir = /tmp/buildpkg
+#CloneDir = /tmp/buildpkg
 Devel
 Sign
 SignDb

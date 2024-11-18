@@ -9,10 +9,8 @@ runit-systemd (build error)
 spacedrive-git
 
 conduit (build error https://github.com/akku1139/auto-aur/actions/runs/11870016901/job/33080969124)
-conduwuit-git
 
 firefox-kde-opensuse
 haveno
 
 p2pool-git (configure error)
-monero-vanity-git
