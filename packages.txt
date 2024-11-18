@@ -1,2 +1,1 @@
-monero-vanity-git
 emacs-mozc
