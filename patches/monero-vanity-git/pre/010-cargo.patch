@@ -1,3 +1,6 @@
+Note:
+paru applies patches after installing dependencies, so it cannot be built with this alone.
+
 diff --git a/PKGBUILD b/PKGBUILD
 index 3f49174..da8a0c1 100644
 --- a/PKGBUILD

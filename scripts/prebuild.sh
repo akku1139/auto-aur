@@ -5,7 +5,7 @@ set -ex
 PKGNAME=`basename $PWD`
 PATCHDIR=`dirname $0`/../patches/$PKGNAME
 
-if [ ! -e $PATCHDIR ]; then
+if [ ! -d $PATCHDIR ]; then
   exit
 fi
 
