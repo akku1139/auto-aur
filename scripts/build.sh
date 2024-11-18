@@ -10,7 +10,10 @@ sudo -u builder paru
 if [ -e packages.txt ]; then
   # xargs -a packages.txt sudo -u builder paru --noconfirm --nocheck --nocleanafter -S
   for pkg in $(cat packages.txt); do
-    if [ "$pkg" ]
+    if [ "$pkg" = "" ]; then
+      continue
+    fi
+
     case `echo "$pkg" | cut -c -4` in
       git:)
         repo=$( echo "$pkg" | cut -c 5- )
