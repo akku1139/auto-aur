@@ -1,1 +1,2 @@
+cargo
 monero-vanity-git
