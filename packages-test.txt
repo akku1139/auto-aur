@@ -13,3 +13,5 @@ conduwuit-git
 
 firefox-kde-opensuse
 haveno
+
+p2pool-git (configure error)
