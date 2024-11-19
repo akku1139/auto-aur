@@ -13,11 +13,12 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
     continue
   fi
 
+  new="n"
+
   case $( echo "$pkg" | cut -d ":" -f1 ) in
     git)
       repo=$( echo "$pkg" | cut -c 5- )
       confdir="non-aur/git-$( echo "$repo" | base64 )"
-      new="n"
 
       lc=$( git ls-remote -qh "$repo" | cut -f1 )
 
