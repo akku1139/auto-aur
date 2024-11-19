@@ -22,3 +22,14 @@
 
 https://www.hexabase.com/column/static-websites-for-frontend
 https://www.staticwebsitehosting.org/
+
+## Memo
+
+```
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          73G   56G   18G  77% /
+tmpfs            64M     0   64M   0% /dev
+shm              64M     0   64M   0% /dev/shm
+/dev/root        73G   56G   18G  77% /__w
+tmpfs           3.2G  1.2M  3.2G   1% /run/docker.sock
+```
