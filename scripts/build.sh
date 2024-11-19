@@ -7,38 +7,37 @@ basepath=$( pwd )
 # paru is paru -Syu
 paru
 
-if [ -e packages.txt ]; then
-  # xargs -a packages.txt sudo -u builder paru --noconfirm --nocheck --nocleanafter -S
-  for pkg in $(cat packages.txt); do
-    if [ "$pkg" = "" ]; then
-      continue
-    fi
+# xargs -a packages.txt sudo -u builder paru --noconfirm --nocheck --nocleanafter -S
+for pkg in $( cat packages.txt non-aur/non-aur.txt); do
+  if [ "$pkg" = "" ]; then
+    continue
+  fi
 
-    case `echo "$pkg" | cut -c -4` in
-      git:)
-        repo=$( echo "$pkg" | cut -c 5- )
-        confdir="non-aur/git-$( echo "$repo" | base64 )"
+  case `echo "$pkg" | cut -c -4` in
+    git:)
+      repo=$( echo "$pkg" | cut -c 5- )
+      confdir="non-aur/git-$( echo "$repo" | base64 )"
 
-        lc=$( git ls-remote -qh "$repo" | cut -f1 )
+      lc=$( git ls-remote -qh "$repo" | cut -f1 )
 
-        if [ ! -d "$confdir" ]; then
-          mkdir "$confdir"
-          echo "$lc" > "$confdir/latest-commit"
-        fi
+      if [ ! -d "$confdir" ]; then
+        mkdir "$confdir"
+        echo "$lc" > "$confdir/latest-commit"
+      fi
 
-        if [ "$lc" != $( echo "$confdir/latest-commit" ) ]; then
-          echo $lc > $confdir/latest-commit
-          workdir=$( cd $( mktemp --directory --tmpdir=work ) && pwd )
-          cd "$workdir"
-          git clone --depth=1 "$repo" .
-          paru -U
-        fi
-        ;;
-      *)
-        paru --noconfirm --nocheck --nocleanafter -S "$pkg"
-        ;;
-    esac
-    cd "$basepath"
-  done
-  rm packages.txt
-fi
+      if [ "$lc" != $( echo "$confdir/latest-commit" ) ]; then
+        echo $lc > $confdir/latest-commit
+        workdir=$( cd $( mktemp --directory --tmpdir=work ) && pwd )
+        cd "$workdir"
+        git clone --depth=1 "$repo" .
+        paru -U
+      fi
+      ;;
+    *)
+      paru --noconfirm --nocheck --nocleanafter -S "$pkg"
+      ;;
+  esac
+  cd "$basepath"
+done
+
+echo > packages.txt
