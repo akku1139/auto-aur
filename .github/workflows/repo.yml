@@ -36,6 +36,9 @@ jobs:
       - name: Build AUR
         run: sudo -u builder bash -ex scripts/build.sh
 
+      - uses: mxschmitt/action-tmate@v3
+        if: ${{ failure() }}
+
       - uses: akku1139/auto-aur/.github/actions/post@main
         with:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}

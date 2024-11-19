@@ -12,8 +12,8 @@ jobs:
   main:
     runs-on: ubuntu-latest
     container:
-     image: archlinux:base
-     options: --privileged
+      image: archlinux:base
+      options: --privileged
 
     steps:
       - uses: mxschmitt/action-tmate@v3

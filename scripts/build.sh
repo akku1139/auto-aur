@@ -13,20 +13,22 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
     continue
   fi
 
-  case `echo "$pkg" | cut -c -4` in
-    git:)
+  case $( echo "$pkg" | cut -d ":" -f1 ) in
+    git)
       repo=$( echo "$pkg" | cut -c 5- )
       confdir="non-aur/git-$( echo "$repo" | base64 )"
+      new="n"
 
       lc=$( git ls-remote -qh "$repo" | cut -f1 )
 
       if [ ! -d "$confdir" ]; then
         mkdir "$confdir"
         echo "$lc" > "$confdir/latest-commit"
+        new="y"
       fi
 
       if [ "$lc" != $( echo "$confdir/latest-commit" ) ]; then
-        echo $lc > $confdir/latest-commit
+        echo "$lc" > $confdir/latest-commit
         workdir=$( cd $( mktemp --directory --tmpdir=work ) && pwd )
         cd "$workdir"
         git clone --depth=1 "$repo" .
@@ -37,7 +39,12 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
       paru --noconfirm --nocheck --nocleanafter -S "$pkg"
       ;;
   esac
+
   cd "$basepath"
+
+  if [ "$new" = "y" ]; then
+    echo "$pkg" >> non-aur/non-aur.txt
+  fi
 done
 
 echo > packages.txt
