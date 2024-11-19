@@ -12,7 +12,9 @@ runs:
   using: "composite"
   steps:
     - shell: bash
-      run: useradd -m builder
+      run: |
+        useradd -m builder
+        rm -r /__t/*
 
     - uses: actions/cache/restore@v4
       with:

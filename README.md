@@ -29,10 +29,182 @@ https://www.staticwebsitehosting.org/
 ## Memo
 
 ```
+# df -h
 Filesystem      Size  Used Avail Use% Mounted on
 overlay          73G   56G   18G  77% /
 tmpfs            64M     0   64M   0% /dev
 shm              64M     0   64M   0% /dev/shm
 /dev/root        73G   56G   18G  77% /__w
 tmpfs           3.2G  1.2M  3.2G   1% /run/docker.sock
+```
+
+```
+[root@486a185e14c1 /]# mount
+overlay on / type overlay (rw,relatime,lowerdir=/var/lib/docker/overlay2/l/X6IYKSD5J7PM2AP2R2XGPLKT5W:/var/lib/docker/overlay2/l/72CQZSMVD6GZ7WVEFRGHX2C5WD:/var/lib/docker/overlay2/l/7Q5HZRIAVX6PFSWLXSA5VCOX4C,upperdir=/var/lib/docker/overlay2/282dfa93d6c1996e4bcfcea8d41c018ce7e2c1af96afa5d02b22fcc2cff9df7e/diff,workdir=/var/lib/docker/overlay2/282dfa93d6c1996e4bcfcea8d41c018ce7e2c1af96afa5d02b22fcc2cff9df7e/work,nouserxattr)
+proc on /proc type proc (rw,nosuid,nodev,noexec,relatime)
+tmpfs on /dev type tmpfs (rw,nosuid,size=65536k,mode=755,inode64)
+devpts on /dev/pts type devpts (rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=666)
+sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime)
+cgroup on /sys/fs/cgroup type cgroup2 (rw,nosuid,nodev,noexec,relatime,nsdelegate,memory_recursiveprot)
+mqueue on /dev/mqueue type mqueue (rw,nosuid,nodev,noexec,relatime)
+shm on /dev/shm type tmpfs (rw,nosuid,nodev,noexec,relatime,size=65536k,inode64)
+/dev/sdb1 on /__t type ext4 (rw,relatime,discard,errors=remount-ro)
+/dev/sdb1 on /__w type ext4 (rw,relatime,discard,errors=remount-ro)
+/dev/sdb1 on /__e type ext4 (ro,relatime,discard,errors=remount-ro)
+/dev/sdb1 on /__w/_actions type ext4 (rw,relatime,discard,errors=remount-ro)
+/dev/sdb1 on /github/home type ext4 (rw,relatime,discard,errors=remount-ro)
+/dev/sdb1 on /github/workflow type ext4 (rw,relatime,discard,errors=remount-ro)
+/dev/sdb1 on /__w/_temp type ext4 (rw,relatime,discard,errors=remount-ro)
+/dev/sdb1 on /etc/resolv.conf type ext4 (rw,relatime,discard,errors=remount-ro)
+/dev/sdb1 on /etc/hostname type ext4 (rw,relatime,discard,errors=remount-ro)
+/dev/sdb1 on /etc/hosts type ext4 (rw,relatime,discard,errors=remount-ro)
+tmpfs on /run/docker.sock type tmpfs (rw,nosuid,nodev,size=3272920k,nr_inodes=819200,mode=755,inode64)
+```
+
+```
+[root@486a185e14c1 /]# du -h --total -d1 /                                                                                                                                                                  [119/132]
+3.1M    /tmp
+14M     /var
+4.0K    /home
+4.0K    /boot
+7.4M    /etc
+8.0K    /root
+84K     /run
+12K     /srv
+4.0K    /mnt
+4.0K    /opt
+458M    /usr
+458M    /__e
+8.8G    /__t
+1.7M    /__w
+36K     /github
+0       /dev
+0       /sys
+du: cannot read directory '/proc/35/task/35/net': Invalid argument
+du: cannot read directory '/proc/35/net': Invalid argument
+du: cannot read directory '/proc/37/task/37/net': Invalid argument
+du: cannot read directory '/proc/37/net': Invalid argument
+du: cannot read directory '/proc/39/task/39/net': Invalid argument
+du: cannot read directory '/proc/39/net': Invalid argument
+du: cannot read directory '/proc/41/task/41/net': Invalid argument
+du: cannot read directory '/proc/41/net': Invalid argument
+du: cannot read directory '/proc/43/task/43/net': Invalid argument
+du: cannot read directory '/proc/43/net': Invalid argument
+du: cannot read directory '/proc/45/task/45/net': Invalid argument
+du: cannot read directory '/proc/45/net': Invalid argument
+du: cannot read directory '/proc/47/task/47/net': Invalid argument
+du: cannot read directory '/proc/47/net': Invalid argument
+du: cannot read directory '/proc/49/task/49/net': Invalid argument
+du: cannot read directory '/proc/49/net': Invalid argument
+du: cannot read directory '/proc/51/task/51/net': Invalid argument
+du: cannot read directory '/proc/51/net': Invalid argument
+du: cannot read directory '/proc/53/task/53/net': Invalid argument
+du: cannot read directory '/proc/53/net': Invalid argument
+du: cannot read directory '/proc/55/task/55/net': Invalid argument
+du: cannot read directory '/proc/55/net': Invalid argument
+du: cannot read directory '/proc/57/task/57/net': Invalid argument
+du: cannot read directory '/proc/57/net': Invalid argument
+du: cannot read directory '/proc/59/task/59/net': Invalid argument
+du: cannot read directory '/proc/59/net': Invalid argument
+du: cannot read directory '/proc/61/task/61/net': Invalid argument
+du: cannot read directory '/proc/61/net': Invalid argument
+du: cannot read directory '/proc/81/task/81/net': Invalid argument
+du: cannot read directory '/proc/81/net': Invalid argument
+du: cannot access '/proc/93/task/93/fd/4': No such file or directory
+du: cannot access '/proc/93/task/93/fdinfo/4': No such file or directory
+du: cannot access '/proc/93/fd/3': No such file or directory
+du: cannot access '/proc/93/fdinfo/3': No such file or directory
+0       /proc
+9.7G    /
+9.7G    total
+```
+
+```
+[root@486a185e14c1 /]# du -h --total -d1 /__e
+98M     /__e/node20_alpine
+104M    /__e/node16
+90M     /__e/node16_alpine
+168M    /__e/node20
+458M    /__e
+458M    total
+[root@486a185e14c1 /]# du -h --total -d1 /__t
+128M    /__t/Ruby
+5.2G    /__t/CodeQL
+765M    /__t/go
+621M    /__t/node
+1.6G    /__t/Python
+664M    /__t/PyPy
+20K     /__t/Java_Temurin-Hotspot_jdk
+8.8G    /__t
+8.8G    total
+[root@486a185e14c1 /]# du -h --total -d1 /__w
+1.6M    /__w/_actions
+16K     /__w/_PipelineMapping
+8.0K    /__w/auto-aur
+44K     /__w/_temp
+1.7M    /__w
+1.7M    total
+[root@486a185e14c1 /]# rm -r /__t
+rm: cannot remove '/__t': Device or resource busy
+[root@486a185e14c1 /]# du -h --total -d1 /__t
+4.0K    /__t
+4.0K    total
+```
+
+```
+[root@486a185e14c1 /]# du -h --total -d1 /                                                                                                                                                                   [12/132]
+3.1M    /tmp
+14M     /var
+4.0K    /home
+4.0K    /boot
+7.4M    /etc
+8.0K    /root
+84K     /run
+12K     /srv
+4.0K    /mnt
+4.0K    /opt
+458M    /usr
+458M    /__e
+4.0K    /__t
+1.7M    /__w
+36K     /github
+0       /dev
+0       /sys
+du: cannot read directory '/proc/35/task/35/net': Invalid argument
+du: cannot read directory '/proc/35/net': Invalid argument
+du: cannot read directory '/proc/37/task/37/net': Invalid argument
+du: cannot read directory '/proc/37/net': Invalid argument
+du: cannot read directory '/proc/39/task/39/net': Invalid argument
+du: cannot read directory '/proc/39/net': Invalid argument
+du: cannot read directory '/proc/41/task/41/net': Invalid argument
+du: cannot read directory '/proc/41/net': Invalid argument
+du: cannot read directory '/proc/43/task/43/net': Invalid argument
+du: cannot read directory '/proc/43/net': Invalid argument
+du: cannot read directory '/proc/45/task/45/net': Invalid argument
+du: cannot read directory '/proc/45/net': Invalid argument
+du: cannot read directory '/proc/47/task/47/net': Invalid argument
+du: cannot read directory '/proc/47/net': Invalid argument
+du: cannot read directory '/proc/49/task/49/net': Invalid argument
+du: cannot read directory '/proc/49/net': Invalid argument
+du: cannot read directory '/proc/51/task/51/net': Invalid argument
+du: cannot read directory '/proc/51/net': Invalid argument
+du: cannot read directory '/proc/53/task/53/net': Invalid argument
+du: cannot read directory '/proc/53/net': Invalid argument
+du: cannot read directory '/proc/55/task/55/net': Invalid argument
+du: cannot read directory '/proc/55/net': Invalid argument
+du: cannot read directory '/proc/57/task/57/net': Invalid argument
+du: cannot read directory '/proc/57/net': Invalid argument
+du: cannot read directory '/proc/59/task/59/net': Invalid argument
+du: cannot read directory '/proc/59/net': Invalid argument
+du: cannot read directory '/proc/61/task/61/net': Invalid argument
+du: cannot read directory '/proc/61/net': Invalid argument
+du: cannot read directory '/proc/81/task/81/net': Invalid argument
+du: cannot read directory '/proc/81/net': Invalid argument
+du: cannot access '/proc/100/task/100/fd/4': No such file or directory
+du: cannot access '/proc/100/task/100/fdinfo/4': No such file or directory
+du: cannot access '/proc/100/fd/3': No such file or directory
+du: cannot access '/proc/100/fdinfo/3': No such file or directory
+0       /proc
+942M    /
+942M    total
 ```
