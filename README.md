@@ -10,6 +10,7 @@
 - PKGBUILD outside AUR
 - Package search
 - Arch Linux 32 & Arch Linux ARM support
+- sudo config
 
 ## Mirrors
 
