@@ -28,10 +28,42 @@ jobs:
       options: --privileged
 
     steps:
-      - uses: akku1139/auto-aur/.github/actions/pre@main
+      - shell: bash
+        run: |
+          useradd -m builder
+          rm -r /__t/*
+          # mount /dev/root /mnt
+          # cd /mnt
+          # rm -r bin lib* boot media srv sbin snap usr mnt root sys tmp
+
+      - uses: actions/cache/restore@v4
         with:
+          path: |
+            /__w/auto-aur/auto-aur
+            /var/cache/pacman/pkg
+            /home/builder/.cache
+          key: cache-${{ github.sha }}
+          restore-keys: cache-
+
+      - shell: bash
+        run: |
+          pacman --noconfirm -Syu
+          pacman --noconfirm -S git
+          git config --global --add safe.directory $PWD
+
+      - uses: actions/checkout@v4
+
+      - name: Setup (root)
+        run: scripts/setup-root.sh
+        shell: bash
+
+      - name: Setup (builder)
+        run: sudo -E -u builder bash ./scripts/setup-builder.sh
+        shell: bash
+        env:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+
 
       - name: Build AUR
         run: sudo -u builder bash -ex scripts/build.sh
@@ -39,6 +71,45 @@ jobs:
       # - uses: mxschmitt/action-tmate@v3
       #   if: ${{ failure() }}
 
-      - uses: akku1139/auto-aur/.github/actions/post@main
+      - name: Generate UI
+        shell: bash
+        run: python scripts/genui.py
+
+      - name: Git
+        shell: bash
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "Data"
+            git push
+          fi
+          git clean -ffdx
+          git reset --hard HEAD
+
+      - uses: actions/cache/save@v4
+        if: ${{ !cancelled() }}
         with:
-          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          path: |
+            /__w/auto-aur/auto-aur
+            /var/cache/pacman/pkg
+            /home/builder/.cache
+          key: cache-${{ github.sha }}
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "public/"
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+
+      - run: echo "/__e/node20/bin" >> $GITHUB_PATH
+        shell: bash
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0.9.0
+        with:
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
+          projectId: auto-aur
+          channelId: live
