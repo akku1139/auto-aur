@@ -14,3 +14,5 @@ firefox-kde-opensuse
 haveno
 
 p2pool-git (configure error)
+
+git:https://github.com/Zheaoli/linux-xanmod-manjusaka (too big)
