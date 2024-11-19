@@ -15,9 +15,9 @@ runs:
       run: |
         useradd -m builder
         rm -r /__t/*
-        mount /dev/root /mnt
-        cd /mnt
-        rm -r bin lib* boot media srv sbin snap usr mnt root sys tmp
+        # mount /dev/root /mnt
+        # cd /mnt
+        # rm -r bin lib* boot media srv sbin snap usr mnt root sys tmp
 
     - uses: actions/cache/restore@v4
       with:
