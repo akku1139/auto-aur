@@ -1,0 +1,19 @@
+name: SSH
+
+on:
+  workflow_dispatch:
+
+# permissions:
+#   contents: write
+#   pages: write
+#   id-token: write
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    container:
+     image: archlinux:base
+     options: --privileged
+
+    steps:
+      - uses: mxschmitt/action-tmate@v3
