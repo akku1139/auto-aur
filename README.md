@@ -11,6 +11,8 @@
 - Package search
 - Arch Linux 32 & Arch Linux ARM support
 - sudo config
+- use chroot instead of docker
+- https://zenn.dev/pinto0309/scraps/c6413eb15a1b2a
 
 ## Mirrors
 
