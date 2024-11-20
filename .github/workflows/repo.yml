@@ -28,7 +28,7 @@ jobs:
       options: --privileged
 
     steps:
-      - shell: bash
+      - name: Pre Setup
         run: |
           useradd -m builder
           # rm -r /home/builder
@@ -54,8 +54,7 @@ jobs:
           key: cache-${{ github.sha }}
           restore-keys: cache-
 
-      - shell: bash
-        run: |
+      - run: |
           pacman --noconfirm -Syu
           pacman --noconfirm -S git
           git config --global --add safe.directory $PWD
@@ -64,11 +63,9 @@ jobs:
 
       - name: Setup (root)
         run: scripts/setup-root.sh
-        shell: bash
 
       - name: Setup (builder)
         run: sudo -E -u builder bash ./scripts/setup-builder.sh
-        shell: bash
         env:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
@@ -80,11 +77,9 @@ jobs:
       #   if: ${{ failure() }}
 
       - name: Generate UI
-        shell: bash
         run: python scripts/genui.py
 
       - name: Git
-        shell: bash
         run: |
           if [ -n "$(git status --porcelain)" ]; then
             git pull
@@ -115,7 +110,6 @@ jobs:
         uses: actions/deploy-pages@v4
 
       - run: echo "/__e/node20/bin" >> $GITHUB_PATH
-        shell: bash
 
       - uses: FirebaseExtended/action-hosting-deploy@v0.9.0
         with:
