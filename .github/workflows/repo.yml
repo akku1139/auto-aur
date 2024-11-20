@@ -55,9 +55,11 @@ jobs:
           chroot /mnt /tidyup.sh
 
           # move swap 2
-          #fallocate -l 4G /mnt/swapfile
-          #mkswap --file /mnt/swapfile
-          #swapon /mnt/swapfile
+          fallocate -l 24G /swapfile
+          chmod 0600 /swapfile
+          mkswap /swapfile
+          losetup -f /swapfile
+          swapon $( losetup -a| grep -F "/swapfile" | cut -d: -f1 )
 
           df -h
 
