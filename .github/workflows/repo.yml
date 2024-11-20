@@ -34,6 +34,8 @@ jobs:
           rm -r /__t/*
           mount /dev/root /mnt
           chroot /mnt bash
+          df -h
+          echo "**** tidy up ****"
           # https://github.com/NobuoTsukamoto/my_actions_test/blob/main/.github/workflows/test_contains.yml
           rm -rf /home/work/* /var/* /opt/* /usr/local /usr || true
           rm -rf "/usr/share/dotnet" || true
@@ -54,6 +56,7 @@ jobs:
           rm -rf "/home/perflog" || true
           rm -rf "/usr/libexec/docker/cli-plugins" || true
           rm -rf "/usr/bin/docker-credential-ecr-login" || true
+          df -h
 
       - uses: actions/cache/restore@v4
         with:
