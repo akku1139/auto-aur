@@ -36,6 +36,7 @@ jobs:
           # mount host disk
           mkdir /ext
           mount /dev/sda1 /ext
+          sleep 5
 
           # move swap 1
           swapoff /ext/swapfile
