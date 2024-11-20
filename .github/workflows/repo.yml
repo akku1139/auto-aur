@@ -30,19 +30,35 @@ jobs:
     steps:
       - name: Pre Setup
         run: |
+          # add builder user
           useradd -m builder
-          # rm -r /home/builder
+
+          # mount host disk
           mkdir /ext
           mount /dev/sda1 /ext
+
+          # move swap 1
+          swapoff /ext/swapfile
+          rm /ext/swapfile
+
+          # builder setup
           mkdir /ext/builder
-          # ln -s /ext/builder /home
           chown builder:builder /ext/builder
+
+          # tidy up
           df -h
+          # language support?
           rm -r /__t/*
           mount /dev/root /mnt
           curl -L https://github.com/akku1139/auto-aur/raw/refs/heads/main/scripts/tidyup.sh > /mnt/tidyup.sh
           chmod 777 /mnt/tidyup.sh
           chroot /mnt /tidyup.sh
+
+          # move swap 2
+          #fallocate -l 4G /mnt/swapfile
+          #mkswap --file /mnt/swapfile
+          #swapon /mnt/swapfile
+
           df -h
 
       - uses: actions/cache/restore@v4
