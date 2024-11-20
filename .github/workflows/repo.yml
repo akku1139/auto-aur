@@ -37,7 +37,7 @@ jobs:
           df -h
           echo "**** tidy up ****"
           # https://github.com/NobuoTsukamoto/my_actions_test/blob/main/.github/workflows/test_contains.yml
-          rm -rf /home/work/* /var/* /opt/* /usr/local /usr || true
+          rm -rf /home/work/* /var/* /opt/* /usr/local || true
           rm -rf "/usr/share/dotnet" || true
           rm -rf "$AGENT_TOOLSDIRECTORY" || true
           rm -rf "/usr/lib/jvm" || true
@@ -85,7 +85,6 @@ jobs:
         env:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
-
 
       - name: Build AUR
         run: sudo -u builder bash -ex scripts/build.sh
