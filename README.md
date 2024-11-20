@@ -13,6 +13,8 @@
 - sudo config
 - use chroot instead of docker
 - https://zenn.dev/pinto0309/scraps/c6413eb15a1b2a
+- move swapfile to /dev/root (now on /dev/sda1)
+- mount test /dev/sdb1
 
 ## Mirrors
 
