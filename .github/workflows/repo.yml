@@ -40,7 +40,7 @@ jobs:
           df -h
           rm -r /__t/*
           mount /dev/root /mnt
-          cp scripts/tidyup.sh /mnt
+          curl -L https://github.com/akku1139/auto-aur/raw/refs/heads/main/scripts/tidyup.sh > /mnt/tidyup.sh
           chmod 777 /mnt/tidyup.sh
           chroot /mnt /tidyup.sh
           df -h
