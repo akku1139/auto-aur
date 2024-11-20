@@ -56,7 +56,7 @@ chown -R builder:builder public local work non-aur packages.txt
 cat >> /etc/paru.conf << EOL
 [options]
 LocalRepo = auto-aur
-#CloneDir = /tmp/buildpkg
+CloneDir = /ext/builder
 Devel
 Sign
 SignDb
