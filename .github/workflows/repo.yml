@@ -33,7 +33,7 @@ jobs:
           useradd -m builder
           rm -r /__t/*
           mount /dev/root /mnt
-          arch-chroot /mnt bash
+          chroot /mnt bash
           # https://github.com/NobuoTsukamoto/my_actions_test/blob/main/.github/workflows/test_contains.yml
           sudo rm -rf "/home/work/*" || true
           sudo rm -rf "/opt/*" || true
