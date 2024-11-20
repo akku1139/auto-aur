@@ -113,9 +113,6 @@ jobs:
           rm -rf "/usr/libexec/docker/cli-plugins" || true
           rm -rf "/usr/bin/docker-credential-ecr-login" || true
           rm -rf "/usr/local/lib/lein" || true
-          npm uninstall bazel || true
-          npm uninstall bazelisk || true
-          rustup self uninstall -y
           apt purge \
             ansible \
             aria2 \
