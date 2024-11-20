@@ -98,7 +98,7 @@ apt purge \
 dpkg -r packages-microsoft-prod　> /dev/null 2>&1 || true
 apt-get autoremove -y > /dev/null 2>&1 || true
 apt-get autoclean -y > /dev/null 2>&1 || true
-apt list --installed
+#apt list --installed
 rm -rf "/home/work/*" || true
 rm -rf "/opt/*" || true
 rm -rf "/usr/share/dotnet" || true
