@@ -38,11 +38,7 @@ jobs:
           # mount host disk
           mkdir /ext
           mount /dev/sda1 /ext
-          sleep 5
-
-          # move swap 1
-          swapoff /ext/swapfile
-          rm /ext/swapfile
+          ls /ext
 
           # builder setup
           mkdir /ext/builder
@@ -56,8 +52,10 @@ jobs:
           curl -L https://github.com/akku1139/auto-aur/raw/refs/heads/main/scripts/tidyup.sh > /mnt/tidyup.sh
           chmod 777 /mnt/tidyup.sh
           chroot /mnt /tidyup.sh
-
-          # move swap 2
+          
+          # move swap
+          swapoff /ext/swapfile
+          rm /ext/swapfile
           fallocate -l 24G /swapfile
           chmod 0600 /swapfile
           mkswap /swapfile
