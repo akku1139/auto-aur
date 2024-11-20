@@ -30,6 +30,8 @@ jobs:
     steps:
       - name: Pre Setup
         run: |
+          set -x
+
           # add builder user
           useradd -m builder
 
