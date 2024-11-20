@@ -38,7 +38,7 @@ jobs:
           mount /dev/sda1 /ext
 
           # move swap 1
-          swapoff /ext/swapfile
+          swapoff /mnt/swapfile
           rm /ext/swapfile
 
           # builder setup
