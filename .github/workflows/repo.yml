@@ -35,89 +35,89 @@ jobs:
           mount /dev/root /mnt
           chroot /mnt bash
           # https://github.com/NobuoTsukamoto/my_actions_test/blob/main/.github/workflows/test_contains.yml
-          sudo rm -rf "/home/work/*" || true
-          sudo rm -rf "/opt/*" || true
-          sudo rm -rf "/usr/share/dotnet" || true
-          sudo rm -rf "$AGENT_TOOLSDIRECTORY" || true
-          sudo rm -rf "/usr/local/lib/android" || true
-          sudo rm -rf "/usr/local/share/boost" || true
-          sudo rm -rf "/usr/lib/jvm" || true
-          sudo rm -rf "/usr/share/swift" || true
-          sudo rm -rf "/usr/local/julia*" || true
-          sudo rm -rf "/usr/share/kotlinc" || true
-          sudo rm -rf "/usr/local/share/edge_driver" || true
-          sudo rm -rf "/usr/local/share/chromedriver-linux64" || true
-          sudo rm -rf "/usr/local/share/gecko_driver" || true
-          sudo rm -rf "/usr/share/miniconda" || true
-          sudo rm -rf "/usr/local/share/phantomjs*" || true
-          sudo rm -rf "/usr/share/sbt" || true
-          sudo rm -rf "/usr/local/sqlpackage" || true
-          sudo rm -rf "/usr/bin/yq" || true
-          sudo rm -rf "/usr/local/share/vcpkg" || true
-          sudo rm -rf "/usr/local/bin/terraform" || true
-          sudo rm -rf "/usr/local/bin/stack" || true
-          sudo rm -rf "/usr/local/bin/aliyun" || true
-          sudo rm -rf "/usr/local/bin/pulumi" || true
-          sudo rm -rf "/usr/local/bin/pulumi-language-dotnet" || true
-          sudo rm -rf "/usr/local/bin/azcopy" || true
-          sudo rm -rf "/usr/local/aws-cli" || true
-          sudo rm -rf "/usr/local/bin/bicep" || true
-          sudo rm -rf "/usr/local/bin/rebar3" || true
-          sudo rm -rf "/usr/local/bin/phpunit" || true
-          sudo rm -rf "/usr/local/bin/packer" || true
-          sudo rm -rf "/usr/local/bin/bicep" || true
-          sudo rm -rf "/usr/local/bin/docker-compose" || true
-          sudo rm -rf "/home/.dotnet/tools" || true
-          sudo rm -rf "/etc/skel/.dotnet/tools" || true
-          sudo rm -rf "/usr/local/bin/minikube" || true
-          sudo rm -rf "/usr/local/bin/kustomize" || true
-          sudo rm -rf "/usr/local/bin/kubectl" || true
-          sudo rm -rf "/usr/local/bin/kind" || true
-          sudo rm -rf "/usr/local/bin/helm" || true
-          sudo rm -rf "/home/linuxbrew" || true
-          sudo rm -rf "/usr/share/apache-maven-3.8.8" || true
-          sudo rm -rf "/usr/share/gradle-8.7" || true
-          sudo rm -rf "/usr/local/share/phantomjs-8.6" || true
-          sudo rm -rf "/usr/local/bin/azcopy_11.3.1" || true
-          sudo rm -rf "/usr/local/bin/bicep" || true
-          sudo rm -rf "/usr/local/bin/.ghcup" || true
-          sudo rm -rf "/usr/local/.ghcup" || true
-          sudo rm -rf "/home/.nvm" || true
-          sudo rm -rf "/usr/bin/composer" || true
-          sudo rm -rf "/usr/local/bin/phpunit" || true
-          sudo rm -rf "/usr/local/bin/pulumi-analyzer-policy" || true
-          sudo rm -rf "/usr/local/bin/pulumi-analyzer-policy-python" || true
-          sudo rm -rf "/usr/local/bin/pulumi-language-java" || true
-          sudo rm -rf "/usr/local/bin/pulumi-language-nodejs" || true
-          sudo rm -rf "/usr/local/bin/pulumi-language-go" || true
-          sudo rm -rf "/usr/local/bin/pulumi-language-python" || true
-          sudo rm -rf "/usr/local/bin/pulumi-language-python-exec" || true
-          sudo rm -rf "/usr/local/bin/pulumi-language-yaml" || true
-          sudo rm -rf "/usr/local/bin/pulumi-resource-pulumi-nodejs" || true
-          sudo rm -rf "/usr/local/bin/pulumi-resource-pulumi-python" || true
-          sudo rm -rf "/usr/local/bin/pulumi-watch" || true
-          sudo rm -rf "/usr/local/bin/oc" || true
-          sudo rm -rf "/usr/local/bin/ctest" || true
-          sudo rm -rf "/usr/local/bin/cmake-gui" || true
-          sudo rm -rf "/usr/local/bin/ccmake" || true
-          sudo rm -rf "/usr/local/bin/cpack" || true
-          sudo rm -rf "/usr/local/bin/oras" || true
-          sudo rm -rf "/usr/local/share/emacs" || true
-          sudo rm -rf "/usr/local/share/fonts" || true
-          sudo rm -rf "/usr/local/share/icons" || true
-          sudo rm -rf "/usr/local/share/man" || true
-          sudo rm -rf "/usr/local/share/chromium" || true
-          sudo rm -rf "/usr/local/share/powershell" || true
-          sudo rm -rf "/usr/local/share/doc" || true
-          sudo rm -rf "/home/perflog" || true
-          sudo rm -rf "/usr/libexec/docker/cli-plugins" || true
-          sudo rm -rf "/usr/bin/docker-credential-ecr-login" || true
-          sudo rm -rf "/usr/local/lib/lein" || true
-          sudo docker image prune --all --force
-          sudo npm uninstall bazel || true
-          sudo npm uninstall bazelisk || true
+          rm -rf "/home/work/*" || true
+          rm -rf "/opt/*" || true
+          rm -rf "/usr/share/dotnet" || true
+          rm -rf "$AGENT_TOOLSDIRECTORY" || true
+          rm -rf "/usr/local/lib/android" || true
+          rm -rf "/usr/local/share/boost" || true
+          rm -rf "/usr/lib/jvm" || true
+          rm -rf "/usr/share/swift" || true
+          rm -rf "/usr/local/julia*" || true
+          rm -rf "/usr/share/kotlinc" || true
+          rm -rf "/usr/local/share/edge_driver" || true
+          rm -rf "/usr/local/share/chromedriver-linux64" || true
+          rm -rf "/usr/local/share/gecko_driver" || true
+          rm -rf "/usr/share/miniconda" || true
+          rm -rf "/usr/local/share/phantomjs*" || true
+          rm -rf "/usr/share/sbt" || true
+          rm -rf "/usr/local/sqlpackage" || true
+          rm -rf "/usr/bin/yq" || true
+          rm -rf "/usr/local/share/vcpkg" || true
+          rm -rf "/usr/local/bin/terraform" || true
+          rm -rf "/usr/local/bin/stack" || true
+          rm -rf "/usr/local/bin/aliyun" || true
+          rm -rf "/usr/local/bin/pulumi" || true
+          rm -rf "/usr/local/bin/pulumi-language-dotnet" || true
+          rm -rf "/usr/local/bin/azcopy" || true
+          rm -rf "/usr/local/aws-cli" || true
+          rm -rf "/usr/local/bin/bicep" || true
+          rm -rf "/usr/local/bin/rebar3" || true
+          rm -rf "/usr/local/bin/phpunit" || true
+          rm -rf "/usr/local/bin/packer" || true
+          rm -rf "/usr/local/bin/bicep" || true
+          rm -rf "/usr/local/bin/docker-compose" || true
+          rm -rf "/home/.dotnet/tools" || true
+          rm -rf "/etc/skel/.dotnet/tools" || true
+          rm -rf "/usr/local/bin/minikube" || true
+          rm -rf "/usr/local/bin/kustomize" || true
+          rm -rf "/usr/local/bin/kubectl" || true
+          rm -rf "/usr/local/bin/kind" || true
+          rm -rf "/usr/local/bin/helm" || true
+          rm -rf "/home/linuxbrew" || true
+          rm -rf "/usr/share/apache-maven-3.8.8" || true
+          rm -rf "/usr/share/gradle-8.7" || true
+          rm -rf "/usr/local/share/phantomjs-8.6" || true
+          rm -rf "/usr/local/bin/azcopy_11.3.1" || true
+          rm -rf "/usr/local/bin/bicep" || true
+          rm -rf "/usr/local/bin/.ghcup" || true
+          rm -rf "/usr/local/.ghcup" || true
+          rm -rf "/home/.nvm" || true
+          rm -rf "/usr/bin/composer" || true
+          rm -rf "/usr/local/bin/phpunit" || true
+          rm -rf "/usr/local/bin/pulumi-analyzer-policy" || true
+          rm -rf "/usr/local/bin/pulumi-analyzer-policy-python" || true
+          rm -rf "/usr/local/bin/pulumi-language-java" || true
+          rm -rf "/usr/local/bin/pulumi-language-nodejs" || true
+          rm -rf "/usr/local/bin/pulumi-language-go" || true
+          rm -rf "/usr/local/bin/pulumi-language-python" || true
+          rm -rf "/usr/local/bin/pulumi-language-python-exec" || true
+          rm -rf "/usr/local/bin/pulumi-language-yaml" || true
+          rm -rf "/usr/local/bin/pulumi-resource-pulumi-nodejs" || true
+          rm -rf "/usr/local/bin/pulumi-resource-pulumi-python" || true
+          rm -rf "/usr/local/bin/pulumi-watch" || true
+          rm -rf "/usr/local/bin/oc" || true
+          rm -rf "/usr/local/bin/ctest" || true
+          rm -rf "/usr/local/bin/cmake-gui" || true
+          rm -rf "/usr/local/bin/ccmake" || true
+          rm -rf "/usr/local/bin/cpack" || true
+          rm -rf "/usr/local/bin/oras" || true
+          rm -rf "/usr/local/share/emacs" || true
+          rm -rf "/usr/local/share/fonts" || true
+          rm -rf "/usr/local/share/icons" || true
+          rm -rf "/usr/local/share/man" || true
+          rm -rf "/usr/local/share/chromium" || true
+          rm -rf "/usr/local/share/powershell" || true
+          rm -rf "/usr/local/share/doc" || true
+          rm -rf "/home/perflog" || true
+          rm -rf "/usr/libexec/docker/cli-plugins" || true
+          rm -rf "/usr/bin/docker-credential-ecr-login" || true
+          rm -rf "/usr/local/lib/lein" || true
+          docker image prune --all --force
+          npm uninstall bazel || true
+          npm uninstall bazelisk || true
           rustup self uninstall -y
-          sudo apt purge \
+          apt purge \
             ansible \
             aria2 \
             azure-cli \
@@ -208,9 +208,9 @@ jobs:
             linux-headers-* \
             manpages \
             -yq || true
-          sudo dpkg -r packages-microsoft-prod　> /dev/null 2>&1 || true
-          sudo apt-get autoremove -y > /dev/null 2>&1 || true
-          sudo apt-get autoclean -y > /dev/null 2>&1 || true
+          dpkg -r packages-microsoft-prod　> /dev/null 2>&1 || true
+          apt-get autoremove -y > /dev/null 2>&1 || true
+          apt-get autoclean -y > /dev/null 2>&1 || true
 
       - uses: actions/cache/restore@v4
         with:
