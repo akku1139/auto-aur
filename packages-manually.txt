@@ -23,3 +23,5 @@ zsh-fast-syntax-highlighting
 zed-preview
 follow
 beignet-git
+intel-opencl
+beignet
