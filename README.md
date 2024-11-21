@@ -1,8 +1,12 @@
 # auto-aur
 
-## add packages
+## Add packages
 
 `packages.txt`
+
+## Warning
+
+- Do not edit `package.json`, `non-aur` and `public/` while building.
 
 ## TODOs
 
