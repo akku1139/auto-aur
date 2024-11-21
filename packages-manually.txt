@@ -25,3 +25,4 @@ follow
 beignet-git
 intel-opencl
 intel-opencl-runtime
+clvk-git
