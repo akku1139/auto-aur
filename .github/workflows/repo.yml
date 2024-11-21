@@ -76,6 +76,10 @@ jobs:
           key: cache-${{ github.sha }}
           restore-keys: cache-
 
+      - uses: mxschmitt/action-tmate@v3
+        with:
+          detached: true
+
       - run: |
           pacman --noconfirm -Syu
           pacman --noconfirm -S git
