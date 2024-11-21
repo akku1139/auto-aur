@@ -1,1 +1,2 @@
-
+auto-aur-keyring
+auto-aur-mirrorlist
