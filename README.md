@@ -6,7 +6,7 @@
 
 ## Warning
 
-- Do not edit `package.json`, `non-aur` and `public/` while building.
+- Do not edit `package.json`, `packages-manually.txt`, `non-aur/` and `public/` while building.
 
 ## TODOs
 
