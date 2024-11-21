@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/bin/bash -x
 echo "**** starting tidyup.sh ****"
+set -x
 # https://github.com/NobuoTsukamoto/my_actions_test/blob/main/.github/workflows/test_contains.yml
 npm uninstall bazel || true
 npm uninstall bazelisk || true
@@ -177,4 +178,5 @@ rm -rf "/home/perflog" || true
 rm -rf "/usr/libexec/docker/cli-plugins" || true
 rm -rf "/usr/bin/docker-credential-ecr-login" || true
 rm -rf "/usr/local/lib/lein" || true
+set +x
 echo "**** tidyup.sh done ****"
