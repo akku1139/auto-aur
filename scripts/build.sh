@@ -73,7 +73,7 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
         mkdir "$confdir"
         echo "$repo" > "$confdir/package"
         cd "local/$repo"
-        makepkg --printsrcinfo > "$confdir/srcinfo"
+        makepkg --printsrcinfo > "../../$confdir/srcinfo"
         new="y"
         cd "$basepath"
       fi
