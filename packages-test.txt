@@ -22,5 +22,7 @@ git:https://github.com/Zheaoli/linux-xanmod-manjusaka (too big)
 cachy-browser (https://github.com/akku1139/auto-aur/actions/runs/11910216750/job/33194566472)
 zen-browser-generic
 
-beignet
-beignet-git
+beignet (install from AUR git) (link error https://github.com/akku1139/auto-aur/actions/runs/11953869290/job/33322685141)
+
+liri-git-meta
+wyebadblock-git
