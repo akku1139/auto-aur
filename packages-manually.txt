@@ -24,4 +24,3 @@ zed-preview
 follow
 beignet-git
 intel-opencl
-beignet
