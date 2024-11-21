@@ -77,8 +77,10 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
       fi
       cd "$basepath"
       workdir=$( cd $( mktemp --directory --tmpdir=work ) && pwd )
+      cd "local/$repo"
       makepkg --printsrcinfo > "$workdir/srcinfo"
       diff "$confdir/srcinfo" "$workdir/srcinfo"  > /dev/null 2>&1
+      cd "$basepath"
       if [ $? -eq 1 ]; then
         makepkg --printsrcinfo > "$confdir/srcinfo"
         cd "local/$repo"
