@@ -16,7 +16,7 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
   new="n"
 
   case $( echo "$pkg" | cut -d ":" -f1 ) in
-    git)
+    git) #Git: git:URL
       repo=$( echo "$pkg" | cut -c 5- )
       confdir="non-aur/git-$( echo "$repo" | base64 )"
 
@@ -36,7 +36,32 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
         paru -U
       fi
       ;;
-    *)
+
+    git-mono) # Git monorepo (wip): git-mono:URL dir
+      repo=$( echo "$pkg" | cut -c 10- | cut -d " " -f1 )
+      dir=$( echo "$pkg" | cut -c 10- | cut -d " " -f2 )
+      confdir="non-aur/git-$( echo "$repo-$dir" | base64 )"
+
+      lc=$( git ls-remote -qh "$repo" | cut -f1 )
+
+      if [ ! -d "$confdir" ]; then
+        mkdir "$confdir"
+        echo "$lc" > "$confdir/latest-commit"
+        new="y"
+      fi
+
+      if [ "$lc" != $( echo "$confdir/latest-commit" ) ]; then
+        echo "$lc" > $confdir/latest-commit
+        workdir=$( cd $( mktemp --directory --tmpdir=work ) && pwd )
+        cd "$workdir"
+        git clone --depth=1 --filter=blob:none --sparse "$repo" .
+        git sparse-checkout add "$dir"
+        cd "$dir"
+        paru -U
+      fi
+      ;;
+
+    *) # Normal AUR: pkg
       paru --noconfirm --nocheck --nocleanafter -S "$pkg"
       echo "$pkg" >> packages-manually.txt
       ;;
