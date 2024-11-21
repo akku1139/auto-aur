@@ -25,4 +25,3 @@ follow
 beignet-git
 intel-opencl
 intel-opencl-runtime
-beignet
