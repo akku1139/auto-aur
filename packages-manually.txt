@@ -24,5 +24,4 @@ zed-preview
 follow
 beignet-git
 intel-opencl
-beignet
 intel-opencl-runtime
