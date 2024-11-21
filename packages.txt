@@ -1,2 +1,2 @@
-
+beignet
 intel-opencl-runtime
