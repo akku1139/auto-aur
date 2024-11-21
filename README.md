@@ -13,6 +13,7 @@
 - sudo config
 - monorepo support (sparse-checkout) (ex. https://github.com/CachyOS/CachyOS-PKGBUILDS)
 - use .SRCINFO version
+- remove debug packages
 
 ## Mirrors
 
