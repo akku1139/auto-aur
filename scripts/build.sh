@@ -38,7 +38,7 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
       ;;
     *)
       paru --noconfirm --nocheck --nocleanafter -S "$pkg"
-      echo "$pkg" >> packages-nodeps.txt
+      echo "$pkg" >> packages-manually.txt
       ;;
   esac
 
