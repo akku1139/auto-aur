@@ -2,6 +2,12 @@ name: Repo
 
 on:
   workflow_dispatch:
+    inputs:
+      tmate:
+        type: boolean
+        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'
+        required: false
+        default: false
   schedule:
     - cron: '47 8 */10 * *'
   push:
@@ -81,6 +87,7 @@ jobs:
           restore-keys: cache-
 
       - uses: mxschmitt/action-tmate@v3
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.tmate }}
         with:
           detached: true
 
