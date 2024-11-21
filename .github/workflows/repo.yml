@@ -41,6 +41,7 @@ jobs:
             mount /dev/sdb1 /ext
           else
             mount /dev/sda1 /ext
+          fi
           ls /ext
 
           # builder setup
