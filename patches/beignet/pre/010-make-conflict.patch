@@ -1,0 +1,15 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index e95dee8..0cf7d08 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -9,8 +9,8 @@ url="https://www.freedesktop.org/wiki/Software/Beignet/"
+ license=('LGPL')
+ depends=('glu' 'llvm10-libs' 'clang10' 'mesa' 'opencl-headers')
+ makedepends=('git' 'llvm10' 'cmake' 'python' 'ocl-icd')
+-provides=('opencl-intel' 'opencl-driver')
+-conflicts=('opencl-intel')
++provides=('opencl-intel' 'opencl-driver' 'beignet-git')
++conflicts=('opencl-intel' 'beignet-git')
+ source=("git+https://github.com/intel/beignet.git#commit=419c041736c5d19cd9c9e7f90717792a01826638"
+         "llvm8.patch"
+         "llvm9.patch"
