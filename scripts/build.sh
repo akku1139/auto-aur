@@ -84,7 +84,7 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
       diff "$confdir/srcinfo" "$workdir/srcinfo"  > /dev/null 2>&1
       if [ $? -eq 1 ]; then
         cd "$basepath/local/$repo"
-        makepkg --printsrcinfo > "$confdir/srcinfo"
+        makepkg --printsrcinfo > "../../$confdir/srcinfo"
         paru -U
       fi
       ;;
