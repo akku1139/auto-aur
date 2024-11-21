@@ -1,1 +1,1 @@
-
+git:https://aur.archlinux.org/beignet.git
