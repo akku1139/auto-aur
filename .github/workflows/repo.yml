@@ -151,5 +151,5 @@ jobs:
           projectId: auto-aur
           channelId: live
 
-      - uses: mxschmitt/action-tmate@v3
-        if: ${{ ( failure() ) && ! ( github.event_name == 'workflow_dispatch' && inputs.tmate ) }}
+      # - uses: mxschmitt/action-tmate@v3
+      #   if: ${{ ( failure() ) && ! ( github.event_name == 'workflow_dispatch' && inputs.tmate ) }}
