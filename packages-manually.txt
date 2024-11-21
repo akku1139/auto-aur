@@ -26,3 +26,5 @@ beignet-git
 intel-opencl
 intel-opencl-runtime
 clvk-git
+wyebadblock-git
+catppuccin-fcitx5-git
