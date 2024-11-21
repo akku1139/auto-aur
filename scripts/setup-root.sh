@@ -50,7 +50,7 @@ chmod +x scripts/*
 #touch auto-aur.db.tar.gz
 #ln -s auto-aur.db.tar.gz auto-aur.db
 #cd ../../../../
-chown -R builder:builder public local work non-aur packages.txt
+chown -R builder:builder public local work non-aur packages.txt packages-manually.txt
 #ls -la $PWD/public/repo/auto-aur/x86_64/
 
 cat >> /etc/paru.conf << EOL
