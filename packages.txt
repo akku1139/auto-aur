@@ -1,3 +1,2 @@
-liri-git-meta
 wyebadblock-git
 catppuccin-fcitx5-git
