@@ -28,3 +28,6 @@ intel-opencl-runtime
 clvk-git
 wyebadblock-git
 catppuccin-fcitx5-git
+aur-auto-vote-git
+vencord
+waydroid
