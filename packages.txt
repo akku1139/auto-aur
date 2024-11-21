@@ -1,5 +1,1 @@
-fcitx5-mellow-themes-git
-zinit
-zsh-fast-syntax-highlighting
-zed-preview
-follow
+
