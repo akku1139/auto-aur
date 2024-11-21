@@ -1,11 +1,13 @@
 uim (build error)
 uim-mozc
 beignet-git (too big deps https://github.com/akku1139/auto-aur/actions/runs/11564458073)
-hikari (HTTP certificate error)
+hikari (HTTP certificate error) (it looks no longer develop)
 eudev (conflict with systemd)
 s6 (3 providers available for s6)
 sysvinit (2 providers available for sysvinit)
 runit-systemd (build error)
+
+spacedrive (many errors)
 spacedrive-git
 
 conduit (build error https://github.com/akku1139/auto-aur/actions/runs/11870016901/job/33080969124)
@@ -18,6 +20,7 @@ p2pool-git (configure error)
 git:https://github.com/Zheaoli/linux-xanmod-manjusaka (too big)
 
 cachy-browser (https://github.com/akku1139/auto-aur/actions/runs/11910216750/job/33194566472)
+zen-browser-generic
 
-next build:
-fcitx5-mellow-themes-git 
+beignet
+beignet-git
