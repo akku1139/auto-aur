@@ -152,5 +152,4 @@ jobs:
           channelId: live
 
       - uses: mxschmitt/action-tmate@v3
-        if: ${{ failure() }}
-        # with not ${{ github.event_name == 'workflow_dispatch' && inputs.tmate }}
+        if: ${{ ( failure() ) && ! ( github.event_name == 'workflow_dispatch' && inputs.tmate ) }}
