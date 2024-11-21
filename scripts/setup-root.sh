@@ -74,7 +74,7 @@ cat >> /etc/makepkg.conf << EOL
 PACKAGER="akku <akkun11.open (at) gmail.com>"
 GPGKEY="2ECF4E27AAACF8F478631D73AA4D941DB6C633AF"
 
-COMPRESSZST=(zstd -c -T0 --ultra -20 -)
+COMPRESSZST=(zstd -c -T0 --ultra -22 -)
 PKGEXT='.pkg.tar.zst'
 OPTIONS=(strip docs !libtool !staticlibs emptydirs zipman purge !debug lto)
 
