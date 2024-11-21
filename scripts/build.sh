@@ -67,6 +67,7 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
     local) # Local packages (local/): local:auto-aur-keyring
       repo=$( echo "$pkg" | cut -c 7- )
       confdir="non-aur/local-$( echo "$repo" | base64 )"
+      workdir=$( cd $( mktemp --directory --tmpdir=work ) && pwd )
 
       if [ ! -d "$confdir" ]; then
         mkdir "$confdir"
@@ -74,14 +75,15 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
         cd "local/$repo"
         makepkg --printsrcinfo > "$confdir/srcinfo"
         new="y"
+        cd "$basepath"
       fi
-      cd "$basepath"
-      workdir=$( cd $( mktemp --directory --tmpdir=work ) && pwd )
+
       cd "local/$repo"
       makepkg --printsrcinfo > "$workdir/srcinfo"
-      diff "$confdir/srcinfo" "$workdir/srcinfo"  > /dev/null 2>&1
       cd "$basepath"
+      diff "$confdir/srcinfo" "$workdir/srcinfo"  > /dev/null 2>&1
       if [ $? -eq 1 ]; then
+        cd "$basepath"
         makepkg --printsrcinfo > "$confdir/srcinfo"
         cd "local/$repo"
         paru -U
