@@ -59,7 +59,7 @@ jobs:
           # move swap
           swapoff /ext/swapfile
           rm /ext/swapfile
-          fallocate -l 10G /swapfile
+          fallocate -l 8GB /swapfile
           chmod 0600 /swapfile
           mkswap /swapfile
           losetup -f /swapfile
