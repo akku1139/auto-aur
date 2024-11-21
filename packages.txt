@@ -1,1 +1,1 @@
-git:https://github.com/Zheaoli/linux-xanmod-manjusaka
+fcitx5-mellow-themes-git
