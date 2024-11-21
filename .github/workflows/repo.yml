@@ -9,7 +9,7 @@ on:
         required: false
         default: false
   schedule:
-    - cron: '47 8 */10 * *'
+    - cron: '47 8 */3 * *'
   push:
     # branches:
     #   - main
@@ -19,7 +19,7 @@ on:
 
 concurrency:
   group: repo
-  cancel-in-progress: true
+  # cancel-in-progress: true
 
 permissions:
   contents: write
@@ -110,9 +110,6 @@ jobs:
       - name: Build AUR
         run: sudo -u builder bash -ex scripts/build.sh
 
-      # - uses: mxschmitt/action-tmate@v3
-      #   if: ${{ failure() }}
-
       - name: Generate UI
         run: python scripts/genui.py
 
@@ -153,3 +150,7 @@ jobs:
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
           projectId: auto-aur
           channelId: live
+
+      - uses: mxschmitt/action-tmate@v3
+        if: ${{ failure() }}
+        # with not ${{ github.event_name == 'workflow_dispatch' && inputs.tmate }}
