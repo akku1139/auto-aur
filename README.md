@@ -12,6 +12,7 @@
 - Arch Linux 32 & Arch Linux ARM support
 - sudo config
 - monorepo support (sparse-checkout) (ex. https://github.com/CachyOS/CachyOS-PKGBUILDS)
+- use .SRCINFO version
 
 ## Mirrors
 
