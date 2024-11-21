@@ -37,7 +37,10 @@ jobs:
 
           # mount host disk
           mkdir /ext
-          mount /dev/sda1 /ext
+          if [ "/dev/sda1" = $( mount | grep -F "/__e" | cut -d " " -f1 ) ]; then
+            mount /dev/sdb1 /ext
+          else
+            mount /dev/sda1 /ext
           ls /ext
 
           # builder setup
