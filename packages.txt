@@ -1,1 +1,1 @@
-cachy-browser
+git:https://github.com/Zheaoli/linux-xanmod-manjusaka
