@@ -1,1 +1,3 @@
-
+aur-auto-vote-git
+vencord
+waydroid
