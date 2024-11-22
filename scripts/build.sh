@@ -54,13 +54,23 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
       fi
 
       if [ "$lc" != $( echo "$confdir/latest-commit" ) ]; then
-        echo "$lc" > $confdir/latest-commit
-        cd "$workdir"
+        echo "$lc" > "$confdir/latest-commit"
+        mkdir "$workdir/repo"
+        cd "$workdir/repo"
         git clone --depth=1 --filter=blob:none --sparse "$repo" .
         git sparse-checkout add "$dir"
         cd "$dir"
-        
-        paru -U
+
+        if [ ! -f "$confdir/srcinfo" ]; then
+          makepkg --printsrcinfo > "$confdir/srcinfo"
+        fi
+
+        makepkg --printsrcinfo > "$workdir/srcinfo"
+        diff "$confdir/srcinfo" "$workdir/srcinfo"  > /dev/null 2>&1
+        if [ $? -eq 1 ]; then
+          makepkg --printsrcinfo > "$confdir/srcinfo"
+          paru -U
+        fi
       fi
       ;;
 
