@@ -18,7 +18,7 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
   case $( echo "$pkg" | cut -d ":" -f1 ) in
     git) #Git: git:URL
       repo=$( echo "$pkg" | cut -c 5- )
-      confdir="non-aur/git-$( echo "$repo" | base64 )"
+      confdir="$basepath/non-aur/git-$( echo "$repo" | base64 )"
 
       lc=$( git ls-remote -qh "$repo" | cut -f1 )
 
@@ -41,7 +41,7 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
     git-mono) # Git monorepo (wip): git-mono:URL dir
       repo=$( echo "$pkg" | cut -c 10- | cut -d " " -f1 )
       dir=$( echo "$pkg" | cut -c 10- | cut -d " " -f2 )
-      confdir="non-aur/git-mono-$( echo "$repo-$dir" | base64 )"
+      confdir="$basepath/non-aur/git-mono-$( echo "$repo-$dir" | base64 )"
 
       lc=$( git ls-remote -qh "$repo" | cut -f1 )
 
@@ -60,31 +60,31 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
         git clone --depth=1 --filter=blob:none --sparse "$repo" .
         git sparse-checkout add "$dir"
         cd "$dir"
+        
         paru -U
       fi
       ;;
 
     local) # Local packages (local/): local:auto-aur-keyring
       repo=$( echo "$pkg" | cut -c 7- )
-      confdir="non-aur/local-$( echo "$repo" | base64 )"
+      confdir="$basepath/non-aur/local-$( echo "$repo" | base64 )"
       workdir=$( cd $( mktemp --directory --tmpdir=work ) && pwd )
 
       if [ ! -d "$confdir" ]; then
         mkdir "$confdir"
         echo "$repo" > "$confdir/package"
         cd "local/$repo"
-        makepkg --printsrcinfo > "../../$confdir/srcinfo"
+        makepkg --printsrcinfo > "$confdir/srcinfo"
         new="y"
         cd "$basepath"
       fi
 
       cd "local/$repo"
       makepkg --printsrcinfo > "$workdir/srcinfo"
-      cd "$basepath"
       diff "$confdir/srcinfo" "$workdir/srcinfo"  > /dev/null 2>&1
       if [ $? -eq 1 ]; then
         cd "$basepath/local/$repo"
-        makepkg --printsrcinfo > "../../$confdir/srcinfo"
+        makepkg --printsrcinfo > "$confdir/srcinfo"
         paru -U
       fi
       ;;
