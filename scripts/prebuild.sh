@@ -10,7 +10,7 @@ if [ ! -d $PATCHDIR ]; then
 fi
 
 if [ -f $PATCHDIR/deps ]; then
-  sudo pacman -S $( cat $PATCHDIR/deps )
+  sudo pacman --noconfirm -S $( cat $PATCHDIR/deps )
 fi
 
 for patch in `find $PATCHDIR/pre/ -maxdepth 1 -type f | sort`; do
