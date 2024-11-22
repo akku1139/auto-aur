@@ -40,10 +40,13 @@ EOL
 
 pac -Syu base-devel sudo paru python-gitpython
 
-# useradd -m builder
+# Due to caching it is needed to add the user at the beginning of the workflow.
+#useradd -m builder
 
 # Enable scripts run permission
 chmod +x scripts/*
+
+mkdir work
 
 #mkdir -p public/repo/auto-aur/x86_64/
 #cd public/repo/auto-aur/x86_64/
