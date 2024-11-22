@@ -14,6 +14,7 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
   fi
 
   new="n"
+  workdir=$( cd $( mktemp --directory --tmpdir=work ) && pwd )
 
   case $( echo "$pkg" | cut -d ":" -f1 ) in
     git) #Git: git:URL
@@ -31,7 +32,6 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
 
       if [ "$lc" != $( echo "$confdir/latest-commit" ) ]; then
         echo "$lc" > $confdir/latest-commit
-        workdir=$( cd $( mktemp --directory --tmpdir=work ) && pwd )
         cd "$workdir"
         git clone --depth=1 "$repo" .
         paru -U
@@ -55,7 +55,6 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
 
       if [ "$lc" != $( echo "$confdir/latest-commit" ) ]; then
         echo "$lc" > $confdir/latest-commit
-        workdir=$( cd $( mktemp --directory --tmpdir=work ) && pwd )
         cd "$workdir"
         git clone --depth=1 --filter=blob:none --sparse "$repo" .
         git sparse-checkout add "$dir"
@@ -68,7 +67,6 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
     local) # Local packages (local/): local:auto-aur-keyring
       repo=$( echo "$pkg" | cut -c 7- )
       confdir="$basepath/non-aur/local-$( echo "$repo" | base64 )"
-      workdir=$( cd $( mktemp --directory --tmpdir=work ) && pwd )
 
       if [ ! -d "$confdir" ]; then
         mkdir "$confdir"
