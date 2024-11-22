@@ -31,3 +31,4 @@ catppuccin-fcitx5-git
 aur-auto-vote-git
 vencord
 waydroid
+neoss
