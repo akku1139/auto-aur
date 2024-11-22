@@ -1,0 +1,46 @@
+diff --git a/.SRCINFO b/.SRCINFO
+index eec00df..1240a34 100644
+--- a/.SRCINFO
++++ b/.SRCINFO
+@@ -1,6 +1,6 @@
+ pkgbase = inochi-creator
+ 	pkgdesc = Inochi2D Rigging Application
+-	pkgver = 0.8.4
++	pkgver = 0.8.6
+ 	pkgrel = 1
+ 	url = https://inochi2d.com/
+ 	arch = x86_64
+@@ -15,9 +15,9 @@ pkgbase = inochi-creator
+ 	depends = sdl2
+ 	depends = glibc
+ 	depends = liblphobos
+-	source = https://github.com/Inochi2D/inochi-creator/archive/refs/tags/v0.8.4.zip
++	source = https://github.com/Inochi2D/inochi-creator/archive/refs/tags/v0.8.6.zip
+ 	source = git+https://github.com/Inochi2D/i2d-imgui.git
+-	sha512sums = 9a0b66f3ec89fb8629e85305529d75cc12f395f88c94ec5af7658df02a3066286fb581cedf39a4d3623c5442b71abacc7bbedf3537c8c1d50a73f750f5be8b09
++	sha512sums = ad62d0a3652d3a5cb6b18ba5b5a6e5efea2fe1f8b2cc10de701e17a068210727dfed204aebd3051928e637d2a954ce8ec2930e7dd4c5bcfd0ea9604dfd47003e
+ 	sha512sums = SKIP
+ 
+ pkgname = inochi-creator
+diff --git a/PKGBUILD b/PKGBUILD
+index d34c889..f65f385 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -2,7 +2,7 @@
+ # Contributor: Sarah <schalaalexiazeal@gmail.com>
+ 
+ pkgname=inochi-creator
+-pkgver=0.8.4
++pkgver=0.8.6
+ pkgrel=1
+ pkgdesc="Inochi2D Rigging Application"
+ arch=('x86_64')
+@@ -16,7 +16,7 @@ source=(
+ 	git+https://github.com/Inochi2D/i2d-imgui.git
+ )
+ 
+-sha512sums=("9a0b66f3ec89fb8629e85305529d75cc12f395f88c94ec5af7658df02a3066286fb581cedf39a4d3623c5442b71abacc7bbedf3537c8c1d50a73f750f5be8b09" "SKIP")
++sha512sums=("ad62d0a3652d3a5cb6b18ba5b5a6e5efea2fe1f8b2cc10de701e17a068210727dfed204aebd3051928e637d2a954ce8ec2930e7dd4c5bcfd0ea9604dfd47003e" "SKIP")
+ 
+ prepare() {
+ 	cd "$srcdir/i2d-imgui"
