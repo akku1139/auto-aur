@@ -1,0 +1,12 @@
+pkgbase = auto-aur-mirrorlist
+	pkgdesc = Auto-AUR mirrorlist to use with Pacman
+	pkgver = 20241030
+	pkgrel = 1
+	url = https://auto-aur.pages.dev/
+	arch = any
+	license = GPL
+	backup = etc/pacman.d/auto-aur-mirrorlist
+	source = mirrorlist
+	sha256sums = 51c0203abb71012e0a655af1709bb3462c17107dbfb573c4ca05b8e375ee3b58
+
+pkgname = auto-aur-mirrorlist

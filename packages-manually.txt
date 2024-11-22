@@ -32,3 +32,4 @@ aur-auto-vote-git
 vencord
 waydroid
 neoss
+swayfx-git
