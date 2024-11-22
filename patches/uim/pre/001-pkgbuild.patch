@@ -10,7 +10,7 @@ index 9afdd31..654e413 100644
 -sha256sums=('f442eed7fe58c69eaca1b92a9087e46474b71fd209e2c77c25b0643356067380')
 +source=(
 +  "$url/releases/download/$pkgver/$pkgname-$pkgver.tar.gz"
-+  "10-pull-187.patch"
++  "001-pull-187.patch"
 +)
 +sha256sums=(
 +  'f442eed7fe58c69eaca1b92a9087e46474b71fd209e2c77c25b0643356067380'

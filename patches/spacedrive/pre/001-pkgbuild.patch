@@ -6,7 +6,7 @@ index 1aad7b3..a9a377a 100644
  source=(
  	"${pkgname}-v${pkgver}.tar.gz::https://github.com/spacedriveapp/spacedrive/archive/refs/tags/${pkgver}.tar.gz"
  	"spacedrive.desktop"
-+	"010-cjs.patch"
++	"001-cjs.patch"
  )
  depends=('ffmpeg' 'libheif' 'gtk3' 'webkit2gtk-4.1' 'pango' 'gdk-pixbuf2' 'cairo' 'libsoup' 'glib2' 'xdotool')
  makedepends=('cargo' 'pnpm>=9' 'clang' 'git' 'lld')
