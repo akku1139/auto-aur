@@ -1,2 +1,1 @@
-inochi-session
 inochi-creator
