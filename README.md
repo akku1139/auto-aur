@@ -10,16 +10,13 @@
 
 ## TODOs
 
-- Target Architecture
-- PKGBUILD outside AUR
+- Target Architecture (x86_64 v2, v3, v4, zen etc...)
 - Package search
 - Arch Linux 32 & Arch Linux ARM support
 - sudo config
-- monorepo support (sparse-checkout) (ex. https://github.com/CachyOS/CachyOS-PKGBUILDS)
-- use .SRCINFO version
-- remove debug packages
 - git branch support
 - Deploy only when there is a git difference
+- use sccache
 
 ## Mirrors
 
