@@ -1,4 +1,6 @@
+/work
+
 # https://qiita.com/silane1001/items/ba37ecfec218634a9d94
-/work/
-!/**/
-!/**/.gitkeep
+#/work/
+#!/**/
+#!/**/.gitkeep
