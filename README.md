@@ -19,6 +19,7 @@
 - use .SRCINFO version
 - remove debug packages
 - git branch support
+- Deploy only when there is a git difference
 
 ## Mirrors
 
