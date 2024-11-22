@@ -9,7 +9,7 @@ on:
         required: false
         default: false
   schedule:
-    - cron: '47 8 */3 * *'
+    - cron: '47 8 * * *'
   push:
     # branches:
     #   - main
