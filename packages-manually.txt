@@ -33,3 +33,4 @@ vencord
 waydroid
 neoss
 swayfx-git
+mprime
