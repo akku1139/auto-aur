@@ -1,8 +1,8 @@
 diff --git a/.SRCINFO b/.SRCINFO
-index ac7a9b2..f02772f 100644
+index ac7a9b2..48c10ae 100644
 --- a/.SRCINFO
 +++ b/.SRCINFO
-@@ -1,19 +1,20 @@
+@@ -1,19 +1,21 @@
  pkgbase = inochi-session
  	pkgdesc = Application that allows streaming with Inochi2D puppets
  	pkgver = 0.8.7
@@ -14,6 +14,7 @@ index ac7a9b2..f02772f 100644
 +	makedepends = dub
 +	makedepends = ldc
 +	makedepends = gcc
++	makedepends = cmake
  	depends = dbus
  	depends = freetype2
  	depends = gcc-libs
@@ -27,7 +28,7 @@ index ac7a9b2..f02772f 100644
 
  pkgname = inochi-session
 diff --git a/PKGBUILD b/PKGBUILD
-index 51e0b95..599dd05 100644
+index 51e0b95..0416a5f 100644
 --- a/PKGBUILD
 +++ b/PKGBUILD
 @@ -2,22 +2,29 @@
@@ -42,7 +43,7 @@ index 51e0b95..599dd05 100644
  license=('custom')
  provides=('cimgui.so')
  depends=(dbus freetype2 gcc-libs sdl2 glibc)
-+makedepends=(dub ldc gcc)
++makedepends=(dub ldc gcc cmake)
  source=(
 -		"https://github.com/Inochi2D/inochi-session/releases/download/v$pkgver/inochi-session-linux.zip"
  		"https://github.com/Inochi2D/inochi-session/archive/refs/tags/v$pkgver.zip"
