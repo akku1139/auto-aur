@@ -1,0 +1,75 @@
+diff --git a/.SRCINFO b/.SRCINFO
+index ac7a9b2..f02772f 100644
+--- a/.SRCINFO
++++ b/.SRCINFO
+@@ -1,19 +1,20 @@
+ pkgbase = inochi-session
+ 	pkgdesc = Application that allows streaming with Inochi2D puppets
+ 	pkgver = 0.8.7
+-	pkgrel = 1
++	pkgrel = 2
+ 	url = https://inochi2d.com/
+ 	arch = x86_64
+ 	license = custom
++	makedepends = dub
++	makedepends = ldc
++	makedepends = gcc
+ 	depends = dbus
+ 	depends = freetype2
+ 	depends = gcc-libs
+ 	depends = sdl2
+ 	depends = glibc
+ 	provides = cimgui.so
+-	source = https://github.com/Inochi2D/inochi-session/releases/download/v0.8.7/inochi-session-linux.zip
+ 	source = https://github.com/Inochi2D/inochi-session/archive/refs/tags/v0.8.7.zip
+-	sha512sums = 129a9bd8b017778902dc94ccb58faf344236231526e305003283ced1778849bba787561ed73101ce20099dfdcc4a44e69164e808dacbf863d2fd4bd12aadad08
+ 	sha512sums = 21ab047a8425c7da9d51f4132c1f0f803f04e333902e4473e793f6c96ebd45e2fedd03ab5f15534ce33fdcb77828c7fb912eac1abbfba5194aac629f673b26dd
+
+ pkgname = inochi-session
+diff --git a/PKGBUILD b/PKGBUILD
+index 51e0b95..599dd05 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -2,22 +2,29 @@
+
+ pkgname=inochi-session
+ pkgver=0.8.7
+-pkgrel=1
++pkgrel=2
+ pkgdesc="Application that allows streaming with Inochi2D puppets"
+ arch=('x86_64')
+ url='https://inochi2d.com/'
+ license=('custom')
+ provides=('cimgui.so')
+ depends=(dbus freetype2 gcc-libs sdl2 glibc)
++makedepends=(dub ldc gcc)
+ source=(
+-		"https://github.com/Inochi2D/inochi-session/releases/download/v$pkgver/inochi-session-linux.zip"
+ 		"https://github.com/Inochi2D/inochi-session/archive/refs/tags/v$pkgver.zip"
+ 		)
+
+-sha512sums=("129a9bd8b017778902dc94ccb58faf344236231526e305003283ced1778849bba787561ed73101ce20099dfdcc4a44e69164e808dacbf863d2fd4bd12aadad08" "21ab047a8425c7da9d51f4132c1f0f803f04e333902e4473e793f6c96ebd45e2fedd03ab5f15534ce33fdcb77828c7fb912eac1abbfba5194aac629f673b26dd")
++sha512sums=("21ab047a8425c7da9d51f4132c1f0f803f04e333902e4473e793f6c96ebd45e2fedd03ab5f15534ce33fdcb77828c7fb912eac1abbfba5194aac629f673b26dd")
++
++build() {
++	cd "$srcdir/$pkgname-$pkgver"
++	dub build --config=update-version
++	dub build --config=meta
++	dub build --build=release --compiler=ldc2 --config=linux-full
++}
+
+ package() {
+-	cd "$srcdir"
++	cd "$srcdir/$pkgname-$pkgver/out"
+ 	install -m 755 -D cimgui.so "$pkgdir/usr/bin/cimgui.so"
+ 	install -m 755 -D inochi-session "$pkgdir/usr/bin/inochi-session"
+ 	install -m 644 -D LICENSE-FreeType "$pkgdir/usr/share/licenses/inochi-session/LICENSE-FreeType"
+@@ -25,6 +32,8 @@ package() {
+ 	install -m 644 -D LICENSE-Lua "$pkgdir/usr/share/licenses/inochi-session/LICENSE-Lua"
+ 	install -m 644 -D LICENSE-Spout2 "$pkgdir/usr/share/licenses/inochi-session/LICENSE-Spout2"
+ 	install -m 644 -D MaterialIcons-LICENSE "$pkgdir/usr/share/licenses/inochi-session/MaterialIcons-LICENSE"
++	install -m 644 -D NotoSansCJK-Regular-LICENSE "$pkgdir/usr/share/licenses/inochi-session/NotoSansCJK-Regular-LICENSE"
+ 	cd "$srcdir/$pkgname-$pkgver"
+ 	install -m 644 -D LICENSE "$pkgdir/usr/share/licenses/inochi-session/LICENSE"
+ }
++
