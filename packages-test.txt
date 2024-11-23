@@ -25,3 +25,5 @@ beignet (install from AUR git) (link error https://github.com/akku1139/auto-aur/
 
 inochi-creator (error https://github.com/akku1139/auto-aur/actions/runs/11976174834/job/33391256494)
 inochi-session (SDL error? https://github.com/akku1139/auto-aur/actions/runs/11976099749/job/33390995081)
+
+simplex-chat-git (Deps error)
