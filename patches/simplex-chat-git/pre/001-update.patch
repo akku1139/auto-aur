@@ -6,7 +6,7 @@ index b1d3829..863d530 100644
  pkgbase = simplex-chat-git
  	pkgdesc = a 100% private-by-design chat platform
 -	pkgver = v1.3.1.r34.g22ff17ae
-+	pkgver = v6.1.1
++	pkgver = 6.1.1
  	pkgrel = 1
  	url = https://github.com/simplex-chat/simplex-chat
  	arch = x86_64
@@ -17,7 +17,7 @@ index b1d3829..863d530 100644
  	provides = simplex-chat
  	conflicts = simplex-chat
 diff --git a/PKGBUILD b/PKGBUILD
-index 0714038..8d26c5e 100644
+index 0714038..7d05ad1 100644
 --- a/PKGBUILD
 +++ b/PKGBUILD
 @@ -1,13 +1,13 @@
@@ -36,9 +36,11 @@ index 0714038..8d26c5e 100644
  provides=('simplex-chat')
  conflicts=('simplex-chat')
  source=('git+https://github.com/simplex-chat/simplex-chat.git#branch=stable')
-@@ -16,8 +16,10 @@ md5sums=('SKIP')
+@@ -15,9 +15,12 @@ md5sums=('SKIP')
+ 
  builddir="${pkgname/-git/}"
  build() {
++    cabal update
      cd "$builddir"
 -    rm -rf .stack-work
 -    stack build
@@ -49,7 +51,7 @@ index 0714038..8d26c5e 100644
  }
  
  pkgver(){
-@@ -27,5 +29,11 @@ pkgver(){
+@@ -27,5 +30,11 @@ pkgver(){
  
  package() {
      cd "$builddir"
