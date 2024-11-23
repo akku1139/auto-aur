@@ -87,6 +87,7 @@ jobs:
             /home/builder/.ccache
             /home/builder/go
             /home/builder/.dub
+            /home/builder/.cabal
           key: cache-${{ github.sha }}
           restore-keys: cache-
 
@@ -141,6 +142,7 @@ jobs:
             /home/builder/.ccache
             /home/builder/go
             /home/builder/.dub
+            /home/builder/.cabal
           key: cache-${{ github.sha }}
 
       - name: Upload Pages Artifact
