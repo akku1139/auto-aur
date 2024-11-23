@@ -30,7 +30,7 @@ https://www.staticwebsitehosting.org/
 - sudo config
 - git branch support
 - Deploy only when there is a git difference
-- patch target version
+- `sudo -u builder paru -Ld dendrite-git && sudo -u builder paru -S dendrite-git`
 
 ## Packages containing version change patch
 
