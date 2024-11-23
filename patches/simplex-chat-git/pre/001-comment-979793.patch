@@ -1,0 +1,20 @@
+--- a/PKGBUILD	2024-11-23 19:36:06.631590933 +0900
++++ b/PKGBUILD	2024-11-23 19:36:18.111590199 +0900
+@@ -1,6 +1,6 @@
+ # Maintainer: bobpaul <aurpackage [at] bobpaul 'period' org>
+ pkgname="simplex-chat-git"
+-pkgver=v1.3.1.r34.g22ff17ae
++pkgver=v5.8.1.r0.g85dc467f7
+ pkgrel=1
+ pkgdesc='a 100% private-by-design chat platform'
+ arch=("x86_64")
+@@ -17,7 +17,8 @@
+ build() {
+     cd "$builddir"
+     rm -rf .stack-work
+-    stack build
++    stack init
++    stack build --omit-packages --resolver
+ }
+
+ pkgver(){
