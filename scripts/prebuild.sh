@@ -3,7 +3,6 @@
 #set -ex
 set -e
 
-echo
 echo ":: Running prebuild commands"
 
 PKGNAME=`basename $PWD`
