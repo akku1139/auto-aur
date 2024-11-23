@@ -3,6 +3,9 @@
 #set -ex
 set -e
 
+echo
+echo ":: Running prebuild commands"
+
 PKGNAME=`basename $PWD`
 PATCHDIR="$( dirname $0 )/../patches/$PKGNAME"
 
