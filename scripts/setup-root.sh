@@ -38,7 +38,7 @@ root ALL=(ALL:ALL) NOPASSWD: ALL
 builder ALL=(ALL:ALL) NOPASSWD: ALL
 EOL
 
-pac -Syu base-devel sudo paru python-gitpython ccache
+pac -Syu base-devel sudo paru python-gitpython sccache ccache
 
 # Due to caching it is needed to add the user at the beginning of the workflow.
 #useradd -m builder
@@ -80,6 +80,7 @@ GPGKEY="2ECF4E27AAACF8F478631D73AA4D941DB6C633AF"
 COMPRESSZST=(zstd -c -T0 --ultra -22 -)
 PKGEXT='.pkg.tar.zst'
 OPTIONS=(strip docs !libtool !staticlibs emptydirs zipman purge !debug lto)
+BUILDENV=(!distcc color ccache check sign)
 
 CFLAGS="$CFLAGS"
 CXXFLAGS="$CFLAGS"
