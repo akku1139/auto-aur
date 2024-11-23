@@ -15,5 +15,10 @@ pinentry-mode loopback
 no-tty
 EOL
 
+cat >> $HOME/.cargo/config << EOL
+[build]
+rustc-wrapper = "sccache"
+EOL
+
 chmod 600 $HOME/.gnupg/gpg.conf
 #find $HOME/.gnupg -type f -name "*.lock" | xargs rm -f
