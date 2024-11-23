@@ -5,9 +5,15 @@ on:
     inputs:
       tmate:
         type: boolean
-        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'
+        description: 'SSH debug'
         required: false
         default: false
+      cmd:
+        type: string
+        description: 'Custom commands'
+        required: false
+        default: ""
+
   schedule:
     - cron: '47 8 * * *'
   push:
@@ -92,7 +98,7 @@ jobs:
           restore-keys: cache-
 
       - uses: mxschmitt/action-tmate@v3
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.tmate }}
+        if: ${{ inputs.tmate }}
         with:
           detached: true
 
@@ -111,6 +117,10 @@ jobs:
         env:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+ 
+      - name: Custom commands
+        if: ${{ inputs.commands != "" }}
+        run: ${{ inputs.commands }}
 
       - name: Build AUR
         run: sudo -u builder bash -ex scripts/build.sh
