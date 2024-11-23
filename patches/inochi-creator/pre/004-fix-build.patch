@@ -1,0 +1,50 @@
+diff --git a/.SRCINFO b/.SRCINFO
+index 1240a34..61f7596 100644
+--- a/.SRCINFO
++++ b/.SRCINFO
+@@ -17,7 +17,9 @@ pkgbase = inochi-creator
+ 	depends = liblphobos
+ 	source = https://github.com/Inochi2D/inochi-creator/archive/refs/tags/v0.8.6.zip
+ 	source = git+https://github.com/Inochi2D/i2d-imgui.git
++	source = git+https://github.com/Inochi2D/dcv-i2d.git
+ 	sha512sums = ad62d0a3652d3a5cb6b18ba5b5a6e5efea2fe1f8b2cc10de701e17a068210727dfed204aebd3051928e637d2a954ce8ec2930e7dd4c5bcfd0ea9604dfd47003e
+ 	sha512sums = SKIP
++	sha512sums = SKIP
+ 
+ pkgname = inochi-creator
+diff --git a/PKGBUILD b/PKGBUILD
+index 760b820..8bc9bb7 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -14,17 +14,18 @@ makedepends=(dub ldc cmake git)
+ source=(
+ 	"https://github.com/Inochi2D/inochi-creator/archive/refs/tags/v$pkgver.zip"
+ 	git+https://github.com/Inochi2D/i2d-imgui.git
++	git+https://github.com/Inochi2D/dcv-i2d.git
+ )
+ 
+-sha512sums=("ad62d0a3652d3a5cb6b18ba5b5a6e5efea2fe1f8b2cc10de701e17a068210727dfed204aebd3051928e637d2a954ce8ec2930e7dd4c5bcfd0ea9604dfd47003e" "SKIP")
++sha512sums=("ad62d0a3652d3a5cb6b18ba5b5a6e5efea2fe1f8b2cc10de701e17a068210727dfed204aebd3051928e637d2a954ce8ec2930e7dd4c5bcfd0ea9604dfd47003e" "SKIP" "SKIP")
+ 
+ prepare() {
+-	cd "$srcdir/i2d-imgui"
+-	git checkout f09d58a
++	#git -C "$srcdir/i2d-imgui" checkout f09d58a
+ 	cd "$srcdir/$pkgname-$pkgver"
+ 	echo "module creator.ver;\
+ 	enum INC_VERSION = \"$pkgver\";" > source/creator/ver.d
+ 	dub add-local $srcdir/i2d-imgui/ "0.8.0"
++	dub add-local $srcdir/dcv-i2d/ "0.3.0"
+ 
+ 	# Unofficial builds required to change bug report URL
+ 	sed -i "s,https://github.com/Inochi2D/inochi-creator/issues/new?assignees=&labels=bug&template=bug-report.yml&title=%5BBUG%5D,https://github.com/akku1139/auto-aur/issues/new?labels=bug&title=[inochi-creator]%20,g" source/creator/config.d
+@@ -35,7 +36,8 @@ build() {
+ 	mkdir out/
+ 	chmod +x ./gentl.sh
+ 	./gentl.sh
+-	dub build --build=release
++	dub build --config=meta
++	dub build --build=release --compiler=ldc2 --config=linux-full
+ }
+ 
+ package() {
