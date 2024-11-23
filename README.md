@@ -7,6 +7,8 @@
 ## Warning
 
 - Do not edit `package.json`, `packages-manually.txt`, `non-aur/` and `public/` while building.
+- Do not set a VCS package and the same normal package at the same time in `package.txt`.
+- VCS packages must be installed after normal packages.
 
 ## TODOs
 
