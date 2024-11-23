@@ -1,5 +1,17 @@
 # auto-aur
 
+## Mirrors
+
+- https://auto-aur.pages.dev/
+- https://akku1139.github.io/auto-aur/
+- https://auto-aur.netlify.app/
+- https://auto-aur.vercel.app/
+- https://auto-aur.web.app/
+- https://auto-aur.firebaseapp.com/
+
+https://www.hexabase.com/column/static-websites-for-frontend
+https://www.staticwebsitehosting.org/
+
 ## Add packages
 
 `packages.txt`
@@ -20,17 +32,13 @@
 - Deploy only when there is a git difference
 - use sccache
 
-## Mirrors
+## Packages containing version change patch
 
-- https://auto-aur.pages.dev/
-- https://akku1139.github.io/auto-aur/
-- https://auto-aur.netlify.app/
-- https://auto-aur.vercel.app/
-- https://auto-aur.web.app/
-- https://auto-aur.firebaseapp.com/
-
-https://www.hexabase.com/column/static-websites-for-frontend
-https://www.staticwebsitehosting.org/
+```
+inochi-creator
+inochi-session
+simplex-chat-git
+```
 
 ## Memo
 
