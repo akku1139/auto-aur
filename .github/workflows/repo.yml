@@ -79,10 +79,7 @@ jobs:
 
       - uses: actions/cache/restore@v4
         with:
-          path: |
-            /__w/auto-aur/auto-aur
-            /var/cache/pacman/pkg
-            /home/builder/.cache
+          path: /**
           key: cache-${{ github.sha }}
           restore-keys: cache-
 
@@ -133,6 +130,9 @@ jobs:
             /__w/auto-aur/auto-aur
             /var/cache/pacman/pkg
             /home/builder/.cache
+            /home/builder/.cargo/bin
+            /home/builder/.cargo/registry
+            /home/builder/.cargo/git
           key: cache-${{ github.sha }}
 
       - name: Upload Pages Artifact
