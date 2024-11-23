@@ -79,7 +79,13 @@ jobs:
 
       - uses: actions/cache/restore@v4
         with:
-          path: /**/*
+          path: |
+            /__w/auto-aur/auto-aur
+            /var/cache/pacman/pkg
+            /home/builder/.cache
+            /home/builder/.cargo/bin
+            /home/builder/.cargo/registry
+            /home/builder/.cargo/git
           key: cache-${{ github.sha }}
           restore-keys: cache-
 
