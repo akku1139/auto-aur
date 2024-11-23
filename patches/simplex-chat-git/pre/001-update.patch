@@ -1,0 +1,64 @@
+diff --git a/.SRCINFO b/.SRCINFO
+index b1d3829..863d530 100644
+--- a/.SRCINFO
++++ b/.SRCINFO
+@@ -1,11 +1,11 @@
+ pkgbase = simplex-chat-git
+ 	pkgdesc = a 100% private-by-design chat platform
+-	pkgver = v1.3.1.r34.g22ff17ae
++	pkgver = 6.1.1
+ 	pkgrel = 1
+ 	url = https://github.com/simplex-chat/simplex-chat
+ 	arch = x86_64
+ 	license = AGPL3
+-	makedepends = stack
++	makedepends = cabal-install
+ 	makedepends = git
+ 	provides = simplex-chat
+ 	conflicts = simplex-chat
+diff --git a/PKGBUILD b/PKGBUILD
+index 0714038..8d26c5e 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -1,13 +1,13 @@
+ # Maintainer: bobpaul <aurpackage [at] bobpaul 'period' org>
+ pkgname="simplex-chat-git"
+-pkgver=v1.3.1.r34.g22ff17ae
++pkgver=6.1.1
+ pkgrel=1
+ pkgdesc='a 100% private-by-design chat platform'
+ arch=("x86_64")
+ url="https://github.com/simplex-chat/simplex-chat"
+ license=('AGPL3')
+ groups=()
+-makedepends=('stack' 'git')
++makedepends=('cabal-install' 'git')
+ provides=('simplex-chat')
+ conflicts=('simplex-chat')
+ source=('git+https://github.com/simplex-chat/simplex-chat.git#branch=stable')
+@@ -16,8 +16,10 @@ md5sums=('SKIP')
+ builddir="${pkgname/-git/}"
+ build() {
+     cd "$builddir"
+-    rm -rf .stack-work
+-    stack build
++    echo "ignore-project: False"    >> cabal.project.local
++    echo "package direct-sqlcipher" >> cabal.project.local
++    echo "    flags: +openssl"      >> cabal.project.local
++    cabal build --enable-tests
+ }
+ 
+ pkgver(){
+@@ -27,5 +29,11 @@ pkgver(){
+ 
+ package() {
+     cd "$builddir"
+-    stack install --local-bin-path "$pkgdir"/usr/bin
++    path=$(cabal list-bin simplex-chat)
++    install -vDm0755 "$path" "$pkgdir/usr/bin/$builddir"
++}
++
++check() {
++    cd "$builddir"
++    cabal test --test-show-details=direct
+ }
