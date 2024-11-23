@@ -17,10 +17,10 @@ index b1d3829..863d530 100644
  	provides = simplex-chat
  	conflicts = simplex-chat
 diff --git a/PKGBUILD b/PKGBUILD
-index 0714038..7d05ad1 100644
+index 0714038..e417a21 100644
 --- a/PKGBUILD
 +++ b/PKGBUILD
-@@ -1,13 +1,13 @@
+@@ -1,23 +1,30 @@
  # Maintainer: bobpaul <aurpackage [at] bobpaul 'period' org>
  pkgname="simplex-chat-git"
 -pkgver=v1.3.1.r34.g22ff17ae
@@ -36,11 +36,15 @@ index 0714038..7d05ad1 100644
  provides=('simplex-chat')
  conflicts=('simplex-chat')
  source=('git+https://github.com/simplex-chat/simplex-chat.git#branch=stable')
-@@ -15,9 +15,12 @@ md5sums=('SKIP')
+ md5sums=('SKIP')
  
  builddir="${pkgname/-git/}"
- build() {
++prepare() {
++    cd "$builddir"
 +    cabal update
++}
++
+ build() {
      cd "$builddir"
 -    rm -rf .stack-work
 -    stack build
@@ -51,7 +55,7 @@ index 0714038..7d05ad1 100644
  }
  
  pkgver(){
-@@ -27,5 +30,11 @@ pkgver(){
+@@ -27,5 +34,11 @@ pkgver(){
  
  package() {
      cd "$builddir"
