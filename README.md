@@ -30,7 +30,7 @@ https://www.staticwebsitehosting.org/
 - sudo config
 - git branch support
 - Deploy only when there is a git difference
-- use sccache
+- patch target version
 
 ## Packages containing version change patch
 
