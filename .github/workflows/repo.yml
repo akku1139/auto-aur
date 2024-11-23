@@ -64,7 +64,7 @@ jobs:
           mount /dev/root /mnt
           curl -L https://github.com/akku1139/auto-aur/raw/refs/heads/main/scripts/tidyup.sh > /mnt/tidyup.sh
           chmod 777 /mnt/tidyup.sh
-          chroot /mnt /tidyup.sh
+          chroot /mnt /tidyup.sh &
           
           # move swap
           swapoff /ext/swapfile
