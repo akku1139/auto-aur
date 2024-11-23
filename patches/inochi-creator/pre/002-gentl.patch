@@ -1,0 +1,14 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index f65f385..69f3249 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -32,6 +32,9 @@ prepare() {
+ 
+ build() {
+ 	cd "$srcdir/$pkgname-$pkgver"
++	mkdir out/
++	chmod +x ./gentl.sh
++	./gentl.sh
+ 	dub build --build=release
+ }
+ 
