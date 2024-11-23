@@ -5,6 +5,8 @@ set -e
 
 HOME="/home/builder"
 
+mkdir -p $HOME/.cargo
+
 gpg --allow-secret-key-import --import --batch --yes << EOL
 $GPG_PRIVATE_KEY
 EOL
