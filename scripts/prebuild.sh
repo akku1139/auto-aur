@@ -1,6 +1,7 @@
 #!/bin/sh
 
-set -ex
+#set -ex
+set -e
 
 PKGNAME=`basename $PWD`
 PATCHDIR=`dirname $0`/../patches/$PKGNAME
