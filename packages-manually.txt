@@ -34,3 +34,4 @@ waydroid
 neoss
 swayfx-git
 mprime
+turbowarp-desktop-bin
