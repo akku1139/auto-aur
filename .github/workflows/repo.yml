@@ -119,8 +119,8 @@ jobs:
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
  
       - name: Custom commands
-        if: ${{ inputs.commands != '' }}
-        run: ${{ inputs.commands }}
+        if: ${{ inputs.cmd != '' }}
+        run: ${{ inputs.cmd }}
 
       - name: Build AUR
         run: sudo -u builder bash -ex scripts/build.sh
