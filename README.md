@@ -29,6 +29,7 @@ https://www.staticwebsitehosting.org/
 - Arch Linux 32 & Arch Linux ARM support
 - sudo config
 - git branch support
+- format `/ext` with Btrfs or XFS (disable journal) (compress)
 
 ## Packages containing version change patch
 
