@@ -129,14 +129,18 @@ jobs:
         run: python scripts/genui.py
 
       - name: Git
+        id: git
         run: |
           if [ -n "$(git status --porcelain)" ]; then
+            echo "change=true" >> $GITHUB_OUTPUT
             git pull
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git add -A
             git commit -m "Data"
             git push
+          else
+            echo "change=false" >> $GITHUB_OUTPUT
           fi
           git clean -ffdx
           git reset --hard HEAD
@@ -156,16 +160,20 @@ jobs:
           key: cache-${{ github.sha }}
 
       - name: Upload Pages Artifact
+        if: ${{ steps.git.outputs.change }}
         uses: actions/upload-pages-artifact@v3
         with:
           path: "public/"
 
       - name: Deploy to GitHub Pages
+        if: ${{ steps.git.outputs.change }}
         uses: actions/deploy-pages@v4
 
       - run: echo "/__e/node20/bin" >> $GITHUB_PATH
+        if: ${{ steps.git.outputs.change }}
 
       - uses: FirebaseExtended/action-hosting-deploy@v0.9.0
+        if: ${{ steps.git.outputs.change }}
         with:
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
           projectId: auto-aur
