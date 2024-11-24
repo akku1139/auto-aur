@@ -31,6 +31,9 @@ https://www.staticwebsitehosting.org/
 - git branch support
 - format `/ext` with Btrfs (disable journal) (compress)
   https://web.chaperone.jp/w/index.php?%BE%E9%C4%B9%C7%D3%BD%FC%A4%C8%C6%A9%B2%E1%C5%AA%B0%B5%BD%CC
+  https://wiki.archlinux.jp/index.php/Btrfs
+  https://wiki.gentoo.org/wiki/Btrfs/ja
+  https://mikunimaru.hatenablog.jp/entry/2021/06/11/191433
 
 ## Packages containing version change patch
 
