@@ -29,8 +29,6 @@ https://www.staticwebsitehosting.org/
 - Arch Linux 32 & Arch Linux ARM support
 - sudo config
 - git branch support
-- Deploy only when there is a git difference
-- `sudo -u builder paru -Ld dendrite-git && sudo -u builder paru -S dendrite-git`
 
 ## Packages containing version change patch
 
