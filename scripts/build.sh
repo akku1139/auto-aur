@@ -98,7 +98,7 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
       ;;
 
     *) # Normal AUR: pkg
-      paru --noconfirm --nocheck --nocleanafter -S "$pkg"
+      paru --aur --noconfirm --nocheck --nocleanafter -S "$pkg"
       echo "$pkg" >> packages-manually.txt
       ;;
   esac
