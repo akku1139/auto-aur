@@ -37,3 +37,4 @@ mprime
 turbowarp-desktop-bin
 turbowarp-desktop-git
 simplex-chat-bin
+archlinux-artwork
