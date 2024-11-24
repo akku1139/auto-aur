@@ -21,7 +21,7 @@ cat > $HOME/.ccache/ccache.conf << EOL
 
 EOL
 
-cat > $HOME/.cargo/config << EOL
+cat > $HOME/.cargo/config.toml << EOL
 [build]
 rustc-wrapper = "sccache"
 EOL
