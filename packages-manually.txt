@@ -39,3 +39,4 @@ turbowarp-desktop-git
 simplex-chat-bin
 archlinux-artwork
 dendrite-git
+cachy-browser
