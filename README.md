@@ -29,7 +29,8 @@ https://www.staticwebsitehosting.org/
 - Arch Linux 32 & Arch Linux ARM support
 - sudo config
 - git branch support
-- format `/ext` with Btrfs or XFS (disable journal) (compress)
+- format `/ext` with Btrfs (disable journal) (compress)
+  https://web.chaperone.jp/w/index.php?%BE%E9%C4%B9%C7%D3%BD%FC%A4%C8%C6%A9%B2%E1%C5%AA%B0%B5%BD%CC
 
 ## Packages containing version change patch
 
