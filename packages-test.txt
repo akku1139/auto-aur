@@ -29,3 +29,6 @@ inochi-session (SDL error? https://github.com/akku1139/auto-aur/actions/runs/119
 simplex-chat-git (Deps error)
 
 linux-libre (big package size: https://github.com/akku1139/auto-aur/actions/runs/11994498313/job/33436643987)
+
+python-git
+python313
