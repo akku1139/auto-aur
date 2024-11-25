@@ -48,13 +48,16 @@ jobs:
           useradd -m builder
 
           # mount host disk
-          mkdir /ext
           if [ "/dev/sda1" = $( mount | grep -F "/__e" | cut -d " " -f1 ) ]; then
-            mount /dev/sdb1 /ext
+            EXT_DISK=/dev/sdb1
           else
-            mount /dev/sda1 /ext
+            EXT_DISK=/dev/sda1
           fi
-          ls /ext
+          mkdir /ext
+          umount "$EXT_DISK" || true
+          mkfs.btrfs "$EXT_DISK"
+          mount -o compress=zstd "$EXT_DISK" /ext
+          #ls /ext
 
           # builder setup
           mkdir /ext/builder
@@ -117,7 +120,7 @@ jobs:
         env:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
- 
+
       - name: Custom commands
         if: ${{ inputs.cmd != '' }}
         run: ${{ inputs.cmd }}

@@ -1,1 +1,2 @@
-
+ungoogled-chromium
+chromium-extension-web-store
