@@ -73,7 +73,7 @@ jobs:
           fi
           mkdir /ext
           umount "$EXT_DISK" || true
-          mkfs.btrfs "$EXT_DISK"
+          mkfs.btrfs -f "$EXT_DISK"
           mount -o compress=zstd "$EXT_DISK" /ext
           #ls /ext
 
