@@ -42,3 +42,4 @@ dendrite-git
 cachy-browser
 spflashtool5-bin
 spflashtool-bin
+chromium-extension-web-store
