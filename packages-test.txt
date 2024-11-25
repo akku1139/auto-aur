@@ -16,7 +16,7 @@ haveno
 
 p2pool-git (configure error)
 
-git:https://github.com/Zheaoli/linux-xanmod-manjusaka (too big)
+git:https://github.com/Zheaoli/linux-xanmod-manjusaka (too big) (-march=native)
 
 zen-browser-generic
 
@@ -33,4 +33,3 @@ python-git (https://github.com/akku1139/auto-aur/actions/runs/12002982044/job/33
 python313
 
 ungoogled-chromium
-chromium-extension-web-store
