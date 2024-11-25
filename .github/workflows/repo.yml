@@ -89,7 +89,7 @@ jobs:
 
           fallocate -l $( df -h | awk '$6 == "/pre" { print $4 }' ) /pre/fs
           mkfs.btrfs -f /pre/fs
-          mount -o compress=zstd,nobarrier,noatime /pre/fs /ext
+          mount -o compress-force=zstd,nobarrier,noatime /pre/fs /ext
 
           df -h
 
