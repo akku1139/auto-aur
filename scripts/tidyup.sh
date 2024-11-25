@@ -1,7 +1,7 @@
 #!/bin/bash -x
 
 echo "**** starting tidyup.sh ****"
-set -x
+# set -x
 
 # https://github.com/NobuoTsukamoto/my_actions_test/blob/main/.github/workflows/test_contains.yml
 npm uninstall bazel
@@ -98,7 +98,7 @@ apt purge \
   linux-headers-* \
   manpages \
   -yq > /dev/null 2>&1
-dpkg -r packages-microsoft-prod　> /dev/null 2>&1
+dpkg -r packages-microsoft-prod > /dev/null 2>&1
 apt-get autoremove -y > /dev/null 2>&1
 apt-get autoclean -y > /dev/null 2>&1
 #apt list --installed

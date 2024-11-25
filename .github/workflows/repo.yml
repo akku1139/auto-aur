@@ -61,6 +61,8 @@ jobs:
 
       - name: Pre setup
         run: |
+          set -x
+
           pacman --noconfirm -Syu
           pacman --noconfirm -S git btrfs-progs
           git config --global --add safe.directory $PWD
@@ -86,7 +88,7 @@ jobs:
           # move swap 1
           swapoff /ext/swapfile
           rm /ext/swapfile
-          umount "$EXT_DISK" || true
+          umount "$EXT_DISK"
 
           mkfs.btrfs -f "$EXT_DISK"
           mount -o compress=zstd,nobarrier,noatime "$EXT_DISK" /ext
