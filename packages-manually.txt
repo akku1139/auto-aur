@@ -40,3 +40,5 @@ simplex-chat-bin
 archlinux-artwork
 dendrite-git
 cachy-browser
+spflashtool5-bin
+spflashtool-bin

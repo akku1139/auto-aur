@@ -1,2 +1,1 @@
-spflashtool5-bin
-spflashtool-bin
+
