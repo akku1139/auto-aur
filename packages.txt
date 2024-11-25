@@ -1,1 +1,2 @@
-python-git
+spflashtool5-bin
+spflashtool-bin
