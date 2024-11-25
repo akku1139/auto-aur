@@ -91,6 +91,8 @@ jobs:
           mkfs.btrfs -f /pre/fs
           mount -o compress=zstd,nobarrier,noatime /pre/fs /ext
 
+          df -h
+
           # builder setup
           mkdir /ext/builder
           chown builder:builder /ext/builder
@@ -100,7 +102,7 @@ jobs:
           chmod 0600 /swapfile
           mkswap /swapfile
           losetup -f /swapfile
-          swapon $( losetup -a| grep -F "/swapfile" | cut -d: -f1 )
+          swapon $( losetup -a | grep -F "/swapfile" | cut -d: -f1 )
 
       - uses: mxschmitt/action-tmate@v3
         if: ${{ inputs.tmate }}
