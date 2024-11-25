@@ -75,24 +75,21 @@ jobs:
           chmod 777 /mnt/tidyup.sh
           chroot /mnt /tidyup.sh &
 
-          # mount host disk
+          mkdir /pre /ext
+
           if [ "/dev/sda1" = $( mount | grep -F "/__e" | cut -d " " -f1 ) ]; then
-            EXT_DISK=/dev/sdb1
+            mount /dev/sdb1 /pre
           else
-            EXT_DISK=/dev/sda1
+            mount /dev/sda1 /pre
           fi
 
-          mkdir /ext
-          mount "$EXT_DISK" /ext
-
           # move swap 1
-          swapoff /ext/swapfile
-          rm /ext/swapfile
-          umount "$EXT_DISK"
+          swapoff /pre/swapfile
+          rm -r /pre/*
 
-          mkfs.btrfs -f "$EXT_DISK"
-          mount -o compress=zstd,nobarrier,noatime "$EXT_DISK" /ext
-          #ls /ext
+          fallocate -l $( df -h | awk '$6 == "/pre" { print $4 }' ) /pre/fs
+          mkfs.btrfs -f /pre/fs
+          mount -o compress=zstd,nobarrier,noatime /pre/fs /ext
 
           # builder setup
           mkdir /ext/builder
