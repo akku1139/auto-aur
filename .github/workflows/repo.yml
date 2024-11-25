@@ -71,7 +71,7 @@ jobs:
           curl -L https://github.com/akku1139/auto-aur/raw/refs/heads/main/scripts/tidyup.sh > /mnt/tidyup.sh
           chmod 777 /mnt/tidyup.sh
           chroot /mnt /tidyup.sh &
-          
+
           # move swap
           swapoff /ext/swapfile
           rm /ext/swapfile
@@ -81,7 +81,7 @@ jobs:
           losetup -f /swapfile
           swapon $( losetup -a| grep -F "/swapfile" | cut -d: -f1 )
 
-          df -h
+          #df -h
 
       - uses: actions/cache/restore@v4
         with:
