@@ -65,26 +65,6 @@ jobs:
           pacman --noconfirm -S git btrfs-progs
           git config --global --add safe.directory $PWD
 
-          # mount host disk
-          if [ "/dev/sda1" = $( mount | grep -F "/__e" | cut -d " " -f1 ) ]; then
-            EXT_DISK=/dev/sdb1
-          else
-            EXT_DISK=/dev/sda1
-          fi
-          mkdir /ext
-          umount "$EXT_DISK" || true
-          mkfs.btrfs -f "$EXT_DISK"
-          mount -o compress=zstd "$EXT_DISK" /ext
-          #ls /ext
-
-          # builder setup
-          mkdir /ext/builder
-          chown builder:builder /ext/builder
-
-          # tidy up
-          lsblk
-          df -h
-
           # language support?
           rm -r /__t/*
 
@@ -93,16 +73,35 @@ jobs:
           chmod 777 /mnt/tidyup.sh
           chroot /mnt /tidyup.sh &
 
-          # move swap
+          # mount host disk
+          if [ "/dev/sda1" = $( mount | grep -F "/__e" | cut -d " " -f1 ) ]; then
+            EXT_DISK=/dev/sdb1
+          else
+            EXT_DISK=/dev/sda1
+          fi
+
+          mkdir /ext
+          mount "$EXT_DISK" /ext
+
+          # move swap 1
           swapoff /ext/swapfile
           rm /ext/swapfile
+          umount "$EXT_DISK" || true
+
+          mkfs.btrfs -f "$EXT_DISK"
+          mount -o compress=zstd,nobarrier,noatime "$EXT_DISK" /ext
+          #ls /ext
+
+          # builder setup
+          mkdir /ext/builder
+          chown builder:builder /ext/builder
+
+          # move swap 2
           fallocate -l 8GB /swapfile
           chmod 0600 /swapfile
           mkswap /swapfile
           losetup -f /swapfile
           swapon $( losetup -a| grep -F "/swapfile" | cut -d: -f1 )
-
-          #df -h
 
       - uses: mxschmitt/action-tmate@v3
         if: ${{ inputs.tmate }}
