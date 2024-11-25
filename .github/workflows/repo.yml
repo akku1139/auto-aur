@@ -40,12 +40,30 @@ jobs:
       options: --privileged
 
     steps:
-      - name: Pre Setup
+      - name: Add Builder user
         run: |
-          set -x
-
           # add builder user
           useradd -m builder
+
+      - uses: actions/cache/restore@v4
+        with:
+          path: | # Must be synchronized with save
+            /__w/auto-aur/auto-aur
+            /var/cache/pacman/pkg
+            /home/builder/.cache
+            /home/builder/.cargo
+            /home/builder/.ccache
+            /home/builder/go
+            /home/builder/.dub
+            /home/builder/.cabal
+          key: cache-${{ github.sha }}
+          restore-keys: cache-
+
+      - name: Pre setup
+        run: |
+          pacman --noconfirm -Syu
+          pacman --noconfirm -S git btrfs-progs
+          git config --global --add safe.directory $PWD
 
           # mount host disk
           if [ "/dev/sda1" = $( mount | grep -F "/__e" | cut -d " " -f1 ) ]; then
@@ -86,29 +104,10 @@ jobs:
 
           #df -h
 
-      - uses: actions/cache/restore@v4
-        with:
-          path: | # Must be synchronized with save
-            /__w/auto-aur/auto-aur
-            /var/cache/pacman/pkg
-            /home/builder/.cache
-            /home/builder/.cargo
-            /home/builder/.ccache
-            /home/builder/go
-            /home/builder/.dub
-            /home/builder/.cabal
-          key: cache-${{ github.sha }}
-          restore-keys: cache-
-
       - uses: mxschmitt/action-tmate@v3
         if: ${{ inputs.tmate }}
         with:
           detached: true
-
-      - run: |
-          pacman --noconfirm -Syu
-          pacman --noconfirm -S git
-          git config --global --add safe.directory $PWD
 
       - uses: actions/checkout@v4
 
