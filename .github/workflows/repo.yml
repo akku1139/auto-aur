@@ -183,3 +183,8 @@ jobs:
 
       # - uses: mxschmitt/action-tmate@v3
       #   if: ${{ ( failure() ) && ! ( github.event_name == 'workflow_dispatch' && inputs.tmate ) }}
+
+      - name: Debug info
+        if: ${{ failure() }}
+        run: |
+          df -h
