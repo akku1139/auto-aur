@@ -1,1 +1,5 @@
-zen-browser-generic
+dorion-bin
+fastanime-git
+fastanime
+walker
+walker-bin
