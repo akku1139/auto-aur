@@ -16,13 +16,20 @@ if [ -f $PATCHDIR/deps ]; then
   sudo pacman --noconfirm -S $( cat $PATCHDIR/deps )
 fi
 
+if [ ! -f $PATCHDIR/version ]; then
+  echo "Warn (prebuild.sh): $PATCHDIR/version was not found"
+  echo "Exit"
+  exit
+fi
+
 targetver=$( awk '$1=="pkgver" {v=$3} $1=="pkgrel" {r=$3} $1=="epoch" {e=$3":"} END {print e v "-" r}' .SRCINFO )
 patchver=$( cat "$PATCHDIR/version" )
+
 if [ $targetver != $patchver ]; then
   echo "Error (prebuild.sh): Patch version and package version are different"
   echo "Package: $targetver"
   echo "Patch: $patchver"
-  echo "Exit."
+  echo "Exit"
   exit 1
 fi
 
