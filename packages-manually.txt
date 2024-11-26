@@ -43,3 +43,11 @@ cachy-browser
 spflashtool5-bin
 spflashtool-bin
 chromium-extension-web-store
+dorion-bin
+fastanime-git
+fastanime
+walker-bin
+jaguar
+jaguar-bin
+toit
+toit-git
