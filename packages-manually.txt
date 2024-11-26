@@ -51,3 +51,4 @@ jaguar
 jaguar-bin
 toit
 toit-git
+walker
