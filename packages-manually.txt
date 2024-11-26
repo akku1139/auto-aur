@@ -53,3 +53,4 @@ toit
 toit-git
 walker
 firefox-pwa
+git-spice-bin
