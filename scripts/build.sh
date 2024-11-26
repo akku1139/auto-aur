@@ -5,7 +5,8 @@ basepath=$( pwd )
 # error: no operation specified (use -h for help)
 # https://distro.tube/man-org/man8/paru.8.html
 # paru is paru -Syu
-yes | paru -Syu
+# https://bbs.archlinux.org/viewtopic.php?id=35901 (pacman --ask)
+yes | paru -Syu --ask=4
 
 # xargs -a packages.txt sudo -u builder paru --noconfirm --nocheck --nocleanafter -S
 for pkg in $( cat packages.txt non-aur/non-aur.txt); do
