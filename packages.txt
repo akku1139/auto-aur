@@ -1,7 +1,6 @@
 dorion-bin
 fastanime-git
 fastanime
-walker
 walker-bin
 jaguar
 jaguar-bin
