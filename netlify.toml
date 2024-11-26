@@ -1,0 +1,2 @@
+[build]
+  ignore = "[ \"$( git show --pretty='' --name-only | grep '^public/' )\" = '' ]"
