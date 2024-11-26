@@ -52,3 +52,4 @@ jaguar-bin
 toit
 toit-git
 walker
+firefox-pwa
