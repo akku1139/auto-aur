@@ -39,3 +39,5 @@ fastanime-git
 fastanime
 walker
 walker-bin
+
+walker (error? https://github.com/akku1139/auto-aur/actions/runs/12028638983/job/33532200052)
