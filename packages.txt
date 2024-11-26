@@ -3,3 +3,7 @@ fastanime-git
 fastanime
 walker
 walker-bin
+jaguar
+jaguar-bin
+toit
+toit-git
