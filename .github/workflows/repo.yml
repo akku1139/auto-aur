@@ -121,7 +121,7 @@ jobs:
           SCCACHE_SCHEDULER_ADDR: ${{ secrets.SCCACHE_SCHEDULER_ADDR }}
           SCCACHE_SERVER_TOKEN: ${{ secrets.SCCACHE_SERVER_TOKEN }}
           TCPEXPOSER_PRIVATE_KEY: ${{ secrets.TCPEXPOSER_PRIVATE_KEY }}
-          TCPEXPOSER_PUBLIC_KEY: ${{ srcrets.TCPEXPOSER_PUBLIC_KEY }}
+          TCPEXPOSER_PUBLIC_KEY: ${{ secrets.TCPEXPOSER_PUBLIC_KEY }}
 
       - name: Custom commands
         if: ${{ inputs.cmd != '' }}
@@ -204,15 +204,15 @@ jobs:
 
       - name: SSH config
         run: |
-          cat > $HOME/.ssh/id_tcpexposer.com.pub << EOL
-          ${{ srcrets.TCPEXPOSER_PUBLIC_KEY }}
+          cat > /root/.ssh/id_tcpexposer.com.pub << EOL
+          ${{ secrets.TCPEXPOSER_PUBLIC_KEY }}
           EOL
           
-          cat > $HOME/.ssh/id_tcpexposer.com << EOL
-          ${{ srcrets.TCPEXPOSER_PRIVATE_KEY }}
+          cat > /root/.ssh/id_tcpexposer.com << EOL
+          ${{ secrets.TCPEXPOSER_PRIVATE_KEY }}
           EOL
           
-          cat >> $HOME/.ssh/config << EOL
+          cat >> /root/.ssh/config << EOL
           Host tcpexposer.com
             User aku-2
             HostName tcpexposer.com
@@ -221,7 +221,7 @@ jobs:
             IdentitiesOnly yes
           EOL
           
-          cat >> $HOME/.ssh/known_hosts << EOL
+          cat >> /root/.ssh/known_hosts << EOL
           # tcpexposer.com:22 SSH-2.0-sish
           |1|PWKuAKfpfTyXmLUOlXZX2W+7C8Y=|pdbC3oKKs4H7lSgFHODZGyj1JuU= ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF9qb8hhyV/kBYq/X00tsnsbKdT5bXli5MN2frvtHqdw
           # tcpexposer.com:22 SSH-2.0-sish
