@@ -119,6 +119,8 @@ jobs:
         env:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          SCCACHE_CLIENT_TOKEN: ${{ secrets.SCCACHE_CLIENT_TOKEN }}
+          SCCACHE_SERVER_TOKEN: ${{ secrets.SCCACHE_SERVER_TOKEN }}
 
       - name: Custom commands
         if: ${{ inputs.cmd != '' }}
