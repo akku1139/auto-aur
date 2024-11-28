@@ -45,6 +45,8 @@ simplex-chat-git
 
 ## Memo
 
+https://vendenic.link
+
 ```
 # df -h
 Filesystem      Size  Used Avail Use% Mounted on
