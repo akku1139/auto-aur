@@ -121,6 +121,7 @@ jobs:
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
           SCCACHE_CLIENT_TOKEN: ${{ secrets.SCCACHE_CLIENT_TOKEN }}
           SCCACHE_SERVER_TOKEN: ${{ secrets.SCCACHE_SERVER_TOKEN }}
+          TCPEXPOSER_PRIVATE_KEY: ${{ secrets.TCPEXPOSER_PRIVATE_KEY }}
 
       - name: Custom commands
         if: ${{ inputs.cmd != '' }}
