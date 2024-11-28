@@ -38,8 +38,8 @@ root ALL=(ALL:ALL) NOPASSWD: ALL
 builder ALL=(ALL:ALL) NOPASSWD: ALL
 EOL
 
-pac -Syu base-devel sudo paru python-gitpython sccache openssh
-# ccache
+pac -Syu base-devel sudo paru python-gitpython
+# ccache sccache openssh
 
 # Due to caching it is needed to add the user at the beginning of the workflow.
 #useradd -m builder
