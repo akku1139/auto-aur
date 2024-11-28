@@ -34,11 +34,11 @@ cat > $HOME/.ssh/id_tcpexposer.com.pub << EOL
 $TCPEXPOSER_PUBLIC_KEY
 EOL
 
-cat > /.ssh/id_tcpexposer.com << EOL
+cat > $HOME/.ssh/id_tcpexposer.com << EOL
 $TCPEXPOSER_PRIVATE_KEY
 EOL
 
-cat >> /.ssh/config << EOL
+cat >> $HOME/.ssh/config << EOL
 Host tcpexposer.com
   User aku-2
   HostName tcpexposer.com
@@ -47,7 +47,7 @@ Host tcpexposer.com
   IdentitiesOnly yes
 EOL
 
-cat >> ~/.ssh/known_hosts << EOL
+cat >> $HOME/.ssh/known_hosts << EOL
 # tcpexposer.com:22 SSH-2.0-sish
 |1|PWKuAKfpfTyXmLUOlXZX2W+7C8Y=|pdbC3oKKs4H7lSgFHODZGyj1JuU= ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF9qb8hhyV/kBYq/X00tsnsbKdT5bXli5MN2frvtHqdw
 # tcpexposer.com:22 SSH-2.0-sish
