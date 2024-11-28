@@ -38,7 +38,8 @@ root ALL=(ALL:ALL) NOPASSWD: ALL
 builder ALL=(ALL:ALL) NOPASSWD: ALL
 EOL
 
-pac -Syu base-devel sudo paru python-gitpython sccache
+pac -Syu base-devel sudo paru python-gitpython sccache bubblewrap
+# bubblewrap: for sccache-dist server
 # ccache
 
 # Due to caching it is needed to add the user at the beginning of the workflow.
