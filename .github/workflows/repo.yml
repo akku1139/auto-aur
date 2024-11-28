@@ -257,4 +257,9 @@ jobs:
           token = "${{ secrets.SCCACHE_SERVER_TOKEN }}"
           EOL
 
-          ssh ${{ secrets.SCCACHE_SERVER_ADDR }}:80:localhost:10600 aku-2@tcpexposer.com &
+          sccache-dist server --config /sccache-server.conf &
+          ssh at3o07rszaubbafwd6oni2ch4e:80:localhost:443 aku-2@tcpexposer.com &
+
+      - name: Wait main
+        run: |
+          sleep 1500
