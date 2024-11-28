@@ -120,8 +120,11 @@ jobs:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
           SCCACHE_CLIENT_TOKEN: ${{ secrets.SCCACHE_CLIENT_TOKEN }}
+          SCCACHE_SCHEDULER_ADDR: ${{ secrets.SCCACHE_SCHEDULER_ADDR }}
+          SCCACHE_SERVER_ADDR: ${{ secrets.SCCACHE_SERVER_ADDR }}
           SCCACHE_SERVER_TOKEN: ${{ secrets.SCCACHE_SERVER_TOKEN }}
           TCPEXPOSER_PRIVATE_KEY: ${{ secrets.TCPEXPOSER_PRIVATE_KEY }}
+          TCPEXPOSER_PUBLIC_KEY: ${{ srcrets.TCPEXPOSER_PUBLIC_KEY }}
 
       - name: Custom commands
         if: ${{ inputs.cmd != '' }}
