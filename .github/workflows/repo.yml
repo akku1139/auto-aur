@@ -52,10 +52,10 @@ jobs:
             /var/cache/pacman/pkg
             /home/builder/.cache
             /home/builder/.cargo
-            /home/builder/.ccache
             /home/builder/go
             /home/builder/.dub
             /home/builder/.cabal
+          # /home/builder/.ccache
           key: cache-${{ github.sha }}
           restore-keys: cache-
 
@@ -155,10 +155,10 @@ jobs:
             /var/cache/pacman/pkg
             /home/builder/.cache
             /home/builder/.cargo
-            /home/builder/.ccache
             /home/builder/go
             /home/builder/.dub
             /home/builder/.cabal
+          # /home/builder/.ccache
           key: cache-${{ github.sha }}
 
       - name: Upload Pages Artifact
