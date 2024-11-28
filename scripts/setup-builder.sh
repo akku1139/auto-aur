@@ -24,7 +24,7 @@ EOL
 
 cat > $HOME/.cargo/config.toml << EOL
 [build]
-rustc-wrapper = "sccache"
+#rustc-wrapper = "sccache"
 EOL
 
 chmod 600 $HOME/.gnupg/gpg.conf
