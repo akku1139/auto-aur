@@ -38,7 +38,7 @@ root ALL=(ALL:ALL) NOPASSWD: ALL
 builder ALL=(ALL:ALL) NOPASSWD: ALL
 EOL
 
-pac -Syu base-devel sudo paru python-gitpython sccache bubblewrap
+pac -Syu base-devel sudo paru python-gitpython sccache bubblewrap openssh
 # bubblewrap: for sccache-dist server
 # ccache
 
