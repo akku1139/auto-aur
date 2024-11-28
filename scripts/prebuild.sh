@@ -12,7 +12,9 @@ if [ ! -d $PATCHDIR ]; then
   exit
 fi
 
+
 if [ -f $PATCHDIR/deps ]; then
+  echo ":: Installing additional deps..."
   sudo pacman --noconfirm -S $( cat $PATCHDIR/deps )
 fi
 
@@ -22,12 +24,14 @@ if [ ! -f $PATCHDIR/version ]; then
   exit
 fi
 
+echo ":: Patching $PKGNAME..."
+
 targetver=$( awk '$1=="pkgver" {v=$3} $1=="pkgrel" {r=$3} $1=="epoch" {e=$3":"} END {print e v "-" r}' .SRCINFO )
 patchver=$( cat "$PATCHDIR/version" )
 
 if [ $targetver != $patchver ]; then
-  echo "Error (prebuild.sh): Patch version and package version are different"
-  echo "Package: $targetver"
+  echo "Error (prebuild.sh): patch version and package version are different"
+  echo "Package: $PKGNAME"
   echo "Patch: $patchver"
   echo "Exit"
   exit 1
