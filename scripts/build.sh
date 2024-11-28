@@ -6,7 +6,7 @@ basepath=$( pwd )
 # https://distro.tube/man-org/man8/paru.8.html
 # paru is paru -Syu
 # https://bbs.archlinux.org/viewtopic.php?id=35901 (pacman --ask)
-paru -Syu --ask=4 --noconfirm
+paru -Syu --ask=4
 
 # xargs -a packages.txt sudo -u builder paru --noconfirm --nocheck --nocleanafter -S
 for pkg in $( cat packages.txt non-aur/non-aur.txt); do
