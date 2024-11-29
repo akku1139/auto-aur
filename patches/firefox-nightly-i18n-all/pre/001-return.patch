@@ -1,0 +1,11 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 27f8980..dcd0909 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -129,5 +129,5 @@ for _lang in "${_languages[@]}"; do
+ done
+ 
+ package() {
+-   return    
++  exit
+ }
