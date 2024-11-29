@@ -57,3 +57,6 @@ git-spice-bin
 icecream
 zed-preview-bin
 z-library-electron
+freetube-git
+freetube-nightly
+oh-my-posh
