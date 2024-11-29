@@ -35,3 +35,5 @@ python313
 ungoogled-chromium
 
 z-library-bin (hash check failed https://github.com/akku1139/auto-aur/actions/runs/12071715488/job/33664078599)
+
+firefox-nightly-i18n-all (unknown error https://github.com/akku1139/auto-aur/actions/runs/12085428677/job/33702639889)

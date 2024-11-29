@@ -1,4 +1,3 @@
 freetube-git
 freetube-nightly
 oh-my-posh
-firefox-nightly-i18n-all
