@@ -20,8 +20,8 @@ fi
 
 if [ ! -f $PATCHDIR/version ]; then
   echo "Warn (prebuild.sh): $PATCHDIR/version was not found"
-  echo "Exit"
-  exit
+  # echo "Exit"
+  # exit
 fi
 
 echo ":: Patching $PKGNAME..."
@@ -29,7 +29,7 @@ echo ":: Patching $PKGNAME..."
 targetver=$( awk '$1=="pkgver" {v=$3} $1=="pkgrel" {r=$3} $1=="epoch" {e=$3":"} END {print e v "-" r}' .SRCINFO )
 patchver=$( cat "$PATCHDIR/version" )
 
-if [ $targetver != $patchver ]; then
+if [ -f $PATCHDIR/version ] && [ $targetver != $patchver ]; then
   echo "Error (prebuild.sh): patch version and package version are different"
   echo "Package: $PKGNAME"
   echo "Patch: $patchver"
