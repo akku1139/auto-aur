@@ -56,3 +56,4 @@ firefox-pwa
 git-spice-bin
 icecream
 zed-preview-bin
+z-library-electron
