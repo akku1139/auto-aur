@@ -12,19 +12,16 @@ if [ ! -d $PATCHDIR ]; then
   exit
 fi
 
-
 if [ -f $PATCHDIR/deps ]; then
   echo ":: Installing additional deps..."
   sudo pacman --noconfirm -S $( cat $PATCHDIR/deps )
 fi
 
+echo ":: Patching $PKGNAME..."
+
 if [ ! -f $PATCHDIR/version ]; then
   echo "Warn (prebuild.sh): $PATCHDIR/version was not found"
-  # echo "Exit"
-  # exit
 fi
-
-echo ":: Patching $PKGNAME..."
 
 targetver=$( awk '$1=="pkgver" {v=$3} $1=="pkgrel" {r=$3} $1=="epoch" {e=$3":"} END {print e v "-" r}' .SRCINFO )
 patchver=$( cat "$PATCHDIR/version" )
