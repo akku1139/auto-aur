@@ -140,6 +140,7 @@ jobs:
             git commit -m "Data"
             git push
           else
+            echo "There are no changes."
             echo "change=false" >> $GITHUB_OUTPUT
           fi
           git clean -ffdx
