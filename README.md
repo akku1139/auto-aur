@@ -30,6 +30,8 @@ https://www.staticwebsitehosting.org/
 - sudo config
 - git branch support
 - Automatic failure handling
+- Clone git source with `--filter=tree:0`
+  https://zenn.dev/phoepsilonix/articles/git_shallow_memo
 
 ## Packages containing version change patch
 
