@@ -3,10 +3,10 @@
 #set -ex
 set -e
 
-echo ":: Running prebuild commands for $PKGNAME"
-
 PKGNAME=`basename $PWD`
 PATCHDIR="$( dirname $0 )/../patches/$PKGNAME"
+
+echo ":: Running prebuild commands for $PKGNAME"
 
 if [ ! -d $PATCHDIR ]; then
   exit
