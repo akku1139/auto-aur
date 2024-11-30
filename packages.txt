@@ -1,1 +1,1 @@
-firefox-nightly-i18n-all
+
