@@ -1,11 +1,12 @@
 diff --git a/PKGBUILD b/PKGBUILD
-index 27f8980..dcd0909 100644
+index 27f8980..35b912b 100644
 --- a/PKGBUILD
 +++ b/PKGBUILD
-@@ -129,5 +129,5 @@ for _lang in "${_languages[@]}"; do
+@@ -127,7 +127,3 @@ for _lang in "${_languages[@]}"; do
+   _pkgname=firefox-nightly-i18n-${_locale,,}
+   depends+=($_pkgname)
  done
- 
- package() {
+-
+-package() {
 -   return    
-+  exit
- }
+-}
