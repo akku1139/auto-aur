@@ -1,13 +1,13 @@
 #!/bin/sh -ex
 basepath=$( pwd )
-PARU="paru --ask=4"
+alias pr="paru --ask=4"
 
 #yes "" | sudo -u builder paru --noconfirm
 # error: no operation specified (use -h for help)
 # https://distro.tube/man-org/man8/paru.8.html
 # paru is paru -Syu
 # https://bbs.archlinux.org/viewtopic.php?id=35901 (pacman --ask)
-$PARU -Syu
+pr -Syu
 
 # xargs -a packages.txt sudo -u builder paru --noconfirm --nocheck --nocleanafter -S
 for pkg in $( cat packages.txt non-aur/non-aur.txt); do
@@ -36,7 +36,7 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
         echo "$lc" > $confdir/latest-commit
         cd "$workdir"
         git clone --depth=1 "$repo" .
-        $PARU -U
+        pr -U
       fi
       ;;
 
@@ -71,7 +71,7 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
         diff "$confdir/srcinfo" "$workdir/srcinfo"  > /dev/null 2>&1
         if [ $? -eq 1 ]; then
           makepkg --printsrcinfo > "$confdir/srcinfo"
-          $PARU -U
+          pr -U
         fi
       fi
       ;;
@@ -95,14 +95,14 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
       if [ $? -eq 1 ]; then
         cd "$basepath/local/$repo"
         makepkg --printsrcinfo > "$confdir/srcinfo"
-        $PARU -U
+        pr -U
       fi
       ;;
 
     *) # Normal AUR: pkg
-      $PARU --aur --noconfirm --nocheck --nocleanafter -S "$pkg"
+      pr --aur --nocheck --nocleanafter -S "$pkg"
       echo "$pkg" >> packages-manually.txt
-      $PARU --noconfirm -R "$pkg"
+      pr --noconfirm -R "$pkg"
       ;;
   esac
 
