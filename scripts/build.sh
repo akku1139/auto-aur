@@ -1,6 +1,6 @@
 #!/bin/sh -ex
 basepath=$( pwd )
-PARU=paru --ask=4
+PARU="paru --ask=4"
 
 #yes "" | sudo -u builder paru --noconfirm
 # error: no operation specified (use -h for help)
