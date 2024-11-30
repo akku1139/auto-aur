@@ -61,3 +61,9 @@ freetube-git
 freetube-nightly
 oh-my-posh
 firefox-nightly-i18n-all
+dnsmasq-china-list-git
+v2ray-china-list
+ventoy-bin
+ventoy
+iventoy-bin
+grub-theme-ventoy
