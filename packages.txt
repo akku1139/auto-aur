@@ -1,1 +1,4 @@
 busybox-coreutils
+accelerated-domains-china-list-git
+dnsmasq-china-list-git
+v2ray-china-list
