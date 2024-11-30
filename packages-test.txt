@@ -34,3 +34,5 @@ ungoogled-chromium
 z-library-bin (hash check failed https://github.com/akku1139/auto-aur/actions/runs/12071715488/job/33664078599)
 
 busybox-coreutils (error https://github.com/akku1139/auto-aur/actions/runs/12093989303/job/33725555043)
+
+accelerated-domains-china-list-git (license does not allow empty values https://github.com/akku1139/auto-aur/actions/runs/12095094936/job/33727901848)
