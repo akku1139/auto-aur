@@ -32,6 +32,7 @@ https://www.staticwebsitehosting.org/
 - Automatic failure handling
 - Clone git source with `--filter=tree:0`
   https://zenn.dev/phoepsilonix/articles/git_shallow_memo
+  https://gitlab.archlinux.org/pacman/pacman/-/blob/master/scripts/libmakepkg/source/git.sh.in?ref_type=heads
 
 ## Packages containing version change patch
 
