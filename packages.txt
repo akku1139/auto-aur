@@ -1,4 +1,7 @@
-accelerated-domains-china-list-git
 dnsmasq-china-list-git
 v2ray-china-list
 eudev
+ventoy-bin
+ventoy
+iventoy-bin
+grub-theme-ventoy
