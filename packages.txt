@@ -1,6 +1,5 @@
 dnsmasq-china-list-git
 v2ray-china-list
-eudev
 ventoy-bin
 ventoy
 iventoy-bin
