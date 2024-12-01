@@ -1,1 +1,7 @@
-
+stable-diffusion-webui-git
+stable-diffusion-ui
+stable-diffusion.cpp-git
+stable-diffusion.cpp-cublas-git
+stable-diffusion.cpp-hipblas-git
+stable-diffusion.cpp-vulkan-git
+stable-diffusion-intel-git
