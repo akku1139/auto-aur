@@ -69,3 +69,5 @@ iventoy-bin
 grub-theme-ventoy
 stable-diffusion-webui-git
 stable-diffusion-ui
+z-library-bin
+wttrbar
