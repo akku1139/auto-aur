@@ -1,4 +1,3 @@
-mojo
 z-library-bin
 wttrbar
 llama.cpp-bin
