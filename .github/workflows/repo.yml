@@ -130,6 +130,7 @@ jobs:
 
       - name: Git
         id: git
+        if: ${{ !cancelled() }}
         run: |
           if [ -n "$(git status --porcelain)" ]; then
             echo "change=true" >> $GITHUB_OUTPUT
