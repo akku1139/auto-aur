@@ -67,3 +67,5 @@ ventoy-bin
 ventoy
 iventoy-bin
 grub-theme-ventoy
+stable-diffusion-webui-git
+stable-diffusion-ui
