@@ -71,3 +71,4 @@ stable-diffusion-webui-git
 stable-diffusion-ui
 z-library-bin
 wttrbar
+mew-git
