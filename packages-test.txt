@@ -36,3 +36,26 @@ z-library-bin (hash check failed https://github.com/akku1139/auto-aur/actions/ru
 busybox-coreutils (error https://github.com/akku1139/auto-aur/actions/runs/12093989303/job/33725555043)
 
 accelerated-domains-china-list-git (license does not allow empty values https://github.com/akku1139/auto-aur/actions/runs/12095094936/job/33727901848)
+
+(big deps)
+stable-diffusion.cpp-git
+stable-diffusion.cpp-cublas-git
+stable-diffusion.cpp-hipblas-git
+stable-diffusion.cpp-vulkan-git
+stable-diffusion-intel-git
+
+llama.cpp-bin
+llama.cpp-git
+llama.cpp-hip
+llama.cpp
+llama.cpp-sycl-f32
+llama.cpp-sycl-f16
+llama.cpp-vulkan
+llama.cpp-vulkan-git
+llama.cpp-sycl-f32-git
+llama.cpp-sycl-f16-git
+llama.cpp-service
+llama.cpp-server-tray
+llama.cpp-hipblas-git
+llama.cpp-cublas-git
+llama.cpp-clblas-git
