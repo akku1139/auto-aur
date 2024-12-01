@@ -60,4 +60,4 @@ llama.cpp-hipblas-git
 llama.cpp-cublas-git
 llama.cpp-clblas-git
 
-mew-git
+pacman-static (hash https://github.com/akku1139/auto-aur/actions/runs/12104269353/job/33747459180)
