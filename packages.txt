@@ -1,1 +1,1 @@
-
+git-mono:https://github.com/CachyOS/CachyOS-PKGBUILDS cachy-browser
