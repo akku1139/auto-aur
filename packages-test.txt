@@ -61,7 +61,5 @@ llama.cpp-clblas-git
 pacman-static (hash https://github.com/akku1139/auto-aur/actions/runs/12104269353/job/33747459180)
 
 mojo
-z-library-bin
-wttrbar
 
-mew-git (missing file https://github.com/akku1139/auto-aur/actions/runs/12104380265/job/33747726327)
+git-mono:https://github.com/CachyOS/CachyOS-PKGBUILDS cachy-browser
