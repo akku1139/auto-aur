@@ -39,10 +39,10 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
       fi
 
       if [ "$lc" != $( echo "$confdir/latest-commit" ) ]; then
-        echo "$lc" > $confdir/latest-commit
         cd "$workdir"
         git clone --depth=1 "$repo" .
         $PARU -U
+        echo "$lc" > $confdir/latest-commit
       fi
       ;;
 
@@ -62,7 +62,6 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
       fi
 
       if [ "$lc" != $( echo "$confdir/latest-commit" ) ]; then
-        echo "$lc" > "$confdir/latest-commit"
         mkdir "$workdir/repo"
         cd "$workdir/repo"
         git clone --depth=1 --filter=blob:none --sparse "$repo" .
@@ -79,6 +78,7 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
           makepkg --printsrcinfo > "$confdir/srcinfo"
           $PARU -U
         fi
+        echo "$lc" > "$confdir/latest-commit"
       fi
       ;;
 
