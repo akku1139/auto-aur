@@ -29,7 +29,7 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
       repo=$( echo "$pkg" | cut -c 5- )
       confdir="$basepath/non-aur/git-$( echo "$repo" | base64 )"
 
-      lc=$( git ls-remote -qh "$repo" | cut -f1 )
+      lc=$( git ls-remote -qh "$repo" )
 
       if [ ! -d "$confdir" ]; then
         mkdir "$confdir"
@@ -51,7 +51,7 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
       dir=$( echo "$pkg" | cut -c 10- | cut -d " " -f2 )
       confdir="$basepath/non-aur/git-mono-$( echo "$repo-$dir" | base64 )"
 
-      lc=$( git ls-remote -qh "$repo" | cut -f1 )
+      lc=$( git ls-remote -qh "$repo" )
 
       if [ ! -d "$confdir" ]; then
         mkdir "$confdir"
