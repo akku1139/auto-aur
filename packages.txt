@@ -1,1 +1,3 @@
-git-mono:https://github.com/CachyOS/CachyOS-PKGBUILDS cachy-browser
+arch-os-manager
+ladybird
+ladybird-git
