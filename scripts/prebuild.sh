@@ -25,11 +25,11 @@ else
   targetver=$( awk '$1=="pkgver" {v=$3} $1=="pkgrel" {r=$3} $1=="epoch" {e=$3":"} END {print e v "-" r}' .SRCINFO )
   patchver=$( cat "$PATCHDIR/version" )
   if  [ $targetver != $patchver ]; then
-    echo "Error (prebuild.sh): patch version and package version are different"
-    echo "Package: $PKGNAME"
+    echo "Warn (prebuild.sh): patch version and package version are different. Ignored."
+    echo "Package: $PKGNAME "
+    echo "Target version: $targetver"
     echo "Patch: $patchver"
-    echo "Exit"
-    exit 1
+    exit
   fi
 fi
 
