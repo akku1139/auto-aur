@@ -72,3 +72,5 @@ stable-diffusion-ui
 z-library-bin
 wttrbar
 mew-git
+arch-os-manager
+ladybird
