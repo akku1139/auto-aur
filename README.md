@@ -34,6 +34,7 @@ https://www.staticwebsitehosting.org/
   https://zenn.dev/phoepsilonix/articles/git_shallow_memo
   https://gitlab.archlinux.org/pacman/pacman/-/blob/master/scripts/libmakepkg/source/git.sh.in?ref_type=heads
 - use `doas`
+- Discord notification
 
 ## Packages containing version change patch
 
