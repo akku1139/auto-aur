@@ -75,3 +75,5 @@ mew-git
 arch-os-manager
 ladybird
 ladybird-git
+invidious
+invidious-git
