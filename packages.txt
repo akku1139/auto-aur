@@ -1,1 +1,2 @@
-git-mono:https://github.com/CachyOS/CachyOS-PKGBUILDS cachy-browser
+invidious
+invidious-git
