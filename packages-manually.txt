@@ -78,3 +78,6 @@ arch-os-manager
 ladybird
 arch-os-manager
 ladybird
+arch-os-manager
+ladybird
+ladybird-git
