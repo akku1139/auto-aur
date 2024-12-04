@@ -15,7 +15,7 @@ on:
         default: ''
 
   schedule:
-    - cron: '47 */5 * * *'
+    - cron: '47 */3 * * *'
   push:
     # branches:
     #   - main
