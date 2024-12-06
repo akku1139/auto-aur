@@ -35,6 +35,7 @@ https://www.staticwebsitehosting.org/
   https://gitlab.archlinux.org/pacman/pacman/-/blob/master/scripts/libmakepkg/source/git.sh.in?ref_type=heads
 - use `doas`
 - Discord notification
+- Sign error (https://github.com/akku1139/auto-aur/actions/runs/12196594820/job/34024494916)
 
 ## Packages containing version change patch
 
