@@ -1,1 +1,7 @@
-simplex-chat-git
+simplex-desktop-bin
+simplex-desktop-appimage
+
+session-desktop
+session-desktop-bin
+session-desktop-appimage
+session-desktop-git
