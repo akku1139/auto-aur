@@ -63,3 +63,11 @@ pacman-static (hash https://github.com/akku1139/auto-aur/actions/runs/1210426935
 mojo
 
 git-mono:https://github.com/CachyOS/CachyOS-PKGBUILDS cachy-browser
+
+simplex-desktop-bin
+simplex-desktop-appimage
+
+session-desktop
+session-desktop-bin
+session-desktop-appimage
+session-desktop-git
