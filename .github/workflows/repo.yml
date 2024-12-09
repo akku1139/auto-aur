@@ -147,20 +147,6 @@ jobs:
           git clean -ffdx
           git reset --hard HEAD
 
-      - uses: actions/cache/save@v4
-        if: ${{ !cancelled() }}
-        with:
-          path: |
-            /__w/auto-aur/auto-aur
-            /var/cache/pacman/pkg
-            /home/builder/.cache
-            /home/builder/.cargo
-            /home/builder/go
-            /home/builder/.dub
-            /home/builder/.cabal
-          # /home/builder/.ccache
-          key: cache-${{ github.sha }}
-
       - name: Upload Pages Artifact
         if: ${{ steps.git.outputs.change == 'true' }}
         uses: actions/upload-pages-artifact@v3
@@ -183,6 +169,20 @@ jobs:
 
       # - uses: mxschmitt/action-tmate@v3
       #   if: ${{ ( failure() ) && ! ( github.event_name == 'workflow_dispatch' && inputs.tmate ) }}
+
+      - uses: actions/cache/save@v4
+        if: ${{ !cancelled() }}
+        with:
+          path: |
+            /__w/auto-aur/auto-aur
+            /var/cache/pacman/pkg
+            /home/builder/.cache
+            /home/builder/.cargo
+            /home/builder/go
+            /home/builder/.dub
+            /home/builder/.cabal
+          # /home/builder/.ccache
+          key: cache-${{ github.sha }}
 
       - name: Debug info
         if: ${{ failure() }}
