@@ -69,5 +69,5 @@ simplex-desktop-appimage (big https://github.com/akku1139/auto-aur/actions/runs/
 
 session-desktop (big deps https://github.com/akku1139/auto-aur/actions/runs/12244907540/job/34157646003)
 session-desktop-bin
-session-desktop-appimage
+session-desktop-appimage (large https://github.com/akku1139/auto-aur/actions/runs/12247564830/job/34165608733)
 session-desktop-git
