@@ -54,6 +54,7 @@ simplex-chat-git
 | [Netlify](https://www.netlify.com/pricing/#pricing-table) | ([100 MB?](https://answers.netlify.com/t/free-plan-website-size-limit/2084)) | - | |
 | [Vercel](https://vercel.com/docs/limits/overview) | 100 MB | 23 GB? (disk size) | 1024 routes (redirects, header, rewrites |
 | [Firebase hosting](https://firebase.google.com/docs/hosting/usage-quotas-pricing) | 2 GB | 10 GB | |
+| [GitHub Release](https://docs.github.com/ja/repositories/releasing-projects-on-github/about-releases) | 2 GiB | | |
 
 ## Memo
 
