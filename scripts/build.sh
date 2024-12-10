@@ -117,13 +117,6 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt); do
   if [ "$new" = "y" ]; then
     echo "$pkg" >> non-aur/non-aur.txt
   fi
-
-  if [ -n "$(git status --porcelain)" ]; then
-    git pull
-    git add -A
-    git commit -m "Data"
-    git push
-  fi
 done
 
 echo > packages.txt
