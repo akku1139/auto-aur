@@ -64,10 +64,10 @@ mojo
 
 git-mono:https://github.com/CachyOS/CachyOS-PKGBUILDS cachy-browser
 
-simplex-desktop-bin
-simplex-desktop-appimage
+simplex-desktop-bin (big https://github.com/akku1139/auto-aur/actions/runs/12244907540/job/34157646003)
+simplex-desktop-appimage (big https://github.com/akku1139/auto-aur/actions/runs/12244907540/job/34157646003)
 
-session-desktop
+session-desktop (big deps https://github.com/akku1139/auto-aur/actions/runs/12244907540/job/34157646003)
 session-desktop-bin
 session-desktop-appimage
 session-desktop-git
