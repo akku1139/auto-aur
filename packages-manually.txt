@@ -78,3 +78,4 @@ ladybird-git
 invidious
 invidious-git
 session-desktop-bin
+session-desktop-git
