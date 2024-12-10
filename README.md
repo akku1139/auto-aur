@@ -50,7 +50,7 @@ simplex-chat-git
 | name | per file size | total size | others |
 | --- | --- | --- | --- |
 | [Cloudflare Pages](https://developers.cloudflare.com/pages/platform/limits/) | 25 MiB | - | total files: 20000, `_redirects`: 2000 static + 100 dynamic |
-| [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages) | - | 1 GB | |
+| [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages) | - | 1 GB (recommended) | |
 | [Netlify](https://www.netlify.com/pricing/#pricing-table) | ([100 MB?](https://answers.netlify.com/t/free-plan-website-size-limit/2084)) | - | |
 | [Vercel](https://vercel.com/docs/limits/overview) | 100 MB | 23 GB? (disk size) | 1024 routes (redirects, header, rewrites |
 | [Firebase hosting](https://firebase.google.com/docs/hosting/usage-quotas-pricing) | 2 GB | 10 GB | |
