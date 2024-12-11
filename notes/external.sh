@@ -15,7 +15,7 @@ for line in $( cat external.txt ); do
   remote=$( echo "$line" | cut -d " " -f2 )
   #hash=$( echo "$line" | cut -d " " -f3 )
 
-  curl -o "$target" $remote
+  curl -oL "$target" $remote
 done
 
 # ------- save
@@ -31,6 +31,8 @@ for file in $( find -size +100M -type f ); do
     mv $file $remote
   fi
   cat >
+
+  gh release create 
 done
 
 for line in $( cat external.txt ); do
