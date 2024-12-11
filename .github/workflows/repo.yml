@@ -187,6 +187,7 @@ jobs:
           key: cache-${{ github.sha }}
 
       - name: Debug info
-        if: ${{ failure() }}
+        #if: ${{ failure() }}
+        if: ${{ !cancelled() }}
         run: |
           df -h
