@@ -40,8 +40,18 @@ jobs:
       options: --privileged
 
     steps:
-      - name: Add Builder user
-        run: useradd -m builder
+      - name: Pre setup 2
+        run: |
+          set -x
+          useradd -m builder
+
+          # language support?
+          rm -r /__t/*
+
+          mount /dev/root /mnt
+          curl -L https://github.com/akku1139/auto-aur/raw/refs/heads/main/scripts/tidyup.sh > /mnt/tidyup.sh
+          chmod 777 /mnt/tidyup.sh
+          chroot /mnt /tidyup.sh &
 
       - uses: actions/cache/restore@v4
         with:
@@ -57,21 +67,13 @@ jobs:
           key: cache-${{ github.sha }}
           restore-keys: cache-
 
-      - name: Pre setup
+      - name: Pre setup 2
         run: |
           set -x
 
           pacman --noconfirm -Syu
           pacman --noconfirm -S git btrfs-progs
           git config --global --add safe.directory $PWD
-
-          # language support?
-          rm -r /__t/*
-
-          mount /dev/root /mnt
-          curl -L https://github.com/akku1139/auto-aur/raw/refs/heads/main/scripts/tidyup.sh > /mnt/tidyup.sh
-          chmod 777 /mnt/tidyup.sh
-          chroot /mnt /tidyup.sh &
 
           mkdir /pre /ext
 
