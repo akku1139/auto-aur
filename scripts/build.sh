@@ -16,7 +16,7 @@ if [ -n "$(git status --porcelain)" ]; then
 fi
 
 # xargs -a packages.txt sudo -u builder paru --noconfirm --nocheck --nocleanafter -S
-for pkg in $( cat packages.txt non-aur/non-aur.txt); do
+for pkg in $( cat packages.txt non-aur/non-aur.txt ); do
   if [ "$pkg" = "" ]; then
     continue
   fi
