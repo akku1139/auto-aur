@@ -71,3 +71,6 @@ session-desktop (big deps https://github.com/akku1139/auto-aur/actions/runs/1224
 session-desktop-bin
 session-desktop-appimage (large https://github.com/akku1139/auto-aur/actions/runs/12247564830/job/34165608733)
 session-desktop-git
+
+
+mutter-text-input-v1-git (error https://github.com/akku1139/auto-aur/actions/runs/12296955971/job/34317043470)
