@@ -79,3 +79,4 @@ invidious
 invidious-git
 session-desktop-bin
 session-desktop-git
+mutter-text-input-v1
