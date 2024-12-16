@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ "$1" = clone ]; then
+  add="--filter=blob:none"
+fi
+
+# https://qiita.com/Ping/items/57fd75465dfada76e633#---%E3%81%AE%E9%81%95%E3%81%84
+exec /usr/bin/git "$@" $add
