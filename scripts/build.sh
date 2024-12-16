@@ -16,7 +16,7 @@ if [ -n "$(git status --porcelain)" ]; then
 fi
 
 # xargs -a packages.txt sudo -u builder paru --noconfirm --nocheck --nocleanafter -S
-for pkg in $( cat packages.txt non-aur/non-aur.txt ); do
+while read pkg; do
   if [ "$pkg" = "" ]; then
     continue
   fi
@@ -124,6 +124,6 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt ); do
     git commit -m "Data"
     git push
   fi
-done
+done < packages.txt < non-aur/non-aur.txt
 
 echo > packages.txt
