@@ -24,6 +24,8 @@ while read pkg; do
   new="n"
   workdir=$( cd $( mktemp --directory --tmpdir=work ) && pwd )
 
+  echo target $pkg
+
   case $( echo "$pkg" | cut -d ":" -f1 ) in
     git) #Git: git:URL
       repo=$( echo "$pkg" | cut -c 5- )
