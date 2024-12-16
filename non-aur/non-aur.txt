@@ -1,4 +1,2 @@
 local:auto-aur-keyring
 local:auto-aur-mirrorlist
-local:auto-aur-keyring
-local:auto-aur-mirrorlist
