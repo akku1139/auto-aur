@@ -80,6 +80,12 @@ while read pkg; do
         fi
         echo "$lc" > "$confdir/latest-commit"
       fi
+
+      if [ "$new" = y ]; then
+          makepkg --printsrcinfo > "$confdir/srcinfo"
+          $PARU -U
+        fi
+
       ;;
 
     local) # Local packages (local/): local:auto-aur-keyring
