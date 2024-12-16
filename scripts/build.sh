@@ -1,4 +1,4 @@
-tsh#!/bin/sh -ex
+#!/bin/sh -ex
 basepath=$( pwd )
 PARU="paru --ask=4"
 
