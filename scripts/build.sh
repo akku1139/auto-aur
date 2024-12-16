@@ -16,7 +16,7 @@ $PARU -Syu
 # fi
 
 # xargs -a packages.txt sudo -u builder paru --noconfirm --nocheck --nocleanafter -S
-echo packages.txt < non-aur/non-aur.txt | xargs -I {args} while read pkg; do
+cat packages.txt non-aur/non-aur.txt | { while read pkg; do
   if [ "$pkg" = "" ]; then
     continue
   fi
@@ -132,6 +132,6 @@ echo packages.txt < non-aur/non-aur.txt | xargs -I {args} while read pkg; do
   #   git commit -m "Data"
   #   git push
   # fi
-done < {args}
+done }
 
 echo > packages.txt
