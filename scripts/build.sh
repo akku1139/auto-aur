@@ -8,12 +8,12 @@ PARU="paru --ask=4"
 # paru is paru -Syu
 # https://bbs.archlinux.org/viewtopic.php?id=35901 (pacman --ask)
 $PARU -Syu
-if [ -n "$(git status --porcelain)" ]; then
-  git pull
-  git add -A
-  git commit -m "Data"
-  git push
-fi
+# if [ -n "$(git status --porcelain)" ]; then
+#   git pull
+#   git add -A
+#   git commit -m "Data"
+#   git push
+# fi
 
 # xargs -a packages.txt sudo -u builder paru --noconfirm --nocheck --nocleanafter -S
 while read pkg; do
@@ -118,12 +118,12 @@ while read pkg; do
     echo "$pkg" >> non-aur/non-aur.txt
   fi
 
-  if [ -n "$(git status --porcelain)" ]; then
-    git pull
-    git add -A
-    git commit -m "Data"
-    git push
-  fi
+  # if [ -n "$(git status --porcelain)" ]; then
+  #   git pull
+  #   git add -A
+  #   git commit -m "Data"
+  #   git push
+  # fi
 done < packages.txt < non-aur/non-aur.txt
 
 echo > packages.txt
