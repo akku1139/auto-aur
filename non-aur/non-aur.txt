@@ -1,6 +1,2 @@
 local:auto-aur-keyring
 local:auto-aur-mirrorlist
-git-mono:https://github.com/CachyOS/CachyOS-PKGBUILDS
-git-mono:https://github.com/CachyOS/CachyOS-PKGBUILDS
-git-mono:https://github.com/CachyOS/CachyOS-PKGBUILDS
-git-mono:https://github.com/CachyOS/CachyOS-PKGBUILDS

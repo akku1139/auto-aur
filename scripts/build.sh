@@ -27,7 +27,7 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt ); do
   case $( echo "$pkg" | cut -d ":" -f1 ) in
     git) #Git: git:URL
       repo=$( echo "$pkg" | cut -c 5- )
-      confdir="$basepath/non-aur/git-$( echo "$repo" | base64 )"
+      confdir="$basepath/non-aur/git-$( echo "$repo" | sha256sum )"
 
       lc=$( git ls-remote -qh "$repo" )
 
@@ -49,7 +49,7 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt ); do
     git-mono) # Git monorepo (wip): git-mono:URL dir
       repo=$( echo "$pkg" | cut -c 10- | cut -d " " -f1 )
       dir=$( echo "$pkg" | cut -c 10- | cut -d " " -f2 )
-      confdir="$basepath/non-aur/git-mono-$( echo "$repo-$dir" | base64 )"
+      confdir="$basepath/non-aur/git-mono-$( echo "$repo-$dir" | sha256sum )"
 
       lc=$( git ls-remote -qh "$repo" )
 
@@ -84,7 +84,7 @@ for pkg in $( cat packages.txt non-aur/non-aur.txt ); do
 
     local) # Local packages (local/): local:auto-aur-keyring
       repo=$( echo "$pkg" | cut -c 7- )
-      confdir="$basepath/non-aur/local-$( echo "$repo" | base64 )"
+      confdir="$basepath/non-aur/local-$( echo "$repo" | sha256sum )"
 
       if [ ! -d "$confdir" ]; then
         mkdir "$confdir"
