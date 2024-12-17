@@ -1,4 +1,1 @@
-snowflake-pt-server-git
-snowflake-pt-client-bin
-snowflake-pt-client
-snowflake-pt-proxy
+
