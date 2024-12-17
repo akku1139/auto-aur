@@ -81,3 +81,7 @@ session-desktop-bin
 session-desktop-git
 mutter-text-input-v1
 snowflake-pt-server
+snowflake-pt-server-git
+snowflake-pt-client-bin
+snowflake-pt-client
+snowflake-pt-proxy
