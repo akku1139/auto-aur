@@ -47,7 +47,7 @@ pac -Syu base-devel sudo paru python-gitpython
 #useradd -m builder
 
 # Enable scripts run permission
-chmod +x scripts/*
+chmod -R +x scripts/*
 
 mkdir work
 
