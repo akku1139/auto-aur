@@ -1,4 +1,3 @@
-snowflake-pt-server
 snowflake-pt-server-git
 snowflake-pt-client-bin
 snowflake-pt-client
