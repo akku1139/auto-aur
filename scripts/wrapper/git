@@ -1,4 +1,6 @@
 #!/bin/sh
+echo "***** Git Wrapper *****" > /dev/stderr
+set -ex
 
 if [ "$1" = clone ]; then
   add="--filter=blob:none"
