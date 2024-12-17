@@ -1,4 +1,7 @@
 #!/bin/sh
+
+# https://github.com/Morganamilo/paru/issues/1027#issuecomment-1691320232
+
 echo "***** Git Wrapper *****" > /dev/stderr
 set -ex
 
@@ -7,4 +10,4 @@ if [ "$1" = clone ]; then
 fi
 
 # https://qiita.com/Ping/items/57fd75465dfada76e633#---%E3%81%AE%E9%81%95%E3%81%84
-exec /usr/bin/git "$@" $add
+exec /usr/bin/git "$1" $add "${@:2}"
