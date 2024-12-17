@@ -2,8 +2,8 @@
 
 # https://github.com/Morganamilo/paru/issues/1027#issuecomment-1691320232
 
-echo "***** Git Wrapper *****" > /dev/stderr
-set -ex
+#echo "***** Git Wrapper *****" > /dev/stderr
+#set -ex
 
 if [ "$1" = clone ]; then
   add="--filter=blob:none"
