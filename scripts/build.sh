@@ -1,6 +1,6 @@
 #!/bin/sh -ex
 basepath=$( pwd )
-PARU="paru --ask=4"
+PARU="paru --ask=4 --noconfirm"
 #export PATH="$basepath/scripts/wrapper:$PATH"
 
 #yes "" | sudo -u builder paru --noconfirm
@@ -118,7 +118,7 @@ cat packages.txt non-aur/non-aur.txt | { while read pkg; do
     *) # Normal AUR: pkg
       $PARU --aur --nocheck --nocleanafter -S "$pkg"
       echo "$pkg" >> packages-manually.txt
-      $PARU --noconfirm -R "$pkg"
+      $PARU -R "$pkg"
       ;;
   esac
 
