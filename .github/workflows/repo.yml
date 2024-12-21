@@ -124,6 +124,9 @@ jobs:
         if: ${{ inputs.cmd != '' }}
         run: ${{ inputs.cmd }}
 
+      - name: Update AUR
+        run: sudo -u builder paru --ask=4 --noconfirm -Syu || true
+
       - name: Build AUR
         run: sudo -u builder bash -ex scripts/build.sh
 
