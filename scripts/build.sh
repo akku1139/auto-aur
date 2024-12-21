@@ -8,7 +8,7 @@ PARU="paru --ask=4 --noconfirm"
 # https://distro.tube/man-org/man8/paru.8.html
 # paru is paru -Syu
 # https://bbs.archlinux.org/viewtopic.php?id=35901 (pacman --ask)
-$PARU -Syu || true
+#$PARU -Syu || true
 
 # if [ -n "$(git status --porcelain)" ]; then
 #   git pull
