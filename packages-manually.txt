@@ -86,3 +86,4 @@ snowflake-pt-client-bin
 snowflake-pt-client
 snowflake-pt-proxy
 fcitx5-fbterm-git
+mkp224o
