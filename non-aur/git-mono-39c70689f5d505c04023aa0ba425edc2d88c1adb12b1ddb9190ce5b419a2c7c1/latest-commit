@@ -2,7 +2,7 @@ abdac62f965a169ee756d98b403f6e28318dccdd	refs/heads/chromium
 f2c472d86dcafb71bafee97659b717992b28da1c	refs/heads/clang
 1c66d8e09757e0adc1ce4fce9837bfe622f63afc	refs/heads/ddcutil
 2d156516ea81087badf0bd1d95f4cafd085e8682	refs/heads/feat/396-rewrite-update-bot
-a2e8fbd886b1c593f438d63a5edc6099270f975d	refs/heads/feat/kwin-fifo
+b62fd8411f19afa886fec79fad43d0c0c51bdbee	refs/heads/feat/kwin-fifo
 59c5b38b814e04ca9ebae7c4f56fb906ade1dd9a	refs/heads/fix/bpftune
 d68ed43fcd5cc606958d23f8dd77fdc5b31253bf	refs/heads/gcc-bolt
 0b48ce7399333c460fe0ea6896c1d3ade462af40	refs/heads/master
