@@ -123,7 +123,16 @@ jobs:
           ${{ inputs.cmd }}
 
       - name: Update AUR
-        run: yes | sudo -u builder paru --ask=4 --noconfirm -Syu || true
+        run: |
+          cat input/update.txt | { while read pkg; do
+            if [ "$pkg" = "" ]; then
+              continue
+            fi
+            sudo -u builder paru --ask=4 --noconfirm -S "$pkg"
+            sudo -u builder paru --noconfirm -R "$pkg"
+          done }
+          echo > input/update.txt
+          yes | sudo -u builder paru --ask=4 --noconfirm -Syu || true
 
       - name: Build AUR
         run: sudo -u builder bash -ex scripts/build.sh
