@@ -17,15 +17,11 @@ on:
   schedule:
     - cron: '47 */3 * * *'
   push:
-    # branches:
-    #   - main
     paths:
       - packages.txt
-      # - patches/**
 
 concurrency:
   group: repo
-  # cancel-in-progress: true
 
 permissions:
   contents: write
@@ -53,7 +49,7 @@ jobs:
           chmod 777 /mnt/tidyup.sh
           chroot /mnt /tidyup.sh &
 
-      - uses: actions/cache/restore@v4
+      - uses: actions/cache@v4
         with:
           path: | # Must be synchronized with save
             /__w/auto-aur/auto-aur
@@ -122,7 +118,9 @@ jobs:
 
       - name: Custom commands
         if: ${{ inputs.cmd != '' }}
-        run: ${{ inputs.cmd }}
+        run: |
+          su builder
+          ${{ inputs.cmd }}
 
       - name: Update AUR
         run: yes | sudo -u builder paru --ask=4 --noconfirm -Syu || true
@@ -171,23 +169,6 @@ jobs:
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
           projectId: auto-aur
           channelId: live
-
-      # - uses: mxschmitt/action-tmate@v3
-      #   if: ${{ ( failure() ) && ! ( github.event_name == 'workflow_dispatch' && inputs.tmate ) }}
-
-      - uses: actions/cache/save@v4
-        if: ${{ !cancelled() }}
-        with:
-          path: |
-            /__w/auto-aur/auto-aur
-            /var/cache/pacman/pkg
-            /home/builder/.cache
-            /home/builder/.cargo
-            /home/builder/go
-            /home/builder/.dub
-            /home/builder/.cabal
-          # /home/builder/.ccache
-          key: cache-${{ github.sha }}
 
       - name: Debug info
         #if: ${{ failure() }}
