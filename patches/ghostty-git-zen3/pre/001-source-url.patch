@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 1ef032a..10d89e9 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -23,7 +23,7 @@ depends=(
+     'zlib'
+ )
+ makedepends=('git' 'zig>=0.13.0' 'zig<0.14.0' 'pandoc-cli')
+-source=("git+ssh://git@github.com/ghostty-org/${_pkgbasename}")
++source=("git+https://github.com/ghostty-org/${_pkgbasename}")
+ sha256sums=('SKIP')
+ 
+ pkgver() {
