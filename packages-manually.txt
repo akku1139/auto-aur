@@ -89,3 +89,4 @@ fcitx5-fbterm-git
 mkp224o
 rtl88x2bu-dkms-git
 ghostty-git
+ghostty-git-zen3
