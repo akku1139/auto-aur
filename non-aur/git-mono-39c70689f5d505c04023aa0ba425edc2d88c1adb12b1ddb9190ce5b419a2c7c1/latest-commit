@@ -9,6 +9,6 @@ d68ed43fcd5cc606958d23f8dd77fdc5b31253bf	refs/heads/gcc-bolt
 e926b4735282eec77dc21c072b4e23615dbc600b	refs/heads/python-perf-branch-sampling
 bfb89838507061344bea7f3ee8fc53b74604d90b	refs/heads/rebuild/pacman-packages
 9348615d2a3413c8632b0733c3c97311cfac4392	refs/heads/rust-opt
-9631dab4ea869c09f350a05f0297f1215ddaec70	refs/heads/sdboot-manager-initrd-entries
+80b5d631489c5a61a8060c50fdce62849e81c87d	refs/heads/sdboot-manager-initrd-entries
 5a2576f8be31c9cb3e5a6c62d4983916ff6b10e0	refs/heads/sqlite3
 3b40331f9c1e35bfbf14fba7575df21b19b927e8	refs/heads/vmware-clang
