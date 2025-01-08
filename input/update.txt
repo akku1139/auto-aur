@@ -1,1 +1,4 @@
-
+fastanime-git
+ghostty-git-zen3
+walker-bin
+zed-preview-bin
