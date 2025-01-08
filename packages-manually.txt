@@ -90,3 +90,4 @@ mkp224o
 rtl88x2bu-dkms-git
 ghostty-git
 ghostty-git-zen3
+intel-hybrid-codec-driver-git
