@@ -77,11 +77,14 @@ cat packages.txt non-aur/non-aur.txt | { while read pkg; do
         fi
 
         makepkg --printsrcinfo > "$workdir/srcinfo"
+        set +e
         diff "$confdir/srcinfo" "$workdir/srcinfo"  > /dev/null 2>&1
         if [ $? -eq 1 ]; then
+          set -e
           makepkg --printsrcinfo > "$confdir/srcinfo"
           $PARU -U
         fi
+        set -e
         echo "$lc" > "$confdir/latest-commit"
       fi
 
@@ -107,12 +110,15 @@ cat packages.txt non-aur/non-aur.txt | { while read pkg; do
 
       cd "local/$repo"
       makepkg --printsrcinfo > "$workdir/srcinfo"
+      set +e
       diff "$confdir/srcinfo" "$workdir/srcinfo"  > /dev/null 2>&1
       if [ $? -eq 1 ]; then
+        set -e
         cd "$basepath/local/$repo"
         makepkg --printsrcinfo > "$confdir/srcinfo"
         $PARU -U
       fi
+      set -e
       ;;
 
     *) # Normal AUR: pkg
