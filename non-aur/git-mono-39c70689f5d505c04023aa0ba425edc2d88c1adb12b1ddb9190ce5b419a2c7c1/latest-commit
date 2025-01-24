@@ -3,10 +3,11 @@ abdac62f965a169ee756d98b403f6e28318dccdd	refs/heads/chromium
 1c66d8e09757e0adc1ce4fce9837bfe622f63afc	refs/heads/ddcutil
 6c0b711076770c1a5e74d19da6c95c862d6df696	refs/heads/devtools
 2d156516ea81087badf0bd1d95f4cafd085e8682	refs/heads/feat/396-rewrite-update-bot
+7935c2c5d2b98a61b363960d0bd5f44df5aa7510	refs/heads/feat/nvidia-570
 d68ed43fcd5cc606958d23f8dd77fdc5b31253bf	refs/heads/gcc-bolt
 3623020b51c76e2f02beb4045a099c21fc4dcdb4	refs/heads/go
 32e5df030b38b01e1ee2e38011d78c7810bf1dc9	refs/heads/kodi
-c79a132b4b8c9f3d69356422dfa6b7ccf1e8a258	refs/heads/loathing
+8629e44b543795a02d907281a85cb94ed4370aa2	refs/heads/loathing
 a228cc5423c7ef968bdc2ade9a3fcbc22c99e756	refs/heads/master
 5fd243e354881e2068c3a9d85483ba7e82289e0c	refs/heads/nvidia-6.13
 52e51c03c1aca03cf93e29b11608970f5acc3118	refs/heads/openblas
