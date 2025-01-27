@@ -95,3 +95,4 @@ libva-intel-driver-hybrid-git
 legcord
 legcord
 legcord
+legcord
