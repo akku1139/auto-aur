@@ -92,3 +92,4 @@ ghostty-git
 ghostty-git-zen3
 intel-hybrid-codec-driver-git
 libva-intel-driver-hybrid-git
+legcord
