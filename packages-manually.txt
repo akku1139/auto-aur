@@ -94,3 +94,4 @@ intel-hybrid-codec-driver-git
 libva-intel-driver-hybrid-git
 legcord
 legcord
+legcord
