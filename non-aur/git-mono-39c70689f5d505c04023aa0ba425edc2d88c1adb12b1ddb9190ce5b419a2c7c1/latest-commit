@@ -20,3 +20,4 @@ bfb89838507061344bea7f3ee8fc53b74604d90b	refs/heads/rebuild/pacman-packages
 133ec5a5c57571a77c3833cf547a9d2daf65b208	refs/heads/sqlite
 5a2576f8be31c9cb3e5a6c62d4983916ff6b10e0	refs/heads/sqlite3
 3b40331f9c1e35bfbf14fba7575df21b19b927e8	refs/heads/vmware-clang
+53d5ed3bc91b4c653d3d9530fffa59025fdbc0ca	refs/heads/wine-affinity
