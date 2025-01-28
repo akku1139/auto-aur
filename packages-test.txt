@@ -74,3 +74,6 @@ session-desktop-git
 
 
 mutter-text-input-v1-git (error https://github.com/akku1139/auto-aur/actions/runs/12296955971/job/34317043470)
+
+legcord (pnpm, yarn conflict?)
+legcord-git
