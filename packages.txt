@@ -1,2 +1,1 @@
-legcord
-legcord-git
+
