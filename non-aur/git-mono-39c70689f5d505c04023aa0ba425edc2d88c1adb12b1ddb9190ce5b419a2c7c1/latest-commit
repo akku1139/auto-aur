@@ -3,13 +3,13 @@ abdac62f965a169ee756d98b403f6e28318dccdd	refs/heads/chromium
 54c33b81104652d95aaa6fbcaa86e089f689413f	refs/heads/ddcutil
 6c0b711076770c1a5e74d19da6c95c862d6df696	refs/heads/devtools
 2d156516ea81087badf0bd1d95f4cafd085e8682	refs/heads/feat/396-rewrite-update-bot
-7935c2c5d2b98a61b363960d0bd5f44df5aa7510	refs/heads/feat/nvidia-570
+df6d1f3e271a4db060df89be0eaa76788c280bc6	refs/heads/feat/nvidia-570
 d68ed43fcd5cc606958d23f8dd77fdc5b31253bf	refs/heads/gcc-bolt
 6b8364bd89e19aa83cc462709ea705cd3707e914	refs/heads/libpamac-aur
 ac93d837ed7d5d3e5f2d5d111fe4c7b127d04275	refs/heads/loathing
 bfca82dd4f83f7b6149389c084c114f68e43f929	refs/heads/loathing-proton
 c7faef0e26a3d6aac7d713778e9cf652ebd0b14d	refs/heads/loathing-wine
-8b05ceb628afeaefa2f275fdb91966c72ceee5f3	refs/heads/master
+582a076ed6b1406ef433c1239f542aded496623c	refs/heads/master
 5fd243e354881e2068c3a9d85483ba7e82289e0c	refs/heads/nvidia-6.13
 e926b4735282eec77dc21c072b4e23615dbc600b	refs/heads/python-perf-branch-sampling
 bfb89838507061344bea7f3ee8fc53b74604d90b	refs/heads/rebuild/pacman-packages
