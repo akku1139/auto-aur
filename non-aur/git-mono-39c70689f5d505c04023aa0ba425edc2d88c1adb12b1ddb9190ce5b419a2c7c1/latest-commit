@@ -1,16 +1,13 @@
-63a03b21198744167d1088cbadbc8eed244b41bc	refs/heads/cachyos-hooks-update
 abdac62f965a169ee756d98b403f6e28318dccdd	refs/heads/chromium
 54c33b81104652d95aaa6fbcaa86e089f689413f	refs/heads/ddcutil
 6c0b711076770c1a5e74d19da6c95c862d6df696	refs/heads/devtools
 2d156516ea81087badf0bd1d95f4cafd085e8682	refs/heads/feat/396-rewrite-update-bot
 1e13261174ec0089827b258a97dc05d5c5167834	refs/heads/feat/kwin-6.3
-60b05475d6cc94733c268574921b491b304971c2	refs/heads/feat/lib32-gamescope-plus
-df6d1f3e271a4db060df89be0eaa76788c280bc6	refs/heads/feat/nvidia-570
+c2cac9c9e10919568214b557697334a7dc877c03	refs/heads/feat/lib32-gamescope-plus
 d68ed43fcd5cc606958d23f8dd77fdc5b31253bf	refs/heads/gcc-bolt
 6b8364bd89e19aa83cc462709ea705cd3707e914	refs/heads/libpamac-aur
 29095c9bfa4a6803c597052df80a4d275b9d363d	refs/heads/loathing
 41d1d0e85ec9f27830579321343facb1721f6f45	refs/heads/master
-5fd243e354881e2068c3a9d85483ba7e82289e0c	refs/heads/nvidia-6.13
 e926b4735282eec77dc21c072b4e23615dbc600b	refs/heads/python-perf-branch-sampling
 bfb89838507061344bea7f3ee8fc53b74604d90b	refs/heads/rebuild/pacman-packages
 9348615d2a3413c8632b0733c3c97311cfac4392	refs/heads/rust-opt
