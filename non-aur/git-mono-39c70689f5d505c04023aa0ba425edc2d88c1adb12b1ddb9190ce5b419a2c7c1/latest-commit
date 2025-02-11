@@ -2,7 +2,7 @@ abdac62f965a169ee756d98b403f6e28318dccdd	refs/heads/chromium
 54c33b81104652d95aaa6fbcaa86e089f689413f	refs/heads/ddcutil
 6c0b711076770c1a5e74d19da6c95c862d6df696	refs/heads/devtools
 2d156516ea81087badf0bd1d95f4cafd085e8682	refs/heads/feat/396-rewrite-update-bot
-3857101bc380e35fbc60e243020c9a2f2176badc	refs/heads/feat/kwin-6.3
+41d25fc4acd997b9c63972fa015210a5071c0e0f	refs/heads/feat/kwin-6.3
 c2cac9c9e10919568214b557697334a7dc877c03	refs/heads/feat/lib32-gamescope-plus
 d68ed43fcd5cc606958d23f8dd77fdc5b31253bf	refs/heads/gcc-bolt
 6b8364bd89e19aa83cc462709ea705cd3707e914	refs/heads/libpamac-aur
