@@ -3,6 +3,7 @@ abdac62f965a169ee756d98b403f6e28318dccdd	refs/heads/chromium
 6c0b711076770c1a5e74d19da6c95c862d6df696	refs/heads/devtools
 2d156516ea81087badf0bd1d95f4cafd085e8682	refs/heads/feat/396-rewrite-update-bot
 c2cac9c9e10919568214b557697334a7dc877c03	refs/heads/feat/lib32-gamescope-plus
+8ff7a5bd465238c9b05c94b4935682257909ab54	refs/heads/fix/kwin-libei
 d68ed43fcd5cc606958d23f8dd77fdc5b31253bf	refs/heads/gcc-bolt
 6b8364bd89e19aa83cc462709ea705cd3707e914	refs/heads/libpamac-aur
 29095c9bfa4a6803c597052df80a4d275b9d363d	refs/heads/loathing
