@@ -1,4 +1,1 @@
-fastanime-git
-ventoy-bin
-walker-bin
-zed-preview-bin
+
