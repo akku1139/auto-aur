@@ -7,6 +7,8 @@ set -e
 shopt -s expand_aliases
 alias pac="pacman --noconfirm"
 
+git config user.name "github-actions[bot]"
+git config user.email "github-actions[bot]@users.noreply.github.com"
 git pull
 
 # Git push error
