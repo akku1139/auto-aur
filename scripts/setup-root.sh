@@ -3,6 +3,10 @@ set -x
 # Error
 set -e
 
+ls -lh /__w
+ls -lh /__w/auto-aur
+ls -lh /__w/auto-aur/auto-aur
+
 # Alias
 shopt -s expand_aliases
 alias pac="pacman --noconfirm"
