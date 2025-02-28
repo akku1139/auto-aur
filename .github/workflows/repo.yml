@@ -130,9 +130,11 @@ jobs:
             fi
             sudo -u builder paru --ask=4 --noconfirm --aur -S "$pkg"
             sudo -u builder paru --noconfirm -R "$pkg"
+            bash scripts/git-save.sh
           done }
           echo > input/update.txt
           yes | sudo -u builder paru --ask=4 --noconfirm --batchinstall -Syu || true
+          bash scripts/git-save.sh
 
       - name: Build AUR
         run: sudo -u builder bash -ex scripts/build.sh

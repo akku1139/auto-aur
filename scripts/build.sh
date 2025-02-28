@@ -134,12 +134,7 @@ cat packages.txt non-aur/non-aur.txt | { while read pkg; do
     echo "$pkg" >> non-aur/non-aur.txt
   fi
 
-  # if [ -n "$(git status --porcelain)" ]; then
-  #   git pull
-  #   git add -A
-  #   git commit -m "Data"
-  #   git push
-  # fi
+  bash ./git-save.sh
 done }
 
 echo > packages.txt
