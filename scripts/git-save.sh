@@ -1,5 +1,4 @@
-#!/bin/bash -p
-# https://l-w-i.net/t/solaris/conf_002.txt
+#!/bin/bash
 set -ex
 cd "$( dirname $0 )/../"
 

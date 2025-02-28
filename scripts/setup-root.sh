@@ -52,8 +52,8 @@ pac -Syu base-devel sudo paru python-gitpython
 chmod -R +x scripts/*
 # Setuid requires native binary?
 # https://l-w-i.net/t/solaris/conf_002.txt
-chown root:root scripts/git-save.sh
-chmod a+s scripts/git-save.sh
+#chown root:root scripts/git-save.sh
+#chmod a+s scripts/git-save.sh
 
 mkdir work
 

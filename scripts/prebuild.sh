@@ -3,7 +3,7 @@
 #set -ex
 set -e
 
-"$( dirname $0 )/../scripts/git-save.sh"
+sudo "$( dirname $0 )/../scripts/git-save.sh"
 
 PKGNAME=`basename $PWD`
 PATCHDIR="$( dirname $0 )/../patches/$PKGNAME"
