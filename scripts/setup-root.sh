@@ -50,6 +50,7 @@ pac -Syu base-devel sudo paru python-gitpython
 
 # Enable scripts run permission
 chmod -R +x scripts/*
+chmod +s scripts/git-save.sh
 
 mkdir work
 
