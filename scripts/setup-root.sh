@@ -3,10 +3,6 @@ set -x
 # Error
 set -e
 
-ls -lh /__w
-ls -lh /__w/auto-aur
-ls -lh /__w/auto-aur/auto-aur
-
 # Alias
 shopt -s expand_aliases
 alias pac="pacman --noconfirm"
@@ -14,6 +10,10 @@ alias pac="pacman --noconfirm"
 git config user.name "github-actions[bot]"
 git config user.email "github-actions[bot]@users.noreply.github.com"
 git pull
+
+ls -lh /__w
+ls -lh /__w/auto-aur
+ls -lh /__w/auto-aur/auto-aur
 
 # Git push error
 # fatal: the remote end hung up unexpectedly (400)
