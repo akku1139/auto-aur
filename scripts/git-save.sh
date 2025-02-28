@@ -1,6 +1,7 @@
 #!/bin/bash
 set -ex
-cd "$( dirname $0 )/../"
+#cd "$( dirname $0 )/../"
+cd /__w/auto-aur/auto-aur
 
 if [ -n "$(git status --porcelain)" ]; then
   git pull
