@@ -5,13 +5,13 @@ set -e
 
 P=$PWD
 cd "$( dirname $0 )/../"
-if [ -n "$(git status --porcelain)" ]; then
+# if [ -n "$(git status --porcelain)" ]; then
   git pull
   python scripts/genui.py
   git add -A
   git commit -m "Data"
   git push
-fi
+# fi
 cd "$P"
 
 PKGNAME=`basename $PWD`
