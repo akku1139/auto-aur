@@ -3,6 +3,8 @@ set -x
 # Error
 set -e
 
+git config --global --add safe.directory /__w/auto-aur/auto-aur
+
 HOME="/home/builder"
 
 mkdir -p $HOME/.cargo
