@@ -1,5 +1,3 @@
-fastanime-git
-follow
 freetube-git
 jaguar
 oh-my-posh
