@@ -1,8 +1,1 @@
-freetube-git
-jaguar
-oh-my-posh
-snowflake-pt-client-bin
-toit
-v2ray-china-list
-vencord
 zed-preview
