@@ -129,8 +129,8 @@ jobs:
               continue
             fi
             sudo -u builder paru --ask=4 --noconfirm --aur -S "$pkg"
-            sudo -u builder paru --noconfirm -R "$pkg"
             bash scripts/git-save.sh
+            sudo -u builder paru --noconfirm -R "$pkg"
           done }
           echo > input/update.txt
           yes | sudo -u builder paru --ask=4 --noconfirm --batchinstall -Syu || true
