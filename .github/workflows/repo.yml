@@ -131,6 +131,8 @@ jobs:
             sudo -u builder paru --noconfirm -Ld "$pkg"
             bash scripts/git-save.sh
           done }
+          echo > input/remove.txt
+          bash scripts/git-save.sh
 
       - name: Update AUR
         run: |
