@@ -122,6 +122,16 @@ jobs:
           su builder
           ${{ inputs.cmd }}
 
+      - name: Remove packages
+        run: |
+          cat input/remove.txt | { while read pkg; do
+            if [ "$pkg" = "" ]; then
+              continue
+            fi
+            sudo -u builder paru --noconfirm -Ld "$pkg"
+            bash scripts/git-save.sh
+          done }
+
       - name: Update AUR
         run: |
           cat input/update.txt | { while read pkg; do
