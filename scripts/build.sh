@@ -134,7 +134,7 @@ cat packages.txt non-aur/non-aur.txt | { while read pkg; do
     echo "$pkg" >> non-aur/non-aur.txt
   fi
 
-  bash ./git-save.sh
+  bash ./scripts/git-save.sh
 done }
 
 echo > packages.txt
