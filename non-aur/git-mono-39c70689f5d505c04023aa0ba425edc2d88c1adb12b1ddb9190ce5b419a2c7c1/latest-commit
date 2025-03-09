@@ -10,6 +10,7 @@ d68ed43fcd5cc606958d23f8dd77fdc5b31253bf	refs/heads/gcc-bolt
 9c97738514436878ea3252baa50200f725266b9e	refs/heads/loathing
 1215053e9c739ad829697e76819b114e09a8cdb6	refs/heads/loathing-wine-affinity
 d131038785616f3a0f3779f02b429330997f6928	refs/heads/loathing-wine-ntsync
+27abf3bafd931b7c973b6aa2bdbf3cdb12d041c5	refs/heads/loathing-wine-wow64-ntsync
 4261ad8dd3174607d03db313e2199aeb5f935c34	refs/heads/master
 ce6af72f4639ca38ca665cd6a2e8ccb1e8a004e5	refs/heads/php
 e926b4735282eec77dc21c072b4e23615dbc600b	refs/heads/python-perf-branch-sampling
