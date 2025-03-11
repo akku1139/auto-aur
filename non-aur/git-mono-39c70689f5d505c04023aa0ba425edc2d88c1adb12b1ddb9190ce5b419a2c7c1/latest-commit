@@ -18,5 +18,6 @@ bfb89838507061344bea7f3ee8fc53b74604d90b	refs/heads/rebuild/pacman-packages
 9348615d2a3413c8632b0733c3c97311cfac4392	refs/heads/rust-opt
 c46234ca45c14cab0177d70c799eb097819cef54	refs/heads/sqlite
 5a2576f8be31c9cb3e5a6c62d4983916ff6b10e0	refs/heads/sqlite3
+ea4e3146777c4d05a2939481d30ceddbac82b4bd	refs/heads/svt-av1
 3b40331f9c1e35bfbf14fba7575df21b19b927e8	refs/heads/vmware-clang
 4531c78b28cc68a7fd316543e3bb4e169fc4010b	refs/heads/zstd
