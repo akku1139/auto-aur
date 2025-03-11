@@ -7,7 +7,7 @@ d06196726fc0a8a1a3c005d8f1023cdca9f7033a	refs/heads/feat/nvidia-split-dkms
 d68ed43fcd5cc606958d23f8dd77fdc5b31253bf	refs/heads/gcc-bolt
 3d2c0ce466b1f0e2192b011b19a3bf68626e9f45	refs/heads/lib32-zstd
 6b8364bd89e19aa83cc462709ea705cd3707e914	refs/heads/libpamac-aur
-9c97738514436878ea3252baa50200f725266b9e	refs/heads/loathing
+9c0606d2a5daa7e92300390bc1e1733b94fc370e	refs/heads/loathing
 1215053e9c739ad829697e76819b114e09a8cdb6	refs/heads/loathing-wine-affinity
 d131038785616f3a0f3779f02b429330997f6928	refs/heads/loathing-wine-ntsync
 27abf3bafd931b7c973b6aa2bdbf3cdb12d041c5	refs/heads/loathing-wine-wow64-ntsync
