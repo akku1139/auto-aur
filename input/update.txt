@@ -1,3 +1,2 @@
 turbowarp-desktop-bin
-ladybird-git
 turbowarp-desktop-git
