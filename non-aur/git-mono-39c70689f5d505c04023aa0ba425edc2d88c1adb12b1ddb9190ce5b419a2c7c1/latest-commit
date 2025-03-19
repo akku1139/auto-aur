@@ -1,9 +1,6 @@
 abdac62f965a169ee756d98b403f6e28318dccdd	refs/heads/chromium
 6c0b711076770c1a5e74d19da6c95c862d6df696	refs/heads/devtools
 39ef6c390c8b9478c6acbda7b2b1c28d4f85b981	refs/heads/feat/396-rewrite-update-bot
-07bb08184b4a87ae2f1a344dfbebc9ffa832bf75	refs/heads/feat/nvidia-570.133.07
-d06196726fc0a8a1a3c005d8f1023cdca9f7033a	refs/heads/feat/nvidia-split-dkms
-2c7471170d371847cd77bc6dcc93a5f193049064	refs/heads/feat/nvidia-tarball-sources
 6b4b22d40d32cb7d58717ea474547df95fd80cb0	refs/heads/feat/zstd-pgo
 d68ed43fcd5cc606958d23f8dd77fdc5b31253bf	refs/heads/gcc-bolt
 3d2c0ce466b1f0e2192b011b19a3bf68626e9f45	refs/heads/lib32-zstd
@@ -12,7 +9,7 @@ ab6e1d81e02c1e753c8b2f033bab678974444762	refs/heads/loathing
 1215053e9c739ad829697e76819b114e09a8cdb6	refs/heads/loathing-wine-affinity
 d131038785616f3a0f3779f02b429330997f6928	refs/heads/loathing-wine-ntsync
 63f986cb6a17e96ff69c75d92888ab6a07de68e2	refs/heads/loathing-wine-wow64-ntsync
-a29641506c0316e7673d4a5b0921433c6bbcb7d3	refs/heads/master
+07bb08184b4a87ae2f1a344dfbebc9ffa832bf75	refs/heads/master
 e926b4735282eec77dc21c072b4e23615dbc600b	refs/heads/python-perf-branch-sampling
 bfb89838507061344bea7f3ee8fc53b74604d90b	refs/heads/rebuild/pacman-packages
 9348615d2a3413c8632b0733c3c97311cfac4392	refs/heads/rust-opt
