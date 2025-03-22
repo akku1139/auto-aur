@@ -77,3 +77,5 @@ mutter-text-input-v1-git (error https://github.com/akku1139/auto-aur/actions/run
 
 legcord (pnpm, yarn conflict?)
 legcord-git
+
+chrome-remote-desktop (license)
