@@ -2,7 +2,7 @@ abdac62f965a169ee756d98b403f6e28318dccdd	refs/heads/chromium
 6c0b711076770c1a5e74d19da6c95c862d6df696	refs/heads/devtools
 39ef6c390c8b9478c6acbda7b2b1c28d4f85b981	refs/heads/feat/396-rewrite-update-bot
 6b4b22d40d32cb7d58717ea474547df95fd80cb0	refs/heads/feat/zstd-pgo
-f7c60119bda28cc6662265ee1c4e8cdb24a8ebee	refs/heads/fix/sqlite-pgo
+7d6ce129da0b98fd393cb2aa09acd663eba90a20	refs/heads/fix/sqlite-pgo
 d68ed43fcd5cc606958d23f8dd77fdc5b31253bf	refs/heads/gcc-bolt
 3d2c0ce466b1f0e2192b011b19a3bf68626e9f45	refs/heads/lib32-zstd
 6b8364bd89e19aa83cc462709ea705cd3707e914	refs/heads/libpamac-aur
@@ -13,7 +13,6 @@ a5994e26896bcfabd5381abb15f79f83d74a6588	refs/heads/master
 e926b4735282eec77dc21c072b4e23615dbc600b	refs/heads/python-perf-branch-sampling
 bfb89838507061344bea7f3ee8fc53b74604d90b	refs/heads/rebuild/pacman-packages
 9348615d2a3413c8632b0733c3c97311cfac4392	refs/heads/rust-opt
-c46234ca45c14cab0177d70c799eb097819cef54	refs/heads/sqlite
 5a2576f8be31c9cb3e5a6c62d4983916ff6b10e0	refs/heads/sqlite3
 8298e646caed7f26052d885b1cf54f03654493e2	refs/heads/svt-av1
 84b14bf927333ed8e242f120d1f08d61afe7d529	refs/heads/umu-cachyos
