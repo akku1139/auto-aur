@@ -8,7 +8,7 @@ d68ed43fcd5cc606958d23f8dd77fdc5b31253bf	refs/heads/gcc-bolt
 ab6e1d81e02c1e753c8b2f033bab678974444762	refs/heads/loathing
 1215053e9c739ad829697e76819b114e09a8cdb6	refs/heads/loathing-wine-affinity
 d131038785616f3a0f3779f02b429330997f6928	refs/heads/loathing-wine-ntsync
-63f986cb6a17e96ff69c75d92888ab6a07de68e2	refs/heads/loathing-wine-wow64-ntsync
+d16341afe6fb09ffe1d3632b4779a32ffb3d4fda	refs/heads/loathing-wine-wow64-ntsync
 c28fb1877adf022501cded4fc3aa967448c538a1	refs/heads/master
 e926b4735282eec77dc21c072b4e23615dbc600b	refs/heads/python-perf-branch-sampling
 bfb89838507061344bea7f3ee8fc53b74604d90b	refs/heads/rebuild/pacman-packages
