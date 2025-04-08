@@ -6,7 +6,7 @@ f20069523e23e176e3036931385458f207ba8e7c	refs/heads/clang
 d68ed43fcd5cc606958d23f8dd77fdc5b31253bf	refs/heads/gcc-bolt
 3d2c0ce466b1f0e2192b011b19a3bf68626e9f45	refs/heads/lib32-zstd
 6b8364bd89e19aa83cc462709ea705cd3707e914	refs/heads/libpamac-aur
-f4cf55841787fd6a3ee1866061b54d8c9086b13a	refs/heads/limine-hook
+907ed8963fdc18f0cc524b4eee314869a696a5cf	refs/heads/limine-hook
 17a6aae2c38a5b00e354fa0f58b8867750911416	refs/heads/loathing
 1215053e9c739ad829697e76819b114e09a8cdb6	refs/heads/loathing-wine-affinity
 43231b62e578a19cfb7daad02e444e9ebdf9ac61	refs/heads/loathing-wine-wow64-ntsync
