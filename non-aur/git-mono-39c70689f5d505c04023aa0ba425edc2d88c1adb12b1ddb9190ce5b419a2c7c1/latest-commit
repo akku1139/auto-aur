@@ -2,6 +2,7 @@ abdac62f965a169ee756d98b403f6e28318dccdd	refs/heads/chromium
 f20069523e23e176e3036931385458f207ba8e7c	refs/heads/clang
 6c0b711076770c1a5e74d19da6c95c862d6df696	refs/heads/devtools
 39ef6c390c8b9478c6acbda7b2b1c28d4f85b981	refs/heads/feat/396-rewrite-update-bot
+adb3cae0d980a43c29e53d7d7710f886fa73973c	refs/heads/feat/nvidia-6.15
 6b4b22d40d32cb7d58717ea474547df95fd80cb0	refs/heads/feat/zstd-pgo
 d68ed43fcd5cc606958d23f8dd77fdc5b31253bf	refs/heads/gcc-bolt
 3d2c0ce466b1f0e2192b011b19a3bf68626e9f45	refs/heads/lib32-zstd
