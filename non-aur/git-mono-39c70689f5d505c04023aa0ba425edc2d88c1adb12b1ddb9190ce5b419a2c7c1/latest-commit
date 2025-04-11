@@ -6,7 +6,7 @@ f20069523e23e176e3036931385458f207ba8e7c	refs/heads/clang
 6b4b22d40d32cb7d58717ea474547df95fd80cb0	refs/heads/feat/zstd-pgo
 d68ed43fcd5cc606958d23f8dd77fdc5b31253bf	refs/heads/gcc-bolt
 3d2c0ce466b1f0e2192b011b19a3bf68626e9f45	refs/heads/lib32-zstd
-a3dee80e9df3e97f488e0a0fe69aee34a2d6574e	refs/heads/loathing
+b91d9571a89fd94b20a4109d311bf678e7aecf83	refs/heads/loathing
 1215053e9c739ad829697e76819b114e09a8cdb6	refs/heads/loathing-wine-affinity
 43231b62e578a19cfb7daad02e444e9ebdf9ac61	refs/heads/loathing-wine-wow64-ntsync
 a3dee80e9df3e97f488e0a0fe69aee34a2d6574e	refs/heads/master
