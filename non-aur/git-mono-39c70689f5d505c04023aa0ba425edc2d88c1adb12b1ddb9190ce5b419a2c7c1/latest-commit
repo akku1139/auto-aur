@@ -1,7 +1,8 @@
 abdac62f965a169ee756d98b403f6e28318dccdd	refs/heads/chromium
 9a0f3428fe970dfba53178238e1b84f9f5be80c1	refs/heads/feat/396-rewrite-update-bot
+227ed607c979a6749cfd2c9ce21b9b576f8a875a	refs/heads/feat/nvidia-575
 f7868cbbddb3b9fac9af19cb1768018317d1a566	refs/heads/feat/steamos-manager
-ff381c4d0450c2a1b702076d4156b4c2ddb25577	refs/heads/feat/switch-to-gamescope
+a50535eda35d16eae4d05f1866a97dbd2701bbbf	refs/heads/feat/switch-to-gamescope
 6b4b22d40d32cb7d58717ea474547df95fd80cb0	refs/heads/feat/zstd-pgo
 d68ed43fcd5cc606958d23f8dd77fdc5b31253bf	refs/heads/gcc-bolt
 1215053e9c739ad829697e76819b114e09a8cdb6	refs/heads/loathing-wine-affinity
