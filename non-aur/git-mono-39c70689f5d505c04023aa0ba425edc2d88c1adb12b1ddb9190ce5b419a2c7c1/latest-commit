@@ -1,9 +1,10 @@
 abdac62f965a169ee756d98b403f6e28318dccdd	refs/heads/chromium
 227ed607c979a6749cfd2c9ce21b9b576f8a875a	refs/heads/feat/nvidia-575
 f7868cbbddb3b9fac9af19cb1768018317d1a566	refs/heads/feat/steamos-manager
-8cb2e241832659db0e84e4a62a0d66361147ed90	refs/heads/feat/switch-to-gamescope
+dcfa7da8a4fef776e0aa9130a1f5c97d77e352f7	refs/heads/feat/switch-to-gamescope
 6b4b22d40d32cb7d58717ea474547df95fd80cb0	refs/heads/feat/zstd-pgo
 d68ed43fcd5cc606958d23f8dd77fdc5b31253bf	refs/heads/gcc-bolt
+a5cff30055ceae6ff66e0a2ba889c35616ab1435	refs/heads/loathing
 1215053e9c739ad829697e76819b114e09a8cdb6	refs/heads/loathing-wine-affinity
 43231b62e578a19cfb7daad02e444e9ebdf9ac61	refs/heads/loathing-wine-wow64-ntsync
 85f5d80b638596bc1d10c66966c21c3997973677	refs/heads/master
