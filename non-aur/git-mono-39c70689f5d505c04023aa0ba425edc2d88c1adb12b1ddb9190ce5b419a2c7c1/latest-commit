@@ -13,3 +13,4 @@ bfb89838507061344bea7f3ee8fc53b74604d90b	refs/heads/rebuild/pacman-packages
 5a2576f8be31c9cb3e5a6c62d4983916ff6b10e0	refs/heads/sqlite3
 84b14bf927333ed8e242f120d1f08d61afe7d529	refs/heads/umu-cachyos
 3b40331f9c1e35bfbf14fba7575df21b19b927e8	refs/heads/vmware-clang
+9912cdeef175980a9086db49b2fdf41161c344db	refs/heads/wine-10.6
