@@ -5,12 +5,9 @@ f7868cbbddb3b9fac9af19cb1768018317d1a566	refs/heads/feat/steamos-manager
 d68ed43fcd5cc606958d23f8dd77fdc5b31253bf	refs/heads/gcc-bolt
 a5cff30055ceae6ff66e0a2ba889c35616ab1435	refs/heads/loathing
 1215053e9c739ad829697e76819b114e09a8cdb6	refs/heads/loathing-wine-affinity
-43231b62e578a19cfb7daad02e444e9ebdf9ac61	refs/heads/loathing-wine-wow64-ntsync
-3f43e05a0c3fe2a46f4da00d986bcee3c9e16a33	refs/heads/master
+4aa308eb70d50463c270fd1c171072c19e275af5	refs/heads/master
 e926b4735282eec77dc21c072b4e23615dbc600b	refs/heads/python-perf-branch-sampling
 bfb89838507061344bea7f3ee8fc53b74604d90b	refs/heads/rebuild/pacman-packages
 9348615d2a3413c8632b0733c3c97311cfac4392	refs/heads/rust-opt
 5a2576f8be31c9cb3e5a6c62d4983916ff6b10e0	refs/heads/sqlite3
-84b14bf927333ed8e242f120d1f08d61afe7d529	refs/heads/umu-cachyos
 3b40331f9c1e35bfbf14fba7575df21b19b927e8	refs/heads/vmware-clang
-512024355bc96646e4b921a65ab0aad891f6f5ad	refs/heads/wine-10.6
