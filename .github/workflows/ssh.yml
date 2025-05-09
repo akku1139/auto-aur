@@ -2,6 +2,12 @@ name: SSH
 
 on:
   workflow_dispatch:
+    inputs:
+      port:
+        description: SSH port
+        required: false
+        default: "22"
+        type: string
 
 # permissions:
 #   contents: write
@@ -17,3 +23,5 @@ jobs:
 
     steps:
       - uses: mxschmitt/action-tmate@v3
+        with:
+          tmate-server-port: ${{ inputs.port }}
