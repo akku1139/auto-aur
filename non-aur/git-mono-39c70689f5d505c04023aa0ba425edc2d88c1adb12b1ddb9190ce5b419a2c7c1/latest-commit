@@ -1,5 +1,6 @@
 abdac62f965a169ee756d98b403f6e28318dccdd	refs/heads/chromium
 799f4c29685e34243d7a51cfd68d75d8c2192f13	refs/heads/feat/nvidia-575
+c6f4db49f521d822fd466de17685779a95985eff	refs/heads/feat/scx-1.0.12
 db8bc125d529ec367efb473583d841d0cadbc274	refs/heads/feat/steamos-manager
 42238782019f2c0527924eeb7482b8adac428db5	refs/heads/feat/zfs-utils
 6b4b22d40d32cb7d58717ea474547df95fd80cb0	refs/heads/feat/zstd-pgo
