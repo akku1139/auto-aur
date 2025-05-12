@@ -1,10 +1,9 @@
 pkgbase = cachy-browser
 	pkgdesc = Community-maintained fork of Firefox, focused on privacy, security and freedom.
 	pkgver = 137.0.2
-	pkgrel = 2
+	pkgrel = 4
 	install = cachy-browser.install
 	arch = x86_64
-	groups = cachyos
 	license = MPL-2.0
 	makedepends = cbindgen
 	makedepends = clang
@@ -77,6 +76,6 @@ pkgbase = cachy-browser
 	sha256sums = 4c69b1cf1185ebae0860804179ec5a131bf5f009444054c5ef11832d379e60cf
 	sha256sums = 9c9a63b606a5f6928a63f74bdfb75c4901e54ab5ff24d26d36e801e5499f9107
 	sha256sums = 1fbb1971a1d0d4c875b1af0f9681601909cfbe4fe0cc2c2f42c523c84c934499
-	sha256sums = b4794948cfb187410f25054008390f3563fd6dba09093f235a7e2661af755ddf
+	sha256sums = a88a37a3618d1369e75fe68952afe40b1022d01d6a10e306848ce7a57a736498
 
 pkgname = cachy-browser
