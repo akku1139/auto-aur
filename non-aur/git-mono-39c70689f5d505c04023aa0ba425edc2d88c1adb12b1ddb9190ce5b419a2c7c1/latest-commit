@@ -1,12 +1,13 @@
+6ffc26cee37b508f78f9eac3f2e499ecd73942e7	refs/heads/cachyos-hooks-update
 abdac62f965a169ee756d98b403f6e28318dccdd	refs/heads/chromium
 799f4c29685e34243d7a51cfd68d75d8c2192f13	refs/heads/feat/nvidia-575
 db8bc125d529ec367efb473583d841d0cadbc274	refs/heads/feat/steamos-manager
 42238782019f2c0527924eeb7482b8adac428db5	refs/heads/feat/zfs-utils
 6b4b22d40d32cb7d58717ea474547df95fd80cb0	refs/heads/feat/zstd-pgo
 d68ed43fcd5cc606958d23f8dd77fdc5b31253bf	refs/heads/gcc-bolt
-b2588a406a4088c10d68cbd8f3b9743caf254582	refs/heads/loathing
+5e6a5b3d19cff747201c1b5353ccc8743b6111ef	refs/heads/loathing
 1215053e9c739ad829697e76819b114e09a8cdb6	refs/heads/loathing-wine-affinity
-1b1dc0341a7820c105231e16268ba3bc7ffc9553	refs/heads/master
+7599c60eb6e7816e46114d9df8d7da3e47e4a4f0	refs/heads/master
 e926b4735282eec77dc21c072b4e23615dbc600b	refs/heads/python-perf-branch-sampling
 bfb89838507061344bea7f3ee8fc53b74604d90b	refs/heads/rebuild/pacman-packages
 9348615d2a3413c8632b0733c3c97311cfac4392	refs/heads/rust-opt
