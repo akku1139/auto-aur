@@ -9,6 +9,7 @@ d68ed43fcd5cc606958d23f8dd77fdc5b31253bf	refs/heads/gcc-bolt
 13619c51aeab34231301cfe926fb2453e9f69b1f	refs/heads/loathing
 1215053e9c739ad829697e76819b114e09a8cdb6	refs/heads/loathing-wine-affinity
 6d16f938e6f355589140ee24371261f58ec35d2e	refs/heads/master
+422d2b4d499af0d489c54e0119c3f849c002bd6c	refs/heads/nvidia-module-extractor
 e926b4735282eec77dc21c072b4e23615dbc600b	refs/heads/python-perf-branch-sampling
 bfb89838507061344bea7f3ee8fc53b74604d90b	refs/heads/rebuild/pacman-packages
 9348615d2a3413c8632b0733c3c97311cfac4392	refs/heads/rust-opt
