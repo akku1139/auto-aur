@@ -1,5 +1,4 @@
 6ffc26cee37b508f78f9eac3f2e499ecd73942e7	refs/heads/cachyos-hooks-update
-8453fa48b45d21cc2b0b577386b29bb3a264c54c	refs/heads/cachyos-rate-mirrors-refactoring
 abdac62f965a169ee756d98b403f6e28318dccdd	refs/heads/chromium
 73c6aab9b9129aac2367aea5272c824d004a1ea3	refs/heads/feat/nvidia-575
 db8bc125d529ec367efb473583d841d0cadbc274	refs/heads/feat/steamos-manager
@@ -8,7 +7,7 @@ db8bc125d529ec367efb473583d841d0cadbc274	refs/heads/feat/steamos-manager
 d68ed43fcd5cc606958d23f8dd77fdc5b31253bf	refs/heads/gcc-bolt
 13619c51aeab34231301cfe926fb2453e9f69b1f	refs/heads/loathing
 1215053e9c739ad829697e76819b114e09a8cdb6	refs/heads/loathing-wine-affinity
-b85953540b1b6ee604060870d45a0da8ab3e0487	refs/heads/master
+bfb66b36518854a905474cf539e9d5753fb8331d	refs/heads/master
 4dc51ee91f0c59fe1a252af846164ed61f0ee750	refs/heads/nvidia-module-extractor
 e926b4735282eec77dc21c072b4e23615dbc600b	refs/heads/python-perf-branch-sampling
 bfb89838507061344bea7f3ee8fc53b74604d90b	refs/heads/rebuild/pacman-packages
