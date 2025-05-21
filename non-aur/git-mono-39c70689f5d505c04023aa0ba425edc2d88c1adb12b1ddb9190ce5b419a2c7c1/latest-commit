@@ -7,8 +7,7 @@ db8bc125d529ec367efb473583d841d0cadbc274	refs/heads/feat/steamos-manager
 d68ed43fcd5cc606958d23f8dd77fdc5b31253bf	refs/heads/gcc-bolt
 01cd724ba17149071b784f2304cc8da3ec5dd4f8	refs/heads/loathing
 1215053e9c739ad829697e76819b114e09a8cdb6	refs/heads/loathing-wine-affinity
-2ec64468b43f356abee14a4740a9a51b45e31c20	refs/heads/master
-4dc51ee91f0c59fe1a252af846164ed61f0ee750	refs/heads/nvidia-module-extractor
+6f98b7b25f11e5554b71309711d0e1d3b557d08f	refs/heads/master
 e926b4735282eec77dc21c072b4e23615dbc600b	refs/heads/python-perf-branch-sampling
 bfb89838507061344bea7f3ee8fc53b74604d90b	refs/heads/rebuild/pacman-packages
 9348615d2a3413c8632b0733c3c97311cfac4392	refs/heads/rust-opt
