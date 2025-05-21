@@ -2,7 +2,7 @@
 abdac62f965a169ee756d98b403f6e28318dccdd	refs/heads/chromium
 73c6aab9b9129aac2367aea5272c824d004a1ea3	refs/heads/feat/nvidia-575
 db8bc125d529ec367efb473583d841d0cadbc274	refs/heads/feat/steamos-manager
-42238782019f2c0527924eeb7482b8adac428db5	refs/heads/feat/zfs-utils
+bd7df7bfa12f5653c10792e612390c578bcb3843	refs/heads/feat/zfs-utils
 6b4b22d40d32cb7d58717ea474547df95fd80cb0	refs/heads/feat/zstd-pgo
 d68ed43fcd5cc606958d23f8dd77fdc5b31253bf	refs/heads/gcc-bolt
 01cd724ba17149071b784f2304cc8da3ec5dd4f8	refs/heads/loathing
