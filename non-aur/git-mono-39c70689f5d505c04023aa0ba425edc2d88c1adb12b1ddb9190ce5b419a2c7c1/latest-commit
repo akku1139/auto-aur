@@ -1,6 +1,7 @@
 abdac62f965a169ee756d98b403f6e28318dccdd	refs/heads/chromium
 73c6aab9b9129aac2367aea5272c824d004a1ea3	refs/heads/feat/nvidia-575
 db8bc125d529ec367efb473583d841d0cadbc274	refs/heads/feat/steamos-manager
+83d5c5df7e7c7cfb9e66fd41c11a1413d5303bf0	refs/heads/feat/steamos-powerbuttond
 bd7df7bfa12f5653c10792e612390c578bcb3843	refs/heads/feat/zfs-utils
 6b4b22d40d32cb7d58717ea474547df95fd80cb0	refs/heads/feat/zstd-pgo
 d68ed43fcd5cc606958d23f8dd77fdc5b31253bf	refs/heads/gcc-bolt
