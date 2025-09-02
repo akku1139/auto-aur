@@ -184,7 +184,7 @@ jobs:
       - run: echo "/__e/node20/bin" >> $GITHUB_PATH
         if: ${{ steps.git.outputs.change == 'true' }}
 
-      - uses: FirebaseExtended/action-hosting-deploy@v0.9.0
+      - uses: FirebaseExtended/action-hosting-deploy@v0.10.0
         if: ${{ steps.git.outputs.change == 'true' }}
         with:
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
