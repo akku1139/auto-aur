@@ -79,3 +79,6 @@ legcord (pnpm, yarn conflict?)
 legcord-git
 
 chrome-remote-desktop (license)
+
+# TODO
+fcitx5-hazkey
