@@ -49,7 +49,7 @@ jobs:
           chmod 777 /mnt/tidyup.sh
           chroot /mnt /tidyup.sh &
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@v5
         with:
           path: | # Must be synchronized with save
             /__w/auto-aur/auto-aur
