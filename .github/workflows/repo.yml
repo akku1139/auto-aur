@@ -179,7 +179,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         if: ${{ steps.git.outputs.change == 'true' }}
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
       - run: echo "/__e/node20/bin" >> $GITHUB_PATH
         if: ${{ steps.git.outputs.change == 'true' }}
