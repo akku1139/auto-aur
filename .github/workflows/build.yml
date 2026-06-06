@@ -129,12 +129,11 @@ jobs:
               -v /repo:/repo \
               -v /var/cache/pacman/pkg:/var/cache/pacman/pkg \
               -v "$SRC_DIR":/home/builder/src \
-              archlinux:base-devel bash <<EOF
+              archlinux:base-devel bash <<'EOF'
                 set -ex
                 echo -e "[local]\nServer = file:///repo\nSigLevel = Optional TrustAll" >> /etc/pacman.conf
                 pacman -Syu --noconfirm --needed git sudo
                 useradd -m builder
-                echo 'builder ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
                 chown -R builder:builder /home/builder/src
                 cd /home/builder/src
                 sudo -u builder makepkg -s --noconfirm
