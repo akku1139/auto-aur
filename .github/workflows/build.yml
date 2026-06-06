@@ -135,11 +135,11 @@ jobs:
             elif [ -d "custom-patches/$pkg" ]; then
               cp -r "custom-patches/$pkg" /__t/build/$pkg/home/builder/$pkg
             else
-              unshare --fork --pid --mount-proc arch-chroot /__t/build/$pkg bash -c "cd /home/builder; sudo -u builder git clone --depht=1 https://aur.archlinux.org/$pkg.git"
+              unshare --fork --pid --mount-proc arch-chroot /__t/build/$pkg/rootfs bash -c "cd /home/builder; sudo -u builder git clone --depht=1 https://aur.archlinux.org/$pkg.git"
             fi
 
             # ビルド実行
-            unshare --fork --pid --mount-proc arch-chroot -b /repo:/repo -b /var/cache/pacman/pkg:/var/cache/pacman/pkg /__t/build/$pkg bash <<EOF
+            unshare --fork --pid --mount-proc arch-chroot -b /repo:/repo -b /var/cache/pacman/pkg:/var/cache/pacman/pkg /__t/build/$pkg/rootfs bash <<EOF
               set -ex
               echo -e "[local]\nServer = file:///repo\nSigLevel = Optional TrustAll" >> /etc/pacman.conf
               pacman -Syu --noconfirm --needed base-devel git
