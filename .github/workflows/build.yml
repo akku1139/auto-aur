@@ -98,6 +98,8 @@ jobs:
           arch-nspawn /var/lib/archbuild/root bash -c "useradd -m builder"
           # machine-id を設定（警告回避）
           arch-nspawn /var/lib/archbuild/root bash -c "systemd-machine-id-setup || touch /etc/machine-id"
+        env:
+          SYSTEMD_NSPAWN_API_VFS_WRITABLE: yes
 
       - name: Cache local repository
         uses: actions/cache@v5
