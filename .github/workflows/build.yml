@@ -109,7 +109,6 @@ jobs:
           mkdir -p /mnt/repo
           if [ ! -f /mnt/repo/auto-aur-local.db.tar.gz ]; then
             repo-add /mnt/repo/auto-aur-local.db.tar.gz
-            ln -s /mnt/repo/auto-aur-local.db.tar.gz /mnt/repo/auto-aur-local.db
           fi
 
       - name: Expand update list (include dependents)
