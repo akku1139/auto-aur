@@ -90,7 +90,7 @@ jobs:
         run: |
           set -x
           mkdir -p /var/lib/archbuild
-          pacman -r /chroot/root -Sy base base-devel --noconfirm
+          pacman -r /var/lib/archbuild -Sy base base-devel --noconfirm
 
       - name: Cache local repository
         uses: actions/cache@v5
