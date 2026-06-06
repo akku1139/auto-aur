@@ -53,27 +53,17 @@ def parse_deps(srcinfo: str) -> Set[str]:
             deps.add(dep)
     return deps
 
-def is_official_package(pkg: str) -> bool:
-    # 1. 実パッケージとして存在するか
-    try:
-        subprocess.run(['pacman', '-Si', pkg], capture_output=True, check=True)
-        return True
-    except subprocess.CalledProcessError:
-        pass
-
-    # 2. 仮想パッケージとして提供されているか (expac を使用)
+def is_in_repositories(pkg: str) -> bool:
+    """パッケージが（公式または追加リポジトリを含む）いずれかのリポジトリに存在するか（仮想プロバイダも含む）"""
     try:
         result = subprocess.run(
-            ['expac', '-S', '%n', pkg],
+            ['pacman', '-Ssq', f'^{pkg}$'],
             capture_output=True, text=True, check=False
         )
-        if result.returncode == 0 and result.stdout.strip():
-            return True
-    except FileNotFoundError:
-        # expac がインストールされていない場合（通常はあり得ない）
-        pass
-
-    return False
+        # 出力があれば存在する（空文字列でない）
+        return result.returncode == 0 and bool(result.stdout.strip())
+    except:
+        return False
 
 def get_deps(pkg: str) -> Set[str]:
     if is_local_package(pkg):
@@ -83,7 +73,7 @@ def get_deps(pkg: str) -> Set[str]:
     else:
         srcinfo = get_aur_srcinfo(pkg)
     deps = parse_deps(srcinfo)
-    return {d for d in deps if not is_official_package(d)}
+    return {d for d in deps if not is_in_repositories(d)}
 
 def get_current_version(pkg: str) -> str:
     if is_local_package(pkg) or is_custom_patch(pkg):
