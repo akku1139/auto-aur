@@ -28,14 +28,23 @@ jobs:
     container:
       image: archlinux:latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/cache@v5
         with:
-          fetch-depth: 0
+          path: |
+                /__w/auto-aur/auto-aur
+                /var/cache/pacman/pkg
+          # use repo-data branch?
+          key: cache-${{ github.sha }}
+          restore-keys: cache-
 
       - name: Install build tools
         run: |
           pacman -Syu --noconfirm base-devel git python python-requests jq devtools
+
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
       - name: Fetch repo-data branch
         run: |
