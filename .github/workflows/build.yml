@@ -89,7 +89,7 @@ jobs:
         if: steps.cache-chroot.outputs.cache-hit != 'true'
         run: |
           set -x
-          mkdir -p /var/lib/archbuild
+          mkdir -p /var/lib/archbuild/var/lib/pacman
           pacman -r /var/lib/archbuild -Sy base base-devel --noconfirm
 
       - name: Cache local repository
