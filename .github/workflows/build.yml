@@ -43,27 +43,29 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
 
-      - name: Fetch repo-data branch
+      - name: Checkout repo-data branch
+        uses: actions/checkout@v6
+        with:
+          ref: repo-data
+          path: repo-data
+          persist-credentials: false   # 後で明示的に push するため
+
+      - name: Fetch repo-data files
         run: |
-          git fetch origin ${{ env.REPO_DATA_BRANCH }}
-          git checkout ${{ env.REPO_DATA_BRANCH }} -- lock.json mapping.json 2>/dev/null || true
+          cd repo-data
           if [ ! -f lock.json ]; then
             echo '{"version":1,"packages":[],"build_order":[]}' > lock.json
           fi
           if [ ! -f mapping.json ]; then
             echo '{"packages":{}}' > mapping.json
           fi
+          mkdir -p repo/auto-aur/x86_64/
+          if [ ! -f repo/auto-aur/x86_64/auto-aur.db.tar.gz ]; then
+            repo-add repo/auto-aur/x86_64/auto-aur.db.tar.gz
+          fi
 
       - name: Update lock.json if packages.txt or local-patches changed
-        if: |
-          github.event_name == 'push' && (
-            contains(github.event.head_commit.modified, 'packages.txt') ||
-            contains(github.event.head_commit.modified, 'local-packages/') ||
-            contains(github.event.head_commit.modified, 'custom-patches/')
-          )
         run: |
           python scripts/update_lock.py packages.txt lock.json
           # 循環依存があればここでエラー終了
@@ -83,14 +85,14 @@ jobs:
         run: exit 0
 
       - name: Cache pacman packages
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: /var/cache/pacman/pkg
           key: pacman-${{ hashFiles('lock.json') }}
 
       - name: Cache base chroot
         id: cache-chroot
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: /var/lib/archbuild/root
           key: chroot-base
@@ -102,7 +104,7 @@ jobs:
           arch-nspawn /var/lib/archbuild/root useradd -m builder
 
       - name: Cache local repository
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: /repo
           key: localrepo-${{ hashFiles('lock.json') }}
@@ -168,23 +170,17 @@ jobs:
           gh release create $TAG --title "Build $TAG" --notes "Updated packages" final_packages/*.pkg.tar.zst
           echo "tag=$TAG" >> $GITHUB_OUTPUT
 
-      - name: Update repo-data branch
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: Push repo-data changes
         run: |
-          git fetch origin ${{ env.REPO_DATA_BRANCH }}
-          git checkout ${{ env.REPO_DATA_BRANCH }} || git checkout --orphan ${{ env.REPO_DATA_BRANCH }}
-          # mapping.json を更新
-          python scripts/update_repo_data.py \
+          cd repo-data
+          python ../scripts/update_repo_data.py \
             --mapping mapping.json \
             --new-packages final_packages \
             --release-tag ${{ steps.release.outputs.tag }} \
-            --db-output db/myrepo.db.tar.gz \
+            --db-output repo/auto-aur/x86_64/auto-aur.db.tar.gz \
             --redirects _redirects
-          # lock.json もコミット（更新されていれば）
-          cp ../lock.json .
-          git add db/ mapping.json _redirects lock.json
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git commit -m "Update repo-data for build ${{ steps.release.outputs.tag }}" || echo "No changes"
-          git push origin ${{ env.REPO_DATA_BRANCH }} --force
+          git add .
+          git commit -m "Update repo-data" || echo "No changes"
+          git push origin repo-data
