@@ -110,10 +110,12 @@ jobs:
           python scripts/expand_updates.py repo-data/lock.json repo-data/mapping.json final_build_list.txt
           cat final_build_list.txt
 
+      - name: Build Dockerfile.build
+        run: docker build -t aur-builder -f scripts/Dockerfile.build .
+
       - name: Build packages in order
         run: |
           set -x
-          docker build -t aur-builder -f scripts/Dockerfile.build .
 
           # lock.jsonからビルド順を取得
           jq -r '.build_order[]' repo-data/lock.json > build_order.txt
@@ -139,13 +141,7 @@ jobs:
               -v /repo:/repo \
               -v /var/cache/pacman/pkg:/var/cache/pacman/pkg \
               -v "$SRC_DIR":/home/builder/src \
-              aur-builder bash <<EOF
-                set -ex
-                chown -R builder:builder /home/builder/src
-                cd /home/builder/src
-                sudo -u builder makepkg -s --noconfirm
-                cp *.pkg.tar.zst /repo/
-          EOF
+              aur-builder
             repo-add /repo/local.db.tar.gz /repo/*.pkg.tar.zst
             rm -rf /__t/build/$pkg
           done < sorted_build_list.txt
