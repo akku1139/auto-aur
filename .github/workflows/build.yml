@@ -123,6 +123,7 @@ jobs:
       - name: Expand update list (include dependents)
         run: |
           python scripts/expand_updates.py repo-data/lock.json update_list.txt final_build_list.txt
+          cat repo-data/lock.json
 
       - name: Build packages in order
         run: |
