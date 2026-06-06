@@ -37,7 +37,7 @@ jobs:
 
       - name: Install build tools
         run: |
-          pacman -Syu --noconfirm base-devel git python python-requests jq devtools
+          pacman -Syu --noconfirm base-devel git python python-requests jq devtools expac
 
       - name: Checkout
         uses: actions/checkout@v6

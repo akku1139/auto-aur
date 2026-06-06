@@ -54,11 +54,26 @@ def parse_deps(srcinfo: str) -> Set[str]:
     return deps
 
 def is_official_package(pkg: str) -> bool:
+    # 1. 実パッケージとして存在するか
     try:
         subprocess.run(['pacman', '-Si', pkg], capture_output=True, check=True)
         return True
     except subprocess.CalledProcessError:
-        return False
+        pass
+
+    # 2. 仮想パッケージとして提供されているか (expac を使用)
+    try:
+        result = subprocess.run(
+            ['expac', '-S', '%n', pkg],
+            capture_output=True, text=True, check=False
+        )
+        if result.returncode == 0 and result.stdout.strip():
+            return True
+    except FileNotFoundError:
+        # expac がインストールされていない場合（通常はあり得ない）
+        pass
+
+    return False
 
 def get_deps(pkg: str) -> Set[str]:
     if is_local_package(pkg):
