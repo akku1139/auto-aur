@@ -1,0 +1,20 @@
+FROM archlinux:base-devel
+
+RUN echo -e "[local]\nServer = file:///repo\nSigLevel = Optional TrustAll" >> /etc/pacman.conf
+
+RUN pacman-key --init
+RUN pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+RUN pacman-key --lsign-key 3056513887B78AEB
+RUN pacman --noconfirm -U "https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst" \
+                          "https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst"
+
+RUN pacman-key --recv-key b465fd29d2ea44cc --keyserver keyserver.ubuntu.com
+RUN pacman-key --lsign-key b465fd29d2ea44cc
+
+RUN pacman -Syu --noconfirm --needed git sudo
+RUN useradd -m builder
+
+# echo 'builder ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
+
+# 3. ワークディレトリをビルド領域に設定
+WORKDIR /home/builder/src
