@@ -68,16 +68,6 @@ jobs:
           python scripts/update_lock.py packages.txt repo-data/lock.json
           # 循環依存があればここでエラー終了
 
-      - name: Check for AUR updates
-        id: check
-        run: |
-          python scripts/check_updates.py repo-data/lock.json > update_list.txt
-          COUNT=$(wc -l < update_list.txt)
-          echo "count=$COUNT" >> $GITHUB_OUTPUT
-          if [ $COUNT -eq 0 ]; then
-            echo "No updates, skipping build"
-          fi
-
       - name: Exit if no updates
         if: steps.check.outputs.count == 0
         run: exit 0
@@ -125,7 +115,7 @@ jobs:
           set -x
           cat repo-data/lock.json
           cat update_list.txt
-          python scripts/expand_updates.py repo-data/lock.json update_list.txt final_build_list.txt
+          python scripts/expand_updates.py repo-data/lock.json repo-data/mapping.json final_build_list.txt
           cat final_build_list.txt
 
       - name: Build packages in order

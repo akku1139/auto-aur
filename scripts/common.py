@@ -77,6 +77,7 @@ def get_deps(pkg: str) -> Set[str]:
 
 def get_current_version(pkg: str) -> str:
     if is_local_package(pkg) or is_custom_patch(pkg):
+        # ローカルパッケージのバージョンを PKGBUILD から読み取る
         pkgbuild_path = (LOCAL_PACKAGES_DIR / pkg / "PKGBUILD" if is_local_package(pkg)
                          else CUSTOM_PATCHES_DIR / pkg / "PKGBUILD")
         text = pkgbuild_path.read_text()
@@ -95,9 +96,7 @@ def get_current_version(pkg: str) -> str:
         for line in srcinfo.splitlines():
             line = line.strip()
             if line.startswith('pkgver ='):
-                pkgver = line.split('=', 1)[1].strip()
+                pkgver = line.split('=',1)[1].strip()
             elif line.startswith('pkgrel ='):
-                pkgrel = line.split('=', 1)[1].strip()
-        if pkgver and pkgrel:
-            return f"{pkgver}-{pkgrel}"
-        return pkgver or "unknown"
+                pkgrel = line.split('=',1)[1].strip()
+        return f"{pkgver}-{pkgrel}" if pkgver and pkgrel else "unknown"
