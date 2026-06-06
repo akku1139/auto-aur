@@ -1,4 +1,4 @@
-name: AUR Builder with Lock
+name: AUR Builder
 
 on:
   schedule:
@@ -127,7 +127,7 @@ jobs:
           while read pkg; do
             echo "Building $pkg"
             mkdir -p /__t/build/$pkg/{rootfs,work,upper}
-            mount -t overlay overlay -o lowerdir=/__t/archbuild/root,upperdir=/__t/build/$pkg/upper,workdir/__t/build/$pkg/work /__t/build/$pkg/rootfs
+            mount -t overlay overlay -o lowerdir=/__t/archbuild/root,upperdir=/__t/build/$pkg/upper,workdir=/__t/build/$pkg/work /__t/build/$pkg/rootfs
 
             # ソースの準備（ローカルパッケージ or カスタムパッチ or AUR）
             if [ -d "local-packages/$pkg" ]; then
