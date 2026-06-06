@@ -27,7 +27,10 @@ jobs:
       options: --privileged
     steps:
       - name: Tidy up
-        run: rm -r /__t/*
+        run: |
+          set -x
+          rm -r /__t/*
+          df -h
 
       - uses: actions/cache@v5
         with:
@@ -104,8 +107,8 @@ jobs:
       - name: Initialize local repo
         run: |
           mkdir -p /mnt/repo
-          if [ ! -f /mnt/repo/local.db.tar.gz ]; then
-            repo-add /mnt/repo/local.db.tar.gz
+          if [ ! -f /mnt/repo/auto-aur-local.db.tar.gz ]; then
+            repo-add /mnt/repo/auto-aur-local.db.tar.gz
           fi
 
       - name: Expand update list (include dependents)
@@ -151,7 +154,7 @@ jobs:
               -v "/${SRC_DIR#/*/}":/home/builder/src \
               aur-builder
             ls /mnt/repo
-            repo-add /mnt/repo/local.db.tar.gz /mnt/repo/*.pkg.tar.zst
+            repo-add /mnt/repo/auto-aur-local.db.tar.gz /mnt/repo/*.pkg.tar.zst
             rm -rf /mnt/build/$pkg
           done < sorted_build_list.txt
 

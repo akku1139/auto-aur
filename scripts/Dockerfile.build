@@ -1,6 +1,6 @@
 FROM archlinux:base-devel
 
-RUN echo -e "[local]\nServer = file:///repo\nSigLevel = Optional TrustAll" >> /etc/pacman.conf
+RUN echo -e "[auto-aur-local]\nServer = file:///repo\nSigLevel = Optional TrustAll" >> /etc/pacman.conf
 
 RUN pacman-key --init
 RUN pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
