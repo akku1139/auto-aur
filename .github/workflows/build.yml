@@ -26,6 +26,9 @@ jobs:
       image: archlinux:latest
       options: --privileged
     steps:
+      - name: Tidy up
+        run: rm -r /__t/*
+
       - uses: actions/cache@v5
         with:
           path: |
@@ -82,15 +85,15 @@ jobs:
         id: cache-chroot
         uses: actions/cache@v5
         with:
-          path: /var/lib/archbuild/root
+          path: /__t/archbuild/root
           key: chroot-base
 
       - name: Create base chroot
         if: steps.cache-chroot.outputs.cache-hit != 'true'
         run: |
           set -x
-          mkdir -p /var/lib/archbuild/var/lib/pacman
-          pacman -r /var/lib/archbuild -Sy base base-devel --noconfirm
+          mkdir -p /__t/archbuild/var/lib/pacman
+          pacman -r /__t/archbuild -Sy base base-devel --noconfirm
 
       - name: Cache local repository
         uses: actions/cache@v5
@@ -123,20 +126,20 @@ jobs:
 
           while read pkg; do
             echo "Building $pkg"
-            mkdir -p /tmp/build-$pkg/{rootfs,work,upper}
-            mount -t overlay overlay -o lowerdir=/var/lib/archbuild/root,upperdir=/tmp/build-$pkg/upper,workdir/tmp/build-$pkg/work /tmp/build-$pkg/rootfs
+            mkdir -p /__t/build/$pkg/{rootfs,work,upper}
+            mount -t overlay overlay -o lowerdir=/__t/archbuild/root,upperdir=/__t/build/$pkg/upper,workdir/__t/build/$pkg/work /__t/build/$pkg/rootfs
 
             # ソースの準備（ローカルパッケージ or カスタムパッチ or AUR）
             if [ -d "local-packages/$pkg" ]; then
-              cp -r "local-packages/$pkg" /tmp/build-$pkg/home/builder/$pkg
+              cp -r "local-packages/$pkg" /__t/build/$pkg/home/builder/$pkg
             elif [ -d "custom-patches/$pkg" ]; then
-              cp -r "custom-patches/$pkg" /tmp/build-$pkg/home/builder/$pkg
+              cp -r "custom-patches/$pkg" /__t/build/$pkg/home/builder/$pkg
             else
-              arch-chroot /tmp/build-$pkg bash -c "cd /home/builder; sudo -u builder git clone --depht=1 https://aur.archlinux.org/$pkg.git"
+              unshare --fork --pid --mount-proc arch-chroot /__t/build/$pkg bash -c "cd /home/builder; sudo -u builder git clone --depht=1 https://aur.archlinux.org/$pkg.git"
             fi
 
             # ビルド実行
-            arch-chroot -b /repo:/repo -b /var/cache/pacman/pkg:/var/cache/pacman/pkg /tmp/build-$pkg bash <<EOF
+            unshare --fork --pid --mount-proc arch-chroot -b /repo:/repo -b /var/cache/pacman/pkg:/var/cache/pacman/pkg /__t/build/$pkg bash <<EOF
               set -ex
               echo -e "[local]\nServer = file:///repo\nSigLevel = Optional TrustAll" >> /etc/pacman.conf
               pacman -Syu --noconfirm --needed base-devel git
@@ -145,7 +148,7 @@ jobs:
               cp *.pkg.tar.zst /repo/
           EOF
             repo-add /repo/local.db.tar.gz /repo/*.pkg.tar.zst
-            rm -rf /tmp/build-$pkg
+            rm -rf /__t/build/$pkg
           done < sorted_build_list.txt
 
       - name: Collect built packages
