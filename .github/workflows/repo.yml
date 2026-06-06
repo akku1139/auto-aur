@@ -80,10 +80,10 @@ jobs:
           # fi
 
           # move swap 1
-          swapoff /pre/swapfile
-          rm -r /pre/*
+          # swapoff /pre/swapfile
+          # rm -r /pre/*
 
-          fallocate -l $( df -h | awk '$6 == "/pre" { print $4 }' ) /pre/fs
+          fallocate -l $( df -h | awk '$6 == "/" { print $4 }' ) /pre/fs
           mkfs.btrfs -f /pre/fs
           mount -o compress-force=zstd,nobarrier,noatime /pre/fs /ext
 
