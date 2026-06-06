@@ -114,7 +114,6 @@ jobs:
         run: |
           set -x
           cat repo-data/lock.json
-          cat update_list.txt
           python scripts/expand_updates.py repo-data/lock.json repo-data/mapping.json final_build_list.txt
           cat final_build_list.txt
 
