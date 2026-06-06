@@ -19,9 +19,6 @@ concurrency:
   group: aur-builder
   cancel-in-progress: false
 
-env:
-  REPO_DATA_BRANCH: repo-data
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -68,13 +65,13 @@ jobs:
 
       - name: Update lock.json if packages.txt or local-patches changed
         run: |
-          python scripts/update_lock.py packages.txt lock.json
+          python scripts/update_lock.py packages.txt repo-data/lock.json
           # 循環依存があればここでエラー終了
 
       - name: Check for AUR updates
         id: check
         run: |
-          python scripts/check_updates.py lock.json > update_list.txt
+          python scripts/check_updates.py repo-data/lock.json > update_list.txt
           COUNT=$(wc -l < update_list.txt)
           echo "count=$COUNT" >> $GITHUB_OUTPUT
           if [ $COUNT -eq 0 ]; then
@@ -89,7 +86,7 @@ jobs:
         uses: actions/cache@v5
         with:
           path: /var/cache/pacman/pkg
-          key: pacman-${{ hashFiles('lock.json') }}
+          key: pacman-${{ hashFiles('repo-data/lock.json') }}
 
       - name: Cache base chroot
         id: cache-chroot
@@ -114,7 +111,7 @@ jobs:
         uses: actions/cache@v5
         with:
           path: /repo
-          key: localrepo-${{ hashFiles('lock.json') }}
+          key: localrepo-${{ hashFiles('repo-data/lock.json') }}
 
       - name: Initialize local repo
         run: |
@@ -125,12 +122,13 @@ jobs:
 
       - name: Expand update list (include dependents)
         run: |
-          python scripts/expand_updates.py lock.json update_list.txt final_build_list.txt
+          python scripts/expand_updates.py repo-data/lock.json update_list.txt final_build_list.txt
 
       - name: Build packages in order
         run: |
+          set -x
           # lock.jsonからビルド順を取得
-          jq -r '.build_order[]' lock.json > build_order.txt
+          jq -r '.build_order[]' repo-data/lock.json > build_order.txt
           # 最終ビルドリストをビルド順にフィルタ
           grep -xFf final_build_list.txt build_order.txt > sorted_build_list.txt
 
