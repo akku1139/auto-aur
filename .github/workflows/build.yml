@@ -1,0 +1,181 @@
+name: AUR Builder with Lock
+
+on:
+  schedule:
+    - cron: '47 */3 * * *'
+  push:
+    paths:
+      - packages.txt
+      - local-packages/**
+      - custom-patches/**
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: aur-builder
+  cancel-in-progress: false
+
+env:
+  REPO_DATA_BRANCH: repo-data
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install build tools
+        run: |
+          pacman -Syu --noconfirm base-devel git python python-requests jq devtools
+
+      - name: Fetch repo-data branch
+        run: |
+          git fetch origin ${{ env.REPO_DATA_BRANCH }}
+          git checkout ${{ env.REPO_DATA_BRANCH }} -- lock.json mapping.json 2>/dev/null || true
+          if [ ! -f lock.json ]; then
+            echo '{"version":1,"packages":[],"build_order":[]}' > lock.json
+          fi
+          if [ ! -f mapping.json ]; then
+            echo '{"packages":{}}' > mapping.json
+          fi
+
+      - name: Update lock.json if packages.txt or local-patches changed
+        if: |
+          github.event_name == 'push' && (
+            contains(github.event.head_commit.modified, 'packages.txt') ||
+            contains(github.event.head_commit.modified, 'local-packages/') ||
+            contains(github.event.head_commit.modified, 'custom-patches/')
+          )
+        run: |
+          python scripts/update_lock.py packages.txt lock.json
+          # 循環依存があればここでエラー終了
+
+      - name: Check for AUR updates
+        id: check
+        run: |
+          python scripts/check_updates.py lock.json > update_list.txt
+          COUNT=$(wc -l < update_list.txt)
+          echo "count=$COUNT" >> $GITHUB_OUTPUT
+          if [ $COUNT -eq 0 ]; then
+            echo "No updates, skipping build"
+          fi
+
+      - name: Exit if no updates
+        if: steps.check.outputs.count == 0
+        run: exit 0
+
+      - name: Cache pacman packages
+        uses: actions/cache@v4
+        with:
+          path: /var/cache/pacman/pkg
+          key: pacman-${{ hashFiles('lock.json') }}
+
+      - name: Cache base chroot
+        id: cache-chroot
+        uses: actions/cache@v4
+        with:
+          path: /var/lib/archbuild/root
+          key: chroot-base
+
+      - name: Create base chroot
+        if: steps.cache-chroot.outputs.cache-hit != 'true'
+        run: |
+          mkarchroot /var/lib/archbuild/root base-devel
+          arch-nspawn /var/lib/archbuild/root useradd -m builder
+
+      - name: Cache local repository
+        uses: actions/cache@v4
+        with:
+          path: /repo
+          key: localrepo-${{ hashFiles('lock.json') }}
+
+      - name: Initialize local repo
+        run: |
+          mkdir -p /repo
+          if [ ! -f /repo/local.db.tar.gz ]; then
+            repo-add /repo/local.db.tar.gz
+          fi
+
+      - name: Expand update list (include dependents)
+        run: |
+          python scripts/expand_updates.py lock.json update_list.txt final_build_list.txt
+
+      - name: Build packages in order
+        run: |
+          # lock.jsonからビルド順を取得
+          jq -r '.build_order[]' lock.json > build_order.txt
+          # 最終ビルドリストをビルド順にフィルタ
+          grep -xFf final_build_list.txt build_order.txt > sorted_build_list.txt
+
+          while read pkg; do
+            echo "Building $pkg"
+            cp -r /var/lib/archbuild/root /tmp/build-$pkg
+
+            # ソースの準備（ローカルパッケージ or カスタムパッチ or AUR）
+            if [ -d "local-packages/$pkg" ]; then
+              cp -r "local-packages/$pkg" /tmp/build-$pkg/home/builder/$pkg
+            elif [ -d "custom-patches/$pkg" ]; then
+              cp -r "custom-patches/$pkg" /tmp/build-$pkg/home/builder/$pkg
+            else
+              arch-nspawn /tmp/build-$pkg bash <<EOF
+                cd /home/builder
+                sudo -u builder git clone https://aur.archlinux.org/$pkg.git
+          EOF
+            fi
+
+            # ビルド実行
+            arch-nspawn -b /repo:/repo -b /var/cache/pacman/pkg:/var/cache/pacman/pkg /tmp/build-$pkg bash <<EOF
+              set -ex
+              echo -e "[local]\nServer = file:///repo\nSigLevel = Optional TrustAll" >> /etc/pacman.conf
+              pacman -Syu --noconfirm --needed base-devel git
+              cd /home/builder/$pkg
+              sudo -u builder makepkg -s --noconfirm
+              cp *.pkg.tar.zst /repo/
+          EOF
+            repo-add /repo/local.db.tar.gz /repo/*.pkg.tar.zst
+            rm -rf /tmp/build-$pkg
+          done < sorted_build_list.txt
+
+      - name: Collect built packages
+        run: |
+          mkdir final_packages
+          python scripts/collect_built.py /repo final_packages final_build_list.txt
+
+      - name: Create GitHub Release
+        id: release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="build-$(date -u +'%Y%m%d-%H%M%S')"
+          gh release create $TAG --title "Build $TAG" --notes "Updated packages" final_packages/*.pkg.tar.zst
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+
+      - name: Update repo-data branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git fetch origin ${{ env.REPO_DATA_BRANCH }}
+          git checkout ${{ env.REPO_DATA_BRANCH }} || git checkout --orphan ${{ env.REPO_DATA_BRANCH }}
+          # mapping.json を更新
+          python scripts/update_repo_data.py \
+            --mapping mapping.json \
+            --new-packages final_packages \
+            --release-tag ${{ steps.release.outputs.tag }} \
+            --db-output db/myrepo.db.tar.gz \
+            --redirects _redirects
+          # lock.json もコミット（更新されていれば）
+          cp ../lock.json .
+          git add db/ mapping.json _redirects lock.json
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update repo-data for build ${{ steps.release.outputs.tag }}" || echo "No changes"
+          git push origin ${{ env.REPO_DATA_BRANCH }} --force
