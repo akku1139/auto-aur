@@ -96,7 +96,7 @@ jobs:
           # マシンIDダミーファイル (警告回避のため)
           touch /var/lib/archbuild/root/etc/machine-id
           ls /var/lib/archbuild/root/
-          ls /var/lib/archbuild/root/etc/pacman.conf
+          ls /var/lib/archbuild/root/etc/pacman.conf || cp /etc/pacman.conf /var/lib/archbuild/root/etc/pacman.conf
 
       - name: Cache local repository
         uses: actions/cache@v5
