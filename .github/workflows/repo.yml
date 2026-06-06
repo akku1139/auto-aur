@@ -73,11 +73,11 @@ jobs:
 
           mkdir /pre /ext
 
-          if [ "/dev/sda1" = $( mount | grep -F "/__e" | cut -d " " -f1 ) ]; then
-            mount /dev/sdb1 /pre
-          else
-            mount /dev/sda1 /pre
-          fi
+          # if [ "/dev/sda1" = $( mount | grep -F "/__e" | cut -d " " -f1 ) ]; then
+          #   mount /dev/sdb1 /pre
+          # else
+          #   mount /dev/sda1 /pre
+          # fi
 
           # move swap 1
           swapoff /pre/swapfile
