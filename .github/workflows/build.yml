@@ -81,20 +81,6 @@ jobs:
           path: /var/cache/pacman/pkg
           key: pacman-${{ hashFiles('repo-data/lock.json') }}
 
-      - name: Cache base chroot
-        id: cache-chroot
-        uses: actions/cache@v5
-        with:
-          path: /__t/archbuild/root
-          key: chroot-base
-
-      - name: Create base chroot
-        if: steps.cache-chroot.outputs.cache-hit != 'true'
-        run: |
-          set -x
-          mkdir -p /__t/archbuild/var/lib/pacman
-          pacman -r /__t/archbuild -Sy base base-devel --noconfirm
-
       - name: Cache local repository
         uses: actions/cache@v5
         with:
@@ -126,27 +112,34 @@ jobs:
 
           while read pkg; do
             echo "Building $pkg"
-            mkdir -p /__t/build/$pkg/{rootfs,work,upper}
-            mount -t overlay overlay -o lowerdir=/__t/archbuild/root,upperdir=/__t/build/$pkg/upper,workdir=/__t/build/$pkg/work /__t/build/$pkg/rootfs
 
-            # ソースの準備（ローカルパッケージ or カスタムパッチ or AUR）
+            # ソースの準備 (ローカルパッケージ or カスタムパッチ or AUR)
+            SRC_DIR="/__t/build/$pkg/src"
+            mkdir -p "$SRC_DIR"
             if [ -d "local-packages/$pkg" ]; then
-              cp -r "local-packages/$pkg" /__t/build/$pkg/home/builder/$pkg
+              cp -r "local-packages/$pkg" "$SRC_DIR"
             elif [ -d "custom-patches/$pkg" ]; then
-              cp -r "custom-patches/$pkg" /__t/build/$pkg/home/builder/$pkg
+              cp -r "custom-patches/$pkg" "$SRC_DIR"
             else
-              unshare --fork --pid --mount-proc arch-chroot /__t/build/$pkg/rootfs bash -c "cd /home/builder; sudo -u builder git clone --depht=1 https://aur.archlinux.org/$pkg.git"
+              git clone --depht=1 https://aur.archlinux.org/$pkg.git" "$SRC_DIR"
             fi
 
             # ビルド実行
-            unshare --fork --pid --mount-proc arch-chroot -b /repo:/repo -b /var/cache/pacman/pkg:/var/cache/pacman/pkg /__t/build/$pkg/rootfs bash <<EOF
-              set -ex
-              echo -e "[local]\nServer = file:///repo\nSigLevel = Optional TrustAll" >> /etc/pacman.conf
-              pacman -Syu --noconfirm --needed base-devel git
-              cd /home/builder/$pkg
-              sudo -u builder makepkg -s --noconfirm
-              cp *.pkg.tar.zst /repo/
-          EOF
+            docker run --rm \
+              -v /repo:/repo \
+              -v /var/cache/pacman/pkg:/var/cache/pacman/pkg \
+              -v "$SRC_DIR":/home/builder/src \
+              archlinux:base-devel bash <<EOF
+                set -ex
+                echo -e "[local]\nServer = file:///repo\nSigLevel = Optional TrustAll" >> /etc/pacman.conf
+                pacman -Syu --noconfirm --needed git sudo
+                useradd -m builder
+                echo 'builder ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
+                chown -R builder:builder /home/builder/src
+                cd /home/builder/src
+                sudo -u builder makepkg -s --noconfirm
+                cp *.pkg.tar.zst /repo/
+            EOF
             repo-add /repo/local.db.tar.gz /repo/*.pkg.tar.zst
             rm -rf /__t/build/$pkg
           done < sorted_build_list.txt
