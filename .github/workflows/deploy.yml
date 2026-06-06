@@ -44,41 +44,17 @@ jobs:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
 
-      - name: Generate UI
-        run: python scripts/genui.py
-
-      - name: Git
-        id: git
-        if: ${{ !cancelled() }}
-        run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            echo "change=true" >> $GITHUB_OUTPUT
-            git pull
-            git add -A
-            git commit -m "Data"
-            git push
-          else
-            echo "There are no changes."
-            echo "change=false" >> $GITHUB_OUTPUT
-          fi
-          git clean -ffdx
-          git reset --hard HEAD
-
       - name: Upload Pages Artifact
-        if: ${{ steps.git.outputs.change == 'true' }}
         uses: actions/upload-pages-artifact@v5
         with:
           path: "public/"
 
       - name: Deploy to GitHub Pages
-        if: ${{ steps.git.outputs.change == 'true' }}
         uses: actions/deploy-pages@v5
 
       - run: echo "/__e/node20/bin" >> $GITHUB_PATH
-        if: ${{ steps.git.outputs.change == 'true' }}
 
       - uses: FirebaseExtended/action-hosting-deploy@v0.10.0
-        if: ${{ steps.git.outputs.change == 'true' }}
         with:
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
           projectId: auto-aur
