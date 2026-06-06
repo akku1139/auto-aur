@@ -20,4 +20,4 @@ COPY scripts/build/entry.sh /entry.sh
 RUN chmod +x /entry.sh
 
 WORKDIR /home/builder/src
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/entry.sh"]
