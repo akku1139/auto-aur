@@ -102,17 +102,13 @@ jobs:
         if: steps.cache-chroot.outputs.cache-hit != 'true'
         run: |
           set -x
-          # 古いchrootを完全削除
           rm -rf /var/lib/archbuild/root
           mkdir -p /var/lib/archbuild/root
-          # base-devel グループをインストール
           pacstrap -C /etc/pacman.conf /var/lib/archbuild/root base-devel
-          # マシンIDを設定（警告回避）
-          systemd-nspawn -D /var/lib/archbuild/root systemd-machine-id-setup
-          # builderユーザーを作成
-          systemd-nspawn -D /var/lib/archbuild/root useradd -m builder
-          # 完了マーカー（オプション）
-          touch /var/lib/archbuild/root/.setup-complete
+          # builder ユーザーの作成 (chroot 内で直接実行)
+          chroot /var/lib/archbuild/root useradd -m builder
+          # マシンIDダミーファイル (警告回避のため)
+          touch /var/lib/archbuild/root/etc/machine-id
 
       - name: Cache local repository
         uses: actions/cache@v5
