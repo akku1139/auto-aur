@@ -100,8 +100,9 @@ jobs:
       - name: Create base chroot
         if: steps.cache-chroot.outputs.cache-hit != 'true'
         run: |
-          mkarchroot /var/lib/archbuild/root base-devel
-          arch-nspawn /var/lib/archbuild/root useradd -m builder
+          mkdir -p /var/lib/archbuild
+          mkarchroot -C /etc/pacman.conf -M /etc/makepkg.conf /var/lib/archbuild/root base-devel
+          arch-nspawn /var/lib/archbuild/root bash -c "useradd -m builder"
 
       - name: Cache local repository
         uses: actions/cache@v5
