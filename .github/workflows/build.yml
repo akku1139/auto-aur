@@ -29,7 +29,7 @@ jobs:
       - name: Tidy up
         run: |
           set -x
-          rm -r /__t/*
+          rm -r /__t/* &
           df -h
 
       - uses: actions/cache@v5
