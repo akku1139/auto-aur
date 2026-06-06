@@ -123,7 +123,8 @@ jobs:
 
           while read pkg; do
             echo "Building $pkg"
-            cp -r /var/lib/archbuild/root /tmp/build-$pkg
+            mkdir -p /tmp/build-$pkg/{rootfs,work,upper}
+            mount -t overlay overlay -o lowerdir=/var/lib/archbuild/root,upperdir=/tmp/build-$pkg/upper,workdir/tmp/build-$pkg/work /tmp/build-$pkg/rootfs
 
             # ソースの準備（ローカルパッケージ or カスタムパッチ or AUR）
             if [ -d "local-packages/$pkg" ]; then
