@@ -88,15 +88,14 @@ jobs:
       - name: Create base chroot
         if: steps.cache-chroot.outputs.cache-hit != 'true'
         run: |
-          set -x
           rm -rf /var/lib/archbuild/root
-          mkdir -p /var/lib/archbuild/root
-          pacstrap -C /etc/pacman.conf /var/lib/archbuild/root base-devel
-          chroot /var/lib/archbuild/root useradd -m builder
-          # マシンIDダミーファイル (警告回避のため)
-          touch /var/lib/archbuild/root/etc/machine-id
-          ls /var/lib/archbuild/root/
-          ls /var/lib/archbuild/root/etc/pacman.conf || cp /etc/pacman.conf /var/lib/archbuild/root/etc/pacman.conf
+          mkdir -p /var/lib/archbuild
+          # -f オプションで強制的に作成
+          mkarchroot -C /etc/pacman.conf -f /var/lib/archbuild/root base-devel
+          # builder ユーザーを追加
+          arch-nspawn /var/lib/archbuild/root bash -c "useradd -m builder"
+          # machine-id を設定（警告回避）
+          arch-nspawn /var/lib/archbuild/root bash -c "systemd-machine-id-setup || touch /etc/machine-id"
 
       - name: Cache local repository
         uses: actions/cache@v5
