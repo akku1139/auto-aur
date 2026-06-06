@@ -96,6 +96,7 @@ jobs:
           chroot /var/lib/archbuild/root useradd -m builder
           # マシンIDダミーファイル (警告回避のため)
           touch /var/lib/archbuild/root/etc/machine-id
+          ls /var/lib/archbuild/root/
 
       - name: Cache local repository
         uses: actions/cache@v5
@@ -114,6 +115,7 @@ jobs:
         run: |
           set -x
           cat repo-data/lock.json
+          cat repo-data/mapping.json
           python scripts/expand_updates.py repo-data/lock.json repo-data/mapping.json final_build_list.txt
           cat final_build_list.txt
 
