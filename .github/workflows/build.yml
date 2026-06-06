@@ -88,10 +88,9 @@ jobs:
       - name: Create base chroot
         if: steps.cache-chroot.outputs.cache-hit != 'true'
         run: |
-          rm -rf /var/lib/archbuild/root
+          set -x
           mkdir -p /var/lib/archbuild
-          # -f オプションで強制的に作成
-          mkarchroot -C /etc/pacman.conf -f /var/lib/archbuild/root base-devel
+          mkarchroot -C /etc/pacman.conf /var/lib/archbuild/root base-devel
           # builder ユーザーを追加
           arch-nspawn /var/lib/archbuild/root bash -c "useradd -m builder"
           # machine-id を設定（警告回避）
