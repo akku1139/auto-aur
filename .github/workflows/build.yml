@@ -139,7 +139,7 @@ jobs:
                 cd /home/builder/src
                 sudo -u builder makepkg -s --noconfirm
                 cp *.pkg.tar.zst /repo/
-            EOF
+          EOF
             repo-add /repo/local.db.tar.gz /repo/*.pkg.tar.zst
             rm -rf /__t/build/$pkg
           done < sorted_build_list.txt
