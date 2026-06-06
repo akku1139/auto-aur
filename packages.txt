@@ -1,3 +1,1 @@
 bankstown
-fcitx5-hazkey-bin
-hazkey-zenzai-vulkan
