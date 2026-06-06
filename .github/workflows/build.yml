@@ -117,6 +117,9 @@ jobs:
         run: |
           set -x
 
+          mount /dev/root /mnt
+          mkdir /mnt/build
+
           # lock.jsonからビルド順を取得
           jq -r '.build_order[]' repo-data/lock.json > build_order.txt
           # 最終ビルドリストをビルド順にフィルタ
@@ -126,7 +129,7 @@ jobs:
             echo "Building $pkg"
 
             # ソースの準備 (ローカルパッケージ or カスタムパッチ or AUR)
-            SRC_DIR="/__t/build/$pkg/src"
+            SRC_DIR="/mnt/build/$pkg/src"
             mkdir -p "$SRC_DIR"
             if [ -d "local-packages/$pkg" ]; then
               cp -r "local-packages/$pkg" "$SRC_DIR"
@@ -140,10 +143,10 @@ jobs:
             docker run --rm \
               -v /repo:/repo \
               -v /var/cache/pacman/pkg:/var/cache/pacman/pkg \
-              -v "$SRC_DIR":/home/builder/src \
+              -v "/${SRC_DIR#/*/}":/home/builder/src \
               aur-builder
             repo-add /repo/local.db.tar.gz /repo/*.pkg.tar.zst
-            rm -rf /__t/build/$pkg
+            rm -rf /mnt/build/$pkg
           done < sorted_build_list.txt
 
       - name: Collect built packages
