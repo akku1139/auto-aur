@@ -90,6 +90,7 @@ jobs:
         run: |
           set -x
           mkdir -p /var/lib/archbuild
+          systemd-machine-id-setup
           mkarchroot -C /etc/pacman.conf /var/lib/archbuild/root base-devel
           # builder ユーザーを追加
           arch-nspawn /var/lib/archbuild/root bash -c "useradd -m builder"
