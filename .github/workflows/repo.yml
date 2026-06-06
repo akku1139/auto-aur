@@ -94,11 +94,11 @@ jobs:
           chown builder:builder /ext/builder
 
           # move swap 2
-          fallocate -l 8GB /swapfile
-          chmod 0600 /swapfile
-          mkswap /swapfile
-          losetup -f /swapfile
-          swapon $( losetup -a | grep -F "/swapfile" | cut -d: -f1 )
+          # fallocate -l 8GB /swapfile
+          # chmod 0600 /swapfile
+          # mkswap /swapfile
+          # losetup -f /swapfile
+          # swapon $( losetup -a | grep -F "/swapfile" | cut -d: -f1 )
 
       - uses: mxschmitt/action-tmate@v3
         if: ${{ inputs.tmate }}
