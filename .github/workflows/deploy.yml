@@ -19,30 +19,7 @@ jobs:
       options: --privileged
 
     steps:
-      - uses: actions/cache@v5
-        with:
-          path: | # Must be synchronized with save
-            /__w/auto-aur/auto-aur
-            /var/cache/pacman/pkg
-            /home/builder/.cache
-            /home/builder/.cargo
-            /home/builder/go
-            /home/builder/.dub
-            /home/builder/.cabal
-          # /home/builder/.ccache
-          key: cache-${{ github.sha }}
-          restore-keys: cache-
-
       - uses: actions/checkout@v6
-
-      - name: Setup (root)
-        run: scripts/setup-root.sh
-
-      - name: Setup (builder)
-        run: sudo -E -u builder bash ./scripts/setup-builder.sh
-        env:
-          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v5
