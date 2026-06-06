@@ -90,7 +90,10 @@ jobs:
           key: pacman-${{ hashFiles('repo-data/lock.json') }}
 
       - name: Mount host
-        run: mount /dev/root /mnt
+        run: |
+          mount /dev/root /mnt
+          mkdir /mnt/pacman-cache
+          mount --bind /var/cache/pacman /mnt/pacman-cache
 
       - name: Cache local repository
         uses: actions/cache@v5
@@ -144,9 +147,10 @@ jobs:
             # ビルド実行
             docker run --rm \
               -v /mnt/repo:/repo \
-              -v /var/cache/pacman/pkg:/var/cache/pacman/pkg \
+              -v /mnt/pacman-cache:/var/cache/pacman \
               -v "/${SRC_DIR#/*/}":/home/builder/src \
               aur-builder
+            ls /mnt/repo
             repo-add /mnt/repo/local.db.tar.gz /mnt/repo/*.pkg.tar.zst
             rm -rf /mnt/build/$pkg
           done < sorted_build_list.txt
