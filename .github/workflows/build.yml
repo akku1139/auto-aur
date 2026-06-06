@@ -121,7 +121,7 @@ jobs:
             elif [ -d "custom-patches/$pkg" ]; then
               cp -r "custom-patches/$pkg" "$SRC_DIR"
             else
-              git clone --depht=1 https://aur.archlinux.org/$pkg.git" "$SRC_DIR"
+              git clone --depht=1 "https://aur.archlinux.org/$pkg.git" "$SRC_DIR"
             fi
 
             # ビルド実行
