@@ -92,11 +92,11 @@ jobs:
           rm -rf /var/lib/archbuild/root
           mkdir -p /var/lib/archbuild/root
           pacstrap -C /etc/pacman.conf /var/lib/archbuild/root base-devel
-          # builder ユーザーの作成 (chroot 内で直接実行)
           chroot /var/lib/archbuild/root useradd -m builder
           # マシンIDダミーファイル (警告回避のため)
           touch /var/lib/archbuild/root/etc/machine-id
           ls /var/lib/archbuild/root/
+          ls /var/lib/archbuild/root/etc/pacman.conf
 
       - name: Cache local repository
         uses: actions/cache@v5
