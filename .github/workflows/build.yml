@@ -131,14 +131,11 @@ jobs:
             elif [ -d "custom-patches/$pkg" ]; then
               cp -r "custom-patches/$pkg" /tmp/build-$pkg/home/builder/$pkg
             else
-              arch-nspawn /tmp/build-$pkg bash <<EOF
-                cd /home/builder
-                sudo -u builder git clone https://aur.archlinux.org/$pkg.git
-          EOF
+              arch-chroot /tmp/build-$pkg bash -c "cd /home/builder; sudo -u builder git clone --depht=1 https://aur.archlinux.org/$pkg.git"
             fi
 
             # ビルド実行
-            arch-nspawn -b /repo:/repo -b /var/cache/pacman/pkg:/var/cache/pacman/pkg /tmp/build-$pkg bash <<EOF
+            arch-chroot -b /repo:/repo -b /var/cache/pacman/pkg:/var/cache/pacman/pkg /tmp/build-$pkg bash <<EOF
               set -ex
               echo -e "[local]\nServer = file:///repo\nSigLevel = Optional TrustAll" >> /etc/pacman.conf
               pacman -Syu --noconfirm --needed base-devel git
