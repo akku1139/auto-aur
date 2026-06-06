@@ -89,17 +89,20 @@ jobs:
           path: /var/cache/pacman/pkg
           key: pacman-${{ hashFiles('repo-data/lock.json') }}
 
+      - name: Mount host
+        run: mount /dev/root /mnt
+
       - name: Cache local repository
         uses: actions/cache@v5
         with:
-          path: /repo
+          path: /mnt/repo
           key: localrepo-${{ hashFiles('repo-data/lock.json') }}
 
       - name: Initialize local repo
         run: |
-          mkdir -p /repo
-          if [ ! -f /repo/local.db.tar.gz ]; then
-            repo-add /repo/local.db.tar.gz
+          mkdir -p /mnt/repo
+          if [ ! -f /mnt/repo/local.db.tar.gz ]; then
+            repo-add /mnt/repo/local.db.tar.gz
           fi
 
       - name: Expand update list (include dependents)
@@ -117,7 +120,6 @@ jobs:
         run: |
           set -x
 
-          mount /dev/root /mnt
           mkdir /mnt/build
 
           # lock.jsonからビルド順を取得
@@ -141,18 +143,18 @@ jobs:
 
             # ビルド実行
             docker run --rm \
-              -v /repo:/repo \
+              -v /mnt/repo:/repo \
               -v /var/cache/pacman/pkg:/var/cache/pacman/pkg \
               -v "/${SRC_DIR#/*/}":/home/builder/src \
               aur-builder
-            repo-add /repo/local.db.tar.gz /repo/*.pkg.tar.zst
+            repo-add /mnt/repo/local.db.tar.gz /mnt/repo/*.pkg.tar.zst
             rm -rf /mnt/build/$pkg
           done < sorted_build_list.txt
 
       - name: Collect built packages
         run: |
           mkdir final_packages
-          python scripts/collect_built.py /repo final_packages final_build_list.txt
+          python scripts/collect_built.py /mnt/repo final_packages final_build_list.txt
 
       - name: Create GitHub Release
         id: release
