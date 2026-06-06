@@ -13,8 +13,7 @@ RUN pacman-key --lsign-key b465fd29d2ea44cc
 
 RUN pacman -Syu --noconfirm --needed git sudo
 RUN useradd -m builder
-
-# echo 'builder ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
+RUN echo 'builder ALL=(ALL) NOPASSWD: /usr/bin/pacman' >> /etc/sudoers
 
 COPY scripts/build/entry.sh /entry.sh
 RUN chmod +x /entry.sh
