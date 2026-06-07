@@ -54,13 +54,13 @@ def parse_deps(srcinfo: str) -> Set[str]:
     return deps
 
 def is_in_repositories(pkg: str) -> bool:
-    """パッケージが（公式または追加リポジトリを含む）いずれかのリポジトリに存在するか（仮想プロバイダも含む）"""
+    """パッケージが (公式または追加リポジトリを含む)いずれかのリポジトリに存在するか (仮想プロバイダも含む)"""
     try:
         result = subprocess.run(
             ['pacman', '-Ssq', f'^{pkg}$'],
             capture_output=True, text=True, check=False
         )
-        # 出力があれば存在する（空文字列でない）
+        # 出力があれば存在する (空文字列でない)
         return result.returncode == 0 and bool(result.stdout.strip())
     except:
         return False

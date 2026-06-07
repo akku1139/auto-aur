@@ -161,8 +161,10 @@ jobs:
 
       - name: Collect built packages
         run: |
+          set -x
           mkdir final_packages
           python scripts/collect_built.py /build/repo final_packages final_build_list.txt
+          ls -lh final_packages
 
       - name: Create GitHub Release
         id: release

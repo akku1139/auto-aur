@@ -13,13 +13,13 @@ def main():
     with open(sys.argv[2]) as f:
         mapping = json.load(f)
 
-    # ビルドが必要なパッケージを特定（mapping にない または バージョン不一致）
+    # ビルドが必要なパッケージを特定 (mapping にない または バージョン不一致)
     to_build = set()
     for pkg_info in lock["packages"]:
         name = pkg_info["name"]
-        # ローカルパッケージやカスタムパッチは常にビルド（必要に応じて調整）
+        # ローカルパッケージやカスタムパッチは常にビルド（必要に応じて調整)
         if pkg_info.get("local") or pkg_info.get("custom"):
-            # この例ではビルド対象に含めない（必要ならコメントアウト）
+            # この例ではビルド対象に含めない（必要ならコメントアウト)
             continue
         locked_version = pkg_info.get("version", "")
         # mapping に存在しない → 未ビルド

@@ -37,16 +37,16 @@ def main():
     # 前回のDBがあればコピー
     old_db = Path(args.db_output)
     if old_db.exists():
-        shutil.copy(old_db, temp_dir / 'myrepo.db.tar.gz')
+        shutil.copy(old_db, temp_dir / 'auto-aur.db.tar.gz')
 
-    # 今回の新パッケージを追加（古いパッケージファイルはダウンロードしない）
+    # 今回の新パッケージを追加 (古いパッケージファイルはダウンロードしない)
     new_pkgs = list(Path(args.new_packages).glob('*.pkg.tar.zst'))
-    if (temp_dir / 'myrepo.db.tar.gz').exists():
-        subprocess.run(['repo-add', temp_dir / 'myrepo.db.tar.gz'] + new_pkgs, check=True)
+    if (temp_dir / 'auto-aur.db.tar.gz').exists():
+        subprocess.run(['repo-add', temp_dir / 'auto-aur.db.tar.gz'] + new_pkgs, check=True)
     else:
-        subprocess.run(['repo-add', temp_dir / 'myrepo.db.tar.gz'] + new_pkgs, check=True)
+        subprocess.run(['repo-add', temp_dir / 'auto-aur.db.tar.gz'] + new_pkgs, check=True)
 
-    shutil.copy(temp_dir / 'myrepo.db.tar.gz', old_db)
+    shutil.copy(temp_dir / 'auto-aur.db.tar.gz', old_db)
 
     # 4. _redirects 生成
     repo = os.environ['GITHUB_REPOSITORY']

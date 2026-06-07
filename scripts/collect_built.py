@@ -16,7 +16,7 @@ def main():
     for fname in os.listdir(src):
         if not fname.endswith('.pkg.tar.zst'):
             continue
-        # 簡易パッケージ名抽出（最初の '-' まで、ただしパッケージ名に '-' を含む場合は不完全）
+        # 簡易パッケージ名抽出 (最初の '-' まで、ただしパッケージ名に '-' を含む場合は不完全)
         pkgname = fname.split('-')[0]
         if pkgname in needed:
             shutil.copy(os.path.join(src, fname), os.path.join(dst, fname))
