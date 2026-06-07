@@ -10,25 +10,25 @@
       "custom": false
     },
     {
-      "name": "auto-aur-mirrorlist",
-      "version": "20260606-1",
-      "deps": [],
-      "build_order": 1,
-      "local": true,
-      "custom": false
-    },
-    {
       "name": "bankstown",
       "version": "1.1.0-2",
       "deps": [],
-      "build_order": 2,
+      "build_order": 1,
       "local": false,
+      "custom": false
+    },
+    {
+      "name": "auto-aur-mirrorlist",
+      "version": "20260606-1",
+      "deps": [],
+      "build_order": 2,
+      "local": true,
       "custom": false
     }
   ],
   "build_order": [
     "auto-aur-keyring",
-    "auto-aur-mirrorlist",
-    "bankstown"
+    "bankstown",
+    "auto-aur-mirrorlist"
   ]
 }
