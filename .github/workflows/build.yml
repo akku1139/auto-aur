@@ -163,6 +163,7 @@ jobs:
       - name: Collect built packages
         run: |
           set -x
+          ls -lh /build/repo
           mkdir final_packages
           python scripts/collect_built.py /build/repo final_packages final_build_list.txt
           ls -lh final_packages
@@ -185,6 +186,7 @@ jobs:
             --release-tag ${{ steps.release.outputs.tag }} \
             --db-output repo/auto-aur/x86_64/auto-aur.db.tar.gz \
             --redirects _redirects
+          cp ../scripts/index.html .
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .
