@@ -104,6 +104,9 @@ def main():
         src = f"/repo/auto-aur/x86_64/{filename}"
         target = f"https://github.com/{repo}/releases/download/{tag}/{filename}"
         redirect_lines.append(f"{src} {target} 302")
+        src = f"/repo/auto-aur/x86_64/{filename}.sig"
+        target = f"https://github.com/{repo}/releases/download/{tag}/{filename}.sig"
+        redirect_lines.append(f"{src} {target} 302")
     with open(args.redirects, 'w') as f:
         f.write("\n".join(redirect_lines))
 
