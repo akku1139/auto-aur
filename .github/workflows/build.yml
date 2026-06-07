@@ -160,21 +160,13 @@ jobs:
             rm -rf /build/build/$pkg
           done < sorted_build_list.txt
 
-      - name: Collect built packages
-        run: |
-          set -x
-          ls -lh /build/repo
-          mkdir final_packages
-          python scripts/collect_built.py /build/repo final_packages final_build_list.txt
-          ls -lh final_packages
-
       - name: Create GitHub Release
         id: release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           TAG="build-$(date -u +'%Y%m%d-%H%M%S')"
-          gh release create $TAG --title "Build $TAG" --notes "Updated packages" final_packages/*.pkg.tar.zst
+          gh release create $TAG --title "Build $TAG" --notes "Updated packages" /build/repo/*.pkg.tar.zst
           echo "tag=$TAG" >> $GITHUB_OUTPUT
 
       - name: Push repo-data changes
@@ -182,7 +174,7 @@ jobs:
           cd repo-data
           python ../scripts/update_repo_data.py \
             --mapping mapping.json \
-            --new-packages ../final_packages \
+            --new-packages /build/repo \
             --release-tag ${{ steps.release.outputs.tag }} \
             --db-output repo/auto-aur/x86_64/auto-aur.db.tar.gz \
             --redirects _redirects
