@@ -94,8 +94,9 @@ jobs:
 
       - name: Mount host
         run: |
-          mkdir /build
-          mount /dev/root /build
+          mount /dev/root /mnt
+          mkdir /mnt/build /build
+          mount --bind /mnt/build /build
           mkdir /build/pacman-cache
           mount --bind /var/cache/pacman /build/pacman-cache
 
