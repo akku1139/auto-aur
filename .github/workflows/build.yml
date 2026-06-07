@@ -98,7 +98,7 @@ jobs:
         run: |
           set -x
           mount /dev/root /mnt
-          mkdir /mnt/build /build
+          mkdir -p /mnt/build /build
           mount --bind /mnt/build /build
           mkdir /build/pacman-cache
           mount --bind /var/cache/pacman /build/pacman-cache
