@@ -180,7 +180,7 @@ jobs:
           cd repo-data
           python ../scripts/update_repo_data.py \
             --mapping mapping.json \
-            --new-packages final_packages \
+            --new-packages ../final_packages \
             --release-tag ${{ steps.release.outputs.tag }} \
             --db-output repo/auto-aur/x86_64/auto-aur.db.tar.gz \
             --redirects _redirects
