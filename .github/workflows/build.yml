@@ -213,6 +213,7 @@ jobs:
             --redirects _redirects \
             --gpg-key "${{ env.KEY_ID }}"
           cp ../scripts/index.html .
+          cp ../scripts/404.html .
           find -type f
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
