@@ -32,14 +32,26 @@ jobs:
           rm -r /__t/* &
           df -h
 
+      - name: Install git
+        run: pacman -Syu --noconfirm git
+
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Checkout repo-data branch
+        uses: actions/checkout@v6
+        with:
+          ref: repo-data
+          path: repo-data
+
       - uses: actions/cache@v5
         with:
           path: |
-                /__w/auto-aur/auto-aur
-                /var/cache/pacman/pkg
+            /var/cache/pacman/pkg
+            /build/repo
           # use repo-data branch?
-          key: cache-${{ github.sha }}
-          restore-keys: cache-
+          key: cache-v2-${{ hashFiles('repo-data/lock.json') }}
+          restore-keys: cache-v2-
 
       - name: Install build tools
         run: |
@@ -52,16 +64,7 @@ jobs:
 
           pacman-key --recv-key b465fd29d2ea44cc --keyserver keyserver.ubuntu.com
           pacman-key --lsign-key b465fd29d2ea44cc
-          pacman -Syu --noconfirm base-devel git python jq devtools docker github-cli
-
-      - name: Checkout
-        uses: actions/checkout@v6
-
-      - name: Checkout repo-data branch
-        uses: actions/checkout@v6
-        with:
-          ref: repo-data
-          path: repo-data
+          pacman -Syu --noconfirm base-devel python jq devtools docker github-cli
 
       - name: Local setup
         run: |
@@ -91,12 +94,6 @@ jobs:
         if: steps.check.outputs.count == 0
         run: exit 0
 
-      - name: Cache pacman packages
-        uses: actions/cache@v5
-        with:
-          path: /var/cache/pacman/pkg
-          key: pacman-${{ hashFiles('repo-data/lock.json') }}
-
       - name: Mount host
         run: |
           set -x
@@ -105,12 +102,6 @@ jobs:
           mount --bind /mnt/build /build
           mkdir /build/pacman-cache
           mount --bind /var/cache/pacman /build/pacman-cache
-
-      - name: Cache local repository
-        uses: actions/cache@v5
-        with:
-          path: /build/repo
-          key: localrepo-${{ hashFiles('repo-data/lock.json') }}
 
       - name: Initialize local repo
         run: |
