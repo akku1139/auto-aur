@@ -70,14 +70,14 @@ def main():
 
     # Copy old database if exists
     if db_path.exists():
-        shutil.copy(db_path, temp_dir / 'myrepo.db.tar.gz')
+        shutil.copy(db_path, temp_dir / 'auto-aur.db.tar.gz')
 
     # Copy new packages to temp dir
     for pkg_file in new_pkg_files:
         shutil.copy(pkg_file, temp_dir)
 
     # Run repo-add
-    db_file = temp_dir / 'myrepo.db.tar.gz'
+    db_file = temp_dir / 'auto-aur.db.tar.gz'
     pkg_files = list(temp_dir.glob('*.pkg.tar.zst'))
     if not pkg_files:
         print("Error: No package files found in temp dir", file=sys.stderr)
