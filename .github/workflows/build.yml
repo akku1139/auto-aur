@@ -131,10 +131,11 @@ jobs:
         run: |
           set -x
 
-          # lock.jsonからビルド順を取得
-          jq -r '.build_order[]' repo-data/lock.json > build_order.txt
-          # 最終ビルドリストをビルド順にフィルタ
-          grep -xFf final_build_list.txt build_order.txt > sorted_build_list.txt
+          if [ -s final_build_list.txt ]; then
+            grep -xFf final_build_list.txt build_order.txt > sorted_build_list.txt
+          else
+            touch sorted_build_list.txt
+          fi
 
           while read pkg; do
             echo "Building $pkg"
