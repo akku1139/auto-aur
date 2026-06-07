@@ -6,3 +6,4 @@ fcitx5-hazkey-bin
 hazkey-zenzai-model
 walker
 zsh-fast-syntax-highlighting
+mkp224o
