@@ -90,10 +90,6 @@ jobs:
           python scripts/update_lock.py packages.txt repo-data/lock.json
           # 循環依存があればここでエラー終了
 
-      - name: Exit if no updates
-        if: steps.check.outputs.count == 0
-        run: exit 0
-
       - name: Mount host
         run: |
           set -x
