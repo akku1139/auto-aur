@@ -214,6 +214,8 @@ jobs:
             --gpg-key "${{ env.KEY_ID }}"
           cp ../scripts/index.html .
           cp ../scripts/404.html .
+          ln -sf repo/auto-aur/x86_64/auto-aur.db.tar.gz.sig repo/auto-aur/x86_64/auto-aur.db.sig
+          ln -sf repo/auto-aur/x86_64/auto-aur.files.tar.gz.sig repo/auto-aur/x86_64/auto-aur.files.sig
           find -type f
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
