@@ -94,21 +94,22 @@ jobs:
 
       - name: Mount host
         run: |
-          mount /dev/root /mnt
-          mkdir /mnt/pacman-cache
-          mount --bind /var/cache/pacman /mnt/pacman-cache
+          mkdir /build
+          mount /dev/root /build
+          mkdir /build/pacman-cache
+          mount --bind /var/cache/pacman /build/pacman-cache
 
       - name: Cache local repository
         uses: actions/cache@v5
         with:
-          path: /mnt/repo
+          path: /build/repo
           key: localrepo-${{ hashFiles('repo-data/lock.json') }}
 
       - name: Initialize local repo
         run: |
-          mkdir -p /mnt/repo
-          if [ ! -f /mnt/repo/auto-aur-local.db.tar.gz ]; then
-            repo-add /mnt/repo/auto-aur-local.db.tar.gz
+          mkdir -p /build/repo
+          if [ ! -f /build/repo/auto-aur-local.db.tar.gz ]; then
+            repo-add /build/repo/auto-aur-local.db.tar.gz
           fi
 
       - name: Expand update list (include dependents)
@@ -126,8 +127,6 @@ jobs:
         run: |
           set -x
 
-          mkdir /mnt/build
-
           # lock.jsonからビルド順を取得
           jq -r '.build_order[]' repo-data/lock.json > build_order.txt
           # 最終ビルドリストをビルド順にフィルタ
@@ -137,7 +136,7 @@ jobs:
             echo "Building $pkg"
 
             # ソースの準備 (ローカルパッケージ or カスタムパッチ or AUR)
-            SRC_DIR="/mnt/build/$pkg/src"
+            SRC_DIR="/build/$pkg/src"
             mkdir -p "$SRC_DIR"
             if [ -d "local-packages/$pkg" ]; then
               cp -r "local-packages/$pkg" "$SRC_DIR"
@@ -149,19 +148,19 @@ jobs:
 
             # ビルド実行
             docker run --rm \
-              -v /mnt/repo:/repo \
-              -v /mnt/pacman-cache:/var/cache/pacman \
-              -v "/${SRC_DIR#/*/}":/home/builder/src \
+              -v /build/repo:/repo \
+              -v /build/pacman-cache:/var/cache/pacman \
+              -v "$SRC_DIR":/home/builder/src \
               aur-builder
-            ls /mnt/repo
-            repo-add /mnt/repo/auto-aur-local.db.tar.gz /mnt/repo/*.pkg.tar.zst
-            rm -rf /mnt/build/$pkg
+            ls /build/repo
+            repo-add /build/repo/auto-aur-local.db.tar.gz /build/repo/*.pkg.tar.zst
+            rm -rf /build/build/$pkg
           done < sorted_build_list.txt
 
       - name: Collect built packages
         run: |
           mkdir final_packages
-          python scripts/collect_built.py /mnt/repo final_packages final_build_list.txt
+          python scripts/collect_built.py /build/repo final_packages final_build_list.txt
 
       - name: Create GitHub Release
         id: release
