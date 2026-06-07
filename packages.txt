@@ -7,5 +7,4 @@ hazkey-zenzai-model
 walker
 zsh-fast-syntax-highlighting
 faketty
-nijiexpose-bin
 nijigenerate-bin
