@@ -95,7 +95,7 @@ def main():
     if sig_file.exists():
         shutil.copy(sig_file, db_path.with_suffix(db_path.suffix + '.sig'))
 
-    files_tar_gz = db_file.with_suffix('').with_suffix('.files.tar.gz')
+    files_tar_gz = temp_dir / 'auto-aur.files.tar.gz'
     if files_tar_gz.exists() and args.gpg_key:
         subprocess.run([
             'gpg', '--batch', '--detach-sign', '--local-user', args.gpg_key,
