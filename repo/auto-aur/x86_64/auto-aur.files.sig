@@ -1,0 +1,1 @@
+repo/auto-aur/x86_64/auto-aur.files.tar.gz.sig
