@@ -8,3 +8,4 @@ walker
 zsh-fast-syntax-highlighting
 faketty
 nijigenerate-bin
+nijiexpose-bin
