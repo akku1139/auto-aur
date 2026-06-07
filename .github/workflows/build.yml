@@ -143,9 +143,9 @@ jobs:
             SRC_DIR="/build/$pkg/src"
             mkdir -p "$SRC_DIR"
             if [ -d "local-packages/$pkg" ]; then
-              cp -r "local-packages/$pkg" "$SRC_DIR"
+              cp -r "local-packages/$pkg/." "$SRC_DIR"
             elif [ -d "custom-patches/$pkg" ]; then
-              cp -r "custom-patches/$pkg" "$SRC_DIR"
+              cp -r "custom-patches/$pkg/." "$SRC_DIR"
             else
               git clone --depth=1 "https://aur.archlinux.org/$pkg.git" "$SRC_DIR"
             fi
