@@ -2,18 +2,26 @@
   "version": 1,
   "packages": [
     {
-      "name": "auto-aur-mirrorlist",
-      "version": "20260606-1",
+      "name": "hazkey-zenzai-model",
+      "version": "0.1-1",
       "deps": [],
       "build_order": 0,
-      "local": true,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "fcitx5-hazkey-bin",
+      "version": "0.2.1-2",
+      "deps": [],
+      "build_order": 1,
+      "local": false,
       "custom": false
     },
     {
       "name": "auto-aur-keyring",
       "version": "20240923-1",
       "deps": [],
-      "build_order": 1,
+      "build_order": 2,
       "local": true,
       "custom": false
     },
@@ -21,14 +29,33 @@
       "name": "bankstown",
       "version": "1.1.0-2",
       "deps": [],
-      "build_order": 2,
+      "build_order": 3,
       "local": false,
+      "custom": false
+    },
+    {
+      "name": "snowflake-pt-proxy",
+      "version": "2.13.1-1",
+      "deps": [],
+      "build_order": 4,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "auto-aur-mirrorlist",
+      "version": "20260606-1",
+      "deps": [],
+      "build_order": 5,
+      "local": true,
       "custom": false
     }
   ],
   "build_order": [
-    "auto-aur-mirrorlist",
+    "hazkey-zenzai-model",
+    "fcitx5-hazkey-bin",
     "auto-aur-keyring",
-    "bankstown"
+    "bankstown",
+    "snowflake-pt-proxy",
+    "auto-aur-mirrorlist"
   ]
 }

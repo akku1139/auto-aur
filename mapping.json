@@ -11,6 +11,18 @@
     "bankstown": {
       "filename": "bankstown-1.1.0-2-x86_64.pkg.tar.zst",
       "release_tag": "build-20260607-123037"
+    },
+    "hazkey-zenzai-model": {
+      "filename": "hazkey-zenzai-model-0.1-1-any.pkg.tar.zst",
+      "release_tag": "build-20260607-130006"
+    },
+    "snowflake-pt-proxy": {
+      "filename": "snowflake-pt-proxy-2.13.1-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260607-130006"
+    },
+    "fcitx5-hazkey-bin": {
+      "filename": "fcitx5-hazkey-bin-0.2.1-2-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260607-130006"
     }
   }
 }
