@@ -51,7 +51,7 @@ jobs:
 
           pacman-key --recv-key b465fd29d2ea44cc --keyserver keyserver.ubuntu.com
           pacman-key --lsign-key b465fd29d2ea44cc
-          pacman -Syu --noconfirm base-devel git python jq devtools docker
+          pacman -Syu --noconfirm base-devel git python jq devtools docker github-cli
 
       - name: Checkout
         uses: actions/checkout@v6
@@ -153,7 +153,6 @@ jobs:
               -v /build/pacman-cache:/var/cache/pacman \
               -v "$SRC_DIR":/home/builder/src \
               aur-builder
-            ls /build/repo
             repo-add /build/repo/auto-aur-local.db.tar.gz /build/repo/*.pkg.tar.zst
             rm -rf /build/build/$pkg
           done < sorted_build_list.txt
