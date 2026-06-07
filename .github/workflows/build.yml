@@ -63,6 +63,9 @@ jobs:
           path: repo-data
           persist-credentials: false   # 後で明示的に push するため
 
+      - name: Git setup
+        run: git config --global --add safe.directory .
+
       - name: Fetch repo-data files
         run: |
           cd repo-data
