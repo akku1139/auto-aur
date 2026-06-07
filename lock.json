@@ -10,27 +10,27 @@
       "custom": false
     },
     {
-      "name": "walker",
-      "version": "2.16.2-1",
+      "name": "nijiexpose-bin",
+      "version": "v0.9.0rc4-1",
       "deps": [],
       "build_order": 1,
       "local": false,
       "custom": false
     },
     {
-      "name": "auto-aur-mirrorlist",
-      "version": "20260606-1",
+      "name": "walker",
+      "version": "2.16.2-1",
       "deps": [],
       "build_order": 2,
-      "local": true,
+      "local": false,
       "custom": false
     },
     {
-      "name": "auto-aur-keyring",
-      "version": "20240923-1",
+      "name": "faketty",
+      "version": "1.0.20-2",
       "deps": [],
       "build_order": 3,
-      "local": true,
+      "local": false,
       "custom": false
     },
     {
@@ -50,16 +50,16 @@
       "custom": false
     },
     {
-      "name": "faketty",
-      "version": "1.0.20-2",
+      "name": "auto-aur-mirrorlist",
+      "version": "20260606-1",
       "deps": [],
       "build_order": 6,
-      "local": false,
+      "local": true,
       "custom": false
     },
     {
-      "name": "snowflake-pt-proxy",
-      "version": "2.13.1-1",
+      "name": "fcitx5-hazkey-bin",
+      "version": "0.2.1-2",
       "deps": [],
       "build_order": 7,
       "local": false,
@@ -74,24 +74,33 @@
       "custom": false
     },
     {
-      "name": "fcitx5-hazkey-bin",
-      "version": "0.2.1-2",
+      "name": "snowflake-pt-proxy",
+      "version": "2.13.1-1",
       "deps": [],
       "build_order": 9,
       "local": false,
+      "custom": false
+    },
+    {
+      "name": "auto-aur-keyring",
+      "version": "20240923-1",
+      "deps": [],
+      "build_order": 10,
+      "local": true,
       "custom": false
     }
   ],
   "build_order": [
     "bankstown",
+    "nijiexpose-bin",
     "walker",
-    "auto-aur-mirrorlist",
-    "auto-aur-keyring",
+    "faketty",
     "hazkey-zenzai-model",
     "zsh-fast-syntax-highlighting",
-    "faketty",
-    "snowflake-pt-proxy",
+    "auto-aur-mirrorlist",
+    "fcitx5-hazkey-bin",
     "nijigenerate-bin",
-    "fcitx5-hazkey-bin"
+    "snowflake-pt-proxy",
+    "auto-aur-keyring"
   ]
 }
