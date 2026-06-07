@@ -95,6 +95,16 @@ def main():
     if sig_file.exists():
         shutil.copy(sig_file, db_path.with_suffix(db_path.suffix + '.sig'))
 
+    files_tar_gz = db_file.with_suffix('').with_suffix('.files.tar.gz')
+    if files_tar_gz.exists() and args.gpg_key:
+        subprocess.run([
+            'gpg', '--batch', '--detach-sign', '--local-user', args.gpg_key,
+            str(files_tar_gz)
+        ], check=True)
+        # 署名ファイルもコピー先に含める
+        shutil.copy(files_tar_gz.with_suffix(files_tar_gz.suffix + '.sig'),
+                    db_path.with_suffix('').with_suffix('.files.tar.gz.sig'))
+
     # Generate _redirects file
     repo = os.environ.get('GITHUB_REPOSITORY', 'unknown/repo')
     redirect_lines = []
