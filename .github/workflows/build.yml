@@ -112,26 +112,30 @@ jobs:
           fi
 
       - name: Expand update list (include dependents)
+        id: check
         run: |
           set -x
           cat repo-data/lock.json
           cat repo-data/mapping.json
           python scripts/expand_updates.py repo-data/lock.json repo-data/mapping.json final_build_list.txt
           cat final_build_list.txt
+          if [ -s final_build_list.txt ]; then
+            echo "is_empty=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "is_empty=true" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Build Dockerfile.build
+        if: steps.check.outputs.is_empty == 'false'
         run: docker build -t aur-builder -f scripts/Dockerfile.build .
 
       - name: Build packages in order
+        if: steps.check.outputs.is_empty == 'false'
         run: |
           set -x
 
           jq -r '.build_order[]' repo-data/lock.json > build_order.txt
-          if [ -s final_build_list.txt ]; then
-            grep -xFf final_build_list.txt build_order.txt > sorted_build_list.txt
-          else
-            touch sorted_build_list.txt
-          fi
+          grep -xFf final_build_list.txt build_order.txt > sorted_build_list.txt
 
           while read pkg; do
             echo "Building $pkg"
@@ -158,6 +162,7 @@ jobs:
           done < sorted_build_list.txt
 
       - name: Import GPG key and sign packages
+        if: steps.check.outputs.is_empty == 'false'
         env:
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
@@ -182,6 +187,7 @@ jobs:
           done
 
       - name: Create GitHub Release
+        if: steps.check.outputs.is_empty == 'false'
         id: release
         env:
           GH_TOKEN: ${{ github.token }}
@@ -193,6 +199,7 @@ jobs:
           echo "tag=$TAG" >> $GITHUB_OUTPUT
 
       - name: Push repo-data changes
+        if: steps.check.outputs.is_empty == 'false'
         run: |
           set -x
           cd repo-data
