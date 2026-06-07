@@ -131,6 +131,7 @@ jobs:
         run: |
           set -x
 
+          jq -r '.build_order[]' repo-data/lock.json > build_order.txt
           if [ -s final_build_list.txt ]; then
             grep -xFf final_build_list.txt build_order.txt > sorted_build_list.txt
           else
