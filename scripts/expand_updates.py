@@ -13,31 +13,44 @@ def main():
     with open(sys.argv[2]) as f:
         mapping = json.load(f)
 
-    # ビルドが必要なパッケージを特定 (mapping にない または バージョン不一致)
     to_build = set()
     for pkg_info in lock["packages"]:
         name = pkg_info["name"]
-        # ローカルパッケージやカスタムパッチは常にビルド（必要に応じて調整)
-        if pkg_info.get("local") or pkg_info.get("custom"):
-            # この例ではビルド対象に含めない（必要ならコメントアウト)
-            continue
+        is_local = pkg_info.get("local", False)
+        is_custom = pkg_info.get("custom", False)
         locked_version = pkg_info.get("version", "")
-        # mapping に存在しない → 未ビルド
-        if name not in mapping.get("packages", {}):
+
+        # マッピングに登録されているか
+        mapped = mapping.get("packages", {}).get(name)
+
+        # ローカルまたはカスタムパッケージ
+        if is_local or is_custom:
+            # マッピングに存在しなければビルド
+            if not mapped:
+                to_build.add(name)
+                continue
+            # バージョンを比較（ローカルのPKGBUILDから取得）
+            current_version = get_current_version(name)
+            if current_version != locked_version:
+                to_build.add(name)
+            # バージョンが同じでも、強制的にビルドしたい場合はここで追加（任意）
+            # else: to_build.add(name)  # 常にビルド
+            continue
+
+        # 通常のAURパッケージ
+        if not mapped:
             to_build.add(name)
             continue
-        # AUR の最新バージョンを取得
         current_version = get_current_version(name)
         if current_version != locked_version:
             to_build.add(name)
 
-    # 逆依存グラフを構築
+    # 逆依存グラフで依存元も追加
     rev_deps = {pkg["name"]: set() for pkg in lock["packages"]}
     for pkg in lock["packages"]:
         for dep in pkg["deps"]:
             rev_deps[dep].add(pkg["name"])
 
-    # ビルド対象 + それに依存する全パッケージを収集
     frontier = list(to_build)
     while frontier:
         pkg = frontier.pop()

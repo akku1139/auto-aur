@@ -61,28 +61,26 @@ def get_deps(pkg: str) -> Set[str]:
     deps = parse_deps(srcinfo)
     return {d for d in deps if not is_in_repositories(d)}
 
+def _parse_version_from_srcinfo_lines(lines):
+    """.SRCINFO の行リストから pkgver と pkgrel を抽出して 'pkgver-pkgrel' を返す"""
+    pkgver = pkgrel = None
+    for line in lines:
+        line = line.strip()
+        if line.startswith('pkgver ='):
+            pkgver = line.split('=', 1)[1].strip()
+        elif line.startswith('pkgrel ='):
+            pkgrel = line.split('=', 1)[1].strip()
+    return f"{pkgver}-{pkgrel}" if pkgver and pkgrel else "unknown"
+
 def get_current_version(pkg: str) -> str:
-    if is_local_package(pkg) or is_custom_patch(pkg):
-        # ローカルパッケージのバージョンを PKGBUILD から読み取る
-        pkgbuild_path = (LOCAL_PACKAGES_DIR / pkg / "PKGBUILD" if is_local_package(pkg)
-                         else CUSTOM_PATCHES_DIR / pkg / "PKGBUILD")
-        text = pkgbuild_path.read_text()
-        if (match := re.search(r'^pkgver=(.+)$', text, re.M)):
-            pkgver = match.group(1)
-        else:
-            raise ValueError("Couldn't find pkgver")
-        if (match := re.search(r'^pkgrel=(.+)$', text, re.M)):
-            pkgrel = match.group(1)
-        else:
-            raise ValueError("Couldn't find pkgver")
-        return f"{pkgver}-{pkgrel}"
+    if is_local_package(pkg):
+        srcinfo_path = LOCAL_PACKAGES_DIR / pkg / ".SRCINFO"
+        with open(srcinfo_path) as f:
+            return _parse_version_from_srcinfo_lines(f)
+    elif is_custom_patch(pkg):
+        srcinfo_path = CUSTOM_PATCHES_DIR / pkg / ".SRCINFO"
+        with open(srcinfo_path) as f:
+            return _parse_version_from_srcinfo_lines(f)
     else:
         srcinfo = get_aur_srcinfo(pkg)
-        pkgver = pkgrel = None
-        for line in srcinfo.splitlines():
-            line = line.strip()
-            if line.startswith('pkgver ='):
-                pkgver = line.split('=',1)[1].strip()
-            elif line.startswith('pkgrel ='):
-                pkgrel = line.split('=',1)[1].strip()
-        return f"{pkgver}-{pkgrel}" if pkgver and pkgrel else "unknown"
+        return _parse_version_from_srcinfo_lines(srcinfo.splitlines())
