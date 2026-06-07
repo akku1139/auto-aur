@@ -31,6 +31,10 @@
     "zsh-fast-syntax-highlighting": {
       "filename": "zsh-fast-syntax-highlighting-1.56-1-any.pkg.tar.zst",
       "release_tag": "build-20260607-135644"
+    },
+    "faketty": {
+      "filename": "faketty-1.0.20-2-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260607-141659"
     }
   }
 }
