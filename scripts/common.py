@@ -3,6 +3,7 @@ import re
 import subprocess
 from pathlib import Path
 from typing import Set
+import os
 
 LOCAL_PACKAGES_DIR = Path("local-packages")
 CUSTOM_PATCHES_DIR = Path("custom-patches")
@@ -14,8 +15,16 @@ def is_custom_patch(pkg: str) -> bool:
     return (CUSTOM_PATCHES_DIR / pkg / "PKGBUILD").exists()
 
 def get_srcinfo_from_pkgbuild(pkgbuild_path: Path) -> str:
+    """Run makepkg --printsrcinfo as non-root user to generate .SRCINFO"""
+    if os.geteuid() == 0:
+        cmd = [
+            'su', '-', 'fox-chan', '-c',
+            f'cd {pkgbuild_path.parent} && makepkg --printsrcinfo'
+        ]
+    else:
+        cmd = ['makepkg', '--printsrcinfo']
     result = subprocess.run(
-        ["makepkg", "--printsrcinfo"],
+        cmd,
         cwd=pkgbuild_path.parent,
         capture_output=True,
         text=True,
