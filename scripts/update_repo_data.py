@@ -9,14 +9,15 @@ from pathlib import Path
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--mapping', required=True, help='Path to mapping.json (in repo-data)')
-    parser.add_argument('--new-packages', required=True, help='Directory with new .pkg.tar.zst files')
-    parser.add_argument('--release-tag', required=True, help='GitHub release tag for these packages')
-    parser.add_argument('--db-output', required=True, help='Path where myrepo.db.tar.gz should be written')
-    parser.add_argument('--redirects', required=True, help='Path to _redirects file')
+    parser.add_argument('--mapping', required=True)
+    parser.add_argument('--new-packages', required=True)
+    parser.add_argument('--release-tag', required=True)
+    parser.add_argument('--db-output', required=True)
+    parser.add_argument('--redirects', required=True)
+    parser.add_argument('--gpg-key', help='GPG key ID for signing the database', default=None)
     args = parser.parse_args()
 
-    # Read lock.json from same directory as mapping (repo-data)
+    # Read lock.json from same directory as mapping
     lock_path = Path(args.mapping).parent / 'lock.json'
     if not lock_path.exists():
         print(f"Error: lock.json not found at {lock_path}", file=sys.stderr)
@@ -30,6 +31,13 @@ def main():
     with open(args.mapping) as f:
         mapping = json.load(f)
 
+    # Clean up: remove any package entries not in lock.json
+    current_packages = mapping.get('packages', {})
+    valid_keys = set(pkg_names)
+    for key in list(current_packages.keys()):
+        if key not in valid_keys:
+            del current_packages[key]
+
     # Locate new package files
     new_pkgs_dir = Path(args.new_packages)
     new_pkg_files = list(new_pkgs_dir.glob('*.pkg.tar.zst'))
@@ -37,7 +45,7 @@ def main():
         print(f"Error: No .pkg.tar.zst files found in {new_pkgs_dir}", file=sys.stderr)
         sys.exit(1)
 
-    # Update mapping: match each file to a package name from lock.json
+    # Update mapping
     for pkg_file in new_pkg_files:
         fname = pkg_file.name
         matched = None
@@ -46,7 +54,6 @@ def main():
                 matched = name
                 break
         if matched is None:
-            # Fallback: use first component before first dash
             matched = fname.split('-')[0]
             print(f"Warning: Could not match {fname}, using {matched}", file=sys.stderr)
 
@@ -55,13 +62,13 @@ def main():
             "release_tag": args.release_tag
         }
 
-    # Build the repository database (repo-add)
+    # Build repository database with optional signing
     db_path = Path(args.db_output)
     db_path.parent.mkdir(parents=True, exist_ok=True)
     temp_dir = Path('/tmp/repo_build')
     temp_dir.mkdir(exist_ok=True)
 
-    # Copy old database if it exists
+    # Copy old database if exists
     if db_path.exists():
         shutil.copy(db_path, temp_dir / 'myrepo.db.tar.gz')
 
@@ -76,11 +83,17 @@ def main():
         print("Error: No package files found in temp dir", file=sys.stderr)
         sys.exit(1)
 
-    cmd = ['repo-add', db_file] + pkg_files
+    cmd = ['repo-add']
+    if args.gpg_key:
+        cmd += ['--sign', '--key', args.gpg_key]
+    cmd += [db_file] + pkg_files
     subprocess.run(cmd, check=True)
 
-    # Copy the resulting database to output path
+    # Copy the resulting database (and its signature) to output path
     shutil.copy(db_file, db_path)
+    sig_file = db_file.with_suffix(db_file.suffix + '.sig')
+    if sig_file.exists():
+        shutil.copy(sig_file, db_path.with_suffix(db_path.suffix + '.sig'))
 
     # Generate _redirects file
     repo = os.environ.get('GITHUB_REPOSITORY', 'unknown/repo')

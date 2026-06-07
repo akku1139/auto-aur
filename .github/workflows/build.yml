@@ -160,13 +160,37 @@ jobs:
             rm -rf /build/build/$pkg
           done < sorted_build_list.txt
 
+      - name: Import GPG key and sign packages
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: |
+          # 鍵のインポート
+          echo "$GPG_PRIVATE_KEY" | gpg --batch --import
+          # gpg.conf の設定 (パスフレーズを自動入力)
+          mkdir -p $HOME/.gnupg
+          cat >> $HOME/.gnupg/gpg.conf << EOF
+          passphrase $GPG_PASSPHRASE
+          pinentry-mode loopback
+          no-tty
+          EOF
+          chmod 600 $HOME/.gnupg/gpg.conf
+          # 鍵IDを取得
+          KEY_ID=$(gpg --list-secret-keys --with-colons | grep '^sec:' | head -1 | cut -d: -f5)
+          echo "KEY_ID=$KEY_ID" >> $GITHUB_ENV
+          # 全パッケージに署名
+          for pkg in /build/repo/*.pkg.tar.zst; do
+            gpg --batch --detach-sign --local-user "$KEY_ID" "$pkg"
+          done
+
       - name: Create GitHub Release
         id: release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           TAG="build-$(date -u +'%Y%m%d-%H%M%S')"
-          gh release create $TAG --title "Build $TAG" --notes "Updated packages" /build/repo/*.pkg.tar.zst
+          gh release create $TAG --title "Build $TAG" --notes "Updated packages" \
+            /build/repo/*.pkg.tar.zst /build/repo/*.pkg.tar.zst.sig
           echo "tag=$TAG" >> $GITHUB_OUTPUT
 
       - name: Push repo-data changes
@@ -177,7 +201,8 @@ jobs:
             --new-packages /build/repo \
             --release-tag ${{ steps.release.outputs.tag }} \
             --db-output repo/auto-aur/x86_64/auto-aur.db.tar.gz \
-            --redirects _redirects
+            --redirects _redirects \
+            --gpg-key "${{ env.KEY_ID }}"
           cp ../scripts/index.html .
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
