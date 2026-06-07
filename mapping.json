@@ -1,0 +1,12 @@
+{
+  "packages": {
+    "auto": {
+      "filename": "auto-aur-keyring-20240923-1-any.pkg.tar.zst",
+      "release_tag": "build-20260607-062139"
+    },
+    "bankstown": {
+      "filename": "bankstown-debug-1.1.0-2-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260607-062139"
+    }
+  }
+}
