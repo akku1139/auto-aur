@@ -134,6 +134,7 @@ jobs:
           grep -xFf final_build_list.txt build_order.txt > sorted_build_list.txt
 
           while read pkg; do
+            echo "::group::$pkg"
             echo "Building $pkg"
 
             # ソースの準備 (ローカルパッケージ or カスタムパッチ or AUR)
@@ -155,6 +156,7 @@ jobs:
               aur-builder
             repo-add /build/repo/auto-aur-local.db.tar.gz /build/repo/*.pkg.tar.zst
             rm -rf /build/build/$pkg
+            echo "::endgroup::"
           done < sorted_build_list.txt
 
       - name: Import GPG key and sign packages
