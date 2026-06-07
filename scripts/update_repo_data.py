@@ -98,10 +98,10 @@ def main():
     # Generate _redirects file
     repo = os.environ.get('GITHUB_REPOSITORY', 'unknown/repo')
     redirect_lines = []
-    for pkgname, info in mapping['packages'].items():
+    for _pkgname, info in mapping['packages'].items():
         filename = info['filename']
         tag = info['release_tag']
-        src = f"/pool/{filename}"
+        src = f"/repo/auto-aur/x86_64/{filename}"
         target = f"https://github.com/{repo}/releases/download/{tag}/{filename}"
         redirect_lines.append(f"{src} {target} 302")
     with open(args.redirects, 'w') as f:

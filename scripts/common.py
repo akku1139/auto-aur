@@ -1,8 +1,9 @@
 import urllib.request
+import json
 import re
 import subprocess
 from pathlib import Path
-from typing import Set
+from typing import Set, Tuple
 
 LOCAL_PACKAGES_DIR = Path("local-packages")
 CUSTOM_PATCHES_DIR = Path("custom-patches")
@@ -23,12 +24,38 @@ def get_custom_srcinfo(pkg: str) -> str:
     srcinfo_file = pkg_dir / ".SRCINFO"
     return srcinfo_file.read_text()
 
-def get_aur_srcinfo(pkg: str) -> str:
-    url = f"https://aur.archlinux.org/cgit/aur.git/plain/.SRCINFO?h={pkg}"
-    req = urllib.request.Request(url)
+# ---- AUR RPC API を使用した情報取得 ----
+def get_aur_info(pkg: str) -> Tuple[str, Set[str]]:
+    """Returns (version, set_of_dependencies) for an AUR package using the RPC API."""
+    url = f"https://aur.archlinux.org/rpc?v=5&type=info&arg[]={pkg}"
+    req = urllib.request.Request(url, headers={"User-Agent": "curl/7.68.0"})
     with urllib.request.urlopen(req, timeout=10) as resp:
-        return resp.read().decode('utf-8')
+        data = json.loads(resp.read().decode('utf-8'))
+    if data.get("resultcount", 0) == 0:
+        raise ValueError(f"Package {pkg} not found in AUR")
+    result = data["results"][0]
+    version = result.get("Version", "unknown")
+    deps = set()
+    for dep in result.get("Depends", []) or []:
+        # remove version constraints
+        dep_name = re.split(r'[>=<]+', dep)[0].strip()
+        deps.add(dep_name)
+    for dep in result.get("MakeDepends", []) or []:
+        dep_name = re.split(r'[>=<]+', dep)[0].strip()
+        deps.add(dep_name)
+    return version, deps
 
+def get_aur_version(pkg: str) -> str:
+    """Return only the version string for an AUR package."""
+    version, _ = get_aur_info(pkg)
+    return version
+
+def get_aur_deps(pkg: str) -> Set[str]:
+    """Return only the dependencies (as a set of package names) for an AUR package."""
+    _, deps = get_aur_info(pkg)
+    return deps
+
+# ---- 既存のヘルパー関数（ローカル・カスタムパッケージ用） ----
 def parse_deps(srcinfo: str) -> Set[str]:
     deps = set()
     for line in srcinfo.splitlines():
@@ -40,13 +67,12 @@ def parse_deps(srcinfo: str) -> Set[str]:
     return deps
 
 def is_in_repositories(pkg: str) -> bool:
-    """パッケージが (公式または追加リポジトリを含む)いずれかのリポジトリに存在するか (仮想プロバイダも含む)"""
+    """Check if package exists in any enabled repository (including virtual providers)."""
     try:
         result = subprocess.run(
             ['pacman', '-Ssq', f'^{pkg}$'],
             capture_output=True, text=True, check=False
         )
-        # 出力があれば存在する (空文字列でない)
         return result.returncode == 0 and bool(result.stdout.strip())
     except:
         return False
@@ -54,15 +80,16 @@ def is_in_repositories(pkg: str) -> bool:
 def get_deps(pkg: str) -> Set[str]:
     if is_local_package(pkg):
         srcinfo = get_local_srcinfo(pkg)
+        deps = parse_deps(srcinfo)
     elif is_custom_patch(pkg):
         srcinfo = get_custom_srcinfo(pkg)
+        deps = parse_deps(srcinfo)
     else:
-        srcinfo = get_aur_srcinfo(pkg)
-    deps = parse_deps(srcinfo)
+        deps = get_aur_deps(pkg)
+    # Keep only dependencies that are not satisfied by repositories
     return {d for d in deps if not is_in_repositories(d)}
 
 def _parse_version_from_srcinfo_lines(lines):
-    """.SRCINFO の行リストから pkgver と pkgrel を抽出して 'pkgver-pkgrel' を返す"""
     pkgver = pkgrel = None
     for line in lines:
         line = line.strip()
@@ -82,5 +109,5 @@ def get_current_version(pkg: str) -> str:
         with open(srcinfo_path) as f:
             return _parse_version_from_srcinfo_lines(f)
     else:
-        srcinfo = get_aur_srcinfo(pkg)
-        return _parse_version_from_srcinfo_lines(srcinfo.splitlines())
+        # AUR package - use API
+        return get_aur_version(pkg)
