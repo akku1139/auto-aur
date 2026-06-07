@@ -1,1 +1,1 @@
-repo/auto-aur/x86_64/auto-aur.db.tar.gz.sig
+auto-aur.db.tar.gz.sig
