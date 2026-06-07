@@ -65,7 +65,6 @@ jobs:
       - name: Local setup
         run: |
           git config --global --add safe.directory .
-          useradd -m fox-chan
 
       - name: Fetch repo-data files
         run: |
