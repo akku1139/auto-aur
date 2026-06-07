@@ -1,3 +1,7 @@
 auto-aur-keyring
 auto-aur-mirrorlist
 bankstown
+snowflake-pt-proxy
+fcitx5-hazkey
+fcitx5-hazkey-bin
+hazkey-zenzai-model
