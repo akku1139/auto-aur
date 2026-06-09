@@ -43,6 +43,10 @@
     "nijiexpose-bin": {
       "filename": "nijiexpose-bin-v0.9.0rc4-1-x86_64.pkg.tar.zst",
       "release_tag": "build-20260607-144638"
+    },
+    "yt-dlp-ejs-anyruntime": {
+      "filename": "yt-dlp-ejs-anyruntime-0.8.0-2-any.pkg.tar.zst",
+      "release_tag": "build-20260609-085356"
     }
   }
 }
