@@ -4,7 +4,7 @@ import sys
 from collections import deque
 from common import (
     get_deps, is_local_package, is_custom_patch, get_current_version,
-    preload_aur_cache
+    preload_aur_cache, get_aur_pkgbase
 )
 
 def main():
@@ -73,8 +73,17 @@ def main():
         "build_order": order
     }
     for pkg in order:
+        pkgbase = pkg
+        if not (is_local_package(pkg) or is_custom_patch(pkg)):
+            # AUR パッケージの場合、実際の pkgbase を取得
+            try:
+                pkgbase = get_aur_pkgbase(pkg)
+            except:
+                # フォールバック: pkg をそのまま使う
+                pass
         lock["packages"].append({
             "name": pkg,
+            "pkgbase": pkgbase,
             "version": get_current_version(pkg),
             "deps": list(graph[pkg]),
             "build_order": order.index(pkg),

@@ -63,21 +63,37 @@ def preload_aur_cache(pkgs: List[str]) -> None:
     if missing:
         fetch_aur_infos(missing)
 
-def get_aur_info(pkg: str) -> Tuple[str, Set[str]]:
-    """Get info for a single package, using cache."""
-    if pkg in _aur_info_cache:
-        return _aur_info_cache[pkg]
-    # キャッシュにない場合は個別取得
-    info_map = fetch_aur_infos([pkg])
-    if pkg not in info_map:
+def get_aur_info(pkg: str) -> Tuple[str, Set[str], str]:
+    """Returns (version, deps, pkgbase) for an AUR package."""
+    url = f"https://aur.archlinux.org/rpc?v=5&type=info&arg[]={pkg}"
+    req = urllib.request.Request(url, headers={"User-Agent": "curl/7.68.0"})
+    with urllib.request.urlopen(req, timeout=10) as resp:
+        data = json.loads(resp.read().decode('utf-8'))
+    if data.get("resultcount", 0) == 0:
         raise ValueError(f"Package {pkg} not found in AUR")
-    return _aur_info_cache[pkg]
+    result = data["results"][0]
+    version = result.get("Version", "unknown")
+    pkgbase = result.get("PackageBase", pkg)  # 重要: 分割パッケージではここが異なる
+    deps = set()
+    for dep in result.get("Depends", []) or []:
+        dep_name = re.split(r'[>=<]+', dep)[0].strip()
+        deps.add(dep_name)
+    for dep in result.get("MakeDepends", []) or []:
+        dep_name = re.split(r'[>=<]+', dep)[0].strip()
+        deps.add(dep_name)
+    return version, deps, pkgbase
 
 def get_aur_version(pkg: str) -> str:
-    return get_aur_info(pkg)[0]
+    version, _, _ = get_aur_info(pkg)
+    return version
 
 def get_aur_deps(pkg: str) -> Set[str]:
-    return get_aur_info(pkg)[1]
+    _, deps, _ = get_aur_info(pkg)
+    return deps
+
+def get_aur_pkgbase(pkg: str) -> str:
+    _, _, pkgbase = get_aur_info(pkg)
+    return pkgbase
 
 def parse_deps(srcinfo: str) -> Set[str]:
     deps = set()

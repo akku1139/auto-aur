@@ -141,12 +141,18 @@ jobs:
             # ソースの準備 (ローカルパッケージ or カスタムパッチ or AUR)
             SRC_DIR="/build/$pkg/src"
             mkdir -p "$SRC_DIR"
-            if [ -d "local-packages/$pkg" ]; then
-              cp -r "local-packages/$pkg/." "$SRC_DIR"
-            elif [ -d "custom-patches/$pkg" ]; then
-              cp -r "custom-patches/$pkg/." "$SRC_DIR"
+            PKG="$pkg"
+            PKGBASE=$(jq -r --arg pkg "$PKG" '.packages[] | select(.name==$pkg) | .pkgbase' repo-data/lock.json)
+            if [ -z "$PKGBASE" ] || [ "$PKGBASE" = "null" ]; then
+              PKGBASE="$PKG"
+            fi
+
+            if [ -d "local-packages/$PKG" ]; then
+              cp -r "local-packages/$PKG/." "$SRC_DIR"
+            elif [ -d "custom-patches/$PKG" ]; then
+              cp -r "custom-patches/$PKG/." "$SRC_DIR"
             else
-              git clone --depth=1 "https://aur.archlinux.org/$pkg.git" "$SRC_DIR"
+              git clone --depth=1 "https://aur.archlinux.org/$PKGBASE.git" "$SRC_DIR"
             fi
 
             # ビルド実行
