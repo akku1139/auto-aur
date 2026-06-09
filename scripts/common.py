@@ -4,6 +4,7 @@ import re
 import subprocess
 from pathlib import Path
 from typing import Set, Tuple
+import sys
 
 LOCAL_PACKAGES_DIR = Path("local-packages")
 CUSTOM_PATCHES_DIR = Path("custom-patches")
@@ -73,8 +74,13 @@ def is_in_repositories(pkg: str) -> bool:
             ['pacman', '-Ssq', f'^{pkg}$'],
             capture_output=True, text=True, check=False
         )
-        return result.returncode == 0 and bool(result.stdout.strip())
-    except:
+        exists = result.returncode == 0 and bool(result.stdout.strip())
+        # デバッグ: 存在しないAURパッケージはここでログ出力
+        if not exists and not (is_local_package(pkg) or is_custom_patch(pkg)):
+            print(f"DEBUG: {pkg} not found in repositories (will build from AUR)", file=sys.stderr)
+        return exists
+    except Exception as e:
+        print(f"DEBUG: is_in_repositories failed for {pkg}: {e}", file=sys.stderr)
         return False
 
 def get_deps(pkg: str) -> Set[str]:

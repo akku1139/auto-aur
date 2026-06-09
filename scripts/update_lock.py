@@ -2,7 +2,7 @@
 import json
 import sys
 from collections import deque
-from common import get_deps, is_local_package, is_custom_patch, get_current_version
+from common import get_deps, is_local_package, is_custom_patch, get_current_version, is_in_repositories
 
 def main():
     if len(sys.argv) != 3:
@@ -42,6 +42,15 @@ def main():
     if len(order) != len(all_pkgs):
         cyclic = all_pkgs - set(order)
         print(f"Error: Circular dependencies detected: {cyclic}", file=sys.stderr)
+        # 循環に関係するサブグラフを表示
+        subgraph = {pkg: graph[pkg] for pkg in cyclic if pkg in graph}
+        print("Dependency subgraph causing cycle:", file=sys.stderr)
+        for pkg, deps in subgraph.items():
+            print(f"  {pkg} -> {deps}", file=sys.stderr)
+        # さらに、各パッケージの公式リポジトリ有無を確認
+        for pkg in cyclic:
+            in_repo = is_in_repositories(pkg)
+            print(f"  {pkg} in repositories: {in_repo}", file=sys.stderr)
         sys.exit(1)
 
     lock = {
