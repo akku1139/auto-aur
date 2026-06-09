@@ -2,7 +2,10 @@
 import json
 import sys
 from collections import deque
-from common import get_deps, is_local_package, is_custom_patch, get_current_version, preload_aur_cache
+from common import (
+    get_deps, is_local_package, is_custom_patch, get_current_version,
+    preload_aur_cache
+)
 
 def main():
     if len(sys.argv) != 3:
@@ -43,7 +46,6 @@ def main():
     while q:
         pkg = q.popleft()
         order.append(pkg)
-        # Decrease in-degree of packages that this package depends on
         for dep in graph[pkg]:
             in_degree[dep] -= 1
             if in_degree[dep] == 0:
@@ -60,6 +62,9 @@ def main():
         for pkg in sorted(all_pkgs):
             print(f"  {pkg}: {in_degree.get(pkg, '?')}", file=sys.stderr)
         sys.exit(1)
+
+    # 正しいビルド順にするため逆順に並べ替え（依存するものが先に来る）
+    order.reverse()
 
     # Step 6: Generate lock.json
     lock = {
