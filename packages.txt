@@ -10,3 +10,4 @@ faketty
 nijigenerate-bin
 nijiexpose-bin
 yt-dlp-ejs-anyruntime
+quickjs
