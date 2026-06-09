@@ -122,9 +122,9 @@ jobs:
             echo "is_empty=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Build Dockerfile.build
+      - name: Build build.Dockerfile
         if: steps.check.outputs.is_empty == 'false'
-        run: docker build -t aur-builder -f scripts/Dockerfile.build .
+        run: docker build -t aur-builder -f scripts/build.Dockerfile .
 
       - name: Build packages in order
         if: steps.check.outputs.is_empty == 'false'
