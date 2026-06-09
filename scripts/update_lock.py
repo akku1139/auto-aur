@@ -12,7 +12,7 @@ def main():
     with open(sys.argv[1]) as f:
         seeds = [line.strip() for line in f if line.strip() and not line.startswith('#')]
 
-    # ステップ1: 全依存パッケージの収集
+    # Step 1: Collect all dependencies
     all_pkgs = set(seeds)
     frontier = list(seeds)
     while frontier:
@@ -22,40 +22,36 @@ def main():
         all_pkgs.update(new_deps)
         frontier.extend(new_deps)
 
-    # ステップ2: AUR パッケージの情報を一括プリロード（パフォーマンス改善）
+    # Step 2: Preload AUR info for performance
     aur_pkgs = [pkg for pkg in all_pkgs if not (is_local_package(pkg) or is_custom_patch(pkg))]
     if aur_pkgs:
         print(f"Preloading AUR info for {len(aur_pkgs)} packages...", file=sys.stderr)
         preload_aur_cache(aur_pkgs)
 
-    # ステップ3: 依存グラフ構築
-    graph = {}
-    for pkg in all_pkgs:
-        deps = get_deps(pkg)
-        graph[pkg] = deps & all_pkgs
+    # Step 3: Build dependency graph (pkg -> deps)
+    graph = {pkg: get_deps(pkg) & all_pkgs for pkg in all_pkgs}
 
-    # ステップ4: 次数計算とトポロジカルソート
+    # Step 4: Compute in-degree (number of packages that depend on this package)
     in_degree = {pkg: 0 for pkg in all_pkgs}
     for deps in graph.values():
         for dep in deps:
             in_degree[dep] += 1
 
+    # Step 5: Topological sort (Kahn's algorithm)
     q = deque([pkg for pkg in all_pkgs if in_degree[pkg] == 0])
     order = []
     while q:
         pkg = q.popleft()
         order.append(pkg)
-        for dependant, deps in graph.items():
-            if pkg in deps:
-                in_degree[dependant] -= 1
-                if in_degree[dependant] == 0:
-                    q.append(dependant)
+        # Decrease in-degree of packages that this package depends on
+        for dep in graph[pkg]:
+            in_degree[dep] -= 1
+            if in_degree[dep] == 0:
+                q.append(dep)
 
-    # 循環依存チェック
     if len(order) != len(all_pkgs):
         cyclic = all_pkgs - set(order)
         print(f"Error: Circular dependencies detected: {cyclic}", file=sys.stderr)
-        # 詳細な依存関係を出力
         print("Full dependency graph:", file=sys.stderr)
         for pkg in sorted(all_pkgs):
             deps = graph[pkg]
@@ -65,7 +61,7 @@ def main():
             print(f"  {pkg}: {in_degree.get(pkg, '?')}", file=sys.stderr)
         sys.exit(1)
 
-    # ステップ5: lock.json の生成
+    # Step 6: Generate lock.json
     lock = {
         "version": 1,
         "packages": [],
