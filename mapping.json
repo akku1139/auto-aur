@@ -51,6 +51,74 @@
     "quickjs": {
       "filename": "quickjs-2026.06.04-1-x86_64.pkg.tar.zst",
       "release_tag": "build-20260609-095818"
+    },
+    "cbfstool": {
+      "filename": "cbfstool-26.03-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260609-143717"
+    },
+    "intelmetool": {
+      "filename": "intelmetool-26.03-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260609-143717"
+    },
+    "vboot-utils": {
+      "filename": "vboot-utils-148.16640-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260609-143717"
+    },
+    "nvramtool": {
+      "filename": "nvramtool-26.03-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260609-143717"
+    },
+    "amdfwtool": {
+      "filename": "amdfwtool-26.03-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260609-143717"
+    },
+    "cbmem": {
+      "filename": "cbmem-26.03-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260609-143717"
+    },
+    "pmh7tool": {
+      "filename": "pmh7tool-26.03-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260609-143717"
+    },
+    "autoport": {
+      "filename": "autoport-26.03-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260609-143717"
+    },
+    "chromeos-flashrom-git": {
+      "filename": "chromeos-flashrom-git-r5051.0a5ce6e08-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260609-143717"
+    },
+    "intelvbttool": {
+      "filename": "intelvbttool-26.03-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260609-143717"
+    },
+    "superiotool": {
+      "filename": "superiotool-26.03-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260609-143717"
+    },
+    "me_cleaner": {
+      "filename": "me_cleaner-26.03-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260609-143717"
+    },
+    "msrtool": {
+      "filename": "msrtool-26.03-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260609-143717"
+    },
+    "inteltool": {
+      "filename": "inteltool-26.03-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260609-143717"
+    },
+    "ectool": {
+      "filename": "ectool-26.03-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260609-143717"
+    },
+    "acpidump": {
+      "filename": "acpidump-all-26.03-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260609-143717"
+    },
+    "ifdtool": {
+      "filename": "ifdtool-26.03-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260609-143717"
     }
   }
 }
