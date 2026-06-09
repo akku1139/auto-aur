@@ -16,6 +16,7 @@ RUN echo -e "[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" >> /etc/
 RUN echo -e "[auto-aur-local]\nServer = file:///repo\nSigLevel = Optional TrustAll" >> /etc/pacman.conf
 
 RUN sed -i '/^OPTIONS=/s/\bdebug\b/!debug/g' /etc/makepkg.conf
+RUN sed -i '/^BUILDENV=/s/\bcheck\b/!check/g' /etc/makepkg.conf
 
 RUN useradd -m builder
 RUN echo 'builder ALL=(ALL) NOPASSWD: /usr/bin/pacman' >> /etc/sudoers
