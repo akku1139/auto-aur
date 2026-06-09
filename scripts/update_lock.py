@@ -2,7 +2,7 @@
 import json
 import sys
 from collections import deque
-from common import get_deps, is_local_package, is_custom_patch, get_current_version, is_in_repositories
+from common import get_deps, is_local_package, is_custom_patch, get_current_version, preload_aur_cache
 
 def main():
     if len(sys.argv) != 3:
@@ -12,6 +12,7 @@ def main():
     with open(sys.argv[1]) as f:
         seeds = [line.strip() for line in f if line.strip() and not line.startswith('#')]
 
+    # ステップ1: 全依存パッケージの収集
     all_pkgs = set(seeds)
     frontier = list(seeds)
     while frontier:
@@ -21,8 +22,19 @@ def main():
         all_pkgs.update(new_deps)
         frontier.extend(new_deps)
 
-    graph = {pkg: get_deps(pkg) & all_pkgs for pkg in all_pkgs}
+    # ステップ2: AUR パッケージの情報を一括プリロード（パフォーマンス改善）
+    aur_pkgs = [pkg for pkg in all_pkgs if not (is_local_package(pkg) or is_custom_patch(pkg))]
+    if aur_pkgs:
+        print(f"Preloading AUR info for {len(aur_pkgs)} packages...", file=sys.stderr)
+        preload_aur_cache(aur_pkgs)
 
+    # ステップ3: 依存グラフ構築
+    graph = {}
+    for pkg in all_pkgs:
+        deps = get_deps(pkg)
+        graph[pkg] = deps & all_pkgs
+
+    # ステップ4: 次数計算とトポロジカルソート
     in_degree = {pkg: 0 for pkg in all_pkgs}
     for deps in graph.values():
         for dep in deps:
@@ -39,20 +51,21 @@ def main():
                 if in_degree[dependant] == 0:
                     q.append(dependant)
 
+    # 循環依存チェック
     if len(order) != len(all_pkgs):
         cyclic = all_pkgs - set(order)
         print(f"Error: Circular dependencies detected: {cyclic}", file=sys.stderr)
-        # 循環に関係するサブグラフを表示
-        subgraph = {pkg: graph[pkg] for pkg in cyclic if pkg in graph}
-        print("Dependency subgraph causing cycle:", file=sys.stderr)
-        for pkg, deps in subgraph.items():
+        # 詳細な依存関係を出力
+        print("Full dependency graph:", file=sys.stderr)
+        for pkg in sorted(all_pkgs):
+            deps = graph[pkg]
             print(f"  {pkg} -> {deps}", file=sys.stderr)
-        # さらに、各パッケージの公式リポジトリ有無を確認
-        for pkg in cyclic:
-            in_repo = is_in_repositories(pkg)
-            print(f"  {pkg} in repositories: {in_repo}", file=sys.stderr)
+        print("In-degree after processing:", file=sys.stderr)
+        for pkg in sorted(all_pkgs):
+            print(f"  {pkg}: {in_degree.get(pkg, '?')}", file=sys.stderr)
         sys.exit(1)
 
+    # ステップ5: lock.json の生成
     lock = {
         "version": 1,
         "packages": [],

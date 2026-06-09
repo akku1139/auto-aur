@@ -3,11 +3,13 @@ import json
 import re
 import subprocess
 from pathlib import Path
-from typing import Set, Tuple
-import sys
+from typing import Set, Tuple, Dict, List
 
 LOCAL_PACKAGES_DIR = Path("local-packages")
 CUSTOM_PATCHES_DIR = Path("custom-patches")
+
+# キャッシュ: パッケージ名 -> (version, deps)
+_aur_info_cache: Dict[str, Tuple[str, Set[str]]] = {}
 
 def is_local_package(pkg: str) -> bool:
     return (LOCAL_PACKAGES_DIR / pkg / "PKGBUILD").exists()
@@ -25,38 +27,58 @@ def get_custom_srcinfo(pkg: str) -> str:
     srcinfo_file = pkg_dir / ".SRCINFO"
     return srcinfo_file.read_text()
 
-# ---- AUR RPC API を使用した情報取得 ----
-def get_aur_info(pkg: str) -> Tuple[str, Set[str]]:
-    """Returns (version, set_of_dependencies) for an AUR package using the RPC API."""
-    url = f"https://aur.archlinux.org/rpc?v=5&type=info&arg[]={pkg}"
-    req = urllib.request.Request(url, headers={"User-Agent": "curl/7.68.0"})
-    with urllib.request.urlopen(req, timeout=10) as resp:
+def fetch_aur_infos(pkgs: List[str]) -> Dict[str, Tuple[str, Set[str]]]:
+    """Fetch multiple AUR packages info in one request and update cache."""
+    if not pkgs:
+        return {}
+    # Build URL with multiple arg[] parameters
+    base_url = "https://aur.archlinux.org/rpc?v=5&type=info"
+    for pkg in pkgs:
+        base_url += f"&arg[]={pkg}"
+    req = urllib.request.Request(base_url, headers={"User-Agent": "curl/7.68.0"})
+    with urllib.request.urlopen(req, timeout=30) as resp:
         data = json.loads(resp.read().decode('utf-8'))
     if data.get("resultcount", 0) == 0:
+        return {}
+    result_map = {}
+    for result in data["results"]:
+        name = result["Name"]
+        version = result.get("Version", "unknown")
+        deps = set()
+        for dep in result.get("Depends", []) or []:
+            dep_name = re.split(r'[>=<]+', dep)[0].strip()
+            deps.add(dep_name)
+        for dep in result.get("MakeDepends", []) or []:
+            dep_name = re.split(r'[>=<]+', dep)[0].strip()
+            deps.add(dep_name)
+        result_map[name] = (version, deps)
+        # キャッシュに保存
+        _aur_info_cache[name] = (version, deps)
+    return result_map
+
+def preload_aur_cache(pkgs: List[str]) -> None:
+    """Preload multiple AUR package infos into cache using a single API call."""
+    # まだキャッシュにないパッケージだけを取得
+    missing = [p for p in pkgs if p not in _aur_info_cache]
+    if missing:
+        fetch_aur_infos(missing)
+
+def get_aur_info(pkg: str) -> Tuple[str, Set[str]]:
+    """Get info for a single package, using cache."""
+    if pkg in _aur_info_cache:
+        return _aur_info_cache[pkg]
+    # キャッシュにない場合は個別取得
+    info_map = fetch_aur_infos([pkg])
+    if pkg not in info_map:
         raise ValueError(f"Package {pkg} not found in AUR")
-    result = data["results"][0]
-    version = result.get("Version", "unknown")
-    deps = set()
-    for dep in result.get("Depends", []) or []:
-        # remove version constraints
-        dep_name = re.split(r'[>=<]+', dep)[0].strip()
-        deps.add(dep_name)
-    for dep in result.get("MakeDepends", []) or []:
-        dep_name = re.split(r'[>=<]+', dep)[0].strip()
-        deps.add(dep_name)
-    return version, deps
+    return _aur_info_cache[pkg]
 
 def get_aur_version(pkg: str) -> str:
-    """Return only the version string for an AUR package."""
-    version, _ = get_aur_info(pkg)
-    return version
+    return get_aur_info(pkg)[0]
 
 def get_aur_deps(pkg: str) -> Set[str]:
-    """Return only the dependencies (as a set of package names) for an AUR package."""
-    _, deps = get_aur_info(pkg)
-    return deps
+    return get_aur_info(pkg)[1]
 
-# ---- 既存のヘルパー関数（ローカル・カスタムパッケージ用） ----
 def parse_deps(srcinfo: str) -> Set[str]:
     deps = set()
     for line in srcinfo.splitlines():
@@ -68,19 +90,13 @@ def parse_deps(srcinfo: str) -> Set[str]:
     return deps
 
 def is_in_repositories(pkg: str) -> bool:
-    """Check if package exists in any enabled repository (including virtual providers)."""
     try:
         result = subprocess.run(
             ['pacman', '-Ssq', f'^{pkg}$'],
             capture_output=True, text=True, check=False
         )
-        exists = result.returncode == 0 and bool(result.stdout.strip())
-        # デバッグ: 存在しないAURパッケージはここでログ出力
-        if not exists and not (is_local_package(pkg) or is_custom_patch(pkg)):
-            print(f"DEBUG: {pkg} not found in repositories (will build from AUR)", file=sys.stderr)
-        return exists
-    except Exception as e:
-        print(f"DEBUG: is_in_repositories failed for {pkg}: {e}", file=sys.stderr)
+        return result.returncode == 0 and bool(result.stdout.strip())
+    except:
         return False
 
 def get_deps(pkg: str) -> Set[str]:
@@ -92,7 +108,6 @@ def get_deps(pkg: str) -> Set[str]:
         deps = parse_deps(srcinfo)
     else:
         deps = get_aur_deps(pkg)
-    # Keep only dependencies that are not satisfied by repositories
     return {d for d in deps if not is_in_repositories(d)}
 
 def _parse_version_from_srcinfo_lines(lines):
@@ -115,5 +130,4 @@ def get_current_version(pkg: str) -> str:
         with open(srcinfo_path) as f:
             return _parse_version_from_srcinfo_lines(f)
     else:
-        # AUR package - use API
         return get_aur_version(pkg)
