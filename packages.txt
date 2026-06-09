@@ -9,3 +9,4 @@ zsh-fast-syntax-highlighting
 faketty
 nijigenerate-bin
 nijiexpose-bin
+yt-dlp-ejs-anyruntime
