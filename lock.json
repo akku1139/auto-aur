@@ -2,18 +2,34 @@
   "version": 1,
   "packages": [
     {
-      "name": "auto-aur-mirrorlist",
-      "version": "20260606-1",
+      "name": "yt-dlp-ejs-anyruntime",
+      "version": "0.8.0-2",
       "deps": [],
       "build_order": 0,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "nijigenerate-bin",
+      "version": "v1.0.0beta2-1",
+      "deps": [],
+      "build_order": 1,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "auto-aur-keyring",
+      "version": "20240923-1",
+      "deps": [],
+      "build_order": 2,
       "local": true,
       "custom": false
     },
     {
-      "name": "hazkey-zenzai-model",
-      "version": "0.1-1",
+      "name": "nijiexpose-bin",
+      "version": "v1.0.0beta2-1",
       "deps": [],
-      "build_order": 1,
+      "build_order": 3,
       "local": false,
       "custom": false
     },
@@ -21,29 +37,13 @@
       "name": "walker",
       "version": "2.16.2-1",
       "deps": [],
-      "build_order": 2,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "snowflake-pt-proxy",
-      "version": "2.13.1-1",
-      "deps": [],
-      "build_order": 3,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "yt-dlp-ejs-anyruntime",
-      "version": "0.8.0-1",
-      "deps": [],
       "build_order": 4,
       "local": false,
       "custom": false
     },
     {
-      "name": "nijigenerate-bin",
-      "version": "v1.0.0beta2-1",
+      "name": "fcitx5-hazkey-bin",
+      "version": "0.2.1-2",
       "deps": [],
       "build_order": 5,
       "local": false,
@@ -58,26 +58,10 @@
       "custom": false
     },
     {
-      "name": "faketty",
-      "version": "1.0.20-2",
+      "name": "hazkey-zenzai-model",
+      "version": "0.1-1",
       "deps": [],
       "build_order": 7,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "nijiexpose-bin",
-      "version": "v1.0.0beta2-1",
-      "deps": [],
-      "build_order": 8,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "fcitx5-hazkey-bin",
-      "version": "0.2.1-2",
-      "deps": [],
-      "build_order": 9,
       "local": false,
       "custom": false
     },
@@ -85,31 +69,47 @@
       "name": "bankstown",
       "version": "1.1.0-2",
       "deps": [],
-      "build_order": 10,
+      "build_order": 8,
       "local": false,
       "custom": false
     },
     {
-      "name": "auto-aur-keyring",
-      "version": "20240923-1",
+      "name": "snowflake-pt-proxy",
+      "version": "2.13.1-1",
+      "deps": [],
+      "build_order": 9,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "auto-aur-mirrorlist",
+      "version": "20260606-1",
+      "deps": [],
+      "build_order": 10,
+      "local": true,
+      "custom": false
+    },
+    {
+      "name": "faketty",
+      "version": "1.0.20-2",
       "deps": [],
       "build_order": 11,
-      "local": true,
+      "local": false,
       "custom": false
     }
   ],
   "build_order": [
-    "auto-aur-mirrorlist",
-    "hazkey-zenzai-model",
-    "walker",
-    "snowflake-pt-proxy",
     "yt-dlp-ejs-anyruntime",
     "nijigenerate-bin",
-    "zsh-fast-syntax-highlighting",
-    "faketty",
+    "auto-aur-keyring",
     "nijiexpose-bin",
+    "walker",
     "fcitx5-hazkey-bin",
+    "zsh-fast-syntax-highlighting",
+    "hazkey-zenzai-model",
     "bankstown",
-    "auto-aur-keyring"
+    "snowflake-pt-proxy",
+    "auto-aur-mirrorlist",
+    "faketty"
   ]
 }

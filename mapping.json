@@ -45,8 +45,8 @@
       "release_tag": "build-20260607-144638"
     },
     "yt-dlp-ejs-anyruntime": {
-      "filename": "yt-dlp-ejs-anyruntime-0.8.0-2-any.pkg.tar.zst",
-      "release_tag": "build-20260609-085356"
+      "filename": "yt-dlp-ejs-anyruntime-0.8.0-3-any.pkg.tar.zst",
+      "release_tag": "build-20260609-090035"
     }
   }
 }
