@@ -47,6 +47,10 @@
     "yt-dlp-ejs-anyruntime": {
       "filename": "yt-dlp-ejs-anyruntime-0.8.0-3-any.pkg.tar.zst",
       "release_tag": "build-20260609-090035"
+    },
+    "quickjs": {
+      "filename": "quickjs-2026.06.04-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260609-095818"
     }
   }
 }

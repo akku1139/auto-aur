@@ -2,15 +2,15 @@
   "version": 1,
   "packages": [
     {
-      "name": "yt-dlp-ejs-anyruntime",
-      "version": "0.8.0-2",
+      "name": "hazkey-zenzai-model",
+      "version": "0.1-1",
       "deps": [],
       "build_order": 0,
       "local": false,
       "custom": false
     },
     {
-      "name": "nijigenerate-bin",
+      "name": "nijiexpose-bin",
       "version": "v1.0.0beta2-1",
       "deps": [],
       "build_order": 1,
@@ -18,15 +18,15 @@
       "custom": false
     },
     {
-      "name": "auto-aur-keyring",
-      "version": "20240923-1",
+      "name": "zsh-fast-syntax-highlighting",
+      "version": "1.56-1",
       "deps": [],
       "build_order": 2,
-      "local": true,
+      "local": false,
       "custom": false
     },
     {
-      "name": "nijiexpose-bin",
+      "name": "nijigenerate-bin",
       "version": "v1.0.0beta2-1",
       "deps": [],
       "build_order": 3,
@@ -34,32 +34,32 @@
       "custom": false
     },
     {
-      "name": "walker",
-      "version": "2.16.2-1",
+      "name": "yt-dlp-ejs-anyruntime",
+      "version": "0.8.0-3",
       "deps": [],
       "build_order": 4,
       "local": false,
       "custom": false
     },
     {
-      "name": "fcitx5-hazkey-bin",
-      "version": "0.2.1-2",
+      "name": "walker",
+      "version": "2.16.2-1",
       "deps": [],
       "build_order": 5,
       "local": false,
       "custom": false
     },
     {
-      "name": "zsh-fast-syntax-highlighting",
-      "version": "1.56-1",
+      "name": "quickjs",
+      "version": "2026.06.04-1",
       "deps": [],
       "build_order": 6,
       "local": false,
       "custom": false
     },
     {
-      "name": "hazkey-zenzai-model",
-      "version": "0.1-1",
+      "name": "snowflake-pt-proxy",
+      "version": "2.13.1-1",
       "deps": [],
       "build_order": 7,
       "local": false,
@@ -74,11 +74,11 @@
       "custom": false
     },
     {
-      "name": "snowflake-pt-proxy",
-      "version": "2.13.1-1",
+      "name": "auto-aur-keyring",
+      "version": "20240923-1",
       "deps": [],
       "build_order": 9,
-      "local": false,
+      "local": true,
       "custom": false
     },
     {
@@ -90,26 +90,35 @@
       "custom": false
     },
     {
+      "name": "fcitx5-hazkey-bin",
+      "version": "0.2.1-2",
+      "deps": [],
+      "build_order": 11,
+      "local": false,
+      "custom": false
+    },
+    {
       "name": "faketty",
       "version": "1.0.20-2",
       "deps": [],
-      "build_order": 11,
+      "build_order": 12,
       "local": false,
       "custom": false
     }
   ],
   "build_order": [
-    "yt-dlp-ejs-anyruntime",
-    "nijigenerate-bin",
-    "auto-aur-keyring",
-    "nijiexpose-bin",
-    "walker",
-    "fcitx5-hazkey-bin",
-    "zsh-fast-syntax-highlighting",
     "hazkey-zenzai-model",
-    "bankstown",
+    "nijiexpose-bin",
+    "zsh-fast-syntax-highlighting",
+    "nijigenerate-bin",
+    "yt-dlp-ejs-anyruntime",
+    "walker",
+    "quickjs",
     "snowflake-pt-proxy",
+    "bankstown",
+    "auto-aur-keyring",
     "auto-aur-mirrorlist",
+    "fcitx5-hazkey-bin",
     "faketty"
   ]
 }
