@@ -21,9 +21,9 @@
       "version": "0.1-1"
     },
     "snowflake-pt-proxy": {
-      "filename": "snowflake-pt-proxy-2.13.1-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260607-130006",
-      "version": "2.13.1-1"
+      "filename": "snowflake-pt-proxy-2.14.1-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260701-142237",
+      "version": "2.14.1-1"
     },
     "fcitx5-hazkey-bin": {
       "filename": "fcitx5-hazkey-bin-0.2.1-2-x86_64.pkg.tar.zst",
@@ -46,14 +46,14 @@
       "version": "1.0.20-2"
     },
     "nijigenerate-bin": {
-      "filename": "nijigenerate-bin-v0.9.2-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260607-144231",
-      "version": "v0.9.2-1"
+      "filename": "nijigenerate-bin-v1.0.0beta2-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260701-142237",
+      "version": "v1.0.0beta2-1"
     },
     "nijiexpose-bin": {
-      "filename": "nijiexpose-bin-v0.9.0rc4-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260607-144638",
-      "version": "v0.9.0rc4"
+      "filename": "nijiexpose-bin-v1.0.0beta2-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260701-142237",
+      "version": "v1.0.0beta2-1"
     },
     "yt-dlp-ejs-anyruntime": {
       "filename": "yt-dlp-ejs-anyruntime-0.8.0-3-any.pkg.tar.zst",
@@ -66,24 +66,94 @@
       "version": "2026.06.04-1"
     },
     "cbfstool": {
-      "filename": "cbfstool-26.03-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260609-143717",
-      "version": "26.03-1"
+      "filename": "cbfstool-26.06-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260701-142237",
+      "version": "26.06-1"
     },
     "vboot-utils": {
-      "filename": "vboot-utils-148.16640-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260609-143717",
-      "version": "148.16640-1"
+      "filename": "vboot-utils-149.16667-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260701-142237",
+      "version": "149.16667-1"
     },
     "chromeos-flashrom-git": {
-      "filename": "chromeos-flashrom-git-r5051.0a5ce6e08-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260609-143717",
-      "version": "r5051.0a5ce6e08-1"
+      "filename": "chromeos-flashrom-git-r5052.ba341e63b-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260701-142237",
+      "version": "r4051.90795b2cc-2"
     },
     "karukan": {
       "filename": "karukan-0.1.0-4-x86_64.pkg.tar.zst",
       "release_tag": "build-20260701-130125",
       "version": "0.1.0-4"
+    },
+    "nvramtool": {
+      "filename": "nvramtool-26.06-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260701-142237",
+      "version": ""
+    },
+    "acpidump": {
+      "filename": "acpidump-all-26.06-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260701-142237",
+      "version": ""
+    },
+    "intelvbttool": {
+      "filename": "intelvbttool-26.06-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260701-142237",
+      "version": ""
+    },
+    "intelmetool": {
+      "filename": "intelmetool-26.06-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260701-142237",
+      "version": ""
+    },
+    "pmh7tool": {
+      "filename": "pmh7tool-26.06-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260701-142237",
+      "version": ""
+    },
+    "me_cleaner": {
+      "filename": "me_cleaner-26.06-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260701-142237",
+      "version": ""
+    },
+    "superiotool": {
+      "filename": "superiotool-26.06-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260701-142237",
+      "version": ""
+    },
+    "ectool": {
+      "filename": "ectool-26.06-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260701-142237",
+      "version": ""
+    },
+    "msrtool": {
+      "filename": "msrtool-26.06-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260701-142237",
+      "version": ""
+    },
+    "cbmem": {
+      "filename": "cbmem-26.06-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260701-142237",
+      "version": ""
+    },
+    "ifdtool": {
+      "filename": "ifdtool-26.06-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260701-142237",
+      "version": ""
+    },
+    "autoport": {
+      "filename": "autoport-26.06-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260701-142237",
+      "version": ""
+    },
+    "amdfwtool": {
+      "filename": "amdfwtool-26.06-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260701-142237",
+      "version": ""
+    },
+    "inteltool": {
+      "filename": "inteltool-26.06-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260701-142237",
+      "version": ""
     }
   }
 }

@@ -2,57 +2,48 @@
   "version": 1,
   "packages": [
     {
-      "name": "cbfstool",
-      "pkgbase": "coreboot-utils",
-      "version": "26.06-1",
+      "name": "chromeos-flashrom-git",
+      "pkgbase": "chromeos-flashrom-git",
+      "version": "r4051.90795b2cc-2",
       "deps": [],
       "build_order": 0,
       "local": false,
       "custom": false
     },
     {
-      "name": "chromeos-flashrom-git",
-      "pkgbase": "chromeos-flashrom-git",
-      "version": "r4051.90795b2cc-2",
+      "name": "cbfstool",
+      "pkgbase": "coreboot-utils",
+      "version": "26.06-1",
       "deps": [],
       "build_order": 1,
       "local": false,
       "custom": false
     },
     {
-      "name": "bankstown",
-      "pkgbase": "bankstown",
-      "version": "1.1.0-2",
+      "name": "yt-dlp-ejs-anyruntime",
+      "pkgbase": "yt-dlp-ejs-anyruntime",
+      "version": "0.8.0-3",
       "deps": [],
       "build_order": 2,
       "local": false,
       "custom": false
     },
     {
-      "name": "nijiexpose-bin",
-      "pkgbase": "nijiexpose-bin",
-      "version": "v1.0.0beta2-1",
+      "name": "walker",
+      "pkgbase": "walker",
+      "version": "2.16.2-1",
       "deps": [],
       "build_order": 3,
       "local": false,
       "custom": false
     },
     {
-      "name": "karukan",
-      "pkgbase": "karukan",
-      "version": "0.1.0-4",
+      "name": "snowflake-pt-proxy",
+      "pkgbase": "snowflake-pt-proxy",
+      "version": "2.14.1-1",
       "deps": [],
       "build_order": 4,
       "local": false,
-      "custom": false
-    },
-    {
-      "name": "auto-aur-mirrorlist",
-      "pkgbase": "auto-aur-mirrorlist",
-      "version": "20260606-1",
-      "deps": [],
-      "build_order": 5,
-      "local": true,
       "custom": false
     },
     {
@@ -60,11 +51,20 @@
       "pkgbase": "vboot-utils",
       "version": "149.16667-1",
       "deps": [
-        "chromeos-flashrom-git",
-        "cbfstool"
+        "cbfstool",
+        "chromeos-flashrom-git"
       ],
-      "build_order": 6,
+      "build_order": 5,
       "local": false,
+      "custom": false
+    },
+    {
+      "name": "auto-aur-keyring",
+      "pkgbase": "auto-aur-keyring",
+      "version": "20240923-1",
+      "deps": [],
+      "build_order": 6,
+      "local": true,
       "custom": false
     },
     {
@@ -77,47 +77,11 @@
       "custom": false
     },
     {
-      "name": "quickjs",
-      "pkgbase": "quickjs",
-      "version": "2026.06.04-1",
+      "name": "karukan",
+      "pkgbase": "karukan",
+      "version": "0.1.0-4",
       "deps": [],
       "build_order": 8,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "zsh-fast-syntax-highlighting",
-      "pkgbase": "zsh-fast-syntax-highlighting",
-      "version": "1.56-1",
-      "deps": [],
-      "build_order": 9,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "fcitx5-hazkey-bin",
-      "pkgbase": "fcitx5-hazkey-bin",
-      "version": "0.2.1-2",
-      "deps": [],
-      "build_order": 10,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "snowflake-pt-proxy",
-      "pkgbase": "snowflake-pt-proxy",
-      "version": "2.14.1-1",
-      "deps": [],
-      "build_order": 11,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "walker",
-      "pkgbase": "walker",
-      "version": "2.16.2-1",
-      "deps": [],
-      "build_order": 12,
       "local": false,
       "custom": false
     },
@@ -125,6 +89,42 @@
       "name": "nijigenerate-bin",
       "pkgbase": "nijigenerate-bin",
       "version": "v1.0.0beta2-1",
+      "deps": [],
+      "build_order": 9,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "auto-aur-mirrorlist",
+      "pkgbase": "auto-aur-mirrorlist",
+      "version": "20260606-1",
+      "deps": [],
+      "build_order": 10,
+      "local": true,
+      "custom": false
+    },
+    {
+      "name": "fcitx5-hazkey-bin",
+      "pkgbase": "fcitx5-hazkey-bin",
+      "version": "0.2.1-2",
+      "deps": [],
+      "build_order": 11,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "bankstown",
+      "pkgbase": "bankstown",
+      "version": "1.1.0-2",
+      "deps": [],
+      "build_order": 12,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "zsh-fast-syntax-highlighting",
+      "pkgbase": "zsh-fast-syntax-highlighting",
+      "version": "1.56-1",
       "deps": [],
       "build_order": 13,
       "local": false,
@@ -140,18 +140,18 @@
       "custom": false
     },
     {
-      "name": "auto-aur-keyring",
-      "pkgbase": "auto-aur-keyring",
-      "version": "20240923-1",
+      "name": "nijiexpose-bin",
+      "pkgbase": "nijiexpose-bin",
+      "version": "v1.0.0beta2-1",
       "deps": [],
       "build_order": 15,
-      "local": true,
+      "local": false,
       "custom": false
     },
     {
-      "name": "yt-dlp-ejs-anyruntime",
-      "pkgbase": "yt-dlp-ejs-anyruntime",
-      "version": "0.8.0-3",
+      "name": "quickjs",
+      "pkgbase": "quickjs",
+      "version": "2026.06.04-1",
       "deps": [],
       "build_order": 16,
       "local": false,
@@ -159,22 +159,22 @@
     }
   ],
   "build_order": [
-    "cbfstool",
     "chromeos-flashrom-git",
-    "bankstown",
-    "nijiexpose-bin",
-    "karukan",
-    "auto-aur-mirrorlist",
-    "vboot-utils",
-    "hazkey-zenzai-model",
-    "quickjs",
-    "zsh-fast-syntax-highlighting",
-    "fcitx5-hazkey-bin",
-    "snowflake-pt-proxy",
+    "cbfstool",
+    "yt-dlp-ejs-anyruntime",
     "walker",
-    "nijigenerate-bin",
-    "faketty",
+    "snowflake-pt-proxy",
+    "vboot-utils",
     "auto-aur-keyring",
-    "yt-dlp-ejs-anyruntime"
+    "hazkey-zenzai-model",
+    "karukan",
+    "nijigenerate-bin",
+    "auto-aur-mirrorlist",
+    "fcitx5-hazkey-bin",
+    "bankstown",
+    "zsh-fast-syntax-highlighting",
+    "faketty",
+    "nijiexpose-bin",
+    "quickjs"
   ]
 }
