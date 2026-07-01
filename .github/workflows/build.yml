@@ -65,7 +65,7 @@ jobs:
 
           pacman-key --recv-key b465fd29d2ea44cc --keyserver keyserver.ubuntu.com
           pacman-key --lsign-key b465fd29d2ea44cc
-          pacman -Syu --noconfirm base-devel python jq devtools docker github-cli
+          pacman -Syu --noconfirm base-devel python jq devtools docker github-cli pyalpm
 
       - name: Local setup
         run: |
