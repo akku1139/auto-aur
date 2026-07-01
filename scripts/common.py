@@ -4,6 +4,9 @@ import re
 import subprocess
 from pathlib import Path
 from typing import Set, Tuple, Dict, List, Optional
+import glob
+import os
+import pyalpm
 
 LOCAL_PACKAGES_DIR = Path("local-packages")
 CUSTOM_PATCHES_DIR = Path("custom-patches")
@@ -13,7 +16,7 @@ _aur_info_cache: Dict[str, Tuple[str, Set[str], str]] = {}
 # キャッシュ: パッケージ名 -> deps（is_in_repositories 適用後）
 _deps_cache: Dict[str, Set[str]] = {}
 # pkg名 -> リポジトリ(provides込み)で満たされるか
-_repo_provides_cache: Dict[str, bool] = {}
+_repo_provides_cache: Optional[Set[str]] = None
 
 
 def is_local_package(pkg: str) -> bool:
@@ -107,34 +110,32 @@ def parse_deps(srcinfo: str) -> Set[str]:
             deps.add(dep)
     return deps
 
-def _get_repo_provides_map() -> Optional[Set[str]]:
-    """リポジトリ全パッケージ名 + Provides名を1回だけ取得してキャッシュする"""
+def _get_repo_provides_map() -> Set[str]:
     global _repo_provides_cache
-    if _repo_provides_cache is None:
-        result = subprocess.run(
-            ['expac', '-S', '%n\t%S'],
-            capture_output=True, text=True, check=False
-        )
-        if result.returncode != 0:
-            raise FileNotFoundError
-        names: Set[str] = set()
-        for line in result.stdout.splitlines():
-            parts = line.split('\t', 1)
-            pkgname = parts[0].strip()
-            if pkgname:
-                names.add(pkgname)
-            if len(parts) > 1:
-                for prov in parts[1].split():
-                    prov_name = re.split(r'[>=<]+', prov)[0].strip()
-                    if prov_name:
-                        names.add(prov_name)
-        _repo_provides_cache = names
-    return _repo_provides_cache
+    if _repo_provides_cache is not None:
+        return _repo_provides_cache
+
+    handle = pyalpm.Handle("/", "/var/lib/pacman")
+    names: Set[str] = set()
+
+    sync_dir = "/var/lib/pacman/sync"
+    for db_file in sorted(glob.glob(os.path.join(sync_dir, "*.db"))):
+        repo_name = os.path.basename(db_file)[:-3]  # ".db" を除去
+        try:
+            db = handle.register_syncdb(repo_name, pyalpm.SIG_DATABASE_OPTIONAL)
+        except pyalpm.error:
+            continue
+        for pkg in db.pkgcache:
+            names.add(pkg.name)
+            for prov in pkg.provides:
+                prov_name = re.split(r'[>=<]+', prov)[0].strip()
+                names.add(prov_name)
+
+    _repo_provides_cache = names
+    return names
 
 def is_in_repositories(pkg: str) -> bool:
-    names = _get_repo_provides_map()
-    if names is not None:
-        return pkg in names
+    return pkg in _get_repo_provides_map()
 
 def get_deps(pkg: str) -> Set[str]:
     if pkg in _deps_cache:
