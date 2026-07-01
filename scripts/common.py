@@ -12,8 +12,8 @@ CUSTOM_PATCHES_DIR = Path("custom-patches")
 _aur_info_cache: Dict[str, Tuple[str, Set[str], str]] = {}
 # キャッシュ: パッケージ名 -> deps（is_in_repositories 適用後）
 _deps_cache: Dict[str, Set[str]] = {}
-# リポジトリに存在する全パッケージ名（1回だけ取得）
-_repo_pkgs_cache: Optional[Set[str]] = None
+# pkg名 -> リポジトリ(provides込み)で満たされるか
+_repo_satisfied_cache: Dict[str, bool] = {}
 
 
 def is_local_package(pkg: str) -> bool:
@@ -107,37 +107,40 @@ def parse_deps(srcinfo: str) -> Set[str]:
             deps.add(dep)
     return deps
 
-def _get_all_repo_packages() -> Set[str]:
-    """全リポジトリパッケージ名を1回だけ取得してキャッシュする"""
-    global _repo_pkgs_cache
-    if _repo_pkgs_cache is None:
+def _check_repo_satisfied_batch(pkgs: List[str]) -> Dict[str, bool]:
+    """複数の依存文字列をまとめて pacman -T で判定し、キャッシュする"""
+    uncached = [p for p in pkgs if p not in _repo_satisfied_cache]
+    if uncached:
         try:
             result = subprocess.run(
-                ['pacman', '-Slq'],
+                ['pacman', '-T'] + uncached,
                 capture_output=True, text=True, check=False
             )
-            _repo_pkgs_cache = set(result.stdout.split()) if result.returncode == 0 else set()
+            unsatisfied = set(result.stdout.split())
         except Exception:
-            _repo_pkgs_cache = set()
-    return _repo_pkgs_cache
+            # 判定不能な場合は「満たされていない」扱い（AUR側で解決を試みる）
+            unsatisfied = set(uncached)
+        for p in uncached:
+            _repo_satisfied_cache[p] = p not in unsatisfied
+    return {p: _repo_satisfied_cache[p] for p in pkgs}
 
 def is_in_repositories(pkg: str) -> bool:
-    return pkg in _get_all_repo_packages()
+    return _check_repo_satisfied_batch([pkg])[pkg]
 
 def get_deps(pkg: str) -> Set[str]:
     if pkg in _deps_cache:
         return _deps_cache[pkg]
 
     if is_local_package(pkg):
-        srcinfo = get_local_srcinfo(pkg)
-        deps = parse_deps(srcinfo)
+        deps = parse_deps(get_local_srcinfo(pkg))
     elif is_custom_patch(pkg):
-        srcinfo = get_custom_srcinfo(pkg)
-        deps = parse_deps(srcinfo)
+        deps = parse_deps(get_custom_srcinfo(pkg))
     else:
         deps = get_aur_deps(pkg)
 
-    result = {d for d in deps if not is_in_repositories(d)}
+    # ここで依存を一括判定（依存の数だけ pacman を叩かない）
+    satisfied = _check_repo_satisfied_batch(list(deps))
+    result = {d for d in deps if not satisfied[d]}
     _deps_cache[pkg] = result
     return result
 
