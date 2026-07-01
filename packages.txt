@@ -12,3 +12,4 @@ nijiexpose-bin
 yt-dlp-ejs-anyruntime
 quickjs
 vboot-utils
+karukan
