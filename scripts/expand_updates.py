@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import json
 import sys
-from common import get_current_version
 
 def main():
     if len(sys.argv) != 4:
@@ -29,9 +28,8 @@ def main():
             if not mapped:
                 to_build.add(name)
                 continue
-            # バージョンを比較（ローカルのPKGBUILDから取得）
-            current_version = get_current_version(name)
-            if current_version != locked_version:
+            built_version = mapped.get("version", "")
+            if built_version != locked_version:
                 to_build.add(name)
             # バージョンが同じでも、強制的にビルドしたい場合はここで追加（任意）
             # else: to_build.add(name)  # 常にビルド
@@ -41,8 +39,8 @@ def main():
         if not mapped:
             to_build.add(name)
             continue
-        current_version = get_current_version(name)
-        if current_version != locked_version:
+        built_version = mapped.get("version", "")
+        if built_version != locked_version:
             to_build.add(name)
 
     # 逆依存グラフで依存元も追加

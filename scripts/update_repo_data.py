@@ -26,6 +26,7 @@ def main():
     with open(lock_path) as f:
         lock = json.load(f)
     pkg_names = [pkg['name'] for pkg in lock['packages']]
+    lock_versions = {pkg['name']: pkg.get('version', '') for pkg in lock['packages']}
 
     # Read existing mapping
     with open(args.mapping) as f:
@@ -59,7 +60,8 @@ def main():
 
         mapping['packages'][matched] = {
             "filename": fname,
-            "release_tag": args.release_tag
+            "release_tag": args.release_tag,
+            "version": lock_versions.get(matched, ""),
         }
 
     # Build repository database with optional signing
