@@ -13,7 +13,7 @@ _aur_info_cache: Dict[str, Tuple[str, Set[str], str]] = {}
 # キャッシュ: パッケージ名 -> deps（is_in_repositories 適用後）
 _deps_cache: Dict[str, Set[str]] = {}
 # pkg名 -> リポジトリ(provides込み)で満たされるか
-_repo_satisfied_cache: Dict[str, bool] = {}
+_repo_provides_cache: Dict[str, bool] = {}
 
 
 def is_local_package(pkg: str) -> bool:
