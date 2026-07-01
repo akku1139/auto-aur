@@ -132,27 +132,26 @@ jobs:
           set -x
 
           jq -r '.build_order[]' repo-data/lock.json > build_order.txt
-          grep -xFf final_build_list.txt build_order.txt > sorted_build_list.txt
 
+          grep -xFf final_build_list.txt build_order.txt > sorted_build_list.txt
           while read pkg; do
-            echo "::group::$pkg"
-            echo "Building $pkg"
+            jq -r --arg pkg "$pkg" '.packages[] | select(.name==$pkg) | .pkgbase' repo-data/lock.json
+          done < sorted_build_list.txt | awk '!seen[$0]++' | uniq > sorted_build_list_pkgbase.txt
+
+          while read pkgbase; do
+            echo "::group::$pkgbase"
+            echo "Building $pkgbase"
 
             # ソースの準備 (ローカルパッケージ or カスタムパッチ or AUR)
-            SRC_DIR="/build/$pkg/src"
+            SRC_DIR="/build/$pkgbase/src"
             mkdir -p "$SRC_DIR"
-            PKG="$pkg"
-            PKGBASE=$(jq -r --arg pkg "$PKG" '.packages[] | select(.name==$pkg) | .pkgbase' repo-data/lock.json)
-            if [ -z "$PKGBASE" ] || [ "$PKGBASE" = "null" ]; then
-              PKGBASE="$PKG"
-            fi
 
-            if [ -d "local-packages/$PKG" ]; then
-              cp -r "local-packages/$PKG/." "$SRC_DIR"
-            elif [ -d "custom-patches/$PKG" ]; then
-              cp -r "custom-patches/$PKG/." "$SRC_DIR"
+            if [ -d "local-packages/$pkgbase" ]; then
+              cp -r "local-packages/$pkgbase/." "$SRC_DIR"
+            elif [ -d "custom-patches/$pkgbase" ]; then
+              cp -r "custom-patches/$pkgbase/." "$SRC_DIR"
             else
-              git clone --depth=1 "https://aur.archlinux.org/$PKGBASE.git" "$SRC_DIR"
+              git clone --depth=1 "https://aur.archlinux.org/$pkgbase.git" "$SRC_DIR"
             fi
 
             # ビルド実行
@@ -162,9 +161,9 @@ jobs:
               -v "$SRC_DIR":/home/builder/src \
               aur-builder
             repo-add /build/repo/auto-aur-local.db.tar.gz /build/repo/*.pkg.tar.zst
-            rm -rf /build/build/$pkg
+            rm -rf /build/build/$pkgbase
             echo "::endgroup::"
-          done < sorted_build_list.txt
+          done < sorted_build_list_pkgbase.txt
 
       - name: Import GPG key and sign packages
         if: steps.check.outputs.is_empty == 'false'
