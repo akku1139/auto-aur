@@ -3,13 +3,18 @@ import json
 import re
 import subprocess
 from pathlib import Path
-from typing import Set, Tuple, Dict, List
+from typing import Set, Tuple, Dict, List, Optional
 
 LOCAL_PACKAGES_DIR = Path("local-packages")
 CUSTOM_PATCHES_DIR = Path("custom-patches")
 
-# キャッシュ: パッケージ名 -> (version, deps)
-_aur_info_cache: Dict[str, Tuple[str, Set[str]]] = {}
+# キャッシュ: パッケージ名 -> (version, deps, pkgbase)
+_aur_info_cache: Dict[str, Tuple[str, Set[str], str]] = {}
+# キャッシュ: パッケージ名 -> deps（is_in_repositories 適用後）
+_deps_cache: Dict[str, Set[str]] = {}
+# リポジトリに存在する全パッケージ名（1回だけ取得）
+_repo_pkgs_cache: Optional[Set[str]] = None
+
 
 def is_local_package(pkg: str) -> bool:
     return (LOCAL_PACKAGES_DIR / pkg / "PKGBUILD").exists()
@@ -27,11 +32,17 @@ def get_custom_srcinfo(pkg: str) -> str:
     srcinfo_file = pkg_dir / ".SRCINFO"
     return srcinfo_file.read_text()
 
-def fetch_aur_infos(pkgs: List[str]) -> Dict[str, Tuple[str, Set[str]]]:
+def _parse_dep_names(dep_list) -> Set[str]:
+    deps = set()
+    for dep in dep_list or []:
+        dep_name = re.split(r'[>=<]+', dep)[0].strip()
+        deps.add(dep_name)
+    return deps
+
+def fetch_aur_infos(pkgs: List[str]) -> Dict[str, Tuple[str, Set[str], str]]:
     """Fetch multiple AUR packages info in one request and update cache."""
     if not pkgs:
         return {}
-    # Build URL with multiple arg[] parameters
     base_url = "https://aur.archlinux.org/rpc?v=5&type=info"
     for pkg in pkgs:
         base_url += f"&arg[]={pkg}"
@@ -44,27 +55,23 @@ def fetch_aur_infos(pkgs: List[str]) -> Dict[str, Tuple[str, Set[str]]]:
     for result in data["results"]:
         name = result["Name"]
         version = result.get("Version", "unknown")
-        deps = set()
-        for dep in result.get("Depends", []) or []:
-            dep_name = re.split(r'[>=<]+', dep)[0].strip()
-            deps.add(dep_name)
-        for dep in result.get("MakeDepends", []) or []:
-            dep_name = re.split(r'[>=<]+', dep)[0].strip()
-            deps.add(dep_name)
-        result_map[name] = (version, deps)
-        # キャッシュに保存
-        _aur_info_cache[name] = (version, deps)
+        pkgbase = result.get("PackageBase", name)
+        deps = _parse_dep_names(result.get("Depends")) | _parse_dep_names(result.get("MakeDepends"))
+        result_map[name] = (version, deps, pkgbase)
+        _aur_info_cache[name] = (version, deps, pkgbase)
     return result_map
 
 def preload_aur_cache(pkgs: List[str]) -> None:
     """Preload multiple AUR package infos into cache using a single API call."""
-    # まだキャッシュにないパッケージだけを取得
     missing = [p for p in pkgs if p not in _aur_info_cache]
     if missing:
         fetch_aur_infos(missing)
 
 def get_aur_info(pkg: str) -> Tuple[str, Set[str], str]:
-    """Returns (version, deps, pkgbase) for an AUR package."""
+    """Returns (version, deps, pkgbase) for an AUR package. Uses cache if available."""
+    if pkg in _aur_info_cache:
+        return _aur_info_cache[pkg]
+
     url = f"https://aur.archlinux.org/rpc?v=5&type=info&arg[]={pkg}"
     req = urllib.request.Request(url, headers={"User-Agent": "curl/7.68.0"})
     with urllib.request.urlopen(req, timeout=10) as resp:
@@ -73,14 +80,9 @@ def get_aur_info(pkg: str) -> Tuple[str, Set[str], str]:
         raise ValueError(f"Package {pkg} not found in AUR")
     result = data["results"][0]
     version = result.get("Version", "unknown")
-    pkgbase = result.get("PackageBase", pkg)  # 重要: 分割パッケージではここが異なる
-    deps = set()
-    for dep in result.get("Depends", []) or []:
-        dep_name = re.split(r'[>=<]+', dep)[0].strip()
-        deps.add(dep_name)
-    for dep in result.get("MakeDepends", []) or []:
-        dep_name = re.split(r'[>=<]+', dep)[0].strip()
-        deps.add(dep_name)
+    pkgbase = result.get("PackageBase", pkg)
+    deps = _parse_dep_names(result.get("Depends")) | _parse_dep_names(result.get("MakeDepends"))
+    _aur_info_cache[pkg] = (version, deps, pkgbase)
     return version, deps, pkgbase
 
 def get_aur_version(pkg: str) -> str:
@@ -105,17 +107,27 @@ def parse_deps(srcinfo: str) -> Set[str]:
             deps.add(dep)
     return deps
 
+def _get_all_repo_packages() -> Set[str]:
+    """全リポジトリパッケージ名を1回だけ取得してキャッシュする"""
+    global _repo_pkgs_cache
+    if _repo_pkgs_cache is None:
+        try:
+            result = subprocess.run(
+                ['pacman', '-Slq'],
+                capture_output=True, text=True, check=False
+            )
+            _repo_pkgs_cache = set(result.stdout.split()) if result.returncode == 0 else set()
+        except Exception:
+            _repo_pkgs_cache = set()
+    return _repo_pkgs_cache
+
 def is_in_repositories(pkg: str) -> bool:
-    try:
-        result = subprocess.run(
-            ['pacman', '-Ssq', f'^{pkg}$'],
-            capture_output=True, text=True, check=False
-        )
-        return result.returncode == 0 and bool(result.stdout.strip())
-    except:
-        return False
+    return pkg in _get_all_repo_packages()
 
 def get_deps(pkg: str) -> Set[str]:
+    if pkg in _deps_cache:
+        return _deps_cache[pkg]
+
     if is_local_package(pkg):
         srcinfo = get_local_srcinfo(pkg)
         deps = parse_deps(srcinfo)
@@ -124,7 +136,10 @@ def get_deps(pkg: str) -> Set[str]:
         deps = parse_deps(srcinfo)
     else:
         deps = get_aur_deps(pkg)
-    return {d for d in deps if not is_in_repositories(d)}
+
+    result = {d for d in deps if not is_in_repositories(d)}
+    _deps_cache[pkg] = result
+    return result
 
 def _parse_version_from_srcinfo_lines(lines):
     pkgver = pkgrel = None
