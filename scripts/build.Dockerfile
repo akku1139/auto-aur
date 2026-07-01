@@ -9,7 +9,7 @@ RUN pacman --noconfirm -U "https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-key
 RUN pacman-key --recv-key b465fd29d2ea44cc --keyserver keyserver.ubuntu.com
 RUN pacman-key --lsign-key b465fd29d2ea44cc
 
-RUN pacman -Syu --noconfirm --needed git sudo unzip
+RUN pacman -Syu --noconfirm --needed git sudo unzip expac
 
 # after every pacman
 RUN echo -e "[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" >> /etc/pacman.conf
