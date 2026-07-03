@@ -1,4 +1,5 @@
 import urllib.request
+import urllib.parse
 import json
 import re
 import subprocess
@@ -75,7 +76,7 @@ def get_aur_info(pkg: str) -> Tuple[str, Set[str], str]:
     if pkg in _aur_info_cache:
         return _aur_info_cache[pkg]
 
-    url = f"https://aur.archlinux.org/rpc?v=5&type=info&arg[]={pkg}"
+    url = f"https://aur.archlinux.org/rpc?v=5&type=info&arg[]={urllib.parse.quote(pkg)}"
     req = urllib.request.Request(url, headers={"User-Agent": "curl/7.68.0"})
     with urllib.request.urlopen(req, timeout=10) as resp:
         data = json.loads(resp.read().decode('utf-8'))
