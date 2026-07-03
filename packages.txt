@@ -13,3 +13,5 @@ yt-dlp-ejs-anyruntime
 quickjs
 vboot-utils
 karukan
+overte-appimage
+overte-server-bin
