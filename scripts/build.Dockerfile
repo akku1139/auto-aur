@@ -6,10 +6,10 @@ RUN pacman-key --lsign-key 3056513887B78AEB
 RUN pacman --noconfirm -U "https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst" \
                           "https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst"
 
-pacman-key --recv-key b465fd29d2ea44cc --keyserver keyserver.ubuntu.com
-pacman-key --lsign-key b465fd29d2ea44cc
-pacman --noconfirm -U 'https://auto-aur.pages.dev/repo/auto-aur/x86_64/auto-aur-keyring-20240923-1-any.pkg.tar.zst' \
-                      'https://auto-aur.pages.dev/repo/auto-aur/x86_64/auto-aur-mirrorlist-20260606-1-any.pkg.tar.zst'
+RUN pacman-key --recv-key b465fd29d2ea44cc --keyserver keyserver.ubuntu.com
+RUN pacman-key --lsign-key b465fd29d2ea44cc
+RUN pacman --noconfirm -U 'https://auto-aur.pages.dev/repo/auto-aur/x86_64/auto-aur-keyring-20240923-1-any.pkg.tar.zst' \
+                          'https://auto-aur.pages.dev/repo/auto-aur/x86_64/auto-aur-mirrorlist-20260606-1-any.pkg.tar.zst'
 
 RUN pacman -Syu --noconfirm --needed git sudo unzip
 
