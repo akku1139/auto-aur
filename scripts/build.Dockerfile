@@ -13,10 +13,12 @@ RUN pacman --noconfirm -U 'https://auto-aur.pages.dev/repo/auto-aur/x86_64/auto-
 
 RUN pacman -Syu --noconfirm --needed git sudo unzip
 
+RUN echo -e "[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" >> /etc/pacman.conf
+RUN echo -e "[auto-aur]\nInclude = /etc/pacman.d/auto-aur-mirrorlist" >> /etc/pacman.conf
+RUN pacman -Sy
+
 # after every pacman
 RUN echo -e "[auto-aur-local]\nServer = file:///repo\nSigLevel = Optional TrustAll" >> /etc/pacman.conf
-RUN echo -e "[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" >> /etc/pacman.conf
-RUN pacman -Sy
 RUN sed -i '/^OPTIONS=/s/\bdebug\b/!debug/g' /etc/makepkg.conf
 RUN sed -i '/^BUILDENV=/s/\bcheck\b/!check/g' /etc/makepkg.conf
 
