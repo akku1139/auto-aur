@@ -142,8 +142,10 @@ jobs:
             echo "::group::$pkgbase"
             echo "Building $pkgbase"
 
+            BASE_DIR="/build/$pkgbase"
+
             # ソースの準備 (ローカルパッケージ or カスタムパッチ or AUR)
-            SRC_DIR="/build/$pkgbase/src"
+            SRC_DIR="$BASE_DIR/src"
             mkdir -p "$SRC_DIR"
 
             if [ -d "local-packages/$pkgbase" ]; then
@@ -154,14 +156,21 @@ jobs:
               git clone --depth=1 "https://aur.archlinux.org/$pkgbase.git" "$SRC_DIR"
             fi
 
+            DEPS_FILE="$BASE_DIR/deps"
+            if [ -f "deps/$pkgbase" ]; then
+              cp "deps/$pkgbase" "$DEPS_FILE"
+            else
+              touch "$DEPS_FILE"
+            fi
+
             # ビルド実行
             docker run --rm \
               -v /build/repo:/repo \
               -v /build/pacman-cache:/var/cache/pacman \
-              -v "$SRC_DIR":/home/builder/src \
+              -v "$BASE_DIR":/home/builder/pkg \
               aur-builder
             repo-add /build/repo/auto-aur-local.db.tar.gz /build/repo/*.pkg.tar.zst
-            rm -rf /build/build/$pkgbase
+            rm -rf "$BASE_DIR"
             echo "::endgroup::"
           done < sorted_build_list_pkgbase.txt
 

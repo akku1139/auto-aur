@@ -28,5 +28,5 @@ RUN echo 'builder ALL=(ALL) NOPASSWD: /usr/bin/pacman' >> /etc/sudoers
 COPY scripts/build/entry.sh /entry.sh
 RUN chmod +x /entry.sh
 
-WORKDIR /home/builder/src
+WORKDIR /home/builder/pkg
 ENTRYPOINT ["/entry.sh"]
