@@ -104,6 +104,11 @@
       "filename": "overte-server-bin-2025.05.1.53d2094-1-x86_64.pkg.tar.zst",
       "release_tag": "build-20260703-061513",
       "version": "2025.05.1.53d2094-1"
+    },
+    "fcitx5-hazkey": {
+      "filename": "fcitx5-hazkey-0.2.1-2-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260715-032040",
+      "version": "0.2.1-2"
     }
   }
 }
