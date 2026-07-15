@@ -11,7 +11,7 @@ RUN pacman-key --lsign-key b465fd29d2ea44cc
 RUN pacman --noconfirm -U 'https://auto-aur.pages.dev/repo/auto-aur/x86_64/auto-aur-keyring-20240923-1-any.pkg.tar.zst' \
                           'https://auto-aur.pages.dev/repo/auto-aur/x86_64/auto-aur-mirrorlist-20260606-1-any.pkg.tar.zst'
 
-RUN pacman -Syu --noconfirm --needed git sudo unzip
+RUN pacman -Syu --noconfirm
 
 RUN echo -e "[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" >> /etc/pacman.conf
 RUN echo -e "[auto-aur]\nInclude = /etc/pacman.d/auto-aur-mirrorlist" >> /etc/pacman.conf
