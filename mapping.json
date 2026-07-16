@@ -31,9 +31,9 @@
       "version": "0.2.1-2"
     },
     "walker": {
-      "filename": "walker-2.16.2-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260607-135644",
-      "version": "2.16.2-1"
+      "filename": "walker-2.17.0-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260716-165901",
+      "version": "2.17.0-1"
     },
     "zsh-fast-syntax-highlighting": {
       "filename": "zsh-fast-syntax-highlighting-1.56-1-any.pkg.tar.zst",

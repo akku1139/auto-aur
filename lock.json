@@ -2,20 +2,11 @@
   "version": 1,
   "packages": [
     {
-      "name": "libstdc++5",
-      "pkgbase": "libstdc++5",
-      "version": "3.3.6-11",
+      "name": "chromeos-flashrom-git",
+      "pkgbase": "chromeos-flashrom-git",
+      "version": "r4051.90795b2cc-2",
       "deps": [],
       "build_order": 0,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "qt5-websockets",
-      "pkgbase": "qt5-websockets",
-      "version": "5.15.19+kde+r2-1",
-      "deps": [],
-      "build_order": 1,
       "local": false,
       "custom": false
     },
@@ -24,25 +15,25 @@
       "pkgbase": "coreboot-utils",
       "version": "26.06-1",
       "deps": [],
+      "build_order": 1,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "libstdc++5",
+      "pkgbase": "libstdc++5",
+      "version": "3.3.6-11",
+      "deps": [],
       "build_order": 2,
       "local": false,
       "custom": false
     },
     {
-      "name": "chromeos-flashrom-git",
-      "pkgbase": "chromeos-flashrom-git",
-      "version": "r4051.90795b2cc-2",
+      "name": "qt5-websockets",
+      "pkgbase": "qt5-websockets",
+      "version": "5.15.19+kde+r2-1",
       "deps": [],
       "build_order": 3,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "yt-dlp-ejs-anyruntime",
-      "pkgbase": "yt-dlp-ejs-anyruntime",
-      "version": "0.8.0-3",
-      "deps": [],
-      "build_order": 4,
       "local": false,
       "custom": false
     },
@@ -51,25 +42,7 @@
       "pkgbase": "karukan",
       "version": "0.1.0-4",
       "deps": [],
-      "build_order": 5,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "nijiexpose-bin",
-      "pkgbase": "nijiexpose-bin",
-      "version": "v1.0.0beta2-1",
-      "deps": [],
-      "build_order": 6,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "bankstown",
-      "pkgbase": "bankstown",
-      "version": "1.1.0-2",
-      "deps": [],
-      "build_order": 7,
+      "build_order": 4,
       "local": false,
       "custom": false
     },
@@ -78,17 +51,56 @@
       "pkgbase": "hazkey-zenzai-model",
       "version": "0.1-1",
       "deps": [],
+      "build_order": 5,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "auto-aur-keyring",
+      "pkgbase": "auto-aur-keyring",
+      "version": "20240923-1",
+      "deps": [],
+      "build_order": 6,
+      "local": true,
+      "custom": false
+    },
+    {
+      "name": "fcitx5-hazkey-bin",
+      "pkgbase": "fcitx5-hazkey-bin",
+      "version": "0.2.1-2",
+      "deps": [],
+      "build_order": 7,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "vboot-utils",
+      "pkgbase": "vboot-utils",
+      "version": "150.16700-1",
+      "deps": [
+        "cbfstool",
+        "chromeos-flashrom-git"
+      ],
       "build_order": 8,
       "local": false,
       "custom": false
     },
     {
-      "name": "auto-aur-mirrorlist",
-      "pkgbase": "auto-aur-mirrorlist",
-      "version": "20260606-1",
+      "name": "walker",
+      "pkgbase": "walker",
+      "version": "2.17.0-1",
       "deps": [],
       "build_order": 9,
-      "local": true,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "overte-appimage",
+      "pkgbase": "overte-appimage",
+      "version": "2026.04.1-1",
+      "deps": [],
+      "build_order": 10,
+      "local": false,
       "custom": false
     },
     {
@@ -99,55 +111,52 @@
         "qt5-websockets",
         "libstdc++5"
       ],
-      "build_order": 10,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "vboot-utils",
-      "pkgbase": "vboot-utils",
-      "version": "150.16700-1",
-      "deps": [
-        "chromeos-flashrom-git",
-        "cbfstool"
-      ],
       "build_order": 11,
       "local": false,
       "custom": false
     },
     {
-      "name": "fcitx5-hazkey-bin",
-      "pkgbase": "fcitx5-hazkey-bin",
-      "version": "0.2.1-2",
+      "name": "yt-dlp-ejs-anyruntime",
+      "pkgbase": "yt-dlp-ejs-anyruntime",
+      "version": "0.8.0-3",
       "deps": [],
       "build_order": 12,
       "local": false,
       "custom": false
     },
     {
-      "name": "overte-appimage",
-      "pkgbase": "overte-appimage",
-      "version": "2026.04.1-1",
+      "name": "nijiexpose-bin",
+      "pkgbase": "nijiexpose-bin",
+      "version": "v1.0.0beta2-1",
       "deps": [],
       "build_order": 13,
       "local": false,
       "custom": false
     },
     {
-      "name": "nijigenerate-bin",
-      "pkgbase": "nijigenerate-bin",
-      "version": "v1.0.0beta2-1",
+      "name": "faketty",
+      "pkgbase": "faketty",
+      "version": "1.0.20-2",
       "deps": [],
       "build_order": 14,
       "local": false,
       "custom": false
     },
     {
-      "name": "walker",
-      "pkgbase": "walker",
-      "version": "2.16.2-1",
+      "name": "auto-aur-mirrorlist",
+      "pkgbase": "auto-aur-mirrorlist",
+      "version": "20260606-1",
       "deps": [],
       "build_order": 15,
+      "local": true,
+      "custom": false
+    },
+    {
+      "name": "quickjs",
+      "pkgbase": "quickjs",
+      "version": "2026.06.04-1",
+      "deps": [],
+      "build_order": 16,
       "local": false,
       "custom": false
     },
@@ -155,15 +164,6 @@
       "name": "zsh-fast-syntax-highlighting",
       "pkgbase": "zsh-fast-syntax-highlighting",
       "version": "1.56-1",
-      "deps": [],
-      "build_order": 16,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "quickjs",
-      "pkgbase": "quickjs",
-      "version": "2026.06.04-1",
       "deps": [],
       "build_order": 17,
       "local": false,
@@ -179,21 +179,12 @@
       "custom": false
     },
     {
-      "name": "faketty",
-      "pkgbase": "faketty",
-      "version": "1.0.20-2",
+      "name": "nijigenerate-bin",
+      "pkgbase": "nijigenerate-bin",
+      "version": "v1.0.0beta2-1",
       "deps": [],
       "build_order": 19,
       "local": false,
-      "custom": false
-    },
-    {
-      "name": "auto-aur-keyring",
-      "pkgbase": "auto-aur-keyring",
-      "version": "20240923-1",
-      "deps": [],
-      "build_order": 20,
-      "local": true,
       "custom": false
     },
     {
@@ -201,33 +192,42 @@
       "pkgbase": "snowflake-pt-proxy",
       "version": "2.14.1-1",
       "deps": [],
+      "build_order": 20,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "bankstown",
+      "pkgbase": "bankstown",
+      "version": "1.1.0-2",
+      "deps": [],
       "build_order": 21,
       "local": false,
       "custom": false
     }
   ],
   "build_order": [
+    "chromeos-flashrom-git",
+    "cbfstool",
     "libstdc++5",
     "qt5-websockets",
-    "cbfstool",
-    "chromeos-flashrom-git",
-    "yt-dlp-ejs-anyruntime",
     "karukan",
-    "nijiexpose-bin",
-    "bankstown",
     "hazkey-zenzai-model",
-    "auto-aur-mirrorlist",
-    "overte-server-bin",
-    "vboot-utils",
-    "fcitx5-hazkey-bin",
-    "overte-appimage",
-    "nijigenerate-bin",
-    "walker",
-    "zsh-fast-syntax-highlighting",
-    "quickjs",
-    "fcitx5-hazkey",
-    "faketty",
     "auto-aur-keyring",
-    "snowflake-pt-proxy"
+    "fcitx5-hazkey-bin",
+    "vboot-utils",
+    "walker",
+    "overte-appimage",
+    "overte-server-bin",
+    "yt-dlp-ejs-anyruntime",
+    "nijiexpose-bin",
+    "faketty",
+    "auto-aur-mirrorlist",
+    "quickjs",
+    "zsh-fast-syntax-highlighting",
+    "fcitx5-hazkey",
+    "nijigenerate-bin",
+    "snowflake-pt-proxy",
+    "bankstown"
   ]
 }
