@@ -16,3 +16,13 @@ vboot-utils
 karukan
 overte-appimage
 overte-server-bin
+irlume
+luma-bin
+mozc
+osu-lazer
+osu-mime
+sing-box
+spicetify-cli
+spicetify-bin
+vencord-installer
+vencord-installer-cli-bin
