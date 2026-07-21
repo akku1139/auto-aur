@@ -26,3 +26,4 @@ spicetify-cli
 spicetify-bin
 vencord-installer
 vencord-installer-cli-bin
+wakatime
