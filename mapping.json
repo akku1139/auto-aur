@@ -109,6 +109,61 @@
       "filename": "fcitx5-hazkey-0.2.1-2-x86_64.pkg.tar.zst",
       "release_tag": "build-20260715-032040",
       "version": "0.2.1-2"
+    },
+    "sing-box": {
+      "filename": "sing-box-1.13.14-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260721-092929",
+      "version": "1.13.14-1"
+    },
+    "spicetify-cli": {
+      "filename": "spicetify-cli-2.44.0-3-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260721-092929",
+      "version": "2.44.0-3"
+    },
+    "spicetify-bin": {
+      "filename": "spicetify-bin-2.44.0-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260721-092929",
+      "version": "2.44.0-1"
+    },
+    "vencord-installer": {
+      "filename": "vencord-installer-1.4.0-6-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260721-092929",
+      "version": "1.4.0-6"
+    },
+    "mozc": {
+      "filename": "mozc-3.34.6239-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260721-092929",
+      "version": "3.34.6239-1"
+    },
+    "osu-mime": {
+      "filename": "osu-mime-0.1-3-any.pkg.tar.zst",
+      "release_tag": "build-20260721-092929",
+      "version": "0.1-3"
+    },
+    "luma-bin": {
+      "filename": "luma-bin-1.2.3-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260721-092929",
+      "version": "1.2.3-1"
+    },
+    "vencord-installer-cli-bin": {
+      "filename": "vencord-installer-cli-bin-1.4.0-3-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260721-092929",
+      "version": "1.4.0-3"
+    },
+    "osu-lazer": {
+      "filename": "osu-lazer-2026.711.0-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260721-092929",
+      "version": "2026.711.0-1"
+    },
+    "wakatime": {
+      "filename": "wakatime-2.22.2-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260721-092929",
+      "version": "2.22.2-1"
+    },
+    "irlume": {
+      "filename": "irlume-0.4.0-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260721-092929",
+      "version": "0.4.0-1"
     }
   }
 }
