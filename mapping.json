@@ -161,9 +161,9 @@
       "version": "2.22.2-1"
     },
     "irlume": {
-      "filename": "irlume-0.4.0-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260721-092929",
-      "version": "0.4.0-1"
+      "filename": "irlume-0.5.0-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260722-145210",
+      "version": "0.5.0-1"
     }
   }
 }
