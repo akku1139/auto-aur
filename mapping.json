@@ -111,9 +111,9 @@
       "version": "0.2.1-2"
     },
     "sing-box": {
-      "filename": "sing-box-1.13.14-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260721-092929",
-      "version": "1.13.14-1"
+      "filename": "sing-box-1.13.15-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260729-150312",
+      "version": "1.13.15-1"
     },
     "spicetify-cli": {
       "filename": "spicetify-cli-2.44.0-3-x86_64.pkg.tar.zst",
@@ -156,9 +156,9 @@
       "version": "2026.726.0-1"
     },
     "wakatime": {
-      "filename": "wakatime-2.22.2-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260721-092929",
-      "version": "2.22.2-1"
+      "filename": "wakatime-2.23.0-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260729-150312",
+      "version": "2.23.0-1"
     },
     "irlume": {
       "filename": "irlume-0.7.1-1-x86_64.pkg.tar.zst",

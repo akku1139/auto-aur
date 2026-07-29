@@ -42,8 +42,8 @@
 /repo/auto-aur/x86_64/overte-server-bin-2025.05.1.53d2094-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260703-061513/overte-server-bin-2025.05.1.53d2094-1-x86_64.pkg.tar.zst.sig 302
 /repo/auto-aur/x86_64/fcitx5-hazkey-0.2.1-2-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260715-032040/fcitx5-hazkey-0.2.1-2-x86_64.pkg.tar.zst 302
 /repo/auto-aur/x86_64/fcitx5-hazkey-0.2.1-2-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260715-032040/fcitx5-hazkey-0.2.1-2-x86_64.pkg.tar.zst.sig 302
-/repo/auto-aur/x86_64/sing-box-1.13.14-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260721-092929/sing-box-1.13.14-1-x86_64.pkg.tar.zst 302
-/repo/auto-aur/x86_64/sing-box-1.13.14-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260721-092929/sing-box-1.13.14-1-x86_64.pkg.tar.zst.sig 302
+/repo/auto-aur/x86_64/sing-box-1.13.15-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260729-150312/sing-box-1.13.15-1-x86_64.pkg.tar.zst 302
+/repo/auto-aur/x86_64/sing-box-1.13.15-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260729-150312/sing-box-1.13.15-1-x86_64.pkg.tar.zst.sig 302
 /repo/auto-aur/x86_64/spicetify-cli-2.44.0-3-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260721-092929/spicetify-cli-2.44.0-3-x86_64.pkg.tar.zst 302
 /repo/auto-aur/x86_64/spicetify-cli-2.44.0-3-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260721-092929/spicetify-cli-2.44.0-3-x86_64.pkg.tar.zst.sig 302
 /repo/auto-aur/x86_64/spicetify-bin-2.44.0-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260721-092929/spicetify-bin-2.44.0-1-x86_64.pkg.tar.zst 302
@@ -60,7 +60,7 @@
 /repo/auto-aur/x86_64/vencord-installer-cli-bin-1.4.0-3-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260721-092929/vencord-installer-cli-bin-1.4.0-3-x86_64.pkg.tar.zst.sig 302
 /repo/auto-aur/x86_64/osu-lazer-2026.726.0-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260726-164057/osu-lazer-2026.726.0-1-x86_64.pkg.tar.zst 302
 /repo/auto-aur/x86_64/osu-lazer-2026.726.0-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260726-164057/osu-lazer-2026.726.0-1-x86_64.pkg.tar.zst.sig 302
-/repo/auto-aur/x86_64/wakatime-2.22.2-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260721-092929/wakatime-2.22.2-1-x86_64.pkg.tar.zst 302
-/repo/auto-aur/x86_64/wakatime-2.22.2-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260721-092929/wakatime-2.22.2-1-x86_64.pkg.tar.zst.sig 302
+/repo/auto-aur/x86_64/wakatime-2.23.0-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260729-150312/wakatime-2.23.0-1-x86_64.pkg.tar.zst 302
+/repo/auto-aur/x86_64/wakatime-2.23.0-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260729-150312/wakatime-2.23.0-1-x86_64.pkg.tar.zst.sig 302
 /repo/auto-aur/x86_64/irlume-0.7.1-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260729-115418/irlume-0.7.1-1-x86_64.pkg.tar.zst 302
 /repo/auto-aur/x86_64/irlume-0.7.1-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260729-115418/irlume-0.7.1-1-x86_64.pkg.tar.zst.sig 302

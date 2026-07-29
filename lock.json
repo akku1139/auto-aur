@@ -20,38 +20,65 @@
       "custom": false
     },
     {
-      "name": "chromeos-flashrom-git",
-      "pkgbase": "chromeos-flashrom-git",
-      "version": "r4051.90795b2cc-2",
+      "name": "cbfstool",
+      "pkgbase": "coreboot-utils",
+      "version": "26.06-1",
       "deps": [],
       "build_order": 2,
       "local": false,
       "custom": false
     },
     {
-      "name": "cbfstool",
-      "pkgbase": "coreboot-utils",
-      "version": "26.06-1",
+      "name": "chromeos-flashrom-git",
+      "pkgbase": "chromeos-flashrom-git",
+      "version": "r4051.90795b2cc-2",
       "deps": [],
       "build_order": 3,
       "local": false,
       "custom": false
     },
     {
-      "name": "karukan",
-      "pkgbase": "karukan",
-      "version": "0.1.0-4",
+      "name": "sing-box",
+      "pkgbase": "sing-box",
+      "version": "1.13.15-1",
       "deps": [],
       "build_order": 4,
       "local": false,
       "custom": false
     },
     {
-      "name": "snowflake-pt-proxy",
-      "pkgbase": "snowflake-pt-proxy",
-      "version": "2.14.1-1",
+      "name": "yt-dlp-ejs-anyruntime",
+      "pkgbase": "yt-dlp-ejs-anyruntime",
+      "version": "0.8.0-3",
       "deps": [],
       "build_order": 5,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "vencord-installer-cli-bin",
+      "pkgbase": "vencord-installer-cli-bin",
+      "version": "1.4.0-3",
+      "deps": [],
+      "build_order": 6,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "auto-aur-mirrorlist",
+      "pkgbase": "auto-aur-mirrorlist",
+      "version": "20260606-1",
+      "deps": [],
+      "build_order": 7,
+      "local": true,
+      "custom": false
+    },
+    {
+      "name": "irlume",
+      "pkgbase": "irlume",
+      "version": "0.7.1-1",
+      "deps": [],
+      "build_order": 8,
       "local": false,
       "custom": false
     },
@@ -63,33 +90,6 @@
         "qt5-websockets",
         "libstdc++5"
       ],
-      "build_order": 6,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "bankstown",
-      "pkgbase": "bankstown",
-      "version": "1.1.0-2",
-      "deps": [],
-      "build_order": 7,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "auto-aur-mirrorlist",
-      "pkgbase": "auto-aur-mirrorlist",
-      "version": "20260606-1",
-      "deps": [],
-      "build_order": 8,
-      "local": true,
-      "custom": false
-    },
-    {
-      "name": "irlume",
-      "pkgbase": "irlume",
-      "version": "0.7.1-1",
-      "deps": [],
       "build_order": 9,
       "local": false,
       "custom": false
@@ -104,30 +104,30 @@
       "custom": false
     },
     {
-      "name": "zsh-fast-syntax-highlighting",
-      "pkgbase": "zsh-fast-syntax-highlighting",
-      "version": "1.56-1",
+      "name": "nijiexpose-bin",
+      "pkgbase": "nijiexpose-bin",
+      "version": "v1.0.0beta2-1",
       "deps": [],
       "build_order": 11,
       "local": false,
       "custom": false
     },
     {
-      "name": "nijiexpose-bin",
-      "pkgbase": "nijiexpose-bin",
-      "version": "v1.0.0beta2-1",
+      "name": "fcitx5-hazkey-bin",
+      "pkgbase": "fcitx5-hazkey-bin",
+      "version": "0.2.1-2",
       "deps": [],
       "build_order": 12,
       "local": false,
       "custom": false
     },
     {
-      "name": "wakatime",
-      "pkgbase": "wakatime",
-      "version": "2.22.2-1",
+      "name": "auto-aur-keyring",
+      "pkgbase": "auto-aur-keyring",
+      "version": "20240923-1",
       "deps": [],
       "build_order": 13,
-      "local": false,
+      "local": true,
       "custom": false
     },
     {
@@ -140,131 +140,11 @@
       "custom": false
     },
     {
-      "name": "spicetify-cli",
-      "pkgbase": "spicetify-cli",
-      "version": "2.44.0-3",
-      "deps": [],
-      "build_order": 15,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "fcitx5-hazkey-bin",
-      "pkgbase": "fcitx5-hazkey-bin",
-      "version": "0.2.1-2",
-      "deps": [],
-      "build_order": 16,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "spicetify-bin",
-      "pkgbase": "spicetify-bin",
-      "version": "2.44.0-1",
-      "deps": [],
-      "build_order": 17,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "vencord-installer",
-      "pkgbase": "vencord-installer",
-      "version": "1.4.0-6",
-      "deps": [],
-      "build_order": 18,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "auto-aur-keyring",
-      "pkgbase": "auto-aur-keyring",
-      "version": "20240923-1",
-      "deps": [],
-      "build_order": 19,
-      "local": true,
-      "custom": false
-    },
-    {
-      "name": "overte-appimage",
-      "pkgbase": "overte-appimage",
-      "version": "2026.04.1-1",
-      "deps": [],
-      "build_order": 20,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "walker",
-      "pkgbase": "walker",
-      "version": "2.17.0-1",
-      "deps": [],
-      "build_order": 21,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "faketty",
-      "pkgbase": "faketty",
-      "version": "1.0.20-2",
-      "deps": [],
-      "build_order": 22,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "osu-lazer",
-      "pkgbase": "osu-lazer",
-      "version": "2026.726.0-1",
-      "deps": [],
-      "build_order": 23,
-      "local": false,
-      "custom": false
-    },
-    {
       "name": "luma-bin",
       "pkgbase": "luma-bin",
       "version": "1.2.3-1",
       "deps": [],
-      "build_order": 24,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "vboot-utils",
-      "pkgbase": "vboot-utils",
-      "version": "150.16700-1",
-      "deps": [
-        "cbfstool",
-        "chromeos-flashrom-git"
-      ],
-      "build_order": 25,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "vencord-installer-cli-bin",
-      "pkgbase": "vencord-installer-cli-bin",
-      "version": "1.4.0-3",
-      "deps": [],
-      "build_order": 26,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "sing-box",
-      "pkgbase": "sing-box",
-      "version": "1.13.14-1",
-      "deps": [],
-      "build_order": 27,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "osu-mime",
-      "pkgbase": "osu-mime",
-      "version": "0.1-3",
-      "deps": [],
-      "build_order": 28,
+      "build_order": 15,
       "local": false,
       "custom": false
     },
@@ -273,16 +153,7 @@
       "pkgbase": "quickjs",
       "version": "2026.06.04-1",
       "deps": [],
-      "build_order": 29,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "hazkey-zenzai-model",
-      "pkgbase": "hazkey-zenzai-model",
-      "version": "0.1-1",
-      "deps": [],
-      "build_order": 30,
+      "build_order": 16,
       "local": false,
       "custom": false
     },
@@ -291,15 +162,144 @@
       "pkgbase": "mozc",
       "version": "3.34.6239-1",
       "deps": [],
+      "build_order": 17,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "karukan",
+      "pkgbase": "karukan",
+      "version": "0.1.0-4",
+      "deps": [],
+      "build_order": 18,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "hazkey-zenzai-model",
+      "pkgbase": "hazkey-zenzai-model",
+      "version": "0.1-1",
+      "deps": [],
+      "build_order": 19,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "faketty",
+      "pkgbase": "faketty",
+      "version": "1.0.20-2",
+      "deps": [],
+      "build_order": 20,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "zsh-fast-syntax-highlighting",
+      "pkgbase": "zsh-fast-syntax-highlighting",
+      "version": "1.56-1",
+      "deps": [],
+      "build_order": 21,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "snowflake-pt-proxy",
+      "pkgbase": "snowflake-pt-proxy",
+      "version": "2.14.1-1",
+      "deps": [],
+      "build_order": 22,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "bankstown",
+      "pkgbase": "bankstown",
+      "version": "1.1.0-2",
+      "deps": [],
+      "build_order": 23,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "vencord-installer",
+      "pkgbase": "vencord-installer",
+      "version": "1.4.0-6",
+      "deps": [],
+      "build_order": 24,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "osu-mime",
+      "pkgbase": "osu-mime",
+      "version": "0.1-3",
+      "deps": [],
+      "build_order": 25,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "wakatime",
+      "pkgbase": "wakatime",
+      "version": "2.23.0-1",
+      "deps": [],
+      "build_order": 26,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "overte-appimage",
+      "pkgbase": "overte-appimage",
+      "version": "2026.04.1-1",
+      "deps": [],
+      "build_order": 27,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "walker",
+      "pkgbase": "walker",
+      "version": "2.17.0-1",
+      "deps": [],
+      "build_order": 28,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "spicetify-bin",
+      "pkgbase": "spicetify-bin",
+      "version": "2.44.0-1",
+      "deps": [],
+      "build_order": 29,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "spicetify-cli",
+      "pkgbase": "spicetify-cli",
+      "version": "2.44.0-3",
+      "deps": [],
+      "build_order": 30,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "osu-lazer",
+      "pkgbase": "osu-lazer",
+      "version": "2026.726.0-1",
+      "deps": [],
       "build_order": 31,
       "local": false,
       "custom": false
     },
     {
-      "name": "yt-dlp-ejs-anyruntime",
-      "pkgbase": "yt-dlp-ejs-anyruntime",
-      "version": "0.8.0-3",
-      "deps": [],
+      "name": "vboot-utils",
+      "pkgbase": "vboot-utils",
+      "version": "150.16700-1",
+      "deps": [
+        "chromeos-flashrom-git",
+        "cbfstool"
+      ],
       "build_order": 32,
       "local": false,
       "custom": false
@@ -308,36 +308,36 @@
   "build_order": [
     "libstdc++5",
     "qt5-websockets",
-    "chromeos-flashrom-git",
     "cbfstool",
-    "karukan",
-    "snowflake-pt-proxy",
-    "overte-server-bin",
-    "bankstown",
+    "chromeos-flashrom-git",
+    "sing-box",
+    "yt-dlp-ejs-anyruntime",
+    "vencord-installer-cli-bin",
     "auto-aur-mirrorlist",
     "irlume",
+    "overte-server-bin",
     "fcitx5-hazkey",
-    "zsh-fast-syntax-highlighting",
     "nijiexpose-bin",
-    "wakatime",
-    "nijigenerate-bin",
-    "spicetify-cli",
     "fcitx5-hazkey-bin",
-    "spicetify-bin",
-    "vencord-installer",
     "auto-aur-keyring",
+    "nijigenerate-bin",
+    "luma-bin",
+    "quickjs",
+    "mozc",
+    "karukan",
+    "hazkey-zenzai-model",
+    "faketty",
+    "zsh-fast-syntax-highlighting",
+    "snowflake-pt-proxy",
+    "bankstown",
+    "vencord-installer",
+    "osu-mime",
+    "wakatime",
     "overte-appimage",
     "walker",
-    "faketty",
+    "spicetify-bin",
+    "spicetify-cli",
     "osu-lazer",
-    "luma-bin",
-    "vboot-utils",
-    "vencord-installer-cli-bin",
-    "sing-box",
-    "osu-mime",
-    "quickjs",
-    "hazkey-zenzai-model",
-    "mozc",
-    "yt-dlp-ejs-anyruntime"
+    "vboot-utils"
   ]
 }
