@@ -166,8 +166,8 @@
       "version": "0.7.2-1"
     },
     "ggml-core": {
-      "filename": "ggml-core-0.17.0-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260731-075722",
+      "filename": "ggml-core-llama.cpp-0.0.0.b10103-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260731-093805",
       "version": "0.17.0-1"
     },
     "ggml-vulkan-backend": {
@@ -179,6 +179,26 @@
       "filename": "tascam-control-panel-git-r141.b013e2e-1-x86_64.pkg.tar.zst",
       "release_tag": "build-20260731-082850",
       "version": "r141.b013e2e-1"
+    },
+    "llama.cpp-system": {
+      "filename": "llama.cpp-system-0.0.0.b10103-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260731-093805",
+      "version": "0.0.0.b10103-1"
+    },
+    "ggml-vulkan-backend-llama.cpp": {
+      "filename": "ggml-vulkan-backend-llama.cpp-0.0.0.b10103-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260731-093805",
+      "version": "0.0.0.b10103-1"
+    },
+    "ggml-cpu-backend": {
+      "filename": "ggml-cpu-backend-0.17.0-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260731-093805",
+      "version": "0.17.0-1"
+    },
+    "stable-diffusion.cpp-system": {
+      "filename": "stable-diffusion.cpp-system-0.0.0.788-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260731-093805",
+      "version": "0.0.0.788-1"
     }
   }
 }
