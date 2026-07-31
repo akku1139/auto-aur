@@ -27,3 +27,5 @@ spicetify-bin
 vencord-installer
 vencord-installer-cli-bin
 wakatime
+ggml-core
+ggml-vulkan-backend
