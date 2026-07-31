@@ -167,12 +167,12 @@
     },
     "ggml-core": {
       "filename": "ggml-core-llama.cpp-0.0.0.b10103-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260731-112105",
+      "release_tag": "build-20260731-162100",
       "version": "0.17.0-1"
     },
     "ggml-vulkan-backend": {
       "filename": "ggml-vulkan-backend-llama.cpp-0.0.0.b10103-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260731-112105",
+      "release_tag": "build-20260731-162100",
       "version": "0.17.0-1"
     },
     "tascam-control-panel-git": {
@@ -192,18 +192,13 @@
     },
     "ggml-cpu-backend": {
       "filename": "ggml-cpu-backend-llama.cpp-0.0.0.b10103-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260731-112105",
+      "release_tag": "build-20260731-162100",
       "version": "0.17.0-1"
     },
     "stable-diffusion.cpp-system": {
       "filename": "stable-diffusion.cpp-system-0.0.0.788-1-x86_64.pkg.tar.zst",
       "release_tag": "build-20260731-093805",
       "version": "0.0.0.788-1"
-    },
-    "ggml-hip-backend-llama.cpp": {
-      "filename": "ggml-hip-backend-llama.cpp-0.0.0.b10103-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260731-112105",
-      "version": "0.0.0.b10103-1"
     }
   }
 }
