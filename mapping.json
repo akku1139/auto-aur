@@ -164,6 +164,16 @@
       "filename": "irlume-0.7.2-1-x86_64.pkg.tar.zst",
       "release_tag": "build-20260730-092327",
       "version": "0.7.2-1"
+    },
+    "ggml-core": {
+      "filename": "ggml-core-0.17.0-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260731-075722",
+      "version": "0.17.0-1"
+    },
+    "ggml-vulkan-backend": {
+      "filename": "ggml-vulkan-backend-0.17.0-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260731-075722",
+      "version": "0.17.0-1"
     }
   }
 }
