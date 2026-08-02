@@ -31,7 +31,9 @@ ggml-core
 ggml-vulkan-backend
 ggml-vulkan-backend-llama.cpp
 ggml-hip-backend-llama.cpp
+ggml-hip-backend
 ggml-cuda-backend-llama.cpp
+ggml-cuda-backend
 ggml-cpu-backend-llama.cpp
 ggml-cpu-backend
 ggml-core-llama.cpp
