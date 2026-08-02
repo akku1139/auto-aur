@@ -187,7 +187,7 @@
     },
     "ggml-vulkan-backend-llama.cpp": {
       "filename": "ggml-vulkan-backend-llama.cpp-0.0.0.b10103-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260802-120111",
+      "release_tag": "build-20260802-173140",
       "version": "0.0.0.b10103-1"
     },
     "ggml-cpu-backend": {
@@ -202,12 +202,22 @@
     },
     "ggml-cuda-backend-llama.cpp": {
       "filename": "ggml-cuda-backend-llama.cpp-0.0.0.b10103-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260802-120111",
+      "release_tag": "build-20260802-173140",
       "version": "0.0.0.b10103-1"
     },
     "ggml-hip-backend-llama.cpp": {
       "filename": "ggml-hip-backend-llama.cpp-0.0.0.b10103-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260802-120111",
+      "release_tag": "build-20260802-173140",
+      "version": "0.0.0.b10103-1"
+    },
+    "ggml-core-llama.cpp": {
+      "filename": "ggml-core-llama.cpp-0.0.0.b10103-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260802-173140",
+      "version": "0.0.0.b10103-1"
+    },
+    "ggml-cpu-backend-llama.cpp": {
+      "filename": "ggml-cpu-backend-llama.cpp-0.0.0.b10103-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260802-173140",
       "version": "0.0.0.b10103-1"
     }
   }
