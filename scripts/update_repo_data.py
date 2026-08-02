@@ -47,13 +47,25 @@ def main():
         sys.exit(1)
 
     # Update mapping
+    pkgname_map = {}
+    map_file = new_pkgs_dir / 'pkgname-map.txt'
+    if map_file.exists():
+        for line in map_file.read_text().splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            fname, pkgname = line.split(' ', 1)
+            pkgname_map[fname] = pkgname
+
     for pkg_file in new_pkg_files:
         fname = pkg_file.name
-        matched = None
-        for name in pkg_names:
-            if fname.startswith(name + '-'):
-                matched = name
-                break
+        matched = pkgname_map.get(fname)
+        if matched is None:
+            # fallback
+            for name in pkg_names:
+                if fname.startswith(name + '-'):
+                    matched = name
+                    break
         if matched is None:
             matched = fname.split('-')[0]
             print(f"Warning: Could not match {fname}, using {matched}", file=sys.stderr)
