@@ -4,7 +4,7 @@
     {
       "name": "ggml-core",
       "pkgbase": "ggml-core",
-      "version": "0.17.0-1",
+      "version": "0.0.0",
       "deps": [],
       "build_order": 0,
       "local": false,
@@ -22,7 +22,7 @@
     {
       "name": "ggml-cpu-backend",
       "pkgbase": "ggml-cpu-backend",
-      "version": "0.17.0-1",
+      "version": "0.0.0",
       "deps": [
         "ggml-core"
       ],
@@ -87,7 +87,7 @@
     {
       "name": "ggml-vulkan-backend",
       "pkgbase": "ggml-vulkan-backend",
-      "version": "0.17.0-1",
+      "version": "0.0.0",
       "deps": [
         "ggml-core"
       ],
