@@ -166,14 +166,14 @@
       "version": "0.7.2-1"
     },
     "ggml-core": {
-      "filename": "ggml-core-llama.cpp-0.0.0.b10103-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260802-120111",
-      "version": "0.0.0"
+      "filename": "ggml-core-0.17.0-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260803-081224",
+      "version": "0.17.0-1"
     },
     "ggml-vulkan-backend": {
-      "filename": "ggml-vulkan-backend-llama.cpp-0.0.0.b10103-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260802-084954",
-      "version": "0.0.0"
+      "filename": "ggml-vulkan-backend-0.17.0-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260803-081224",
+      "version": "0.17.0-1"
     },
     "tascam-control-panel-git": {
       "filename": "tascam-control-panel-git-r141.b013e2e-1-x86_64.pkg.tar.zst",
@@ -182,7 +182,7 @@
     },
     "llama.cpp-system": {
       "filename": "llama.cpp-system-0.0.0.b10103-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260731-093805",
+      "release_tag": "build-20260803-081224",
       "version": "0.0.0.b10103-1"
     },
     "ggml-vulkan-backend-llama.cpp": {
@@ -191,13 +191,13 @@
       "version": "0.0.0.b10103-1"
     },
     "ggml-cpu-backend": {
-      "filename": "ggml-cpu-backend-llama.cpp-0.0.0.b10103-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260802-120111",
-      "version": "0.0.0"
+      "filename": "ggml-cpu-backend-0.17.0-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260803-081224",
+      "version": "0.17.0-1"
     },
     "stable-diffusion.cpp-system": {
       "filename": "stable-diffusion.cpp-system-0.0.0.788-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260731-093805",
+      "release_tag": "build-20260803-081224",
       "version": "0.0.0.788-1"
     },
     "ggml-cuda-backend-llama.cpp": {
@@ -219,6 +219,16 @@
       "filename": "ggml-cpu-backend-llama.cpp-0.0.0.b10103-1-x86_64.pkg.tar.zst",
       "release_tag": "build-20260802-173140",
       "version": "0.0.0.b10103-1"
+    },
+    "ggml-hip-backend": {
+      "filename": "ggml-hip-backend-0.17.0-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260803-081224",
+      "version": "0.17.0-1"
+    },
+    "ggml-cuda-backend": {
+      "filename": "ggml-cuda-backend-0.17.0-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260803-081224",
+      "version": "0.17.0-1"
     }
   }
 }
