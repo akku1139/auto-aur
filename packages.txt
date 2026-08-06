@@ -40,3 +40,4 @@ ggml-core-llama.cpp
 stable-diffusion.cpp-system
 llama.cpp-system
 tascam-control-panel-git
+zluda
