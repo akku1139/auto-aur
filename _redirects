@@ -90,3 +90,5 @@
 /repo/auto-aur/x86_64/ggml-hip-backend-0.17.0-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260803-081224/ggml-hip-backend-0.17.0-1-x86_64.pkg.tar.zst.sig 302
 /repo/auto-aur/x86_64/ggml-cuda-backend-0.17.0-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260803-081224/ggml-cuda-backend-0.17.0-1-x86_64.pkg.tar.zst 302
 /repo/auto-aur/x86_64/ggml-cuda-backend-0.17.0-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260803-081224/ggml-cuda-backend-0.17.0-1-x86_64.pkg.tar.zst.sig 302
+/repo/auto-aur/x86_64/rocm-gfx103x-bin-7.14.0-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260806-031607/rocm-gfx103x-bin-7.14.0-1-x86_64.pkg.tar.zst 302
+/repo/auto-aur/x86_64/rocm-gfx103x-bin-7.14.0-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260806-031607/rocm-gfx103x-bin-7.14.0-1-x86_64.pkg.tar.zst.sig 302
