@@ -234,6 +234,36 @@
       "filename": "rocm-gfx103x-bin-7.14.0-1-x86_64.pkg.tar.zst",
       "release_tag": "build-20260806-031607",
       "version": "7.14.0-1"
+    },
+    "pi-ext-cursor-rules": {
+      "filename": "pi-ext-cursor-rules-1.0.1-1-any.pkg.tar.zst",
+      "release_tag": "build-20260807-102514",
+      "version": "1.0.1-1"
+    },
+    "pi-coding-agent-bin": {
+      "filename": "pi-coding-agent-bin-0.83.0-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260807-102514",
+      "version": "0.83.0-1"
+    },
+    "pi-ext-awsdocs": {
+      "filename": "pi-ext-awsdocs-1.1.0-1-any.pkg.tar.zst",
+      "release_tag": "build-20260807-102514",
+      "version": "1.1.0-1"
+    },
+    "pi-coding-agent": {
+      "filename": "pi-coding-agent-0.83.0-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260807-102514",
+      "version": "0.83.0-1"
+    },
+    "pi-coding-agent-git": {
+      "filename": "pi-coding-agent-git-0.84.1.r12.g958c13f25-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260807-102514",
+      "version": "0.80.7.r11.gc6d837152-1"
+    },
+    "pi-ext-spellcheck": {
+      "filename": "pi-ext-spellcheck-0.1.1-1-any.pkg.tar.zst",
+      "release_tag": "build-20260807-102514",
+      "version": "0.1.1-1"
     }
   }
 }
