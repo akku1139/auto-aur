@@ -41,3 +41,9 @@ stable-diffusion.cpp-system
 llama.cpp-system
 tascam-control-panel-git
 rocm-gfx103x-bin
+pi-coding-agent
+pi-coding-agent-bin
+pi-coding-agent-git
+pi-ext-spellcheck
+pi-ext-cursor-rules
+pi-ext-awsdocs
