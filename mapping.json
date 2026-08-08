@@ -264,6 +264,11 @@
       "filename": "pi-ext-spellcheck-0.1.1-1-any.pkg.tar.zst",
       "release_tag": "build-20260807-102514",
       "version": "0.1.1-1"
+    },
+    "fcitx5-chinese-addons-without-browser": {
+      "filename": "fcitx5-chinese-addons-without-browser-5.1.13-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260808-171941",
+      "version": "5.1.13-1"
     }
   }
 }
