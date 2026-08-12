@@ -241,9 +241,9 @@
       "version": "1.0.1-1"
     },
     "pi-coding-agent-bin": {
-      "filename": "pi-coding-agent-bin-0.83.0-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260807-102514",
-      "version": "0.83.0-1"
+      "filename": "pi-coding-agent-bin-0.84.1-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260812-080646",
+      "version": "0.84.1-1"
     },
     "pi-ext-awsdocs": {
       "filename": "pi-ext-awsdocs-1.1.0-1-any.pkg.tar.zst",
