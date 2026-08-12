@@ -285,6 +285,8 @@ prepare() {
   # fix crash with static binaries: https://gitlab.com/qemu-project/qemu/-/issues/1913
   patch -Np1 -d $pkgbase-$pkgver -i ../$pkgbase-8.1.1-static_regression.patch
 
+  patch -Np1 -d $pkgbase-$pkgver -i ../mprotect.patch
+
   # extract licenses for TCG
   sed -n '1,23p' $pkgbase-$pkgver/tcg/tcg-internal.h > tcg.LICENSE.MIT.txt
   sed -n '1,23p' $pkgbase-$pkgver/tcg/tci/tcg-target.h > tci.LICENSE.MIT.txt
