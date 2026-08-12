@@ -26,8 +26,8 @@ pkgname=(
   qemu-vmsr-helper
   qemu-{base,desktop,emulators-full,full}
 )
-pkgver=11.0.3_autoaur1
-pkgrel=1
+pkgver=11.0.3
+pkgrel=1.11
 pkgdesc="A generic and open source machine emulator and virtualizer"
 arch=(x86_64)
 url="https://www.qemu.org/"
