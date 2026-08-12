@@ -9,6 +9,11 @@ on:
       - local-packages/**
       - custom-patches/**
   workflow_dispatch:
+    inputs:
+      packages:
+        description: 'Build only these packages (space separated). Leave empty to build all changed packages.'
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -86,9 +91,14 @@ jobs:
             repo-add repo/auto-aur/x86_64/auto-aur.db.tar.gz
           fi
 
+      - name: Prepare dispatch package filter
+        run: |
+          printf '%s\n' "${{ github.event.inputs.packages }}" | tr ' ' '\n' | sed '/^$/d' > dispatch_packages.txt
+          cat dispatch_packages.txt
+
       - name: Update lock.json if packages.txt or local-patches changed
         run: |
-          python scripts/update_lock.py packages.txt repo-data/lock.json
+          python scripts/update_lock.py packages.txt repo-data/lock.json dispatch_packages.txt
           # 循環依存があればここでエラー終了
 
       - name: Mount host
@@ -114,7 +124,7 @@ jobs:
           set -x
           cat repo-data/lock.json
           cat repo-data/mapping.json
-          python scripts/expand_updates.py repo-data/lock.json repo-data/mapping.json final_build_list.txt
+          python scripts/expand_updates.py repo-data/lock.json repo-data/mapping.json final_build_list.txt dispatch_packages.txt
           cat final_build_list.txt
           if [ -s final_build_list.txt ]; then
             echo "is_empty=false" >> "$GITHUB_OUTPUT"
@@ -127,52 +137,72 @@ jobs:
         run: docker build -t aur-builder -f scripts/build.Dockerfile .
 
       - name: Build packages in order
+        id: build
         if: steps.check.outputs.is_empty == 'false'
         run: |
           set -x
+          shopt -s nullglob
 
           jq -r '.build_order[]' repo-data/lock.json > build_order.txt
 
           grep -xFf final_build_list.txt build_order.txt > sorted_build_list.txt
           while read pkg; do
             jq -r --arg pkg "$pkg" '.packages[] | select(.name==$pkg) | .pkgbase' repo-data/lock.json
-          done < sorted_build_list.txt | awk '!seen[$0]++' | uniq > sorted_build_list_pkgbase.txt
+          done < sorted_build_list.txt | awk '!seen[$0]++' > sorted_build_list_pkgbase.txt
 
+          FAILED_PKGS=""
           while read pkgbase; do
             echo "::group::$pkgbase"
             echo "Building $pkgbase"
 
             BASE_DIR="/build/$pkgbase"
 
-            # ソースの準備 (ローカルパッケージ or カスタムパッチ or AUR)
-            SRC_DIR="$BASE_DIR/src"
-            mkdir -p "$SRC_DIR"
+            if (
+              set -e
+              SRC_DIR="$BASE_DIR/src"
+              mkdir -p "$SRC_DIR"
 
-            if [ -d "local-packages/$pkgbase" ]; then
-              cp -r "local-packages/$pkgbase/." "$SRC_DIR"
-            elif [ -d "custom-patches/$pkgbase" ]; then
-              cp -r "custom-patches/$pkgbase/." "$SRC_DIR"
+              if [ -d "local-packages/$pkgbase" ]; then
+                cp -r "local-packages/$pkgbase/." "$SRC_DIR"
+              elif [ -d "custom-patches/$pkgbase" ]; then
+                cp -r "custom-patches/$pkgbase/." "$SRC_DIR"
+              else
+                git clone --depth=1 "https://aur.archlinux.org/$pkgbase.git" "$SRC_DIR"
+              fi
+
+              DEPS_FILE="$BASE_DIR/deps"
+              if [ -f "deps/$pkgbase" ]; then
+                cp "deps/$pkgbase" "$DEPS_FILE"
+              else
+                touch "$DEPS_FILE"
+              fi
+
+              docker run --rm \
+                -v /build/repo:/repo \
+                -v /build/pacman-cache:/var/cache/pacman \
+                -v "$BASE_DIR":/home/builder/pkg \
+                aur-builder
+            ); then
+              pkg_files=(/build/repo/*.pkg.tar.zst)
+              if [ ${#pkg_files[@]} -gt 0 ]; then
+                repo-add /build/repo/auto-aur-local.db.tar.gz "${pkg_files[@]}"
+              fi
             else
-              git clone --depth=1 "https://aur.archlinux.org/$pkgbase.git" "$SRC_DIR"
+              echo "::warning::$pkgbase failed"
+              FAILED_PKGS="$FAILED_PKGS $pkgbase"
             fi
 
-            DEPS_FILE="$BASE_DIR/deps"
-            if [ -f "deps/$pkgbase" ]; then
-              cp "deps/$pkgbase" "$DEPS_FILE"
-            else
-              touch "$DEPS_FILE"
-            fi
-
-            # ビルド実行
-            docker run --rm \
-              -v /build/repo:/repo \
-              -v /build/pacman-cache:/var/cache/pacman \
-              -v "$BASE_DIR":/home/builder/pkg \
-              aur-builder
-            repo-add /build/repo/auto-aur-local.db.tar.gz /build/repo/*.pkg.tar.zst
             rm -rf "$BASE_DIR"
             echo "::endgroup::"
           done < sorted_build_list_pkgbase.txt
+
+          if [ -n "$FAILED_PKGS" ]; then
+            echo "failed=true" >> "$GITHUB_OUTPUT"
+            echo "failed_pkgs=$FAILED_PKGS" >> "$GITHUB_OUTPUT"
+            echo "Some packages failed: $FAILED_PKGS" >&2
+          else
+            echo "failed=false" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Import GPG key and sign packages
         if: steps.check.outputs.is_empty == 'false'
@@ -181,7 +211,7 @@ jobs:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         run: |
           set -x
-          # 鍵のインポート
+          shopt -s nullglob
           echo "$GPG_PRIVATE_KEY" | gpg --batch --import
           # gpg.conf の設定 (パスフレーズを自動入力)
           mkdir -p $HOME/.gnupg
@@ -206,13 +236,27 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -x
+          shopt -s nullglob
+          pkg_files=(/build/repo/*.pkg.tar.zst)
+          sig_files=(/build/repo/*.pkg.tar.zst.sig)
+
+          if [ ${#pkg_files[@]} -eq 0 ]; then
+            echo "No packages to release."
+            echo "tag=" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
           TAG="build-$(date -u +'%Y%m%d-%H%M%S')"
-          gh release create $TAG --title "Build $TAG" --notes "Updated packages" \
-            /build/repo/*.pkg.tar.zst /build/repo/*.pkg.tar.zst.sig
+          assets=("${pkg_files[@]}")
+          for sig in "${sig_files[@]}"; do
+            assets+=("$sig")
+          done
+
+          gh release create "$TAG" --title "Build $TAG" --notes "Updated packages" "${assets[@]}"
           echo "tag=$TAG" >> $GITHUB_OUTPUT
 
       - name: Push repo-data changes
-        if: steps.check.outputs.is_empty == 'false'
+        if: steps.check.outputs.is_empty == 'false' && steps.release.outputs.tag != ''
         run: |
           set -x
           cd repo-data
@@ -235,3 +279,9 @@ jobs:
           git add .
           git commit -m "Update repo-data" || echo "No changes"
           git push origin repo-data
+
+      - name: Fail if package builds failed
+        if: steps.build.outputs.failed == 'true'
+        run: |
+          echo "Failed packages:${{ steps.build.outputs.failed_pkgs }}"
+          exit 1

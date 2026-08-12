@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import json
 import sys
+import os
 from collections import deque
 from common import (
     get_deps, is_local_package, is_custom_patch, get_current_version,
@@ -8,12 +9,19 @@ from common import (
 )
 
 def main():
-    if len(sys.argv) != 3:
-        print("Usage: update_lock.py packages.txt lock.json")
+    if len(sys.argv) not in (3, 4):
+        print("Usage: update_lock.py packages.txt lock.json [extra_packages.txt]")
         sys.exit(1)
 
     with open(sys.argv[1]) as f:
         seeds = [line.strip() for line in f if line.strip() and not line.startswith('#')]
+
+    if len(sys.argv) == 4:
+        extra_file = sys.argv[3]
+        if os.path.exists(extra_file):
+            with open(extra_file) as f:
+                extra = [line.strip() for line in f if line.strip() and not line.startswith('#')]
+            seeds = list(dict.fromkeys(seeds + extra))
 
     # Step 1: Collect all dependencies
     all_pkgs = set(seeds)
