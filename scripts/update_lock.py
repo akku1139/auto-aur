@@ -23,26 +23,40 @@ def main():
                 extra = [line.strip() for line in f if line.strip() and not line.startswith('#')]
             seeds = list(dict.fromkeys(seeds + extra))
 
-    # Step 1: Collect all dependencies
     all_pkgs = set(seeds)
-    frontier = list(seeds)
-    while frontier:
-        pkg = frontier.pop()
-        deps = get_deps(pkg)
-        new_deps = deps - all_pkgs
-        all_pkgs.update(new_deps)
-        frontier.extend(new_deps)
+    processed = set()
 
-    # Step 2: Preload AUR info for performance
-    aur_pkgs = [pkg for pkg in all_pkgs if not (is_local_package(pkg) or is_custom_patch(pkg))]
-    if aur_pkgs:
-        print(f"Preloading AUR info for {len(aur_pkgs)} packages...", file=sys.stderr)
-        preload_aur_cache(aur_pkgs)
+    while True:
+        # 現在判明しているAURパッケージのうち、まだキャッシュに無いものを
+        # まとめてAUR RPCで取得する
+        aur_to_fetch = [
+            pkg for pkg in all_pkgs
+            if not (is_local_package(pkg) or is_custom_patch(pkg))
+        ]
+        if aur_to_fetch:
+            print(f"Preloading AUR info for up to {len(aur_to_fetch)} packages...", file=sys.stderr)
+            preload_aur_cache(aur_to_fetch)
 
+        added_new = False
+        for pkg in list(all_pkgs):
+            if pkg in processed:
+                continue
+            deps = get_deps(pkg)          # キャッシュ済みなら高速
+            for dep in deps:
+                if dep not in all_pkgs:
+                    all_pkgs.add(dep)
+                    added_new = True
+            processed.add(pkg)
+
+        # 新しい依存が増えなければ終了
+        if not added_new:
+            break
+
+    # ---- 以降は既存の処理 ----
     # Step 3: Build dependency graph (pkg -> deps)
     graph = {pkg: get_deps(pkg) & all_pkgs for pkg in all_pkgs}
 
-    # Step 4: Compute in-degree (number of packages that depend on this package)
+    # Step 4: Compute in-degree
     in_degree = {pkg: 0 for pkg in all_pkgs}
     for deps in graph.values():
         for dep in deps:

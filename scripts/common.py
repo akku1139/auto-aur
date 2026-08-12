@@ -65,11 +65,13 @@ def fetch_aur_infos(pkgs: List[str]) -> Dict[str, Tuple[str, Set[str], str]]:
         _aur_info_cache[name] = (version, deps, pkgbase)
     return result_map
 
-def preload_aur_cache(pkgs: List[str]) -> None:
-    """Preload multiple AUR package infos into cache using a single API call."""
+def preload_aur_cache(pkgs: list[str]) -> None:
+    """Preload multiple AUR package infos into cache using batched API calls."""
     missing = [p for p in pkgs if p not in _aur_info_cache]
-    if missing:
-        fetch_aur_infos(missing)
+    # 200件ずつに分割して取得（AUR RPCのURL長対策）
+    for i in range(0, len(missing), 200):
+        chunk = missing[i:i+200]
+        fetch_aur_infos(chunk)
 
 def get_aur_info(pkg: str) -> Tuple[str, Set[str], str]:
     """Returns (version, deps, pkgbase) for an AUR package. Uses cache if available."""
