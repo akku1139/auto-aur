@@ -1,0 +1,48 @@
+diff --git a/accel/tcg/user-exec.c b/accel/tcg/user-exec.c
+index a35aca78893b..628a69c0bdd7 100644
+--- a/accel/tcg/user-exec.c
++++ b/accel/tcg/user-exec.c
+@@ -476,9 +476,6 @@ void page_set_flags(vaddr start, vaddr last, int set_flags, int clear_flags)
+     if (set_flags & PAGE_WRITE) {
+         set_flags |= PAGE_WRITE_ORG;
+     }
+-    if (clear_flags & PAGE_WRITE) {
+-        clear_flags |= PAGE_WRITE_ORG;
+-    }
+ 
+     if (clear_flags & PAGE_VALID) {
+         page_reset_target_data(start, last);
+diff --git a/linux-user/mmap.c b/linux-user/mmap.c
+index cc0c2ee6c277..c27478fdd507 100644
+--- a/linux-user/mmap.c
++++ b/linux-user/mmap.c
+@@ -181,7 +181,7 @@ int target_mprotect(abi_ulong start, abi_ulong len, int target_prot)
+     abi_ulong lens[3];
+     int prots[3];
+     abi_ulong host_start, host_last, last;
+-    int prot1, ret, page_flags, nranges;
++    int prot1, ret, page_flags, nranges, old_flags, new_flags, clear;
+ 
+     trace_target_mprotect(start, len, target_prot);
+ 
+@@ -270,7 +270,19 @@ int target_mprotect(abi_ulong start, abi_ulong len, int target_prot)
+         }
+     }
+ 
+-    page_set_flags(start, last, page_flags, PAGE_RWX | TARGET_PAGE_NOTSTICKY);
++    last = start + len - 1;
++    for (abi_ulong page = start; page <= last; page += TARGET_PAGE_SIZE) {
++        old_flags = page_get_flags(page);
++        new_flags = validate_prot_to_pageflags(target_prot);
++
++        clear = PAGE_RWX | TARGET_PAGE_NOTSTICKY;
++        if ((old_flags & PAGE_WRITE) && !(new_flags & PAGE_WRITE)) {
++            clear |= PAGE_WRITE_ORG;
++        }
++
++        page_set_flags(page, page + TARGET_PAGE_SIZE - 1, new_flags, clear);
++    }
++
+     ret = 0;
+ 
+  error:
