@@ -221,9 +221,9 @@
       "version": "0.0.0.b10321-1"
     },
     "ggml-hip-backend": {
-      "filename": "ggml-hip-backend-0.17.0-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260803-081224",
-      "version": "0.17.0-1"
+      "filename": "ggml-hip-backend-0.19.0-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260813-174243-ggml-hip-backend",
+      "version": "0.19.0-1"
     },
     "ggml-cuda-backend": {
       "filename": "ggml-cuda-backend-0.19.0-1-x86_64.pkg.tar.zst",
