@@ -191,9 +191,9 @@
       "version": "0.0.0.b10103-1"
     },
     "ggml-cpu-backend": {
-      "filename": "ggml-cpu-backend-0.17.0-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260803-081224",
-      "version": "0.17.0-1"
+      "filename": "ggml-cpu-backend-0.19.0-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260813-145732-ggml-cpu-backend",
+      "version": "0.19.0-1"
     },
     "stable-diffusion.cpp-system": {
       "filename": "stable-diffusion.cpp-system-0.0.0.788-1-x86_64.pkg.tar.zst",
