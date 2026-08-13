@@ -156,9 +156,9 @@
       "version": "2026.804.2-1"
     },
     "wakatime": {
-      "filename": "wakatime-2.23.0-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260729-150312",
-      "version": "2.23.0-1"
+      "filename": "wakatime-2.24.4-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260813-162805-wakatime",
+      "version": "2.24.4-1"
     },
     "irlume": {
       "filename": "irlume-0.7.2-1-x86_64.pkg.tar.zst",
