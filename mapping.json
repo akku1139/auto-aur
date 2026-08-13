@@ -211,9 +211,9 @@
       "version": "0.0.0.b10103-1"
     },
     "ggml-core-llama.cpp": {
-      "filename": "ggml-core-llama.cpp-0.0.0.b10103-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260802-173140",
-      "version": "0.0.0.b10103-1"
+      "filename": "ggml-core-llama.cpp-0.0.0.b10321-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260813-145317-ggml-core-llama.cpp",
+      "version": "0.0.0.b10321-1"
     },
     "ggml-cpu-backend-llama.cpp": {
       "filename": "ggml-cpu-backend-llama.cpp-0.0.0.b10103-1-x86_64.pkg.tar.zst",
