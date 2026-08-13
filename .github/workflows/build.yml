@@ -145,6 +145,24 @@ jobs:
         if: steps.check.outputs.is_empty == 'false'
         run: docker build -t aur-builder -f scripts/build.Dockerfile .
 
+      - name: Import GPG key
+        if: steps.check.outputs.is_empty == 'false'
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: |
+          set -x
+          echo "$GPG_PRIVATE_KEY" | gpg --batch --import
+          mkdir -p $HOME/.gnupg
+          cat >> $HOME/.gnupg/gpg.conf << EOF
+          passphrase $GPG_PASSPHRASE
+          pinentry-mode loopback
+          no-tty
+          EOF
+          chmod 600 $HOME/.gnupg/gpg.conf
+          KEY_ID=$(gpg --list-secret-keys --with-colons | grep '^sec:' | head -1 | cut -d: -f5)
+          echo "KEY_ID=$KEY_ID" >> $GITHUB_ENV
+
       - name: Build packages in order
         id: build
         if: steps.check.outputs.is_empty == 'false'
@@ -165,6 +183,10 @@ jobs:
             echo "Building $pkgbase"
 
             BASE_DIR="/build/$pkgbase"
+
+            # Record existing package files before build
+            BEFORE_LIST="$(mktemp)"
+            find /build/repo -maxdepth 1 -name '*.pkg.tar.zst' -printf '%f\n' | sort > "$BEFORE_LIST"
 
             if (
               set -e
@@ -192,13 +214,71 @@ jobs:
                 -v "$BASE_DIR":/home/builder/pkg \
                 aur-builder
             ); then
-              pkg_files=(/build/repo/*.pkg.tar.zst)
-              if [ ${#pkg_files[@]} -gt 0 ]; then
-                repo-add /build/repo/auto-aur-local.db.tar.gz "${pkg_files[@]}"
+              # Identify new package files
+              AFTER_LIST="$(mktemp)"
+              find /build/repo -maxdepth 1 -name '*.pkg.tar.zst' -printf '%f\n' | sort > "$AFTER_LIST"
+              NEW_PKG_FILES="$(comm -13 "$BEFORE_LIST" "$AFTER_LIST")"
+
+              if [ -n "$NEW_PKG_FILES" ]; then
+                # Add to local repo
+                for f in $NEW_PKG_FILES; do
+                  repo-add /build/repo/auto-aur-local.db.tar.gz "/build/repo/$f"
+                done
+
+                # Sign new packages
+                for f in $NEW_PKG_FILES; do
+                  gpg --batch --detach-sign --local-user "$KEY_ID" "/build/repo/$f"
+                done
+
+                # Prepare release directory with only new packages and signatures
+                RELEASE_DIR="/build/release-$pkgbase"
+                mkdir -p "$RELEASE_DIR"
+                for f in $NEW_PKG_FILES; do
+                  cp "/build/repo/$f" "$RELEASE_DIR/"
+                  cp "/build/repo/$f.sig" "$RELEASE_DIR/"
+                done
+                cp /build/repo/pkgname-map.txt "$RELEASE_DIR/"
+
+                # Create GitHub Release for this package
+                TAG="build-$(date -u +'%Y%m%d-%H%M%S')-$pkgbase"
+                assets=()
+                for f in "$RELEASE_DIR"/*.pkg.tar.zst; do assets+=("$f"); done
+                for f in "$RELEASE_DIR"/*.pkg.tar.zst.sig; do assets+=("$f"); done
+                gh release create "$TAG" --title "Build $pkgbase" --notes "Updated packages" "${assets[@]}"
+
+                # Update and push repo-data
+                (
+                  cd repo-data
+                  python ../scripts/update_repo_data.py \
+                    --mapping mapping.json \
+                    --new-packages "$RELEASE_DIR" \
+                    --release-tag "$TAG" \
+                    --db-output repo/auto-aur/x86_64/auto-aur.db.tar.gz \
+                    --redirects _redirects \
+                    --gpg-key "$KEY_ID" \
+                    --remove-packages ../missing_packages.txt
+                  cp ../scripts/index.html .
+                  cp ../scripts/404.html .
+                  pushd repo/auto-aur/x86_64/ >/dev/null
+                  ln -sf auto-aur.db.tar.gz.sig auto-aur.db.sig
+                  ln -sf auto-aur.files.tar.gz.sig auto-aur.files.sig
+                  popd >/dev/null
+                  git config user.name "github-actions[bot]"
+                  git config user.email "github-actions[bot]@users.noreply.github.com"
+                  git add .
+                  git commit -m "Update repo-data for $pkgbase" || echo "No changes"
+                  git push origin repo-data
+                )
+
+                # Clean up release directory
+                rm -rf "$RELEASE_DIR"
               fi
+
+              rm -f "$BEFORE_LIST" "$AFTER_LIST"
             else
               echo "::warning::$pkgbase failed"
               FAILED_PKGS="$FAILED_PKGS $pkgbase"
+              rm -f "$BEFORE_LIST" "$AFTER_LIST"
             fi
 
             rm -rf "$BASE_DIR"
@@ -212,83 +292,6 @@ jobs:
           else
             echo "failed=false" >> "$GITHUB_OUTPUT"
           fi
-
-      - name: Import GPG key and sign packages
-        if: steps.check.outputs.is_empty == 'false'
-        env:
-          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
-          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-        run: |
-          set -x
-          shopt -s nullglob
-          echo "$GPG_PRIVATE_KEY" | gpg --batch --import
-          # gpg.conf の設定 (パスフレーズを自動入力)
-          mkdir -p $HOME/.gnupg
-          cat >> $HOME/.gnupg/gpg.conf << EOF
-          passphrase $GPG_PASSPHRASE
-          pinentry-mode loopback
-          no-tty
-          EOF
-          chmod 600 $HOME/.gnupg/gpg.conf
-          # 鍵IDを取得
-          KEY_ID=$(gpg --list-secret-keys --with-colons | grep '^sec:' | head -1 | cut -d: -f5)
-          echo "KEY_ID=$KEY_ID" >> $GITHUB_ENV
-          # 全パッケージに署名
-          for pkg in /build/repo/*.pkg.tar.zst; do
-            gpg --batch --detach-sign --local-user "$KEY_ID" "$pkg"
-          done
-
-      - name: Create GitHub Release
-        if: steps.check.outputs.is_empty == 'false'
-        id: release
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -x
-          shopt -s nullglob
-          pkg_files=(/build/repo/*.pkg.tar.zst)
-          sig_files=(/build/repo/*.pkg.tar.zst.sig)
-
-          if [ ${#pkg_files[@]} -eq 0 ]; then
-            echo "No packages to release."
-            echo "tag=" >> $GITHUB_OUTPUT
-            exit 0
-          fi
-
-          TAG="build-$(date -u +'%Y%m%d-%H%M%S')"
-          assets=("${pkg_files[@]}")
-          for sig in "${sig_files[@]}"; do
-            assets+=("$sig")
-          done
-
-          gh release create "$TAG" --title "Build $TAG" --notes "Updated packages" "${assets[@]}"
-          echo "tag=$TAG" >> $GITHUB_OUTPUT
-
-      - name: Push repo-data changes
-        if: steps.check.outputs.is_empty == 'false' || steps.missing.outputs.has_missing == 'true'
-        run: |
-          set -x
-          cd repo-data
-          python ../scripts/update_repo_data.py \
-            --mapping mapping.json \
-            --new-packages /build/repo \
-            --release-tag ${{ steps.release.outputs.tag }} \
-            --db-output repo/auto-aur/x86_64/auto-aur.db.tar.gz \
-            --redirects _redirects \
-            --gpg-key "${{ env.KEY_ID }}" \
-            --remove-packages ../missing_packages.txt
-          cp ../scripts/index.html .
-          cp ../scripts/404.html .
-          pushd repo/auto-aur/x86_64/
-          ln -sf auto-aur.db.tar.gz.sig auto-aur.db.sig
-          ln -sf auto-aur.files.tar.gz.sig auto-aur.files.sig
-          popd
-          find -type f
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "Update repo-data" || echo "No changes"
-          git push origin repo-data
 
       - name: Fail if package builds failed
         if: steps.build.outputs.failed == 'true'

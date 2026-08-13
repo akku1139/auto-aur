@@ -92,6 +92,7 @@ def main():
         ]
 
     temp_dir = Path('/tmp/repo_build')
+    shutil.rmtree(temp_dir, ignore_errors=True)
     temp_dir.mkdir(exist_ok=True)
 
     # Copy old database if exists
