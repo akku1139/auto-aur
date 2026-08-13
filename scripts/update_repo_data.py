@@ -43,6 +43,9 @@ def main():
     # Locate new package files
     new_pkgs_dir = Path(args.new_packages)
     new_pkg_files = list(new_pkgs_dir.glob('*.pkg.tar.zst'))
+    if not new_pkg_files:
+        print(f"Error: No .pkg.tar.zst files found in {new_pkgs_dir}", file=sys.stderr)
+        sys.exit(1)
 
     # Update mapping
     pkgname_map = {}
@@ -111,20 +114,15 @@ def main():
     # Run repo-add
     db_file = temp_dir / 'auto-aur.db.tar.gz'
     pkg_files = list(temp_dir.glob('*.pkg.tar.zst'))
-    if pkg_files:
-        cmd = ['repo-add']
-        if args.gpg_key:
-            cmd += ['--sign', '--key', args.gpg_key]
-        cmd += [db_file] + pkg_files
-        subprocess.run(cmd, check=True)
-    else:
-        # No new packages; keep the old database and copy old files database if present
-        files_db = db_path.parent / 'auto-aur.files.tar.gz'
-        if files_db.exists():
-            shutil.copy(files_db, temp_dir / 'auto-aur.files.tar.gz')
-            files_sig = files_db.with_suffix(files_db.suffix + '.sig')
-            if files_sig.exists():
-                shutil.copy(files_sig, temp_dir / 'auto-aur.files.tar.gz.sig')
+    if not pkg_files:
+        print("Error: No package files found in temp dir", file=sys.stderr)
+        sys.exit(1)
+
+    cmd = ['repo-add']
+    if args.gpg_key:
+        cmd += ['--sign', '--key', args.gpg_key]
+    cmd += [db_file] + pkg_files
+    subprocess.run(cmd, check=True)
 
     # Copy the resulting database (and its signature) to output path
     shutil.copy(db_file, db_path)
