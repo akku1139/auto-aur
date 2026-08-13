@@ -191,9 +191,9 @@
       "version": "0.19.0-1"
     },
     "stable-diffusion.cpp-system": {
-      "filename": "stable-diffusion.cpp-system-0.0.0.788-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260803-081224",
-      "version": "0.0.0.788-1"
+      "filename": "stable-diffusion.cpp-system-0.0.0.813-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260813-235431-stable-diffusion.cpp-system",
+      "version": "0.0.0.813-1"
     },
     "ggml-cuda-backend-llama.cpp": {
       "filename": "ggml-cuda-backend-llama.cpp-0.0.0.b10103-1-x86_64.pkg.tar.zst",
