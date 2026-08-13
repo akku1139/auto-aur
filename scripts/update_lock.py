@@ -23,15 +23,27 @@ def main():
                 extra = [line.strip() for line in f if line.strip() and not line.startswith('#')]
             seeds = list(dict.fromkeys(seeds + extra))
 
+    missing_packages = set()
+
     all_pkgs = set(seeds)
     processed = set()
 
+    def safe_get_deps(pkg):
+        if pkg in missing_packages:
+            return set()
+        try:
+            return get_deps(pkg)
+        except ValueError as e:
+            if 'not found in AUR' in str(e):
+                missing_packages.add(pkg)
+                return set()
+            raise
+
     while True:
-        # 現在判明しているAURパッケージのうち、まだキャッシュに無いものを
-        # まとめてAUR RPCで取得する
         aur_to_fetch = [
             pkg for pkg in all_pkgs
             if not (is_local_package(pkg) or is_custom_patch(pkg))
+            and pkg not in missing_packages
         ]
         if aur_to_fetch:
             print(f"Preloading AUR info for up to {len(aur_to_fetch)} packages...", file=sys.stderr)
@@ -39,21 +51,28 @@ def main():
 
         added_new = False
         for pkg in list(all_pkgs):
-            if pkg in processed:
+            if pkg in processed or pkg in missing_packages:
                 continue
-            deps = get_deps(pkg)          # キャッシュ済みなら高速
+
+            deps = safe_get_deps(pkg)
+            if pkg in missing_packages:
+                all_pkgs.discard(pkg)
+                continue
+
             for dep in deps:
-                if dep not in all_pkgs:
+                if dep not in all_pkgs and dep not in missing_packages:
                     all_pkgs.add(dep)
                     added_new = True
             processed.add(pkg)
 
-        # 新しい依存が増えなければ終了
-        if not added_new:
+        if not added_new and not all_pkgs - processed:
             break
 
-    # ---- 以降は既存の処理 ----
-    # Step 3: Build dependency graph (pkg -> deps)
+    if missing_packages:
+        with open('missing_packages.txt', 'w') as f:
+            for pkg in sorted(missing_packages):
+                f.write(pkg + '\n')
+
     graph = {pkg: get_deps(pkg) & all_pkgs for pkg in all_pkgs}
 
     # Step 4: Compute in-degree

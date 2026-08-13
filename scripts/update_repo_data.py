@@ -15,6 +15,7 @@ def main():
     parser.add_argument('--db-output', required=True)
     parser.add_argument('--redirects', required=True)
     parser.add_argument('--gpg-key', help='GPG key ID for signing the database', default=None)
+    parser.add_argument('--remove-packages', help='File containing package names to remove from repo')
     args = parser.parse_args()
 
     # Read lock.json from same directory as mapping
@@ -82,9 +83,29 @@ def main():
     temp_dir = Path('/tmp/repo_build')
     temp_dir.mkdir(exist_ok=True)
 
+    # Remove packages that no longer exist in AUR
+    remove_pkgs = []
+    if args.remove_packages and Path(args.remove_packages).exists():
+        remove_pkgs = [
+            line.strip() for line in Path(args.remove_packages).read_text().splitlines()
+            if line.strip()
+        ]
+
+    temp_dir = Path('/tmp/repo_build')
+    temp_dir.mkdir(exist_ok=True)
+
     # Copy old database if exists
     if db_path.exists():
         shutil.copy(db_path, temp_dir / 'auto-aur.db.tar.gz')
+
+    # Remove deleted packages from the old database
+    if remove_pkgs:
+        db_file_temp = temp_dir / 'auto-aur.db.tar.gz'
+        if db_file_temp.exists():
+            subprocess.run(
+                ['repo-remove', db_file_temp] + remove_pkgs,
+                check=False,  # パッケージが存在しない場合もあるため
+            )
 
     # Copy new packages to temp dir
     for pkg_file in new_pkg_files:
