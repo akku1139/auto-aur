@@ -176,9 +176,9 @@
       "version": "r141.b013e2e-1"
     },
     "llama.cpp-system": {
-      "filename": "llama.cpp-system-0.0.0.b10103-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260803-081224",
-      "version": "0.0.0.b10103-1"
+      "filename": "llama.cpp-system-0.0.0.b10321-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-000533-llama.cpp-system",
+      "version": "0.0.0.b10321-1"
     },
     "ggml-vulkan-backend-llama.cpp": {
       "filename": "ggml-vulkan-backend-llama.cpp-0.0.0.b10321-1-x86_64.pkg.tar.zst",
