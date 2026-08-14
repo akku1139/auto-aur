@@ -1,7 +1,7 @@
 pkgbase = qemu
 	pkgdesc = A generic and open source machine emulator and virtualizer
-	pkgver = 11.0.3_autoaur1
-	pkgrel = 1
+	pkgver = 11.0.3
+	pkgrel = 1.11
 	url = https://www.qemu.org/
 	arch = x86_64
 	license = BSD-2-Clause
