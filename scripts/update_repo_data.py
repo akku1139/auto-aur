@@ -7,6 +7,23 @@ import sys
 import argparse
 from pathlib import Path
 
+
+def extract_pkgname_from_package_file(pkg_file):
+    """Extract pkgname from .PKGINFO inside a package file."""
+    try:
+        out = subprocess.check_output(
+            ["bsdtar", "-xOf", str(pkg_file), ".PKGINFO"],
+            text=True,
+            stderr=subprocess.DEVNULL,
+        )
+        for line in out.splitlines():
+            if line.startswith("pkgname = "):
+                return line.split(" = ", 1)[1].strip()
+    except Exception:
+        pass
+    return None
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--mapping', required=True)
@@ -16,6 +33,7 @@ def main():
     parser.add_argument('--redirects', required=True)
     parser.add_argument('--gpg-key', help='GPG key ID for signing the database', default=None)
     parser.add_argument('--remove-packages', help='File containing package names to remove from repo')
+    parser.add_argument('--pkgbase', help='pkgbase currently being built')
     args = parser.parse_args()
 
     # Read lock.json from same directory as mapping
@@ -68,6 +86,9 @@ def main():
                     matched = name
                     break
         if matched is None:
+            # .PKGINFO から正確な pkgname を取得する
+            matched = extract_pkgname_from_package_file(pkg_file)
+        if matched is None:
             matched = fname.split('-')[0]
             print(f"Warning: Could not match {fname}, using {matched}", file=sys.stderr)
 
@@ -76,6 +97,23 @@ def main():
             "release_tag": args.release_tag,
             "version": lock_versions.get(matched, ""),
         }
+
+    # ローカル/カスタムパッケージの pkgbase は実ファイルが無い場合があるため、
+    # lock.json に登録されている名前とバージョンを mapping に反映する。
+    if args.pkgbase:
+        for pkg in lock["packages"]:
+            if not (pkg.get("local") or pkg.get("custom")):
+                continue
+            if pkg["name"] != args.pkgbase:
+                continue
+            entry = mapping["packages"].get(pkg["name"])
+            if entry is None or not entry.get("filename"):
+                mapping["packages"][pkg["name"]] = {
+                    "filename": "",
+                    "release_tag": args.release_tag,
+                    "version": lock_versions.get(pkg["name"], ""),
+                }
+            break
 
     # Build repository database with optional signing
     db_path = Path(args.db_output)
@@ -141,7 +179,9 @@ def main():
     repo = os.environ.get('GITHUB_REPOSITORY', 'unknown/repo')
     redirect_lines = []
     for _pkgname, info in mapping['packages'].items():
-        filename = info['filename']
+        filename = info.get('filename')
+        if not filename:
+            continue
         tag = info['release_tag']
         src = f"/repo/auto-aur/x86_64/{filename}"
         target = f"https://github.com/{repo}/releases/download/{tag}/{filename}"
