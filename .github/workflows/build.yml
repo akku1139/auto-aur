@@ -258,6 +258,7 @@ jobs:
                     --db-output repo/auto-aur/x86_64/auto-aur.db.tar.gz \
                     --redirects _redirects \
                     --gpg-key "$KEY_ID" \
+                    --pkgbase "$pkgbase" \
                     --remove-packages ../missing_packages.txt
                   cp ../scripts/index.html .
                   cp ../scripts/404.html .

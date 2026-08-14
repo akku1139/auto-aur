@@ -16,6 +16,7 @@ def main():
     parser.add_argument('--redirects', required=True)
     parser.add_argument('--gpg-key', help='GPG key ID for signing the database', default=None)
     parser.add_argument('--remove-packages', help='File containing package names to remove from repo')
+    parser.add_argument('--pkgbase', help='Package base being built', default=None)
     args = parser.parse_args()
 
     # Read lock.json from same directory as mapping
@@ -76,6 +77,19 @@ def main():
             "release_tag": args.release_tag,
             "version": lock_versions.get(matched, ""),
         }
+
+    # Add pkgbase entry if provided (for local/custom packages that produce multiple subpackages)
+    if args.pkgbase:
+        if args.pkgbase not in mapping['packages']:
+            mapping['packages'][args.pkgbase] = {
+                "filename": "",
+                "release_tag": args.release_tag,
+                "version": lock_versions.get(args.pkgbase, ""),
+                "is_pkgbase": True
+            }
+        else:
+            mapping['packages'][args.pkgbase]['release_tag'] = args.release_tag
+            mapping['packages'][args.pkgbase]['version'] = lock_versions.get(args.pkgbase, "")
 
     # Build repository database with optional signing
     db_path = Path(args.db_output)
@@ -141,7 +155,9 @@ def main():
     repo = os.environ.get('GITHUB_REPOSITORY', 'unknown/repo')
     redirect_lines = []
     for _pkgname, info in mapping['packages'].items():
-        filename = info['filename']
+        filename = info.get('filename', '')
+        if info.get('is_pkgbase') or not filename:
+            continue
         tag = info['release_tag']
         src = f"/repo/auto-aur/x86_64/{filename}"
         target = f"https://github.com/{repo}/releases/download/{tag}/{filename}"
