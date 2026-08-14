@@ -259,6 +259,426 @@
       "filename": "fcitx5-chinese-addons-without-browser-5.1.13-1-x86_64.pkg.tar.zst",
       "release_tag": "build-20260808-171941",
       "version": "5.1.13-1"
+    },
+    "qemu-system-microblaze": {
+      "filename": "qemu-system-microblaze-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-docs": {
+      "filename": "qemu-docs-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-rx": {
+      "filename": "qemu-system-rx-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-common": {
+      "filename": "qemu-common-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-user-static": {
+      "filename": "qemu-user-static-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-mips": {
+      "filename": "qemu-system-mips-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-arm": {
+      "filename": "qemu-system-arm-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-hw-display-virtio-gpu-rutabaga": {
+      "filename": "qemu-hw-display-virtio-gpu-rutabaga-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-hw-display-virtio-vga": {
+      "filename": "qemu-hw-display-virtio-vga-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-ppc": {
+      "filename": "qemu-system-ppc-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-user-static-binfmt": {
+      "filename": "qemu-user-static-binfmt-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-s390x-firmware": {
+      "filename": "qemu-system-s390x-firmware-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-avr": {
+      "filename": "qemu-system-avr-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-hw-usb-smartcard": {
+      "filename": "qemu-hw-usb-smartcard-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-chardev-spice": {
+      "filename": "qemu-chardev-spice-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-hw-usb-redirect": {
+      "filename": "qemu-hw-usb-redirect-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-audio-pa": {
+      "filename": "qemu-audio-pa-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-block-ssh": {
+      "filename": "qemu-block-ssh-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-audio-dbus": {
+      "filename": "qemu-audio-dbus-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-desktop": {
+      "filename": "qemu-desktop-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-vhost-user-gpu": {
+      "filename": "qemu-vhost-user-gpu-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-hw-s390x-virtio-gpu-ccw": {
+      "filename": "qemu-hw-s390x-virtio-gpu-ccw-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-audio-sdl": {
+      "filename": "qemu-audio-sdl-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-aarch64": {
+      "filename": "qemu-system-aarch64-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-base": {
+      "filename": "qemu-base-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-img": {
+      "filename": "qemu-img-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-arm-firmware": {
+      "filename": "qemu-system-arm-firmware-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-ui-sdl": {
+      "filename": "qemu-ui-sdl-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-riscv-firmware": {
+      "filename": "qemu-system-riscv-firmware-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-sparc-firmware": {
+      "filename": "qemu-system-sparc-firmware-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-tricore": {
+      "filename": "qemu-system-tricore-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-alpha": {
+      "filename": "qemu-system-alpha-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-hw-display-virtio-gpu-pci": {
+      "filename": "qemu-hw-display-virtio-gpu-pci-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-or1k": {
+      "filename": "qemu-system-or1k-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-block-nfs": {
+      "filename": "qemu-block-nfs-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-ui-spice-core": {
+      "filename": "qemu-ui-spice-core-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-tests": {
+      "filename": "qemu-tests-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-hw-display-virtio-vga-rutabaga": {
+      "filename": "qemu-hw-display-virtio-vga-rutabaga-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-m68k": {
+      "filename": "qemu-system-m68k-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-full": {
+      "filename": "qemu-full-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-ui-spice-app": {
+      "filename": "qemu-ui-spice-app-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-block-iscsi": {
+      "filename": "qemu-block-iscsi-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-user-binfmt": {
+      "filename": "qemu-user-binfmt-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-ui-dbus": {
+      "filename": "qemu-ui-dbus-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-alpha-firmware": {
+      "filename": "qemu-system-alpha-firmware-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-riscv": {
+      "filename": "qemu-system-riscv-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-ui-opengl": {
+      "filename": "qemu-ui-opengl-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-block-curl": {
+      "filename": "qemu-block-curl-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-ppc-firmware": {
+      "filename": "qemu-system-ppc-firmware-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-loongarch64": {
+      "filename": "qemu-system-loongarch64-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-hw-display-qxl": {
+      "filename": "qemu-hw-display-qxl-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-audio-oss": {
+      "filename": "qemu-audio-oss-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-guest-agent": {
+      "filename": "qemu-guest-agent-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-audio-jack": {
+      "filename": "qemu-audio-jack-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-hw-display-virtio-gpu-pci-rutabaga": {
+      "filename": "qemu-hw-display-virtio-gpu-pci-rutabaga-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-ui-gtk": {
+      "filename": "qemu-ui-gtk-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-x86": {
+      "filename": "qemu-system-x86-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-hw-display-virtio-gpu-gl": {
+      "filename": "qemu-hw-display-virtio-gpu-gl-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-microblaze-firmware": {
+      "filename": "qemu-system-microblaze-firmware-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-pr-helper": {
+      "filename": "qemu-pr-helper-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-block-gluster": {
+      "filename": "qemu-block-gluster-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-ui-egl-headless": {
+      "filename": "qemu-ui-egl-headless-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-audio-pipewire": {
+      "filename": "qemu-audio-pipewire-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-audio-alsa": {
+      "filename": "qemu-audio-alsa-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-sparc": {
+      "filename": "qemu-system-sparc-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-emulators-full": {
+      "filename": "qemu-emulators-full-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-audio-spice": {
+      "filename": "qemu-audio-spice-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-s390x": {
+      "filename": "qemu-system-s390x-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-hw-display-virtio-gpu": {
+      "filename": "qemu-hw-display-virtio-gpu-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-hppa": {
+      "filename": "qemu-system-hppa-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-vmsr-helper": {
+      "filename": "qemu-vmsr-helper-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-ui-curses": {
+      "filename": "qemu-ui-curses-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-xtensa": {
+      "filename": "qemu-system-xtensa-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-sh4": {
+      "filename": "qemu-system-sh4-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-x86-firmware": {
+      "filename": "qemu-system-x86-firmware-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-chardev-baum": {
+      "filename": "qemu-chardev-baum-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-hw-uefi-vars": {
+      "filename": "qemu-hw-uefi-vars-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-user": {
+      "filename": "qemu-user-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-hw-usb-host": {
+      "filename": "qemu-hw-usb-host-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-tools": {
+      "filename": "qemu-tools-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-hw-display-virtio-gpu-pci-gl": {
+      "filename": "qemu-hw-display-virtio-gpu-pci-gl-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-block-dmg": {
+      "filename": "qemu-block-dmg-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-system-hppa-firmware": {
+      "filename": "qemu-system-hppa-firmware-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
+    },
+    "qemu-hw-display-virtio-vga-gl": {
+      "filename": "qemu-hw-display-virtio-vga-gl-11.0.3-1.11-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260814-134517-qemu",
+      "version": ""
     }
   }
 }
