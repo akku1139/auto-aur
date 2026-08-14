@@ -48,4 +48,4 @@ pi-ext-spellcheck
 pi-ext-cursor-rules
 pi-ext-awsdocs
 fcitx5-chinese-addons-without-browser
-qemu
+qemu-common
