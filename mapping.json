@@ -221,9 +221,9 @@
       "version": "0.20.0-1"
     },
     "ggml-cuda-backend": {
-      "filename": "ggml-cuda-backend-0.19.0-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260813-162709-ggml-cuda-backend",
-      "version": "0.19.0-1"
+      "filename": "ggml-cuda-backend-0.20.0-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260818-234913-ggml-cuda-backend",
+      "version": "0.20.0-1"
     },
     "rocm-gfx103x-bin": {
       "filename": "rocm-gfx103x-bin-7.14.0-1-x86_64.pkg.tar.zst",
