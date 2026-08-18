@@ -264,6 +264,11 @@
       "filename": "",
       "release_tag": "build-20260814-172209-qemu",
       "version": "11.0.3-1.11"
+    },
+    "pi-coding-agent": {
+      "filename": "pi-coding-agent-0.84.2-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260818-020721-pi-coding-agent",
+      "version": "0.84.2-1"
     }
   }
 }
