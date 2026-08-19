@@ -173,8 +173,9 @@
     },
     "tascam-control-panel-git": {
       "filename": "tascam-control-panel-git-r141.b013e2e-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260731-082850",
-      "version": "r141.b013e2e-1"
+      "release_tag": "build-20260819-102858-tascam-control-panel-git",
+      "version": "r141.b013e2e-1",
+      "vcs_ref": "b013e2e0f8a574233970382b38b1d4b605a3b7d6"
     },
     "llama.cpp-system": {
       "filename": "llama.cpp-system-0.0.0.b10453-1-x86_64.pkg.tar.zst",
