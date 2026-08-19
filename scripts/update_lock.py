@@ -5,7 +5,8 @@ import os
 from collections import deque
 from common import (
     get_deps, is_local_package, is_custom_patch, get_current_version,
-    preload_aur_cache, get_aur_pkgbase
+    preload_aur_cache, get_aur_pkgbase, parse_vcs_source, get_vcs_ref,
+    fetch_aur_srcinfo
 )
 
 def main():
@@ -115,22 +116,56 @@ def main():
     }
     for pkg in order:
         pkgbase = pkg
-        if not (is_local_package(pkg) or is_custom_patch(pkg)):
+        is_local = is_local_package(pkg)
+        is_custom = is_custom_patch(pkg)
+        if not (is_local or is_custom):
             # AUR パッケージの場合、実際の pkgbase を取得
             try:
                 pkgbase = get_aur_pkgbase(pkg)
             except:
                 # フォールバック: pkg をそのまま使う
                 pass
-        lock["packages"].append({
+
+        vcs_ref = None
+        if is_local:
+            srcinfo = get_local_srcinfo(pkg)
+        elif is_custom:
+            srcinfo = get_custom_srcinfo(pkg)
+        else:
+            if pkg.endswith('-git'):
+                try:
+                    srcinfo = fetch_aur_srcinfo(pkgbase)
+                except Exception:
+                    srcinfo = None
+            else:
+                srcinfo = None
+
+        if srcinfo:
+            parsed = parse_vcs_source(srcinfo)
+            if parsed:
+                url, frag = parsed
+                if not frag.startswith('commit='):
+                    ref = None
+                    if frag.startswith('branch='):
+                        ref = frag.split('=', 1)[1]
+                    elif frag.startswith('tag='):
+                        ref = 'refs/tags/' + frag.split('=', 1)[1]
+                    head = get_vcs_ref(url, ref)
+                    if head:
+                        vcs_ref = head
+
+        entry = {
             "name": pkg,
             "pkgbase": pkgbase,
             "version": get_current_version(pkg),
             "deps": list(graph[pkg]),
             "build_order": order.index(pkg),
-            "local": is_local_package(pkg),
-            "custom": is_custom_patch(pkg)
-        })
+            "local": is_local,
+            "custom": is_custom,
+        }
+        if vcs_ref:
+            entry["vcs_ref"] = vcs_ref
+        lock["packages"].append(entry)
 
     with open(sys.argv[2], 'w') as f:
         json.dump(lock, f, indent=2)

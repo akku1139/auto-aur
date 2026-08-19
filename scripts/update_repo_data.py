@@ -46,6 +46,7 @@ def main():
         lock = json.load(f)
     pkg_names = [pkg['name'] for pkg in lock['packages']]
     lock_versions = {pkg['name']: pkg.get('version', '') for pkg in lock['packages']}
+    lock_vcs_refs = {pkg['name']: pkg.get('vcs_ref') for pkg in lock['packages']}
 
     # Read existing mapping
     with open(args.mapping) as f:
@@ -92,11 +93,15 @@ def main():
             matched = fname.split('-')[0]
             print(f"Warning: Could not match {fname}, using {matched}", file=sys.stderr)
 
-        mapping['packages'][matched] = {
+        entry = {
             "filename": fname,
             "release_tag": args.release_tag,
             "version": lock_versions.get(matched, ""),
         }
+        vcs_ref = lock_vcs_refs.get(matched)
+        if vcs_ref:
+            entry["vcs_ref"] = vcs_ref
+        mapping['packages'][matched] = entry
 
     # ローカル/カスタムパッケージの pkgbase は実ファイルが無い場合があるため、
     # lock.json に登録されている名前とバージョンを mapping に反映する。
@@ -108,11 +113,15 @@ def main():
                 continue
             entry = mapping["packages"].get(pkg["name"])
             if entry is None or not entry.get("filename"):
-                mapping["packages"][pkg["name"]] = {
+                new_entry = {
                     "filename": "",
                     "release_tag": args.release_tag,
                     "version": lock_versions.get(pkg["name"], ""),
                 }
+                vcs_ref = lock_vcs_refs.get(pkg["name"])
+                if vcs_ref:
+                    new_entry["vcs_ref"] = vcs_ref
+                mapping["packages"][pkg["name"]] = new_entry
             break
 
     # Build repository database with optional signing

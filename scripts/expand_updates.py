@@ -31,7 +31,14 @@ def main():
     for name, info in pkg_infos.items():
         mapped = mapping.get("packages", {}).get(name)
         locked_version = info.get("version", "")
-        if not mapped or mapped.get("version", "") != locked_version:
+        locked_vcs_ref = info.get("vcs_ref")
+        if not mapped:
+            changed.add(name)
+            continue
+        if mapped.get("version", "") != locked_version:
+            changed.add(name)
+            continue
+        if locked_vcs_ref and mapped.get("vcs_ref") != locked_vcs_ref:
             changed.add(name)
 
     requested_filter = read_filter(sys.argv[4] if len(sys.argv) == 5 else None)

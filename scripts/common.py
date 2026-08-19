@@ -103,6 +103,75 @@ def get_aur_pkgbase(pkg: str) -> str:
     _, _, pkgbase = get_aur_info(pkg)
     return pkgbase
 
+
+def parse_vcs_source(srcinfo: str) -> Optional[Tuple[str, str]]:
+    """Extract (url, fragment) from the first git VCS source in .SRCINFO."""
+    for line in srcinfo.splitlines():
+        line = line.strip()
+        if line.startswith('source = '):
+            src = line.split(' = ', 1)[1].strip()
+            url = None
+            frag = ''
+            if src.startswith('git+'):
+                rest = src[4:]
+                if '#' in rest:
+                    url, frag = rest.split('#', 1)
+                else:
+                    url = rest
+            elif src.startswith('git://'):
+                if '#' in src:
+                    url, frag = src.split('#', 1)
+                else:
+                    url = src
+            if url:
+                return url, frag
+    return None
+
+
+def _git_ls_remote(url: str, ref: Optional[str]) -> Optional[str]:
+    cmd = ['git', 'ls-remote', url]
+    if ref:
+        cmd.append(ref)
+    else:
+        cmd.append('HEAD')
+    try:
+        out = subprocess.check_output(
+            cmd,
+            text=True,
+            timeout=20,
+            stderr=subprocess.DEVNULL,
+        )
+    except Exception:
+        return None
+    if not out:
+        return None
+    first_line = out.splitlines()[0]
+    return first_line.split('\t')[0]
+
+
+_vcs_ref_cache: Dict[str, Optional[str]] = {}
+
+
+def get_vcs_ref(url: str, ref: Optional[str]) -> Optional[str]:
+    cache_key = f"{url}#{ref}"
+    if cache_key in _vcs_ref_cache:
+        return _vcs_ref_cache[cache_key]
+    result = _git_ls_remote(url, ref)
+    _vcs_ref_cache[cache_key] = result
+    return result
+
+
+def fetch_aur_srcinfo(pkgbase: str) -> str:
+    """Fetch .SRCINFO for an AUR package base from cgit."""
+    url = (
+        "https://aur.archlinux.org/cgit/aur.git/plain/.SRCINFO?h="
+        + urllib.parse.quote(pkgbase)
+    )
+    req = urllib.request.Request(url, headers={"User-Agent": "curl/7.68.0"})
+    with urllib.request.urlopen(req, timeout=20) as resp:
+        return resp.read().decode('utf-8')
+
+
 def parse_deps(srcinfo: str) -> Set[str]:
     deps = set()
     for line in srcinfo.splitlines():
