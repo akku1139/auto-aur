@@ -127,32 +127,30 @@ def main():
                 pass
 
         vcs_ref = None
-        if is_local:
-            srcinfo = get_local_srcinfo(pkg)
-        elif is_custom:
-            srcinfo = get_custom_srcinfo(pkg)
-        else:
-            if pkg.endswith('-git'):
+        if pkg.endswith('-git'):
+            if is_local:
+                srcinfo = get_local_srcinfo(pkg)
+            elif is_custom:
+                srcinfo = get_custom_srcinfo(pkg)
+            else:
                 try:
                     srcinfo = fetch_aur_srcinfo(pkgbase)
                 except Exception:
                     srcinfo = None
-            else:
-                srcinfo = None
 
-        if srcinfo:
-            parsed = parse_vcs_source(srcinfo)
-            if parsed:
-                url, frag = parsed
-                if not frag.startswith('commit='):
-                    ref = None
-                    if frag.startswith('branch='):
-                        ref = frag.split('=', 1)[1]
-                    elif frag.startswith('tag='):
-                        ref = 'refs/tags/' + frag.split('=', 1)[1]
-                    head = get_vcs_ref(url, ref)
-                    if head:
-                        vcs_ref = head
+            if srcinfo:
+                parsed = parse_vcs_source(srcinfo)
+                if parsed:
+                    url, frag = parsed
+                    if not frag.startswith('commit='):
+                        ref = None
+                        if frag.startswith('branch='):
+                            ref = frag.split('=', 1)[1]
+                        elif frag.startswith('tag='):
+                            ref = 'refs/tags/' + frag.split('=', 1)[1]
+                        head = get_vcs_ref(url, ref)
+                        if head:
+                            vcs_ref = head
 
         entry = {
             "name": pkg,
