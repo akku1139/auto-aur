@@ -28,8 +28,8 @@
 /repo/auto-aur/x86_64/cbfstool-26.06-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260701-142237/cbfstool-26.06-1-x86_64.pkg.tar.zst.sig 302
 /repo/auto-aur/x86_64/vboot-utils-150.16700-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260819-102947-vboot-utils/vboot-utils-150.16700-1-x86_64.pkg.tar.zst 302
 /repo/auto-aur/x86_64/vboot-utils-150.16700-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260819-102947-vboot-utils/vboot-utils-150.16700-1-x86_64.pkg.tar.zst.sig 302
-/repo/auto-aur/x86_64/chromeos-flashrom-git-r5059.9c861046a-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260819-102749-chromeos-flashrom-git/chromeos-flashrom-git-r5059.9c861046a-1-x86_64.pkg.tar.zst 302
-/repo/auto-aur/x86_64/chromeos-flashrom-git-r5059.9c861046a-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260819-102749-chromeos-flashrom-git/chromeos-flashrom-git-r5059.9c861046a-1-x86_64.pkg.tar.zst.sig 302
+/repo/auto-aur/x86_64/chromeos-flashrom-git-r5060.ca02d8320-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260821-101444-chromeos-flashrom-git/chromeos-flashrom-git-r5060.ca02d8320-1-x86_64.pkg.tar.zst 302
+/repo/auto-aur/x86_64/chromeos-flashrom-git-r5060.ca02d8320-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260821-101444-chromeos-flashrom-git/chromeos-flashrom-git-r5060.ca02d8320-1-x86_64.pkg.tar.zst.sig 302
 /repo/auto-aur/x86_64/karukan-0.1.0-4-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260701-130125/karukan-0.1.0-4-x86_64.pkg.tar.zst 302
 /repo/auto-aur/x86_64/karukan-0.1.0-4-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260701-130125/karukan-0.1.0-4-x86_64.pkg.tar.zst.sig 302
 /repo/auto-aur/x86_64/libstdc++5-3.3.6-11-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260703-061513/libstdc++5-3.3.6-11-x86_64.pkg.tar.zst 302
