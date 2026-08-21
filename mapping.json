@@ -72,7 +72,7 @@
     },
     "vboot-utils": {
       "filename": "vboot-utils-150.16700-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260819-102947-vboot-utils",
+      "release_tag": "build-20260821-101609-vboot-utils",
       "version": "150.16700-1"
     },
     "chromeos-flashrom-git": {
