@@ -167,9 +167,9 @@
       "version": "0.21.0-2"
     },
     "ggml-vulkan-backend": {
-      "filename": "ggml-vulkan-backend-0.21.0-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260824-134145-ggml-vulkan-backend",
-      "version": "0.21.0-1"
+      "filename": "ggml-vulkan-backend-0.21.0-2-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260824-205140-ggml-vulkan-backend",
+      "version": "0.21.0-2"
     },
     "tascam-control-panel-git": {
       "filename": "tascam-control-panel-git-r141.b013e2e-1-x86_64.pkg.tar.zst",
