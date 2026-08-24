@@ -199,7 +199,7 @@
     },
     "ggml-cuda-backend-llama.cpp": {
       "filename": "ggml-cuda-backend-llama.cpp-0.0.0.b10603-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260824-180413-ggml-cuda-backend-llama.cpp",
+      "release_tag": "build-20260824-233630-ggml-cuda-backend-llama.cpp",
       "version": "0.0.0.b10603-1"
     },
     "ggml-hip-backend-llama.cpp": {
