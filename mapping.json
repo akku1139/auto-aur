@@ -162,9 +162,9 @@
       "version": "0.11.0-1"
     },
     "ggml-core": {
-      "filename": "ggml-core-0.20.0-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260818-191806-ggml-core",
-      "version": "0.20.0-1"
+      "filename": "ggml-core-0.21.0-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260824-102400-ggml-core",
+      "version": "0.21.0-1"
     },
     "ggml-vulkan-backend": {
       "filename": "ggml-vulkan-backend-0.20.0-1-x86_64.pkg.tar.zst",
