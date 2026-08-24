@@ -183,9 +183,9 @@
       "version": "0.0.0.b10603-1"
     },
     "ggml-vulkan-backend-llama.cpp": {
-      "filename": "ggml-vulkan-backend-llama.cpp-0.0.0.b10453-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260818-224314-ggml-vulkan-backend-llama.cpp",
-      "version": "0.0.0.b10453-1"
+      "filename": "ggml-vulkan-backend-llama.cpp-0.0.0.b10603-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260824-133650-ggml-vulkan-backend-llama.cpp",
+      "version": "0.0.0.b10603-1"
     },
     "ggml-cpu-backend": {
       "filename": "ggml-cpu-backend-0.21.0-1-x86_64.pkg.tar.zst",
