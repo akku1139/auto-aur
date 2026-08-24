@@ -204,7 +204,7 @@
     },
     "ggml-hip-backend-llama.cpp": {
       "filename": "ggml-hip-backend-llama.cpp-0.0.0.b10603-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260824-133145-ggml-hip-backend-llama.cpp",
+      "release_tag": "build-20260824-220414-ggml-hip-backend-llama.cpp",
       "version": "0.0.0.b10603-1"
     },
     "ggml-core-llama.cpp": {
