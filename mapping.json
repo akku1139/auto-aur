@@ -213,9 +213,9 @@
       "version": "0.0.0.b10603-2"
     },
     "ggml-cpu-backend-llama.cpp": {
-      "filename": "ggml-cpu-backend-llama.cpp-0.0.0.b10603-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260824-134643-ggml-cpu-backend-llama.cpp",
-      "version": "0.0.0.b10603-1"
+      "filename": "ggml-cpu-backend-llama.cpp-0.0.0.b10603-2-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260824-204204-ggml-cpu-backend-llama.cpp",
+      "version": "0.0.0.b10603-2"
     },
     "ggml-hip-backend": {
       "filename": "ggml-hip-backend-0.21.0-1-x86_64.pkg.tar.zst",
