@@ -88,8 +88,8 @@
 /repo/auto-aur/x86_64/ggml-hip-backend-0.21.0-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260824-203726-ggml-hip-backend/ggml-hip-backend-0.21.0-1-x86_64.pkg.tar.zst.sig 302
 /repo/auto-aur/x86_64/ggml-cuda-backend-0.21.0-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260825-010156-ggml-cuda-backend/ggml-cuda-backend-0.21.0-1-x86_64.pkg.tar.zst 302
 /repo/auto-aur/x86_64/ggml-cuda-backend-0.21.0-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260825-010156-ggml-cuda-backend/ggml-cuda-backend-0.21.0-1-x86_64.pkg.tar.zst.sig 302
-/repo/auto-aur/x86_64/rocm-gfx103x-bin-7.14.0-2-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260822-191106-rocm-gfx103x-bin/rocm-gfx103x-bin-7.14.0-2-x86_64.pkg.tar.zst 302
-/repo/auto-aur/x86_64/rocm-gfx103x-bin-7.14.0-2-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260822-191106-rocm-gfx103x-bin/rocm-gfx103x-bin-7.14.0-2-x86_64.pkg.tar.zst.sig 302
+/repo/auto-aur/x86_64/rocm-gfx103x-bin-10.0.0-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260828-004134-rocm-gfx103x-bin/rocm-gfx103x-bin-10.0.0-1-x86_64.pkg.tar.zst 302
+/repo/auto-aur/x86_64/rocm-gfx103x-bin-10.0.0-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260828-004134-rocm-gfx103x-bin/rocm-gfx103x-bin-10.0.0-1-x86_64.pkg.tar.zst.sig 302
 /repo/auto-aur/x86_64/pi-ext-cursor-rules-1.0.1-1-any.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260807-102514/pi-ext-cursor-rules-1.0.1-1-any.pkg.tar.zst 302
 /repo/auto-aur/x86_64/pi-ext-cursor-rules-1.0.1-1-any.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260807-102514/pi-ext-cursor-rules-1.0.1-1-any.pkg.tar.zst.sig 302
 /repo/auto-aur/x86_64/pi-coding-agent-bin-0.84.3-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260824-180511-pi-coding-agent-bin/pi-coding-agent-bin-0.84.3-1-x86_64.pkg.tar.zst 302
