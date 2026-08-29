@@ -157,9 +157,9 @@
       "version": "2.24.4-1"
     },
     "irlume": {
-      "filename": "irlume-0.11.2-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260825-102003-irlume",
-      "version": "0.11.2-1"
+      "filename": "irlume-0.11.3-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260829-144821-irlume",
+      "version": "0.11.3-1"
     },
     "ggml-core": {
       "filename": "ggml-core-0.21.0-2-x86_64.pkg.tar.zst",
