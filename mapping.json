@@ -268,9 +268,9 @@
       "version": "11.0.3-1.11"
     },
     "pi-coding-agent": {
-      "filename": "pi-coding-agent-0.84.3-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260826-021628-pi-coding-agent",
-      "version": "0.84.3-1"
+      "filename": "pi-coding-agent-0.84.4-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260830-055543-pi-coding-agent",
+      "version": "0.84.4-1"
     }
   }
 }
