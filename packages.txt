@@ -49,3 +49,6 @@ pi-ext-cursor-rules
 pi-ext-awsdocs
 fcitx5-chinese-addons-without-browser
 qemu
+rtl88x2bu-dkms-git
+rtl88x2bu-openhd-dkms-git
+rtl88x2bu-cilynx-dkms-git
