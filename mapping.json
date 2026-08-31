@@ -262,6 +262,12 @@
       "release_tag": "build-20260831-210808-rtl88x2bu-dkms-git",
       "version": "5.13.1.r209.fcf8bf2-1",
       "vcs_ref": "153fdc5853d9c377e5229bce000c7d01157f7703"
+    },
+    "rtl88x2bu-openhd-dkms-git": {
+      "filename": "rtl88x2bu-openhd-dkms-git-5.13.1.r284.g111d1f2-1-any.pkg.tar.zst",
+      "release_tag": "build-20260831-210907-rtl88x2bu-openhd-dkms-git",
+      "version": "5.13.1.r229.g0f4686b-7",
+      "vcs_ref": "111d1f2417e9f1c5eeeaee481e1e50f7a16cac74"
     }
   }
 }
