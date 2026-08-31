@@ -166,21 +166,11 @@
       "release_tag": "build-20260824-191929-ggml-core",
       "version": "0.21.0-2"
     },
-    "ggml-vulkan-backend": {
-      "filename": "ggml-vulkan-backend-0.21.0-2-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260824-205140-ggml-vulkan-backend",
-      "version": "0.21.0-2"
-    },
     "tascam-control-panel-git": {
       "filename": "tascam-control-panel-git-r141.b013e2e-1-x86_64.pkg.tar.zst",
       "release_tag": "build-20260819-102858-tascam-control-panel-git",
       "version": "r141.b013e2e-1",
       "vcs_ref": "b013e2e0f8a574233970382b38b1d4b605a3b7d6"
-    },
-    "llama.cpp-system": {
-      "filename": "llama.cpp-system-0.0.0.b10659-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260828-123450-llama.cpp-system",
-      "version": "0.0.0.b10659-1"
     },
     "ggml-vulkan-backend-llama.cpp": {
       "filename": "ggml-vulkan-backend-llama.cpp-0.0.0.b10659-1-x86_64.pkg.tar.zst",
@@ -196,11 +186,6 @@
       "filename": "stable-diffusion.cpp-system-0.0.0.813-1-x86_64.pkg.tar.zst",
       "release_tag": "build-20260813-235431-stable-diffusion.cpp-system",
       "version": "0.0.0.813-1"
-    },
-    "ggml-cuda-backend-llama.cpp": {
-      "filename": "ggml-cuda-backend-llama.cpp-0.0.0.b10659-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260828-140513-ggml-cuda-backend-llama.cpp",
-      "version": "0.0.0.b10659-1"
     },
     "ggml-hip-backend-llama.cpp": {
       "filename": "ggml-hip-backend-llama.cpp-0.0.0.b10659-1-x86_64.pkg.tar.zst",
@@ -238,9 +223,9 @@
       "version": "1.0.1-1"
     },
     "pi-coding-agent-bin": {
-      "filename": "pi-coding-agent-bin-0.84.3-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260824-180511-pi-coding-agent-bin",
-      "version": "0.84.3-1"
+      "filename": "pi-coding-agent-bin-0.84.4-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260831-061635-pi-coding-agent-bin",
+      "version": "0.84.4-1"
     },
     "pi-ext-awsdocs": {
       "filename": "pi-ext-awsdocs-1.1.0-1-any.pkg.tar.zst",
