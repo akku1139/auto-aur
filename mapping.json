@@ -256,6 +256,12 @@
       "filename": "pi-coding-agent-0.84.4-1-x86_64.pkg.tar.zst",
       "release_tag": "build-20260830-055543-pi-coding-agent",
       "version": "0.84.4-1"
+    },
+    "rtl88x2bu-dkms-git": {
+      "filename": "rtl88x2bu-dkms-git-5.13.1.r221.153fdc5-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260831-210808-rtl88x2bu-dkms-git",
+      "version": "5.13.1.r209.fcf8bf2-1",
+      "vcs_ref": "153fdc5853d9c377e5229bce000c7d01157f7703"
     }
   }
 }
