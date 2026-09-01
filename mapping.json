@@ -274,6 +274,11 @@
       "release_tag": "build-20260831-210930-rtl88x2bu-cilynx-dkms-git",
       "version": "r105.e8ad266-2",
       "vcs_ref": "04ed7009bac4b235fe1880ba29e23159f49a6121"
+    },
+    "pipewire-control-center": {
+      "filename": "pipewire-control-center-0.6.0-1-any.pkg.tar.zst",
+      "release_tag": "build-20260901-142033-pipewire-control-center",
+      "version": "0.6.0-1"
     }
   }
 }
