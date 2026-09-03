@@ -213,9 +213,9 @@
       "version": "0.21.0-1"
     },
     "rocm-gfx103x-bin": {
-      "filename": "rocm-gfx103x-bin-10.0.0-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260828-004134-rocm-gfx103x-bin",
-      "version": "10.0.0-1"
+      "filename": "rocm-gfx103x-bin-10.0.0-2-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260903-212828-rocm-gfx103x-bin",
+      "version": "10.0.0-2"
     },
     "pi-ext-cursor-rules": {
       "filename": "pi-ext-cursor-rules-1.0.1-1-any.pkg.tar.zst",
