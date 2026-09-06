@@ -279,6 +279,11 @@
       "filename": "pipewire-control-center-0.6.0-1-any.pkg.tar.zst",
       "release_tag": "build-20260901-142033-pipewire-control-center",
       "version": "0.6.0-1"
+    },
+    "tunnel-client": {
+      "filename": "tunnel-client-0.0.14-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260906-112506-tunnel-client",
+      "version": "0.0.14-1"
     }
   }
 }
