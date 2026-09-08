@@ -244,6 +244,12 @@
       "filename": "tunnel-client-0.0.14-1-x86_64.pkg.tar.zst",
       "release_tag": "build-20260906-112506-tunnel-client",
       "version": "0.0.14-1"
+    },
+    "ghidra-mcp-git": {
+      "filename": "ghidra-mcp-git-6.0.0.r212.g1e02113-1-any.pkg.tar.zst",
+      "release_tag": "build-20260908-165426-ghidra-mcp-git",
+      "version": "6.0.0.r0.g8cd2078-1",
+      "vcs_ref": "1e0211388d9fc1f85876b69b3343d1bd563c3b85"
     }
   }
 }
