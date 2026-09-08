@@ -54,3 +54,5 @@ rtl88x2bu-openhd-dkms-git
 rtl88x2bu-cilynx-dkms-git
 pipewire-control-center
 tunnel-client
+ghidra-mcp-git
+ghidra-mcp
