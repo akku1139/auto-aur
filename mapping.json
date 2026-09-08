@@ -250,6 +250,11 @@
       "release_tag": "build-20260908-165426-ghidra-mcp-git",
       "version": "6.0.0.r0.g8cd2078-1",
       "vcs_ref": "1e0211388d9fc1f85876b69b3343d1bd563c3b85"
+    },
+    "ghidra-mcp": {
+      "filename": "ghidra-mcp-6.0.0-2-any.pkg.tar.zst",
+      "release_tag": "build-20260908-165545-ghidra-mcp",
+      "version": "6.0.0-2"
     }
   }
 }
