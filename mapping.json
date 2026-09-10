@@ -112,9 +112,9 @@
       "version": "0.2.1-2"
     },
     "spicetify-cli": {
-      "filename": "spicetify-cli-2.44.0-3-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260721-092929",
-      "version": "2.44.0-3"
+      "filename": "spicetify-cli-2.45.0-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260910-052305-spicetify-cli",
+      "version": "2.45.0-1"
     },
     "spicetify-bin": {
       "filename": "spicetify-bin-2.44.0-1-x86_64.pkg.tar.zst",
