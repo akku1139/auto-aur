@@ -64,8 +64,6 @@
 /repo/auto-aur/x86_64/irlume-0.12.0-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260911-233958-irlume/irlume-0.12.0-1-x86_64.pkg.tar.zst.sig 302
 /repo/auto-aur/x86_64/tascam-control-panel-git-r141.b013e2e-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260819-102858-tascam-control-panel-git/tascam-control-panel-git-r141.b013e2e-1-x86_64.pkg.tar.zst 302
 /repo/auto-aur/x86_64/tascam-control-panel-git-r141.b013e2e-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260819-102858-tascam-control-panel-git/tascam-control-panel-git-r141.b013e2e-1-x86_64.pkg.tar.zst.sig 302
-/repo/auto-aur/x86_64/ggml-cpu-backend-0.21.0-2-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260824-192428-ggml-cpu-backend/ggml-cpu-backend-0.21.0-2-x86_64.pkg.tar.zst 302
-/repo/auto-aur/x86_64/ggml-cpu-backend-0.21.0-2-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260824-192428-ggml-cpu-backend/ggml-cpu-backend-0.21.0-2-x86_64.pkg.tar.zst.sig 302
 /repo/auto-aur/x86_64/rocm-gfx103x-bin-10.0.0-2-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260903-212828-rocm-gfx103x-bin/rocm-gfx103x-bin-10.0.0-2-x86_64.pkg.tar.zst 302
 /repo/auto-aur/x86_64/rocm-gfx103x-bin-10.0.0-2-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260903-212828-rocm-gfx103x-bin/rocm-gfx103x-bin-10.0.0-2-x86_64.pkg.tar.zst.sig 302
 /repo/auto-aur/x86_64/pi-ext-cursor-rules-1.0.1-1-any.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260807-102514/pi-ext-cursor-rules-1.0.1-1-any.pkg.tar.zst 302
@@ -96,3 +94,5 @@
 /repo/auto-aur/x86_64/ghidra-mcp-git-6.0.0.r219.g5ed89be-1-any.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260911-052109-ghidra-mcp-git/ghidra-mcp-git-6.0.0.r219.g5ed89be-1-any.pkg.tar.zst.sig 302
 /repo/auto-aur/x86_64/ghidra-mcp-6.0.0-2-any.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260908-165545-ghidra-mcp/ghidra-mcp-6.0.0-2-any.pkg.tar.zst 302
 /repo/auto-aur/x86_64/ghidra-mcp-6.0.0-2-any.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260908-165545-ghidra-mcp/ghidra-mcp-6.0.0-2-any.pkg.tar.zst.sig 302
+/repo/auto-aur/x86_64/stable-diffusion.cpp-vulkan-git-r860.44dd137-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260913-115318-stable-diffusion.cpp-vulkan-git/stable-diffusion.cpp-vulkan-git-r860.44dd137-1-x86_64.pkg.tar.zst 302
+/repo/auto-aur/x86_64/stable-diffusion.cpp-vulkan-git-r860.44dd137-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260913-115318-stable-diffusion.cpp-vulkan-git/stable-diffusion.cpp-vulkan-git-r860.44dd137-1-x86_64.pkg.tar.zst.sig 302

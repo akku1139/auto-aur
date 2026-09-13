@@ -167,11 +167,6 @@
       "version": "r141.b013e2e-1",
       "vcs_ref": "b013e2e0f8a574233970382b38b1d4b605a3b7d6"
     },
-    "ggml-cpu-backend": {
-      "filename": "ggml-cpu-backend-0.21.0-2-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260824-192428-ggml-cpu-backend",
-      "version": "0.21.0-2"
-    },
     "rocm-gfx103x-bin": {
       "filename": "rocm-gfx103x-bin-10.0.0-2-x86_64.pkg.tar.zst",
       "release_tag": "build-20260903-212828-rocm-gfx103x-bin",
@@ -255,6 +250,12 @@
       "filename": "ghidra-mcp-6.0.0-2-any.pkg.tar.zst",
       "release_tag": "build-20260908-165545-ghidra-mcp",
       "version": "6.0.0-2"
+    },
+    "stable-diffusion.cpp-vulkan-git": {
+      "filename": "stable-diffusion.cpp-vulkan-git-r860.44dd137-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260913-115318-stable-diffusion.cpp-vulkan-git",
+      "version": "r849.d04e895-1",
+      "vcs_ref": "44dd13716df2a10a66e847d26623b63b472514ed"
     }
   }
 }
