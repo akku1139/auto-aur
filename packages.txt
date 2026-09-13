@@ -43,3 +43,5 @@ pipewire-control-center
 tunnel-client
 ghidra-mcp-git
 ghidra-mcp
+stable-diffusion.cpp-git
+stable-diffusion.cpp-vulkan-git
