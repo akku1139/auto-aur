@@ -142,9 +142,9 @@
       "version": "1.2.3-1"
     },
     "vencord-installer-cli-bin": {
-      "filename": "vencord-installer-cli-bin-1.4.0-3-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260721-092929",
-      "version": "1.4.0-3"
+      "filename": "vencord-installer-cli-bin-1.4.1-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260917-121008-vencord-installer-cli-bin",
+      "version": "1.4.1-1"
     },
     "osu-lazer": {
       "filename": "osu-lazer-2026.804.2-1-x86_64.pkg.tar.zst",
