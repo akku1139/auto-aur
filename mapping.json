@@ -213,10 +213,10 @@
       "version": "0.85.1-1"
     },
     "rtl88x2bu-dkms-git": {
-      "filename": "rtl88x2bu-dkms-git-5.13.1.r222.0026128-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260905-153744-rtl88x2bu-dkms-git",
+      "filename": "rtl88x2bu-dkms-git-5.13.1.r223.6a32dd2-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260919-114431-rtl88x2bu-dkms-git",
       "version": "5.13.1.r209.fcf8bf2-1",
-      "vcs_ref": "0026128fa37398416bc14a3220e85596b84cf6c7"
+      "vcs_ref": "6a32dd258b28b13e246517587ab5b07911954035"
     },
     "rtl88x2bu-openhd-dkms-git": {
       "filename": "rtl88x2bu-openhd-dkms-git-5.13.1.r284.g111d1f2-1-any.pkg.tar.zst",
