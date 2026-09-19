@@ -157,9 +157,9 @@
       "version": "2.26.2-1"
     },
     "irlume": {
-      "filename": "irlume-0.13.0-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260918-052123-irlume",
-      "version": "0.13.0-1"
+      "filename": "irlume-0.14.0-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260919-161343-irlume",
+      "version": "0.14.0-1"
     },
     "tascam-control-panel-git": {
       "filename": "tascam-control-panel-git-r141.b013e2e-1-x86_64.pkg.tar.zst",
@@ -256,6 +256,11 @@
       "release_tag": "build-20260919-114408-stable-diffusion.cpp-vulkan-git",
       "version": "r849.d04e895-1",
       "vcs_ref": "275ab58e01e5ce5d37fe4c96d67d22e75dabe2b9"
+    },
+    "irlume-kcm": {
+      "filename": "irlume-kcm-0.14.0-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260919-161343-irlume",
+      "version": ""
     }
   }
 }
