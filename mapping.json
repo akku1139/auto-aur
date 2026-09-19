@@ -252,15 +252,10 @@
       "version": "6.0.0-2"
     },
     "stable-diffusion.cpp-vulkan-git": {
-      "filename": "stable-diffusion.cpp-vulkan-git-r880.275ab58-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260919-114408-stable-diffusion.cpp-vulkan-git",
+      "filename": "stable-diffusion.cpp-vulkan-git-r882.1330ceb-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260919-162127-stable-diffusion.cpp-vulkan-git",
       "version": "r849.d04e895-1",
-      "vcs_ref": "275ab58e01e5ce5d37fe4c96d67d22e75dabe2b9"
-    },
-    "irlume-kcm": {
-      "filename": "irlume-kcm-0.14.0-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260919-161343-irlume",
-      "version": ""
+      "vcs_ref": "1330cebae8f2ba99249df846cc0c9444fcbd4308"
     }
   }
 }
