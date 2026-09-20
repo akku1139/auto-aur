@@ -44,8 +44,8 @@
 /repo/auto-aur/x86_64/fcitx5-hazkey-0.2.1-2-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260715-032040/fcitx5-hazkey-0.2.1-2-x86_64.pkg.tar.zst.sig 302
 /repo/auto-aur/x86_64/spicetify-cli-2.45.1-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260916-235445-spicetify-cli/spicetify-cli-2.45.1-1-x86_64.pkg.tar.zst 302
 /repo/auto-aur/x86_64/spicetify-cli-2.45.1-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260916-235445-spicetify-cli/spicetify-cli-2.45.1-1-x86_64.pkg.tar.zst.sig 302
-/repo/auto-aur/x86_64/spicetify-bin-2.44.0-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260721-092929/spicetify-bin-2.44.0-1-x86_64.pkg.tar.zst 302
-/repo/auto-aur/x86_64/spicetify-bin-2.44.0-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260721-092929/spicetify-bin-2.44.0-1-x86_64.pkg.tar.zst.sig 302
+/repo/auto-aur/x86_64/spicetify-bin-2.45.1-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260920-052903-spicetify-bin/spicetify-bin-2.45.1-1-x86_64.pkg.tar.zst 302
+/repo/auto-aur/x86_64/spicetify-bin-2.45.1-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260920-052903-spicetify-bin/spicetify-bin-2.45.1-1-x86_64.pkg.tar.zst.sig 302
 /repo/auto-aur/x86_64/vencord-installer-1.4.2-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260918-211952-vencord-installer/vencord-installer-1.4.2-1-x86_64.pkg.tar.zst 302
 /repo/auto-aur/x86_64/vencord-installer-1.4.2-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260918-211952-vencord-installer/vencord-installer-1.4.2-1-x86_64.pkg.tar.zst.sig 302
 /repo/auto-aur/x86_64/mozc-3.34.6239-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260721-092929/mozc-3.34.6239-1-x86_64.pkg.tar.zst 302
@@ -78,8 +78,6 @@
 /repo/auto-aur/x86_64/pi-ext-spellcheck-0.1.1-1-any.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260807-102514/pi-ext-spellcheck-0.1.1-1-any.pkg.tar.zst.sig 302
 /repo/auto-aur/x86_64/fcitx5-chinese-addons-without-browser-5.1.13-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260808-171941/fcitx5-chinese-addons-without-browser-5.1.13-1-x86_64.pkg.tar.zst 302
 /repo/auto-aur/x86_64/fcitx5-chinese-addons-without-browser-5.1.13-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260808-171941/fcitx5-chinese-addons-without-browser-5.1.13-1-x86_64.pkg.tar.zst.sig 302
-/repo/auto-aur/x86_64/pi-coding-agent-0.85.1-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260907-051732-pi-coding-agent/pi-coding-agent-0.85.1-1-x86_64.pkg.tar.zst 302
-/repo/auto-aur/x86_64/pi-coding-agent-0.85.1-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260907-051732-pi-coding-agent/pi-coding-agent-0.85.1-1-x86_64.pkg.tar.zst.sig 302
 /repo/auto-aur/x86_64/rtl88x2bu-dkms-git-5.13.1.r223.6a32dd2-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260919-114431-rtl88x2bu-dkms-git/rtl88x2bu-dkms-git-5.13.1.r223.6a32dd2-1-x86_64.pkg.tar.zst 302
 /repo/auto-aur/x86_64/rtl88x2bu-dkms-git-5.13.1.r223.6a32dd2-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260919-114431-rtl88x2bu-dkms-git/rtl88x2bu-dkms-git-5.13.1.r223.6a32dd2-1-x86_64.pkg.tar.zst.sig 302
 /repo/auto-aur/x86_64/rtl88x2bu-openhd-dkms-git-5.13.1.r284.g111d1f2-1-any.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260831-210907-rtl88x2bu-openhd-dkms-git/rtl88x2bu-openhd-dkms-git-5.13.1.r284.g111d1f2-1-any.pkg.tar.zst 302

@@ -117,9 +117,9 @@
       "version": "2.45.1-1"
     },
     "spicetify-bin": {
-      "filename": "spicetify-bin-2.44.0-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260721-092929",
-      "version": "2.44.0-1"
+      "filename": "spicetify-bin-2.45.1-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260920-052903-spicetify-bin",
+      "version": "2.45.1-1"
     },
     "vencord-installer": {
       "filename": "vencord-installer-1.4.2-1-x86_64.pkg.tar.zst",
@@ -206,11 +206,6 @@
       "filename": "",
       "release_tag": "build-20260814-172209-qemu",
       "version": "11.0.3-1.11"
-    },
-    "pi-coding-agent": {
-      "filename": "pi-coding-agent-0.85.1-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260907-051732-pi-coding-agent",
-      "version": "0.85.1-1"
     },
     "rtl88x2bu-dkms-git": {
       "filename": "rtl88x2bu-dkms-git-5.13.1.r223.6a32dd2-1-x86_64.pkg.tar.zst",
