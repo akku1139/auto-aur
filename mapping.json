@@ -248,8 +248,8 @@
     },
     "stable-diffusion.cpp-vulkan-git": {
       "filename": "stable-diffusion.cpp-vulkan-git-r882.1330ceb-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260919-162127-stable-diffusion.cpp-vulkan-git",
-      "version": "r849.d04e895-1",
+      "release_tag": "build-20260920-053419-stable-diffusion.cpp-vulkan-git",
+      "version": "r881.17860c0-1",
       "vcs_ref": "1330cebae8f2ba99249df846cc0c9444fcbd4308"
     }
   }
