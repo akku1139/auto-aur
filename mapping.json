@@ -147,9 +147,9 @@
       "version": "1.4.2-1"
     },
     "osu-lazer": {
-      "filename": "osu-lazer-2026.920.0-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260920-115424-osu-lazer",
-      "version": "2026.920.0-1"
+      "filename": "osu-lazer-2026.921.0-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260921-202242-osu-lazer",
+      "version": "2026.921.0-1"
     },
     "wakatime": {
       "filename": "wakatime-2.26.2-1-x86_64.pkg.tar.zst",
