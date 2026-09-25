@@ -251,6 +251,11 @@
       "release_tag": "build-20260925-122659-stable-diffusion.cpp-vulkan-git",
       "version": "r881.17860c0-1",
       "vcs_ref": "19bbbca1c736bbb9538679fc0ae690cb2b46b492"
+    },
+    "python-minilzo": {
+      "filename": "python-minilzo-1.2-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260925-144417-python-minilzo",
+      "version": "1.2-1"
     }
   }
 }
