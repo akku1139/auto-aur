@@ -44,3 +44,4 @@ tunnel-client
 ghidra-mcp-git
 ghidra-mcp
 stable-diffusion.cpp-vulkan-git
+vmlinux-to-elf
