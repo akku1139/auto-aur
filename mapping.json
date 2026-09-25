@@ -247,10 +247,10 @@
       "version": "6.0.0-2"
     },
     "stable-diffusion.cpp-vulkan-git": {
-      "filename": "stable-diffusion.cpp-vulkan-git-r913.b167b94-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260924-215845-stable-diffusion.cpp-vulkan-git",
+      "filename": "stable-diffusion.cpp-vulkan-git-r919.19bbbca-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20260925-122659-stable-diffusion.cpp-vulkan-git",
       "version": "r881.17860c0-1",
-      "vcs_ref": "b167b942f77ecb17e7f78e163a8c32ff7ac95c10"
+      "vcs_ref": "19bbbca1c736bbb9538679fc0ae690cb2b46b492"
     }
   }
 }
