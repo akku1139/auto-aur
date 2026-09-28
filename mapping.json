@@ -248,8 +248,8 @@
     },
     "stable-diffusion.cpp-vulkan-git": {
       "filename": "stable-diffusion.cpp-vulkan-git-r929.3f8527a-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260927-172519-stable-diffusion.cpp-vulkan-git",
-      "version": "r881.17860c0-1",
+      "release_tag": "build-20260928-000900-stable-diffusion.cpp-vulkan-git",
+      "version": "r929.3f8527a-1",
       "vcs_ref": "3f8527a46c54ecf4cb4ed6003da8e8982283c73c"
     },
     "python-minilzo": {
