@@ -72,7 +72,7 @@
     },
     "vboot-utils": {
       "filename": "vboot-utils-150.16700-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260924-173813-vboot-utils",
+      "release_tag": "build-20261002-201303-vboot-utils",
       "version": "150.16700-1"
     },
     "chromeos-flashrom-git": {
@@ -261,76 +261,6 @@
       "filename": "vmlinux-to-elf-1.3.6-1-any.pkg.tar.zst",
       "release_tag": "build-20260925-144552-vmlinux-to-elf",
       "version": "1.3.6-1"
-    },
-    "intelvbttool": {
-      "filename": "intelvbttool-26.09-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20261002-201126-coreboot-utils",
-      "version": ""
-    },
-    "me_cleaner": {
-      "filename": "me_cleaner-26.09-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20261002-201126-coreboot-utils",
-      "version": ""
-    },
-    "intelmetool": {
-      "filename": "intelmetool-26.09-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20261002-201126-coreboot-utils",
-      "version": ""
-    },
-    "inteltool": {
-      "filename": "inteltool-26.09-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20261002-201126-coreboot-utils",
-      "version": ""
-    },
-    "cbmem": {
-      "filename": "cbmem-26.09-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20261002-201126-coreboot-utils",
-      "version": ""
-    },
-    "ifdtool": {
-      "filename": "ifdtool-26.09-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20261002-201126-coreboot-utils",
-      "version": ""
-    },
-    "ectool": {
-      "filename": "ectool-26.09-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20261002-201126-coreboot-utils",
-      "version": ""
-    },
-    "msrtool": {
-      "filename": "msrtool-26.09-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20261002-201126-coreboot-utils",
-      "version": ""
-    },
-    "amdfwtool": {
-      "filename": "amdfwtool-26.09-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20261002-201126-coreboot-utils",
-      "version": ""
-    },
-    "autoport": {
-      "filename": "autoport-26.09-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20261002-201126-coreboot-utils",
-      "version": ""
-    },
-    "acpidump-all": {
-      "filename": "acpidump-all-26.09-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20261002-201126-coreboot-utils",
-      "version": ""
-    },
-    "superiotool": {
-      "filename": "superiotool-26.09-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20261002-201126-coreboot-utils",
-      "version": ""
-    },
-    "pmh7tool": {
-      "filename": "pmh7tool-26.09-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20261002-201126-coreboot-utils",
-      "version": ""
-    },
-    "nvramtool": {
-      "filename": "nvramtool-26.09-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20261002-201126-coreboot-utils",
-      "version": ""
     }
   }
 }
