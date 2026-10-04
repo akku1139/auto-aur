@@ -2,20 +2,11 @@
   "version": 1,
   "packages": [
     {
-      "name": "qt5-websockets",
-      "pkgbase": "qt5-websockets",
-      "version": "5.15.19+kde+r2-1",
+      "name": "python-minilzo",
+      "pkgbase": "python-minilzo",
+      "version": "1.2-1",
       "deps": [],
       "build_order": 0,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "libstdc++5",
-      "pkgbase": "libstdc++5",
-      "version": "3.3.6-11",
-      "deps": [],
-      "build_order": 1,
       "local": false,
       "custom": false
     },
@@ -24,7 +15,7 @@
       "pkgbase": "chromeos-flashrom-git",
       "version": "r4051.90795b2cc-2",
       "deps": [],
-      "build_order": 2,
+      "build_order": 1,
       "local": false,
       "custom": false,
       "vcs_ref": "fa2aff4ccada95422289ab767cae0ab5c97a39b8"
@@ -34,228 +25,25 @@
       "pkgbase": "coreboot-utils",
       "version": "26.09-1",
       "deps": [],
+      "build_order": 2,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "libstdc++5",
+      "pkgbase": "libstdc++5",
+      "version": "3.3.6-11",
+      "deps": [],
       "build_order": 3,
       "local": false,
       "custom": false
     },
     {
-      "name": "python-minilzo",
-      "pkgbase": "python-minilzo",
-      "version": "1.2-1",
+      "name": "qt5-websockets",
+      "pkgbase": "qt5-websockets",
+      "version": "5.15.19+kde+r2-1",
       "deps": [],
       "build_order": 4,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "fcitx5-hazkey-bin",
-      "pkgbase": "fcitx5-hazkey-bin",
-      "version": "0.2.1-2",
-      "deps": [],
-      "build_order": 5,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "osu-mime",
-      "pkgbase": "osu-mime",
-      "version": "0.1-3",
-      "deps": [],
-      "build_order": 6,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "overte-server-bin",
-      "pkgbase": "overte-server-bin",
-      "version": "2026.04.1.f91d15a-1",
-      "deps": [
-        "libstdc++5",
-        "qt5-websockets"
-      ],
-      "build_order": 7,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "yt-dlp-ejs-anyruntime",
-      "pkgbase": "yt-dlp-ejs-anyruntime",
-      "version": "0.8.0-3",
-      "deps": [],
-      "build_order": 8,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "snowflake-pt-proxy",
-      "pkgbase": "snowflake-pt-proxy",
-      "version": "2.14.1-1",
-      "deps": [],
-      "build_order": 9,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "osu-lazer",
-      "pkgbase": "osu-lazer",
-      "version": "2026.921.0-1",
-      "deps": [],
-      "build_order": 10,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "pi-ext-awsdocs",
-      "pkgbase": "pi-ext-awsdocs",
-      "version": "1.1.0-1",
-      "deps": [],
-      "build_order": 11,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "rtl88x2bu-cilynx-dkms-git",
-      "pkgbase": "rtl88x2bu-cilynx-dkms-git",
-      "version": "r105.e8ad266-2",
-      "deps": [],
-      "build_order": 12,
-      "local": false,
-      "custom": false,
-      "vcs_ref": "04ed7009bac4b235fe1880ba29e23159f49a6121"
-    },
-    {
-      "name": "fcitx5-chinese-addons-without-browser",
-      "pkgbase": "fcitx5-chinese-addons-without-browser",
-      "version": "5.1.14-1",
-      "deps": [],
-      "build_order": 13,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "vencord-installer-cli-bin",
-      "pkgbase": "vencord-installer-cli-bin",
-      "version": "1.4.2-1",
-      "deps": [],
-      "build_order": 14,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "faketty",
-      "pkgbase": "faketty",
-      "version": "1.0.20-2",
-      "deps": [],
-      "build_order": 15,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "spicetify-bin",
-      "pkgbase": "spicetify-bin",
-      "version": "2.45.1-1",
-      "deps": [],
-      "build_order": 16,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "nijigenerate-bin",
-      "pkgbase": "nijigenerate-bin",
-      "version": "v1.0.0beta2-1",
-      "deps": [],
-      "build_order": 17,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "qemu",
-      "pkgbase": "qemu",
-      "version": "11.0.3-1.11",
-      "deps": [],
-      "build_order": 18,
-      "local": true,
-      "custom": false
-    },
-    {
-      "name": "mozc",
-      "pkgbase": "mozc",
-      "version": "3.34.6239-1",
-      "deps": [],
-      "build_order": 19,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "spicetify-cli",
-      "pkgbase": "spicetify-cli",
-      "version": "2.45.3-1",
-      "deps": [],
-      "build_order": 20,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "pi-ext-cursor-rules",
-      "pkgbase": "pi-ext-cursor-rules",
-      "version": "1.0.1-1",
-      "deps": [],
-      "build_order": 21,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "vencord-installer",
-      "pkgbase": "vencord-installer",
-      "version": "1.4.2-1",
-      "deps": [],
-      "build_order": 22,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "rocm-gfx103x-bin",
-      "pkgbase": "rocm-gfx103x-bin",
-      "version": "10.0.0-2",
-      "deps": [],
-      "build_order": 23,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "rtl88x2bu-openhd-dkms-git",
-      "pkgbase": "rtl88x2bu-openhd-dkms-git",
-      "version": "5.13.1.r229.g0f4686b-7",
-      "deps": [],
-      "build_order": 24,
-      "local": false,
-      "custom": false,
-      "vcs_ref": "111d1f2417e9f1c5eeeaee481e1e50f7a16cac74"
-    },
-    {
-      "name": "fcitx5-hazkey",
-      "pkgbase": "fcitx5-hazkey",
-      "version": "0.2.1-2",
-      "deps": [],
-      "build_order": 25,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "bankstown",
-      "pkgbase": "bankstown",
-      "version": "1.1.0-2",
-      "deps": [],
-      "build_order": 26,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "pi-coding-agent-bin",
-      "pkgbase": "pi-coding-agent-bin",
-      "version": "1.0.0-1",
-      "deps": [],
-      "build_order": 27,
       "local": false,
       "custom": false
     },
@@ -264,62 +52,155 @@
       "pkgbase": "ghidra-mcp-git",
       "version": "6.0.0.r283.gb3f8dfe-2",
       "deps": [],
-      "build_order": 28,
+      "build_order": 5,
       "local": false,
       "custom": false,
       "vcs_ref": "d66702c63b7149453d0686e58f7fb29f3140d5d3"
+    },
+    {
+      "name": "auto-aur-mirrorlist",
+      "pkgbase": "auto-aur-mirrorlist",
+      "version": "20260606-1",
+      "deps": [],
+      "build_order": 6,
+      "local": true,
+      "custom": false
+    },
+    {
+      "name": "hazkey-zenzai-model",
+      "pkgbase": "hazkey-zenzai-model",
+      "version": "0.1-1",
+      "deps": [],
+      "build_order": 7,
+      "local": false,
+      "custom": false
     },
     {
       "name": "walker",
       "pkgbase": "walker",
       "version": "2.17.1-2",
       "deps": [],
-      "build_order": 29,
+      "build_order": 8,
       "local": false,
       "custom": false
     },
     {
-      "name": "karukan",
-      "pkgbase": "karukan",
-      "version": "0.1.0-4",
-      "deps": [],
-      "build_order": 30,
+      "name": "vmlinux-to-elf",
+      "pkgbase": "vmlinux-to-elf",
+      "version": "1.3.6-1",
+      "deps": [
+        "python-minilzo"
+      ],
+      "build_order": 9,
       "local": false,
       "custom": false
     },
     {
-      "name": "nijiexpose-bin",
-      "pkgbase": "nijiexpose-bin",
-      "version": "v1.0.0beta2-1",
+      "name": "yt-dlp-ejs-anyruntime",
+      "pkgbase": "yt-dlp-ejs-anyruntime",
+      "version": "0.8.0-3",
       "deps": [],
-      "build_order": 31,
+      "build_order": 10,
       "local": false,
       "custom": false
     },
     {
-      "name": "irlume",
-      "pkgbase": "irlume",
-      "version": "0.15.0-1",
+      "name": "fcitx5-hazkey-bin",
+      "pkgbase": "fcitx5-hazkey-bin",
+      "version": "0.2.1-2",
       "deps": [],
-      "build_order": 32,
+      "build_order": 11,
       "local": false,
       "custom": false
     },
     {
-      "name": "pipewire-control-center",
-      "pkgbase": "pipewire-control-center",
-      "version": "0.6.0-1",
+      "name": "pi-ext-awsdocs",
+      "pkgbase": "pi-ext-awsdocs",
+      "version": "1.1.0-1",
       "deps": [],
-      "build_order": 33,
+      "build_order": 12,
       "local": false,
       "custom": false
     },
     {
-      "name": "tunnel-client",
-      "pkgbase": "tunnel-client",
-      "version": "0.0.14-1",
+      "name": "pi-ext-spellcheck",
+      "pkgbase": "pi-ext-spellcheck",
+      "version": "0.1.1-1",
       "deps": [],
-      "build_order": 34,
+      "build_order": 13,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "snowflake-pt-proxy",
+      "pkgbase": "snowflake-pt-proxy",
+      "version": "2.14.1-1",
+      "deps": [],
+      "build_order": 14,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "vencord-installer-cli-bin",
+      "pkgbase": "vencord-installer-cli-bin",
+      "version": "1.4.2-1",
+      "deps": [],
+      "build_order": 15,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "pi-ext-cursor-rules",
+      "pkgbase": "pi-ext-cursor-rules",
+      "version": "1.0.1-1",
+      "deps": [],
+      "build_order": 16,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "fcitx5-chinese-addons-without-browser",
+      "pkgbase": "fcitx5-chinese-addons-without-browser",
+      "version": "5.1.14-1",
+      "deps": [],
+      "build_order": 17,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "osu-lazer",
+      "pkgbase": "osu-lazer",
+      "version": "2026.921.0-1",
+      "deps": [],
+      "build_order": 18,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "pi-coding-agent-git",
+      "pkgbase": "pi-coding-agent-git",
+      "version": "0.87.1.r9.gfde38ed7c-1",
+      "deps": [],
+      "build_order": 19,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "tascam-control-panel-git",
+      "pkgbase": "tascam-control-panel-git",
+      "version": "r141.b013e2e-1",
+      "deps": [],
+      "build_order": 20,
+      "local": false,
+      "custom": false,
+      "vcs_ref": "b013e2e0f8a574233970382b38b1d4b605a3b7d6"
+    },
+    {
+      "name": "mozc",
+      "pkgbase": "mozc",
+      "version": "3.34.6239-1",
+      "deps": [],
+      "build_order": 21,
       "local": false,
       "custom": false
     },
@@ -331,7 +212,62 @@
         "cbfstool",
         "chromeos-flashrom-git"
       ],
-      "build_order": 35,
+      "build_order": 22,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "stable-diffusion.cpp-vulkan-git",
+      "pkgbase": "stable-diffusion.cpp-vulkan-git",
+      "version": "r929.3f8527a-1",
+      "deps": [],
+      "build_order": 23,
+      "local": false,
+      "custom": false,
+      "vcs_ref": "3f8527a46c54ecf4cb4ed6003da8e8982283c73c"
+    },
+    {
+      "name": "qemu",
+      "pkgbase": "qemu",
+      "version": "11.0.3-1.11",
+      "deps": [],
+      "build_order": 24,
+      "local": true,
+      "custom": false
+    },
+    {
+      "name": "irlume",
+      "pkgbase": "irlume",
+      "version": "0.15.0-1",
+      "deps": [],
+      "build_order": 25,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "pi-coding-agent-bin",
+      "pkgbase": "pi-coding-agent-bin",
+      "version": "1.0.2-1",
+      "deps": [],
+      "build_order": 26,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "bankstown",
+      "pkgbase": "bankstown",
+      "version": "1.1.0-2",
+      "deps": [],
+      "build_order": 27,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "fcitx5-hazkey",
+      "pkgbase": "fcitx5-hazkey",
+      "version": "0.2.1-2",
+      "deps": [],
+      "build_order": 28,
       "local": false,
       "custom": false
     },
@@ -340,7 +276,7 @@
       "pkgbase": "quickjs",
       "version": "2026.06.04-1",
       "deps": [],
-      "build_order": 36,
+      "build_order": 29,
       "local": false,
       "custom": false
     },
@@ -349,7 +285,16 @@
       "pkgbase": "luma-bin",
       "version": "1.2.3-1",
       "deps": [],
-      "build_order": 37,
+      "build_order": 30,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "faketty",
+      "pkgbase": "faketty",
+      "version": "1.0.20-2",
+      "deps": [],
+      "build_order": 31,
       "local": false,
       "custom": false
     },
@@ -358,17 +303,82 @@
       "pkgbase": "zsh-fast-syntax-highlighting",
       "version": "1.56-1",
       "deps": [],
+      "build_order": 32,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "karukan",
+      "pkgbase": "karukan",
+      "version": "0.1.0-4",
+      "deps": [],
+      "build_order": 33,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "nijiexpose-bin",
+      "pkgbase": "nijiexpose-bin",
+      "version": "v1.0.0beta2-1",
+      "deps": [],
+      "build_order": 34,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "nijigenerate-bin",
+      "pkgbase": "nijigenerate-bin",
+      "version": "v1.0.0beta2-1",
+      "deps": [],
+      "build_order": 35,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "rtl88x2bu-openhd-dkms-git",
+      "pkgbase": "rtl88x2bu-openhd-dkms-git",
+      "version": "5.13.1.r229.g0f4686b-7",
+      "deps": [],
+      "build_order": 36,
+      "local": false,
+      "custom": false,
+      "vcs_ref": "111d1f2417e9f1c5eeeaee481e1e50f7a16cac74"
+    },
+    {
+      "name": "rtl88x2bu-dkms-git",
+      "pkgbase": "rtl88x2bu-dkms-git",
+      "version": "5.13.1.r209.fcf8bf2-1",
+      "deps": [],
+      "build_order": 37,
+      "local": false,
+      "custom": false,
+      "vcs_ref": "b4e4c1bf0c9866b958b2138504742d0060d9343f"
+    },
+    {
+      "name": "vencord-installer",
+      "pkgbase": "vencord-installer",
+      "version": "1.4.2-1",
+      "deps": [],
       "build_order": 38,
       "local": false,
       "custom": false
     },
     {
-      "name": "auto-aur-mirrorlist",
-      "pkgbase": "auto-aur-mirrorlist",
-      "version": "20260606-1",
+      "name": "spicetify-cli",
+      "pkgbase": "spicetify-cli",
+      "version": "2.45.3-1",
       "deps": [],
       "build_order": 39,
-      "local": true,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "rocm-gfx103x-bin",
+      "pkgbase": "rocm-gfx103x-bin",
+      "version": "10.0.0-2",
+      "deps": [],
+      "build_order": 40,
+      "local": false,
       "custom": false
     },
     {
@@ -376,84 +386,16 @@
       "pkgbase": "ghidra-mcp",
       "version": "6.0.0-2",
       "deps": [],
-      "build_order": 40,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "rtl88x2bu-dkms-git",
-      "pkgbase": "rtl88x2bu-dkms-git",
-      "version": "5.13.1.r209.fcf8bf2-1",
-      "deps": [],
       "build_order": 41,
       "local": false,
-      "custom": false,
-      "vcs_ref": "b4e4c1bf0c9866b958b2138504742d0060d9343f"
+      "custom": false
     },
     {
-      "name": "stable-diffusion.cpp-vulkan-git",
-      "pkgbase": "stable-diffusion.cpp-vulkan-git",
-      "version": "r929.3f8527a-1",
+      "name": "spicetify-bin",
+      "pkgbase": "spicetify-bin",
+      "version": "2.45.1-1",
       "deps": [],
       "build_order": 42,
-      "local": false,
-      "custom": false,
-      "vcs_ref": "3f8527a46c54ecf4cb4ed6003da8e8982283c73c"
-    },
-    {
-      "name": "wakatime",
-      "pkgbase": "wakatime",
-      "version": "2.26.2-1",
-      "deps": [],
-      "build_order": 43,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "pi-coding-agent-git",
-      "pkgbase": "pi-coding-agent-git",
-      "version": "0.87.1.r9.gfde38ed7c-1",
-      "deps": [],
-      "build_order": 44,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "overte-appimage",
-      "pkgbase": "overte-appimage",
-      "version": "2026.04.1-1",
-      "deps": [],
-      "build_order": 45,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "vmlinux-to-elf",
-      "pkgbase": "vmlinux-to-elf",
-      "version": "1.3.6-1",
-      "deps": [
-        "python-minilzo"
-      ],
-      "build_order": 46,
-      "local": false,
-      "custom": false
-    },
-    {
-      "name": "tascam-control-panel-git",
-      "pkgbase": "tascam-control-panel-git",
-      "version": "r141.b013e2e-1",
-      "deps": [],
-      "build_order": 47,
-      "local": false,
-      "custom": false,
-      "vcs_ref": "b013e2e0f8a574233970382b38b1d4b605a3b7d6"
-    },
-    {
-      "name": "hazkey-zenzai-model",
-      "pkgbase": "hazkey-zenzai-model",
-      "version": "0.1-1",
-      "deps": [],
-      "build_order": 48,
       "local": false,
       "custom": false
     },
@@ -462,14 +404,72 @@
       "pkgbase": "auto-aur-keyring",
       "version": "20240923-1",
       "deps": [],
-      "build_order": 49,
+      "build_order": 43,
       "local": true,
       "custom": false
     },
     {
-      "name": "pi-ext-spellcheck",
-      "pkgbase": "pi-ext-spellcheck",
-      "version": "0.1.1-1",
+      "name": "rtl88x2bu-cilynx-dkms-git",
+      "pkgbase": "rtl88x2bu-cilynx-dkms-git",
+      "version": "r105.e8ad266-2",
+      "deps": [],
+      "build_order": 44,
+      "local": false,
+      "custom": false,
+      "vcs_ref": "04ed7009bac4b235fe1880ba29e23159f49a6121"
+    },
+    {
+      "name": "osu-mime",
+      "pkgbase": "osu-mime",
+      "version": "0.1-3",
+      "deps": [],
+      "build_order": 45,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "overte-server-bin",
+      "pkgbase": "overte-server-bin",
+      "version": "2026.04.1.f91d15a-1",
+      "deps": [
+        "qt5-websockets",
+        "libstdc++5"
+      ],
+      "build_order": 46,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "wakatime",
+      "pkgbase": "wakatime",
+      "version": "2.26.2-1",
+      "deps": [],
+      "build_order": 47,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "pipewire-control-center",
+      "pkgbase": "pipewire-control-center",
+      "version": "0.6.0-1",
+      "deps": [],
+      "build_order": 48,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "tunnel-client",
+      "pkgbase": "tunnel-client",
+      "version": "0.0.14-1",
+      "deps": [],
+      "build_order": 49,
+      "local": false,
+      "custom": false
+    },
+    {
+      "name": "overte-appimage",
+      "pkgbase": "overte-appimage",
+      "version": "2026.04.1-1",
       "deps": [],
       "build_order": 50,
       "local": false,
@@ -477,56 +477,56 @@
     }
   ],
   "build_order": [
-    "qt5-websockets",
-    "libstdc++5",
+    "python-minilzo",
     "chromeos-flashrom-git",
     "cbfstool",
-    "python-minilzo",
-    "fcitx5-hazkey-bin",
-    "osu-mime",
-    "overte-server-bin",
-    "yt-dlp-ejs-anyruntime",
-    "snowflake-pt-proxy",
-    "osu-lazer",
-    "pi-ext-awsdocs",
-    "rtl88x2bu-cilynx-dkms-git",
-    "fcitx5-chinese-addons-without-browser",
-    "vencord-installer-cli-bin",
-    "faketty",
-    "spicetify-bin",
-    "nijigenerate-bin",
-    "qemu",
-    "mozc",
-    "spicetify-cli",
-    "pi-ext-cursor-rules",
-    "vencord-installer",
-    "rocm-gfx103x-bin",
-    "rtl88x2bu-openhd-dkms-git",
-    "fcitx5-hazkey",
-    "bankstown",
-    "pi-coding-agent-bin",
+    "libstdc++5",
+    "qt5-websockets",
     "ghidra-mcp-git",
+    "auto-aur-mirrorlist",
+    "hazkey-zenzai-model",
     "walker",
-    "karukan",
-    "nijiexpose-bin",
-    "irlume",
-    "pipewire-control-center",
-    "tunnel-client",
+    "vmlinux-to-elf",
+    "yt-dlp-ejs-anyruntime",
+    "fcitx5-hazkey-bin",
+    "pi-ext-awsdocs",
+    "pi-ext-spellcheck",
+    "snowflake-pt-proxy",
+    "vencord-installer-cli-bin",
+    "pi-ext-cursor-rules",
+    "fcitx5-chinese-addons-without-browser",
+    "osu-lazer",
+    "pi-coding-agent-git",
+    "tascam-control-panel-git",
+    "mozc",
     "vboot-utils",
+    "stable-diffusion.cpp-vulkan-git",
+    "qemu",
+    "irlume",
+    "pi-coding-agent-bin",
+    "bankstown",
+    "fcitx5-hazkey",
     "quickjs",
     "luma-bin",
+    "faketty",
     "zsh-fast-syntax-highlighting",
-    "auto-aur-mirrorlist",
-    "ghidra-mcp",
+    "karukan",
+    "nijiexpose-bin",
+    "nijigenerate-bin",
+    "rtl88x2bu-openhd-dkms-git",
     "rtl88x2bu-dkms-git",
-    "stable-diffusion.cpp-vulkan-git",
-    "wakatime",
-    "pi-coding-agent-git",
-    "overte-appimage",
-    "vmlinux-to-elf",
-    "tascam-control-panel-git",
-    "hazkey-zenzai-model",
+    "vencord-installer",
+    "spicetify-cli",
+    "rocm-gfx103x-bin",
+    "ghidra-mcp",
+    "spicetify-bin",
     "auto-aur-keyring",
-    "pi-ext-spellcheck"
+    "rtl88x2bu-cilynx-dkms-git",
+    "osu-mime",
+    "overte-server-bin",
+    "wakatime",
+    "pipewire-control-center",
+    "tunnel-client",
+    "overte-appimage"
   ]
 }
