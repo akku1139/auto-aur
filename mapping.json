@@ -117,9 +117,9 @@
       "version": "2.45.3-1"
     },
     "spicetify-bin": {
-      "filename": "spicetify-bin-2.45.1-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260920-052903-spicetify-bin",
-      "version": "2.45.1-1"
+      "filename": "spicetify-bin-2.45.3-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20261008-110259-spicetify-bin",
+      "version": "2.45.3-1"
     },
     "vencord-installer": {
       "filename": "vencord-installer-1.4.2-1-x86_64.pkg.tar.zst",
