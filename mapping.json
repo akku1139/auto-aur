@@ -127,9 +127,9 @@
       "version": "1.4.2-1"
     },
     "mozc": {
-      "filename": "mozc-3.34.6239-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260721-092929",
-      "version": "3.34.6239-1"
+      "filename": "mozc-3.34.6345-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20261010-195745-mozc",
+      "version": "3.34.6345-1"
     },
     "osu-mime": {
       "filename": "osu-mime-0.1-3-any.pkg.tar.zst",
