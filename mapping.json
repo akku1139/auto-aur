@@ -21,9 +21,9 @@
       "version": "0.1-1"
     },
     "snowflake-pt-proxy": {
-      "filename": "snowflake-pt-proxy-2.14.1-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260701-142237",
-      "version": "2.14.1-1"
+      "filename": "snowflake-pt-proxy-2.15.1-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20261019-140213-snowflake-pt-proxy",
+      "version": "2.15.1-1"
     },
     "fcitx5-hazkey-bin": {
       "filename": "fcitx5-hazkey-bin-0.2.1-2-x86_64.pkg.tar.zst",
