@@ -188,9 +188,9 @@
       "version": "1.1.0-1"
     },
     "pi-coding-agent-git": {
-      "filename": "pi-coding-agent-git-0.87.1.r50.g2b0a123de-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260926-213927-pi-coding-agent-git",
-      "version": "0.87.1.r9.gfde38ed7c-1"
+      "filename": "pi-coding-agent-git-1.4.0.r13.g74f468640-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20261022-175022-pi-coding-agent-git",
+      "version": "0.87.1.r50.g2b0a123de-1"
     },
     "pi-ext-spellcheck": {
       "filename": "pi-ext-spellcheck-0.1.1-1-any.pkg.tar.zst",
