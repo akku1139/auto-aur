@@ -76,10 +76,10 @@
       "version": "154.16805-1"
     },
     "chromeos-flashrom-git": {
-      "filename": "chromeos-flashrom-git-r5074.7a8c52c4b-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20261021-174301-chromeos-flashrom-git",
+      "filename": "chromeos-flashrom-git-r5075.eb0fcddda-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20261028-062335-chromeos-flashrom-git",
       "version": "r4051.90795b2cc-2",
-      "vcs_ref": "7a8c52c4b39a075365f89c1db0768bbcb8cb4216"
+      "vcs_ref": "eb0fcddda0053d9f657e5e3234464f20550469b3"
     },
     "karukan": {
       "filename": "karukan-0.1.0-4-x86_64.pkg.tar.zst",
