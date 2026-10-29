@@ -247,10 +247,10 @@
       "version": "6.0.0-2"
     },
     "stable-diffusion.cpp-vulkan-git": {
-      "filename": "stable-diffusion.cpp-vulkan-git-r1024.77b72a2-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20261028-205049-stable-diffusion.cpp-vulkan-git",
+      "filename": "stable-diffusion.cpp-vulkan-git-r1029.e239e4b-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20261029-185047-stable-diffusion.cpp-vulkan-git",
       "version": "r972.68285df-1",
-      "vcs_ref": "77b72a2efed78f55de26892c7e909cee001e8b83"
+      "vcs_ref": "e239e4b0fd3de49834cec67031a44796ca465abc"
     },
     "python-minilzo": {
       "filename": "python-minilzo-1.2-1-x86_64.pkg.tar.zst",
