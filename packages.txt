@@ -45,3 +45,7 @@ ghidra-mcp-git
 ghidra-mcp
 stable-diffusion.cpp-vulkan-git
 vmlinux-to-elf
+audio.cpp-git
+audio.cpp-vulkan-git
+audio.cpp-hip-git
+audio.cpp-cuda-git
