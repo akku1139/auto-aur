@@ -266,6 +266,11 @@
       "filename": "audio.cpp-cuda-git-r1121.3a0dd44-1-x86_64.pkg.tar.zst",
       "release_tag": "build-20261031-053916-audio.cpp-cuda-git",
       "version": "r424.5fda891-1"
+    },
+    "audio.cpp-git": {
+      "filename": "audio.cpp-git-r1121.3a0dd44-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20261031-060927-audio.cpp-git",
+      "version": "r336.dd6b089-1"
     }
   }
 }
