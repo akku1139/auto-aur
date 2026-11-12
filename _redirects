@@ -28,8 +28,8 @@
 /repo/auto-aur/x86_64/cbfstool-26.09-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20261002-201126-coreboot-utils/cbfstool-26.09-1-x86_64.pkg.tar.zst.sig 302
 /repo/auto-aur/x86_64/vboot-utils-154.16805-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20261102-070019-vboot-utils/vboot-utils-154.16805-1-x86_64.pkg.tar.zst 302
 /repo/auto-aur/x86_64/vboot-utils-154.16805-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20261102-070019-vboot-utils/vboot-utils-154.16805-1-x86_64.pkg.tar.zst.sig 302
-/repo/auto-aur/x86_64/chromeos-flashrom-git-r5076.13231500f-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20261102-065543-chromeos-flashrom-git/chromeos-flashrom-git-r5076.13231500f-1-x86_64.pkg.tar.zst 302
-/repo/auto-aur/x86_64/chromeos-flashrom-git-r5076.13231500f-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20261102-065543-chromeos-flashrom-git/chromeos-flashrom-git-r5076.13231500f-1-x86_64.pkg.tar.zst.sig 302
+/repo/auto-aur/x86_64/chromeos-flashrom-git-r5077.919842839-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20261112-203118-chromeos-flashrom-git/chromeos-flashrom-git-r5077.919842839-1-x86_64.pkg.tar.zst 302
+/repo/auto-aur/x86_64/chromeos-flashrom-git-r5077.919842839-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20261112-203118-chromeos-flashrom-git/chromeos-flashrom-git-r5077.919842839-1-x86_64.pkg.tar.zst.sig 302
 /repo/auto-aur/x86_64/karukan-0.1.0-4-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260701-130125/karukan-0.1.0-4-x86_64.pkg.tar.zst 302
 /repo/auto-aur/x86_64/karukan-0.1.0-4-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20260701-130125/karukan-0.1.0-4-x86_64.pkg.tar.zst.sig 302
 /repo/auto-aur/x86_64/libstdc++5-3.3.6-11-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20260703-061513/libstdc++5-3.3.6-11-x86_64.pkg.tar.zst 302
@@ -104,5 +104,3 @@
 /repo/auto-aur/x86_64/audio.cpp-git-r1121.3a0dd44-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20261031-060927-audio.cpp-git/audio.cpp-git-r1121.3a0dd44-1-x86_64.pkg.tar.zst.sig 302
 /repo/auto-aur/x86_64/audio.cpp-vulkan-git-r1121.3a0dd44-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20261031-064258-audio.cpp-vulkan-git/audio.cpp-vulkan-git-r1121.3a0dd44-1-x86_64.pkg.tar.zst 302
 /repo/auto-aur/x86_64/audio.cpp-vulkan-git-r1121.3a0dd44-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20261031-064258-audio.cpp-vulkan-git/audio.cpp-vulkan-git-r1121.3a0dd44-1-x86_64.pkg.tar.zst.sig 302
-/repo/auto-aur/x86_64/irlume-kcm-0.16.0-1-x86_64.pkg.tar.zst https://github.com/akku1139/auto-aur/releases/download/build-20261112-010936-irlume/irlume-kcm-0.16.0-1-x86_64.pkg.tar.zst 302
-/repo/auto-aur/x86_64/irlume-kcm-0.16.0-1-x86_64.pkg.tar.zst.sig https://github.com/akku1139/auto-aur/releases/download/build-20261112-010936-irlume/irlume-kcm-0.16.0-1-x86_64.pkg.tar.zst.sig 302

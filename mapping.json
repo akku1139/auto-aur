@@ -76,10 +76,10 @@
       "version": "154.16805-1"
     },
     "chromeos-flashrom-git": {
-      "filename": "chromeos-flashrom-git-r5076.13231500f-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20261102-065543-chromeos-flashrom-git",
+      "filename": "chromeos-flashrom-git-r5077.919842839-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20261112-203118-chromeos-flashrom-git",
       "version": "r4051.90795b2cc-2",
-      "vcs_ref": "13231500f6c7fc20fe50fea7456a6f4e7e6d66b1"
+      "vcs_ref": "91984283945aac818aede2d18b98e257b4cc54f5"
     },
     "karukan": {
       "filename": "karukan-0.1.0-4-x86_64.pkg.tar.zst",
@@ -276,11 +276,6 @@
       "filename": "audio.cpp-vulkan-git-r1121.3a0dd44-1-x86_64.pkg.tar.zst",
       "release_tag": "build-20261031-064258-audio.cpp-vulkan-git",
       "version": "r424.5fda891-1"
-    },
-    "irlume-kcm": {
-      "filename": "irlume-kcm-0.16.0-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20261112-010936-irlume",
-      "version": ""
     }
   }
 }
