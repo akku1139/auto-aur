@@ -41,9 +41,9 @@
       "version": "1.56-1"
     },
     "faketty": {
-      "filename": "faketty-1.0.20-2-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260607-141659",
-      "version": "1.0.20-2"
+      "filename": "faketty-1.0.21-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20261115-164116-faketty",
+      "version": "1.0.21-1"
     },
     "nijigenerate-bin": {
       "filename": "nijigenerate-bin-v1.0.0beta2-1-x86_64.pkg.tar.zst",
