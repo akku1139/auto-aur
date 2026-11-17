@@ -92,9 +92,9 @@
       "version": "3.3.6-11"
     },
     "overte-appimage": {
-      "filename": "overte-appimage-2026.04.1-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260703-061513",
-      "version": "2026.04.1-1"
+      "filename": "overte-appimage-2026.10.1-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20261117-041407-overte-appimage",
+      "version": "2026.10.1-1"
     },
     "qt5-websockets": {
       "filename": "qt5-websockets-5.15.19+kde+r2-1-x86_64.pkg.tar.zst",
