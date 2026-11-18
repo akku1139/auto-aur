@@ -236,10 +236,10 @@
       "version": "0.0.19-1"
     },
     "ghidra-mcp-git": {
-      "filename": "ghidra-mcp-git-7.0.0.rc.3.r78.g024e251-1-any.pkg.tar.zst",
-      "release_tag": "build-20261118-012233-ghidra-mcp-git",
+      "filename": "ghidra-mcp-git-7.0.0.rc.3.r81.g870db08-1-any.pkg.tar.zst",
+      "release_tag": "build-20261118-122052-ghidra-mcp-git",
       "version": "6.0.0.r283.gb3f8dfe-3",
-      "vcs_ref": "024e251e82a5f3b0ab57b5e8d45514f6571aaee0"
+      "vcs_ref": "870db082b324fdb09c517bef46a9163d88b275cb"
     },
     "ghidra-mcp": {
       "filename": "ghidra-mcp-6.0.0-2-any.pkg.tar.zst",
