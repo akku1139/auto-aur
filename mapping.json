@@ -51,9 +51,9 @@
       "version": "v1.0.0beta2-1"
     },
     "nijiexpose-bin": {
-      "filename": "nijiexpose-bin-v1.0.0beta2-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260701-142237",
-      "version": "v1.0.0beta2-1"
+      "filename": "nijiexpose-bin-v1.0.0beta3.dlast-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20261126-172218-nijiexpose-bin",
+      "version": "v1.0.0beta3.dlast-1"
     },
     "yt-dlp-ejs-anyruntime": {
       "filename": "yt-dlp-ejs-anyruntime-0.8.0-3-any.pkg.tar.zst",
