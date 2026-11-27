@@ -46,9 +46,9 @@
       "version": "1.0.21-1"
     },
     "nijigenerate-bin": {
-      "filename": "nijigenerate-bin-v1.0.0beta2-1-x86_64.pkg.tar.zst",
-      "release_tag": "build-20260701-142237",
-      "version": "v1.0.0beta2-1"
+      "filename": "nijigenerate-bin-v1.0.0beta4-1-x86_64.pkg.tar.zst",
+      "release_tag": "build-20261127-021159-nijigenerate-bin",
+      "version": "v1.0.0beta4-1"
     },
     "nijiexpose-bin": {
       "filename": "nijiexpose-bin-v1.0.0beta3.dlast-1-x86_64.pkg.tar.zst",
